@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY FPGA_Music_Box
+set_global_assignment -name TOP_LEVEL_ENTITY MusicBox_Main
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:03:45  JANUARY 22, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Lite Edition"
@@ -46,3 +46,38 @@ set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MusicBox_Main.sv"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+#DE10Lite board switches
+set_location_assignment PIN_C10 -to max10board_switches[0]
+set_location_assignment PIN_C11 -to max10board_switches[1]
+set_location_assignment PIN_D12 -to max10board_switches[2]
+set_location_assignment PIN_C12 -to max10board_switches[3]
+set_location_assignment PIN_A12 -to max10board_switches[4]
+set_location_assignment PIN_B12 -to max10board_switches[5]
+set_location_assignment PIN_A13 -to max10board_switches[6]
+set_location_assignment PIN_A14 -to max10board_switches[7]
+set_location_assignment PIN_B14 -to max10board_switches[8]
+set_location_assignment PIN_F15 -to max10board_switches[9]
+
+#DE10Lite board LED lights
+set_location_assignment PIN_A8 -to max10Board_LEDs[0]
+set_location_assignment PIN_A9 -to max10Board_LEDs[1]
+set_location_assignment PIN_A10 -to max10Board_LEDs[2]
+set_location_assignment PIN_B10 -to max10Board_LEDs[3]
+set_location_assignment PIN_D13 -to max10Board_LEDs[4]
+set_location_assignment PIN_C13 -to max10Board_LEDs[5]
+set_location_assignment PIN_E14 -to max10Board_LEDs[6]
+set_location_assignment PIN_D14 -to max10Board_LEDs[7]
+set_location_assignment PIN_A11 -to max10Board_LEDs[8]
+set_location_assignment PIN_B11 -to max10Board_LEDs[9]
+
+
+set_location_assignment PIN_W10 -to max10Board_Button0
+set_location_assignment PIN_V10 -to max10Board_Button1
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

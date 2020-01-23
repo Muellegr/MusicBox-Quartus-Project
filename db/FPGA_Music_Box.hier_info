@@ -1,0 +1,25 @@
+|MusicBox_Main
+max10Board_Button0 => ~NO_FANOUT~
+max10Board_Button1 => ~NO_FANOUT~
+max10board_switches[0] => ~NO_FANOUT~
+max10board_switches[1] => ~NO_FANOUT~
+max10board_switches[2] => ~NO_FANOUT~
+max10board_switches[3] => ~NO_FANOUT~
+max10board_switches[4] => ~NO_FANOUT~
+max10board_switches[5] => ~NO_FANOUT~
+max10board_switches[6] => ~NO_FANOUT~
+max10board_switches[7] => ~NO_FANOUT~
+max10board_switches[8] => ~NO_FANOUT~
+max10board_switches[9] => ~NO_FANOUT~
+max10Board_LEDs[0] <= <GND>
+max10Board_LEDs[1] <= <GND>
+max10Board_LEDs[2] <= <GND>
+max10Board_LEDs[3] <= <GND>
+max10Board_LEDs[4] <= <GND>
+max10Board_LEDs[5] <= <GND>
+max10Board_LEDs[6] <= <GND>
+max10Board_LEDs[7] <= <GND>
+max10Board_LEDs[8] <= <GND>
+max10Board_LEDs[9] <= <GND>
+
+
