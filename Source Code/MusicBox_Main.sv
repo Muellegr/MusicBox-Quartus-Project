@@ -16,11 +16,14 @@ module MusicBox_Main(
 	max10Board_SDRAM_ChipSelect_n,
 	max10Board_SDRAM_WriteEnable_n,
 	max10Board_SDRAM_ColumnAddressStrobe_n,
-	max10Board_SDRAM_RowAddressStrobe_n
+	max10Board_SDRAM_RowAddressStrobe_n,
+	
+	max10Board_ExternalPins
 );
 	input wire	max10Board_50MhzClock;
 	output wire	[5:0][6:0]	max10Board_LEDSegments;
 	output reg [9:0] max10Board_LEDs; //The LED lights
+	input wire [9:0] max10Board_ExternalPins;
 	///////// SDRAM /////////
 	output wire max10Board_SDRAM_Clock;
 	output wire max10Board_SDRAM_ClockEnable;
