@@ -2,7 +2,88 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "max10Board_LED[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[7]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[8]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[9]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[7]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[8]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[9]",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

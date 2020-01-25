@@ -4,7 +4,7 @@ module MusicBox_Main(
 	
 	max10Board_50MhzClock,
 	max10Board_LEDSegments,
-	max10Board_LEDs,
+	max10Board_LED,
 	max10Board_SDRAM_Clock,
 	max10Board_SDRAM_ClockEnable,
 	max10Board_SDRAM_Address,
@@ -28,7 +28,7 @@ module MusicBox_Main(
 );
 	input wire	max10Board_50MhzClock;
 	output wire	[5:0][6:0]	max10Board_LEDSegments;//The DE-10 Board LED Segments
-	output reg [9:0] max10Board_LEDs; //The DE-10 Board LED lights
+	output reg [9:0] max10Board_LED; //The DE-10 Board LED lights
 	
 	//input wire [35:11] max10Board_GPIO; 
 	//output wire [10:0] max10Board_GPIO; 
@@ -55,8 +55,27 @@ module MusicBox_Main(
 	/////////////////////////////////////////////////////////
 	//-- 
 	input wire	[1: 0] max10Board_Buttons ;
+	assign max10Board_LED = max10board_switches;
+	//assign max10Board_LED[0] = max10board_switches[0];
+	//assign max10Board_LED[1] = 1'b1;
+	//assign max10Board_LED[9:5] = 1'b0;
+	//assign max10Board_LED[4:1] = 1'b1;
+	//These are active low switches when used with LVTTL 
+	//assign max10Board_LED[9:1] = 1;
+	//assign max10Board_LED[0] = max10Board_GPIO_Input_PlaySong0;
+	//assign max10Board_LED[1] = !max10Board_GPIO_Input_PlaySong1;
 	
-	
+	//reg [9:0] incrementCounter;
+	//assign max10Board_LED[9:1] = incrementCounter[8:0];
+//	assign max10Board_LED[0] = max10Board_GPIO_Input_PlaySong0;
+	// always@(posedge max10Board_GPIO_Input_PlaySong0)begin
+		// if (max10Board_Buttons[0] == 1) begin
+		// //	incrementCounter <= 0;
+		// end
+		// else begin
+		// //	incrementCounter <= incrementCounter + 1;
+		// end
+	// end
 	
 	/*
 	Do simple button UI

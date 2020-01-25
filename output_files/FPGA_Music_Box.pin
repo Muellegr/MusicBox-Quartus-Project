@@ -29,7 +29,7 @@
  --                  Bank 1A:       2.5V
  --                  Bank 1B:       2.5V
  --                  Bank 2:       2.5V
- --                  Bank 3:       2.5V
+ --                  Bank 3:       3.3V
  --                  Bank 4:       2.5V
  --                  Bank 5:       3.3V
  --                  Bank 6:       3.3V
@@ -75,21 +75,21 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : A3        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : A4        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A5        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A6        :        :                   :         : 8         :                
-max10Board_Buttons[1]        : A7        : input  : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDs[0]           : A8        : output : 3.3-V LVTTL       :         : 7         : Y              
-max10Board_LEDs[1]           : A9        : output : 3.3-V LVTTL       :         : 7         : Y              
-max10Board_LEDs[2]           : A10       : output : 3.3-V LVTTL       :         : 7         : Y              
-max10Board_LEDs[8]           : A11       : output : 3.3-V LVTTL       :         : 7         : Y              
-max10board_switches[4]       : A12       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
-max10board_switches[6]       : A13       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
-max10board_switches[7]       : A14       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
+max10Board_Buttons[1]        : A7        : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
+max10Board_LED[0]            : A8        : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LED[1]            : A9        : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LED[2]            : A10       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LED[8]            : A11       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10board_switches[4]       : A12       : input  : 3.3-V LVTTL       :         : 7         : Y              
+max10board_switches[6]       : A13       : input  : 3.3-V LVTTL       :         : 7         : Y              
+max10board_switches[7]       : A14       : input  : 3.3-V LVTTL       :         : 7         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : A15       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A16       :        :                   :         : 7         :                
-max10Board_LEDSegments[1][4] : A17       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[1][5] : A18       : output : 3.3-V LVCMOS      :         : 7         : Y              
+max10Board_LEDSegments[1][4] : A17       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[1][5] : A18       : output : 3.3-V LVTTL       :         : 7         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : A19       :        :                   :         : 7         :                
-max10Board_LEDSegments[2][1] : A20       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[2][3] : A21       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[2][1] : A20       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[2][3] : A21       : output : 3.3-V LVTTL       :         : 6         : Y              
 GND                          : A22       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AA1       :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AA2       :        :                   :         : 3         :                
@@ -142,21 +142,21 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : B4        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : B5        :        :                   :         : 8         :                
 GND                          : B6        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : B7        :        :                   :         : 8         :                
-max10Board_Buttons[0]        : B8        : input  : 3.3-V LVCMOS      :         : 7         : Y              
+max10Board_Buttons[0]        : B8        : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
 GND                          : B9        : gnd    :                   :         :           :                
-max10Board_LEDs[3]           : B10       : output : 3.3-V LVTTL       :         : 7         : Y              
-max10Board_LEDs[9]           : B11       : output : 3.3-V LVTTL       :         : 7         : Y              
-max10board_switches[5]       : B12       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
+max10Board_LED[3]            : B10       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LED[9]            : B11       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10board_switches[5]       : B12       : input  : 3.3-V LVTTL       :         : 7         : Y              
 GND                          : B13       : gnd    :                   :         :           :                
-max10board_switches[8]       : B14       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
+max10board_switches[8]       : B14       : input  : 3.3-V LVTTL       :         : 7         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : B15       :        :                   :         : 7         :                
-max10Board_LEDSegments[1][3] : B16       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[1][6] : B17       : output : 3.3-V LVCMOS      :         : 7         : Y              
+max10Board_LEDSegments[1][3] : B16       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[1][6] : B17       : output : 3.3-V LVTTL       :         : 7         : Y              
 GND                          : B18       : gnd    :                   :         :           :                
-max10Board_LEDSegments[2][2] : B19       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[2][0] : B20       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[2][4] : B21       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[2][6] : B22       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[2][2] : B19       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[2][0] : B20       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[2][4] : B21       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[2][6] : B22       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : C1        :        :                   :         : 1B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C2        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C3        :        :                   :         : 8         :                
@@ -166,19 +166,19 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : C6        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : C7        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C8        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C9        :        :                   :         : 7         :                
-max10board_switches[0]       : C10       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
-max10board_switches[1]       : C11       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
-max10board_switches[3]       : C12       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
-max10Board_LEDs[5]           : C13       : output : 3.3-V LVTTL       :         : 7         : Y              
-max10Board_LEDSegments[0][0] : C14       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[0][2] : C15       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[0][3] : C16       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[0][6] : C17       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[1][0] : C18       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[3][3] : C19       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[3][4] : C20       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10board_switches[0]       : C10       : input  : 3.3-V LVTTL       :         : 7         : Y              
+max10board_switches[1]       : C11       : input  : 3.3-V LVTTL       :         : 7         : Y              
+max10board_switches[3]       : C12       : input  : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LED[5]            : C13       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[0][0] : C14       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[0][2] : C15       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[0][3] : C16       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[0][6] : C17       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[1][0] : C18       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[3][3] : C19       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[3][4] : C20       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : C21       :        :                   :         : 6         :                
-max10Board_LEDSegments[2][5] : C22       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[2][5] : C22       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : D1        :        :                   :         : 1B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D2        :        :                   :         : 1B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D3        :        :                   :         : 1B        :                
@@ -190,14 +190,14 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D8        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : D9        :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D10       :        :                   :         : 8         :                
 GND                          : D11       : gnd    :                   :         :           :                
-max10board_switches[2]       : D12       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
-max10Board_LEDs[4]           : D13       : output : 3.3-V LVTTL       :         : 7         : Y              
-max10Board_LEDs[7]           : D14       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10board_switches[2]       : D12       : input  : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LED[4]            : D13       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LED[7]            : D14       : output : 3.3-V LVTTL       :         : 7         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : D15       :        :                   :         : 7         :                
 GND                          : D16       : gnd    :                   :         :           :                
-max10Board_LEDSegments[0][5] : D17       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[1][1] : D18       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[3][5] : D19       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[0][5] : D17       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[1][1] : D18       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[3][5] : D19       : output : 3.3-V LVTTL       :         : 6         : Y              
 GND                          : D20       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D21       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D22       :        :                   :         : 6         :                
@@ -214,15 +214,15 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : E10       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : E11       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E12       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E13       :        :                   :         : 7         :                
-max10Board_LEDs[6]           : E14       : output : 3.3-V LVTTL       :         : 7         : Y              
-max10Board_LEDSegments[0][1] : E15       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[0][4] : E16       : output : 3.3-V LVCMOS      :         : 7         : Y              
-max10Board_LEDSegments[3][6] : E17       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[1][2] : E18       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[4][2] : E19       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[4][1] : E20       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[3][2] : E21       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[3][1] : E22       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LED[6]            : E14       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[0][1] : E15       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[0][4] : E16       : output : 3.3-V LVTTL       :         : 7         : Y              
+max10Board_LEDSegments[3][6] : E17       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[1][2] : E18       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[4][2] : E19       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[4][1] : E20       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[3][2] : E21       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[3][1] : E22       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : F1        :        :                   :         : 1B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F2        :        :                   :         : 1B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F3        :        :                   :         : 1A        :                
@@ -237,13 +237,13 @@ VCCIO8                       : F11       : power  :                   : 2.5V    
 VCCIO7                       : F12       : power  :                   : 3.3V    : 7         :                
 GND                          : F13       : gnd    :                   :         :           :                
 VCCIO7                       : F14       : power  :                   : 3.3V    : 7         :                
-max10board_switches[9]       : F15       : input  : 3.3 V Schmitt Trigger :         : 7         : Y              
+max10board_switches[9]       : F15       : input  : 3.3-V LVTTL       :         : 7         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : F16       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F17       :        :                   :         : 6         :                
-max10Board_LEDSegments[4][0] : F18       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[4][5] : F19       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[4][6] : F20       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[3][0] : F21       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[4][0] : F18       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[4][5] : F19       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[4][6] : F20       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[3][0] : F21       : output : 3.3-V LVTTL       :         : 6         : Y              
 max10Board_SDRAM_Data[15]    : F22       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : G1        :        :                   :         : 1B        :                
 ~ALTERA_TCK~ / RESERVED_INPUT : G2        : input  : 2.5 V Schmitt Trigger :         : 1B        : N              
@@ -285,7 +285,7 @@ VCCA2                        : H15       : power  :                   : 2.5V    
 VCCIO6                       : H16       : power  :                   : 3.3V    : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H17       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : H18       :        :                   :         : 6         :                
-max10Board_LEDSegments[4][4] : H19       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[4][4] : H19       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : H20       :        :                   :         : 6         :                
 max10Board_SDRAM_Data[10]    : H21       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 max10Board_SDRAM_Data[11]    : H22       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
@@ -298,7 +298,7 @@ GND                          : J6        : gnd    :                   :         
 VCCINT                       : J7        : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J8        :        :                   :         : 1A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J9        :        :                   :         : 1A        :                
-max10Board_GPIO_Input_PlayRecording : J10       : input  : 2.5 V             :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : J10       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J11       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J12       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : J13       :        :                   :         : 7         :                
@@ -306,9 +306,9 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : J14       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : J15       :        :                   :         : 6         :                
 GND                          : J16       : gnd    :                   :         :           :                
 VCCIO6                       : J17       : power  :                   : 3.3V    : 6         :                
-max10Board_LEDSegments[4][3] : J18       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[4][3] : J18       : output : 3.3-V LVTTL       :         : 6         : Y              
 GND                          : J19       : gnd    :                   :         :           :                
-max10Board_LEDSegments[5][0] : J20       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[5][0] : J20       : output : 3.3-V LVTTL       :         : 6         : Y              
 max10Board_SDRAM_DataMask1   : J21       : output : 3.3-V LVTTL       :         : 6         : Y              
 max10Board_SDRAM_Data[9]     : J22       : bidir  : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : K1        :        :                   :         : 1B        :                
@@ -319,7 +319,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : K5        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : K6        :        :                   :         : 1A        :                
 VCCIO1A                      : K7        : power  :                   : 2.5V    : 1A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K8        :        :                   :         : 1B        :                
-max10Board_GPIO_Input_PlaySong0 : K9        : input  : 2.5 V             :         : 1B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : K9        :        :                   :         : 1B        :                
 GND                          : K10       : gnd    :                   :         :           :                
 VCC                          : K11       : power  :                   : 1.2V    :           :                
 GND                          : K12       : gnd    :                   :         :           :                
@@ -330,7 +330,7 @@ VCCIO6                       : K16       : power  :                   : 3.3V    
 VCCIO6                       : K17       : power  :                   : 3.3V    : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K18       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K19       :        :                   :         : 6         :                
-max10Board_LEDSegments[5][1] : K20       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[5][1] : K20       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : K21       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K22       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : L1        :        :                   :         : 1B        :                
@@ -341,7 +341,7 @@ GND                          : L5        : gnd    :                   :         
 VCCIO1A                      : L6        : power  :                   : 2.5V    : 1A        :                
 VCCIO1B                      : L7        : power  :                   : 2.5V    : 1B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : L8        :        :                   :         : 1B        :                
-max10Board_GPIO_Input_PlaySong1 : L9        : input  : 2.5 V             :         : 1B        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : L9        :        :                   :         : 1B        :                
 VCC                          : L10       : power  :                   : 1.2V    :           :                
 VCC                          : L11       : power  :                   : 1.2V    :           :                
 VCC                          : L12       : power  :                   : 1.2V    :           :                
@@ -350,7 +350,7 @@ max10Board_SDRAM_Clock       : L14       : output : 3.3-V LVTTL       :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : L15       :        :                   :         : 6         :                
 VCCIO6                       : L16       : power  :                   : 3.3V    : 6         :                
 GND                          : L17       : gnd    :                   :         :           :                
-max10Board_LEDSegments[5][2] : L18       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[5][2] : L18       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : L19       :        :                   :         : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : L20       :        :                   :         : 6         :                
 GND                          : L21       : gnd    :                   :         :           :                
@@ -374,7 +374,7 @@ GND                          : M16       : gnd    :                   :         
 VCCIO6                       : M17       : power  :                   : 3.3V    : 6         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : M18       :        :                   :         : 6         :                
 GND                          : M19       : gnd    :                   :         :           :                
-max10Board_LEDSegments[5][4] : M20       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[5][4] : M20       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : M21       :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : M22       :        :                   :         : 5         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : N1        :        :                   :         : 2         :                
@@ -394,9 +394,9 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : N14       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : N15       :        :                   :         : 6         :                
 VCCIO5                       : N16       : power  :                   : 3.3V    : 5         :                
 VCCIO6                       : N17       : power  :                   : 3.3V    : 6         :                
-max10Board_LEDSegments[5][3] : N18       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[5][5] : N19       : output : 3.3-V LVCMOS      :         : 6         : Y              
-max10Board_LEDSegments[5][6] : N20       : output : 3.3-V LVCMOS      :         : 6         : Y              
+max10Board_LEDSegments[5][3] : N18       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[5][5] : N19       : output : 3.3-V LVTTL       :         : 6         : Y              
+max10Board_LEDSegments[5][6] : N20       : output : 3.3-V LVTTL       :         : 6         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : N21       :        :                   :         : 5         :                
 max10Board_SDRAM_ClockEnable : N22       : output : 3.3-V LVTTL       :         : 5         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : P1        :        :                   :         : 2         :                
@@ -451,9 +451,9 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : T5        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : T6        :        :                   :         : 2         :                
 VCCD_PLL1                    : T7        : power  :                   : 1.2V    :           :                
 GND                          : T8        : gnd    :                   :         :           :                
-VCCIO3                       : T9        : power  :                   : 2.5V    : 3         :                
-VCCIO3                       : T10       : power  :                   : 2.5V    : 3         :                
-VCCIO3                       : T11       : power  :                   : 2.5V    : 3         :                
+VCCIO3                       : T9        : power  :                   : 3.3V    : 3         :                
+VCCIO3                       : T10       : power  :                   : 3.3V    : 3         :                
+VCCIO3                       : T11       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : T12       : power  :                   : 2.5V    : 4         :                
 VCCIO4                       : T13       : power  :                   : 2.5V    : 4         :                
 GND                          : T14       : gnd    :                   :         :           :                
@@ -472,8 +472,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : U4        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : U5        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U6        :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U7        :        :                   :         : 3         :                
-VCCIO3                       : U8        : power  :                   : 2.5V    : 3         :                
-VCCIO3                       : U9        : power  :                   : 2.5V    : 3         :                
+VCCIO3                       : U8        : power  :                   : 3.3V    : 3         :                
+VCCIO3                       : U9        : power  :                   : 3.3V    : 3         :                
 GND                          : U10       : gnd    :                   :         :           :                
 VCCIO4                       : U11       : power  :                   : 2.5V    : 4         :                
 VCCIO4                       : U12       : power  :                   : 2.5V    : 4         :                
@@ -491,12 +491,12 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : V1        :        :                   :      
 GND                          : V2        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V3        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V4        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : V5        :        :                   :         : 3         :                
+max10Board_GPIO_Input_MakeRecording : V5        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
 GND                          : V6        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V7        :        :                   :         : 3         :                
-max10Board_GPIO_Input_MusicKeys[4] : V8        : input  : 2.5 V             :         : 3         : Y              
-max10Board_GPIO_Input_MusicKeys[2] : V9        : input  : 2.5 V             :         : 3         : Y              
-max10Board_GPIO_Input_MusicKeys[0] : V10       : input  : 2.5 V             :         : 3         : Y              
+max10Board_GPIO_Input_MusicKeys[4] : V8        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
+max10Board_GPIO_Input_MusicKeys[2] : V9        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
+max10Board_GPIO_Input_MusicKeys[0] : V10       : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : V11       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V12       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V13       :        :                   :         : 4         :                
@@ -511,14 +511,14 @@ max10Board_SDRAM_Data[7]     : V21       : bidir  : 3.3-V LVTTL       :         
 max10Board_SDRAM_DataMask0   : V22       : output : 3.3-V LVTTL       :         : 5         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W1        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W2        :        :                   :         : 2         :                
-max10Board_GPIO_Input_MakeRecording : W3        : input  : 2.5 V             :         : 3         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W3        :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W4        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : W5        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : W6        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : W7        :        :                   :         : 3         :                
-max10Board_GPIO_Input_MusicKeys[5] : W8        : input  : 2.5 V             :         : 3         : Y              
-max10Board_GPIO_Input_MusicKeys[3] : W9        : input  : 2.5 V             :         : 3         : Y              
-max10Board_GPIO_Input_MusicKeys[1] : W10       : input  : 2.5 V             :         : 3         : Y              
+max10Board_GPIO_Input_PlayRecording : W5        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
+max10Board_GPIO_Input_PlaySong0 : W6        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
+max10Board_GPIO_Input_PlaySong1 : W7        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
+max10Board_GPIO_Input_MusicKeys[5] : W8        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
+max10Board_GPIO_Input_MusicKeys[3] : W9        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
+max10Board_GPIO_Input_MusicKeys[1] : W10       : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W11       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W12       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W13       :        :                   :         : 4         :                
