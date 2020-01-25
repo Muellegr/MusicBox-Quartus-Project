@@ -44,43 +44,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[0]",
+					"name" : "max10Board_GPIO_Input_PlaySong0",
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[1]",
+					"name" : "max10Board_Buttons[0]",
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[2]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[3]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[4]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[5]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[7]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[8]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[9]",
+					"name" : "max10Board_50MhzClock",
 					"strict" : false
 				}
 			]

@@ -55,7 +55,7 @@ module MusicBox_Main(
 	/////////////////////////////////////////////////////////
 	//-- 
 	input wire	[1: 0] max10Board_Buttons ;
-	assign max10Board_LED = max10board_switches;
+	//assign max10Board_LED = max10board_switches;
 	//assign max10Board_LED[0] = max10board_switches[0];
 	//assign max10Board_LED[1] = 1'b1;
 	//assign max10Board_LED[9:5] = 1'b0;
@@ -65,17 +65,95 @@ module MusicBox_Main(
 	//assign max10Board_LED[0] = max10Board_GPIO_Input_PlaySong0;
 	//assign max10Board_LED[1] = !max10Board_GPIO_Input_PlaySong1;
 	
-	//reg [9:0] incrementCounter;
-	//assign max10Board_LED[9:1] = incrementCounter[8:0];
-//	assign max10Board_LED[0] = max10Board_GPIO_Input_PlaySong0;
-	// always@(posedge max10Board_GPIO_Input_PlaySong0)begin
-		// if (max10Board_Buttons[0] == 1) begin
-		// //	incrementCounter <= 0;
-		// end
-		// else begin
-		// //	incrementCounter <= incrementCounter + 1;
-		// end
-	// end
+	reg [9:0] incrementCounter;
+	 
+	
+	assign max10Board_LED[7:0] = incrementCounter;
+	assign max10Board_LED[9] = max10Board_GPIO_Input_PlaySong0_s;
+	assign max10Board_LED[8] = max10Board_GPIO_Input_PlaySong0;
+	
+	
+	always@(negedge max10Board_GPIO_Input_PlaySong0_s)begin
+		if (max10Board_Buttons[0] == 1'b0) begin
+			incrementCounter = 0;
+		end
+		else begin
+			incrementCounter = incrementCounter + 1;
+		end
+	end
+	
+	
+	
+	//----------------------------
+	//-- INPUT SMOOTHING----------
+	//----------------------------
+	wire [5:0] max10Board_GPIO_Input_MusicKeys_s; //Array
+		UI_TriggerSmoother UIs_MusicKeys0 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[0]),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_MusicKeys_s[0])
+		);
+		UI_TriggerSmoother UIs_MusicKeys1 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[1]),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_MusicKeys_s[1])
+		);
+		UI_TriggerSmoother UIs_MusicKeys2 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[2]),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_MusicKeys_s[2])
+		);
+		UI_TriggerSmoother UIs_MusicKeys3 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[3]),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_MusicKeys_s[3])
+		);
+		UI_TriggerSmoother UIs_MusicKeys4 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[4]),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_MusicKeys_s[4])
+		);
+		UI_TriggerSmoother UIs_MusicKeys5 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[5]),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_MusicKeys_s[5])
+		);
+	wire max10Board_GPIO_Input_PlaySong1_s;
+		UI_TriggerSmoother UIs_PlaySong1 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_PlaySong1),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_PlaySong1_s)
+		);
+	wire max10Board_GPIO_Input_PlaySong0_s;
+		UI_TriggerSmoother UIs_PlaySong0 (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_PlaySong0),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_PlaySong0_s)
+		);
+	wire max10Board_GPIO_Input_MakeRecording_s;
+		UI_TriggerSmoother UIs_Makerecording (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_MakeRecording),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_MakeRecording_s)
+		);
+	wire max10Board_GPIO_Input_PlayRecording_s;
+		UI_TriggerSmoother UIs_PlayRecording (
+			.clock_50Mhz(max10Board_50MhzClock),
+			.inputWire(max10Board_GPIO_Input_PlayRecording),
+			.reset_n(max10Board_Buttons[0]),
+			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
+		);
+	
+	
 	
 	/*
 	Do simple button UI
