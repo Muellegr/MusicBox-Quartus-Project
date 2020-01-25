@@ -68,13 +68,19 @@ module MusicBox_Main(
 	reg [9:0] incrementCounter;
 	 
 	
-	assign max10Board_LED[7:0] = incrementCounter;
-	assign max10Board_LED[9] = max10Board_GPIO_Input_PlaySong0_s;
-	assign max10Board_LED[8] = max10Board_GPIO_Input_PlaySong0;
+	//assign max10Board_LED[7:0] = incrementCounter;
+	//assign max10Board_LED[9] = max10Board_GPIO_Input_PlaySong0_s;
+	//assign max10Board_LED[8] = max10Board_GPIO_Input_PlaySong0;
+	
+	//-------------------------
+	//-----Major Variables-----
+	//-------------------------
+	wire systemReset_n = max10Board_Buttons[0];
 	
 	
-	always@(negedge max10Board_GPIO_Input_PlaySong0_s)begin
-		if (max10Board_Buttons[0] == 1'b0) begin
+	
+	always@(negedge max10Board_GPIO_Input_PlaySong0_s) begin
+		if (systemReset_n == 1'b0) begin
 			incrementCounter = 0;
 		end
 		else begin
@@ -82,7 +88,28 @@ module MusicBox_Main(
 		end
 	end
 	
+	//----------------------------
+	//-- MAIN MODULE CONTROLLER---
+	//----------------------------
+	wire [4:0] outputCurrentState;
+	assign max10Board_LED[4:0] = outputCurrentState;
+	MusicBoxStateController musicBoxStateController (
+		//==INPUT
+		.clock_50Mhz(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		//--UI
+		.input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
+		.input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
+		.input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
+		.input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
+		.input_MusicKey(max10Board_GPIO_Input_MusicKeys),
+		
+		
+		//==OUTPUT
+		//.debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
+		.outputState(outputCurrentState) //
 	
+	);
 	
 	//----------------------------
 	//-- INPUT SMOOTHING----------
@@ -91,65 +118,65 @@ module MusicBox_Main(
 		UI_TriggerSmoother UIs_MusicKeys0 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_MusicKeys[0]),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[0])
 		);
 		UI_TriggerSmoother UIs_MusicKeys1 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_MusicKeys[1]),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[1])
 		);
 		UI_TriggerSmoother UIs_MusicKeys2 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_MusicKeys[2]),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[2])
 		);
 		UI_TriggerSmoother UIs_MusicKeys3 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_MusicKeys[3]),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[3])
 		);
 		UI_TriggerSmoother UIs_MusicKeys4 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_MusicKeys[4]),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[4])
 		);
 		UI_TriggerSmoother UIs_MusicKeys5 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_MusicKeys[5]),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[5])
 		);
 	wire max10Board_GPIO_Input_PlaySong1_s;
 		UI_TriggerSmoother UIs_PlaySong1 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_PlaySong1),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong1_s)
 		);
 	wire max10Board_GPIO_Input_PlaySong0_s;
 		UI_TriggerSmoother UIs_PlaySong0 (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_PlaySong0),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong0_s)
 		);
 	wire max10Board_GPIO_Input_MakeRecording_s;
 		UI_TriggerSmoother UIs_Makerecording (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_MakeRecording),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MakeRecording_s)
 		);
 	wire max10Board_GPIO_Input_PlayRecording_s;
 		UI_TriggerSmoother UIs_PlayRecording (
 			.clock_50Mhz(max10Board_50MhzClock),
 			.inputWire(max10Board_GPIO_Input_PlayRecording),
-			.reset_n(max10Board_Buttons[0]),
+			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
 	
