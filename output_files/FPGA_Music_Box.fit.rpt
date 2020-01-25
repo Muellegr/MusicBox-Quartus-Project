@@ -1,5 +1,5 @@
 Fitter report for FPGA_Music_Box
-Sat Jan 25 14:40:17 2020
+Sat Jan 25 14:54:53 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sat Jan 25 14:40:17 2020       ;
+; Fitter Status                      ; Successful - Sat Jan 25 14:54:53 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
@@ -1845,94 +1845,94 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node max10Board_50MhzClock~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 29
+Info (176353): Automatically promoted node max10Board_50MhzClock~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G19
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:04
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.25 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.17 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:04
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 39 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing MAX 10 Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
-    Info (169178): Pin max10Board_Buttons[1] uses I/O standard 3.3 V Schmitt Trigger at A7 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 57
-    Info (169178): Pin max10board_switches[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[1] uses I/O standard 3.3-V LVTTL at C11 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[2] uses I/O standard 3.3-V LVTTL at D12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[3] uses I/O standard 3.3-V LVTTL at C12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[4] uses I/O standard 3.3-V LVTTL at A12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[5] uses I/O standard 3.3-V LVTTL at B12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[6] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[7] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[8] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10board_switches[9] uses I/O standard 3.3-V LVTTL at F15 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[0] uses I/O standard 3.3 V Schmitt Trigger at V10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[1] uses I/O standard 3.3 V Schmitt Trigger at W10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[2] uses I/O standard 3.3 V Schmitt Trigger at V9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[3] uses I/O standard 3.3 V Schmitt Trigger at W9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[4] uses I/O standard 3.3 V Schmitt Trigger at V8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[5] uses I/O standard 3.3 V Schmitt Trigger at W8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Info (169178): Pin max10Board_SDRAM_Data[0] uses I/O standard 3.3-V LVTTL at Y21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[1] uses I/O standard 3.3-V LVTTL at Y20 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[2] uses I/O standard 3.3-V LVTTL at AA22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[3] uses I/O standard 3.3-V LVTTL at AA21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[4] uses I/O standard 3.3-V LVTTL at Y22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[5] uses I/O standard 3.3-V LVTTL at W22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[6] uses I/O standard 3.3-V LVTTL at W20 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[7] uses I/O standard 3.3-V LVTTL at V21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[8] uses I/O standard 3.3-V LVTTL at P21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[9] uses I/O standard 3.3-V LVTTL at J22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[10] uses I/O standard 3.3-V LVTTL at H21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[11] uses I/O standard 3.3-V LVTTL at H22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[12] uses I/O standard 3.3-V LVTTL at G22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[13] uses I/O standard 3.3-V LVTTL at G20 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[14] uses I/O standard 3.3-V LVTTL at G19 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_SDRAM_Data[15] uses I/O standard 3.3-V LVTTL at F22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169178): Pin max10Board_50MhzClock uses I/O standard 3.3-V LVTTL at P11 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 29
-    Info (169178): Pin max10Board_Buttons[0] uses I/O standard 3.3 V Schmitt Trigger at B8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 57
-    Info (169178): Pin max10Board_GPIO_Input_PlayRecording uses I/O standard 3.3 V Schmitt Trigger at W5 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 40
-    Info (169178): Pin max10Board_GPIO_Input_PlaySong1 uses I/O standard 3.3 V Schmitt Trigger at W7 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 37
-    Info (169178): Pin max10Board_GPIO_Input_MakeRecording uses I/O standard 3.3 V Schmitt Trigger at V5 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 39
-    Info (169178): Pin max10Board_GPIO_Input_PlaySong0 uses I/O standard 3.3 V Schmitt Trigger at W6 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_Buttons[1] uses I/O standard 3.3 V Schmitt Trigger at A7 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 59
+    Info (169178): Pin max10board_switches[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[1] uses I/O standard 3.3-V LVTTL at C11 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[2] uses I/O standard 3.3-V LVTTL at D12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[3] uses I/O standard 3.3-V LVTTL at C12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[4] uses I/O standard 3.3-V LVTTL at A12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[5] uses I/O standard 3.3-V LVTTL at B12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[6] uses I/O standard 3.3-V LVTTL at A13 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[7] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[8] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10board_switches[9] uses I/O standard 3.3-V LVTTL at F15 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[0] uses I/O standard 3.3 V Schmitt Trigger at V10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[1] uses I/O standard 3.3 V Schmitt Trigger at W10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[2] uses I/O standard 3.3 V Schmitt Trigger at V9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[3] uses I/O standard 3.3 V Schmitt Trigger at W9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[4] uses I/O standard 3.3 V Schmitt Trigger at V8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[5] uses I/O standard 3.3 V Schmitt Trigger at W8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_SDRAM_Data[0] uses I/O standard 3.3-V LVTTL at Y21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[1] uses I/O standard 3.3-V LVTTL at Y20 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[2] uses I/O standard 3.3-V LVTTL at AA22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[3] uses I/O standard 3.3-V LVTTL at AA21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[4] uses I/O standard 3.3-V LVTTL at Y22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[5] uses I/O standard 3.3-V LVTTL at W22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[6] uses I/O standard 3.3-V LVTTL at W20 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[7] uses I/O standard 3.3-V LVTTL at V21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[8] uses I/O standard 3.3-V LVTTL at P21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[9] uses I/O standard 3.3-V LVTTL at J22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[10] uses I/O standard 3.3-V LVTTL at H21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[11] uses I/O standard 3.3-V LVTTL at H22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[12] uses I/O standard 3.3-V LVTTL at G22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[13] uses I/O standard 3.3-V LVTTL at G20 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[14] uses I/O standard 3.3-V LVTTL at G19 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_SDRAM_Data[15] uses I/O standard 3.3-V LVTTL at F22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169178): Pin max10Board_50MhzClock uses I/O standard 3.3-V LVTTL at P11 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
+    Info (169178): Pin max10Board_Buttons[0] uses I/O standard 3.3 V Schmitt Trigger at B8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 59
+    Info (169178): Pin max10Board_GPIO_Input_PlayRecording uses I/O standard 3.3 V Schmitt Trigger at W5 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 42
+    Info (169178): Pin max10Board_GPIO_Input_PlaySong1 uses I/O standard 3.3 V Schmitt Trigger at W7 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 39
+    Info (169178): Pin max10Board_GPIO_Input_MakeRecording uses I/O standard 3.3 V Schmitt Trigger at V5 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 41
+    Info (169178): Pin max10Board_GPIO_Input_PlaySong0 uses I/O standard 3.3 V Schmitt Trigger at W6 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 40
 Warning (169064): Following 16 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
-    Info (169065): Pin max10Board_SDRAM_Data[0] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[1] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[2] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[3] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[4] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[5] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[6] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[7] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[8] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[9] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[10] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[11] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[12] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[13] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[14] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Info (169065): Pin max10Board_SDRAM_Data[15] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Info (169065): Pin max10Board_SDRAM_Data[0] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[1] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[2] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[3] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[4] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[5] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[6] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[7] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[8] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[9] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[10] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[11] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[12] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[13] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[14] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Info (169065): Pin max10Board_SDRAM_Data[15] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
 Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5378 megabytes
-    Info: Processing ended: Sat Jan 25 14:40:18 2020
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Peak virtual memory: 5375 megabytes
+    Info: Processing ended: Sat Jan 25 14:54:54 2020
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +----------------------------+

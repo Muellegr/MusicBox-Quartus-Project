@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Sat Jan 25 14:39:53 2020
+Sat Jan 25 14:54:34 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -52,7 +52,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan 25 14:39:53 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 25 14:54:34 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
@@ -364,7 +364,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -374,7 +374,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Jan 25 14:39:34 2020
+    Info: Processing started: Sat Jan 25 14:54:16 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -383,148 +383,148 @@ Info (12021): Found 1 design units, including 1 entities, in source file source 
 Info (12021): Found 1 design units, including 1 entities, in source file source code/user interface modules/ui_triggersmoother.sv
     Info (12023): Found entity 1: UI_TriggerSmoother File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file source code/musicbox_main.sv
-    Info (12023): Found entity 1: MusicBox_Main File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 1
+    Info (12023): Found entity 1: MusicBox_Main File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 3
 Info (12127): Elaborating entity "MusicBox_Main" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at MusicBox_Main.sv(87): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 87
-Warning (10034): Output port "max10Board_LEDSegments" at MusicBox_Main.sv(6) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-Warning (10034): Output port "max10Board_LED[9..5]" at MusicBox_Main.sv(31) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-Warning (10034): Output port "max10Board_SDRAM_Address" at MusicBox_Main.sv(44) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-Warning (10034): Output port "max10Board_SDRAM_BankAddress" at MusicBox_Main.sv(45) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 45
-Warning (10034): Output port "max10Board_SDRAM_Clock" at MusicBox_Main.sv(42) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 42
-Warning (10034): Output port "max10Board_SDRAM_ClockEnable" at MusicBox_Main.sv(43) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 43
-Warning (10034): Output port "max10Board_SDRAM_DataMask0" at MusicBox_Main.sv(49) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
-Warning (10034): Output port "max10Board_SDRAM_DataMask1" at MusicBox_Main.sv(50) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 50
-Warning (10034): Output port "max10Board_SDRAM_ChipSelect_n" at MusicBox_Main.sv(51) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 51
-Warning (10034): Output port "max10Board_SDRAM_WriteEnable_n" at MusicBox_Main.sv(52) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 52
-Warning (10034): Output port "max10Board_SDRAM_ColumnAddressStrobe_n" at MusicBox_Main.sv(53) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 53
-Warning (10034): Output port "max10Board_SDRAM_RowAddressStrobe_n" at MusicBox_Main.sv(54) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 54
-Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 112
+Warning (10230): Verilog HDL assignment warning at MusicBox_Main.sv(89): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 89
+Warning (10034): Output port "max10Board_LEDSegments" at MusicBox_Main.sv(8) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+Warning (10034): Output port "max10Board_LED[9..5]" at MusicBox_Main.sv(33) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+Warning (10034): Output port "max10Board_SDRAM_Address" at MusicBox_Main.sv(46) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+Warning (10034): Output port "max10Board_SDRAM_BankAddress" at MusicBox_Main.sv(47) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
+Warning (10034): Output port "max10Board_SDRAM_Clock" at MusicBox_Main.sv(44) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
+Warning (10034): Output port "max10Board_SDRAM_ClockEnable" at MusicBox_Main.sv(45) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 45
+Warning (10034): Output port "max10Board_SDRAM_DataMask0" at MusicBox_Main.sv(51) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 51
+Warning (10034): Output port "max10Board_SDRAM_DataMask1" at MusicBox_Main.sv(52) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 52
+Warning (10034): Output port "max10Board_SDRAM_ChipSelect_n" at MusicBox_Main.sv(53) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 53
+Warning (10034): Output port "max10Board_SDRAM_WriteEnable_n" at MusicBox_Main.sv(54) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 54
+Warning (10034): Output port "max10Board_SDRAM_ColumnAddressStrobe_n" at MusicBox_Main.sv(55) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 55
+Warning (10034): Output port "max10Board_SDRAM_RowAddressStrobe_n" at MusicBox_Main.sv(56) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 56
+Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 114
 Warning (10230): Verilog HDL assignment warning at MusicBoxStateController.sv(39): truncated value with size 32 to match size of target (5) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 39
 Warning (10034): Output port "debugString" at MusicBoxStateController.sv(34) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 34
-Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 123
+Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 125
 Warning (10230): Verilog HDL assignment warning at UI_TriggerSmoother.sv(30): truncated value with size 32 to match size of target (17) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv Line: 30
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[0]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[1]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[2]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[3]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[4]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[5]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[6]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[7]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[8]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[9]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[10]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[11]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[12]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[13]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[14]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[15]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[0]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[1]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[2]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[3]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[4]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[5]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[6]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[7]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[8]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[9]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[10]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[11]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[12]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[13]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[14]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
+    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[15]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "max10Board_LEDSegments[0][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[0][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[0][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[0][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[0][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[0][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[0][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[1][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[1][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[1][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[1][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[1][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[1][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[1][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[2][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[2][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[2][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[2][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[2][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[2][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[2][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[3][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[3][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[3][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[3][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[3][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[3][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[3][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[4][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[4][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[4][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[4][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[4][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[4][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[4][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[5][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[5][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[5][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[5][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[5][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[5][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LEDSegments[5][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 6
-    Warning (13410): Pin "max10Board_LED[3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-    Warning (13410): Pin "max10Board_LED[4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-    Warning (13410): Pin "max10Board_LED[5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-    Warning (13410): Pin "max10Board_LED[6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-    Warning (13410): Pin "max10Board_LED[7]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-    Warning (13410): Pin "max10Board_LED[8]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-    Warning (13410): Pin "max10Board_LED[9]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
-    Warning (13410): Pin "max10Board_SDRAM_Clock" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 42
-    Warning (13410): Pin "max10Board_SDRAM_ClockEnable" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 43
-    Warning (13410): Pin "max10Board_SDRAM_Address[0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[7]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[8]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[9]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[10]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[11]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_Address[12]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
-    Warning (13410): Pin "max10Board_SDRAM_BankAddress[0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 45
-    Warning (13410): Pin "max10Board_SDRAM_BankAddress[1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 45
-    Warning (13410): Pin "max10Board_SDRAM_DataMask0" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
-    Warning (13410): Pin "max10Board_SDRAM_DataMask1" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 50
-    Warning (13410): Pin "max10Board_SDRAM_ChipSelect_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 51
-    Warning (13410): Pin "max10Board_SDRAM_WriteEnable_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 52
-    Warning (13410): Pin "max10Board_SDRAM_ColumnAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 53
-    Warning (13410): Pin "max10Board_SDRAM_RowAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 54
+    Warning (13410): Pin "max10Board_LEDSegments[0][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[0][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[0][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[0][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[0][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[0][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[0][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[1][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[1][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[1][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[1][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[1][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[1][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[1][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[2][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[2][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[2][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[2][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[2][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[2][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[2][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[3][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[3][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[3][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[3][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[3][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[3][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[3][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[4][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[4][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[4][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[4][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[4][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[4][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[4][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[5][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[5][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[5][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[5][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[5][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[5][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LEDSegments[5][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
+    Warning (13410): Pin "max10Board_LED[3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+    Warning (13410): Pin "max10Board_LED[4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+    Warning (13410): Pin "max10Board_LED[5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+    Warning (13410): Pin "max10Board_LED[6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+    Warning (13410): Pin "max10Board_LED[7]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+    Warning (13410): Pin "max10Board_LED[8]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+    Warning (13410): Pin "max10Board_LED[9]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
+    Warning (13410): Pin "max10Board_SDRAM_Clock" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
+    Warning (13410): Pin "max10Board_SDRAM_ClockEnable" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 45
+    Warning (13410): Pin "max10Board_SDRAM_Address[0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[7]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[8]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[9]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[10]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[11]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_Address[12]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
+    Warning (13410): Pin "max10Board_SDRAM_BankAddress[0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
+    Warning (13410): Pin "max10Board_SDRAM_BankAddress[1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
+    Warning (13410): Pin "max10Board_SDRAM_DataMask0" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 51
+    Warning (13410): Pin "max10Board_SDRAM_DataMask1" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 52
+    Warning (13410): Pin "max10Board_SDRAM_ChipSelect_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 53
+    Warning (13410): Pin "max10Board_SDRAM_WriteEnable_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 54
+    Warning (13410): Pin "max10Board_SDRAM_ColumnAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 55
+    Warning (13410): Pin "max10Board_SDRAM_RowAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 56
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 17 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "max10Board_Buttons[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 57
-    Warning (15610): No output dependent on input pin "max10board_switches[0]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[2]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[3]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[4]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[5]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[6]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[7]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[8]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10board_switches[9]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
-    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[0]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[2]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[3]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[4]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
-    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[5]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 36
+    Warning (15610): No output dependent on input pin "max10Board_Buttons[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 59
+    Warning (15610): No output dependent on input pin "max10board_switches[0]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[2]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[3]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[4]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[5]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[6]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[7]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[8]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10board_switches[9]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
+    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[0]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[2]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[3]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[4]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[5]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
 Info (21057): Implemented 223 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 75 output pins
     Info (21060): Implemented 16 bidirectional pins
     Info (21061): Implemented 109 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 126 warnings
-    Info: Peak virtual memory: 4750 megabytes
-    Info: Processing ended: Sat Jan 25 14:39:53 2020
-    Info: Elapsed time: 00:00:19
+    Info: Peak virtual memory: 4748 megabytes
+    Info: Processing ended: Sat Jan 25 14:54:34 2020
+    Info: Elapsed time: 00:00:18
     Info: Total CPU time (on all processors): 00:00:38
 
 

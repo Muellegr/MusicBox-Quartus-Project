@@ -69,25 +69,25 @@ module MusicBoxStateController (
 					
 				end
 				
-				// //---PLAY SONG 1 STATE
-				// else if (currentState == 1) begin
+				//---PLAY SONG 0 STATE
+				else if (currentState == state_PlaySong0) begin
 				
-				// end
+				end
 				
-				// //----PLAY SONG 2 STATE
-				// else if (currentState == 2) begin
+				//----PLAY SONG 1 STATE
+				else if (currentState == state_PlaySong1) begin
 				
-				// end
+				end
 				
-				// //----PLAY RECORDING STATE
-				// else if (currentState == 3) begin
+				//----PLAY RECORDING STATE
+				else if (currentState == state_PlayRecording) begin
 				
-				// end
+				end
 				
-				// //----MAKE RECORDING STATE
-				// else if (currentState == 4) begin
+				//----MAKE RECORDING STATE
+				else if (currentState == state_MakeRecording) begin
 				
-				// end
+				end
 
 			
 			
