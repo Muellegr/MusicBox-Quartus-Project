@@ -1,6 +1,6 @@
 |MusicBox_Main
-max10Board_Button0 => ~NO_FANOUT~
-max10Board_Button1 => ~NO_FANOUT~
+max10Board_Buttons[0] => ~NO_FANOUT~
+max10Board_Buttons[1] => ~NO_FANOUT~
 max10board_switches[0] => ~NO_FANOUT~
 max10board_switches[1] => ~NO_FANOUT~
 max10board_switches[2] => ~NO_FANOUT~
@@ -103,15 +103,15 @@ max10Board_SDRAM_ChipSelect_n <= <GND>
 max10Board_SDRAM_WriteEnable_n <= <GND>
 max10Board_SDRAM_ColumnAddressStrobe_n <= <GND>
 max10Board_SDRAM_RowAddressStrobe_n <= <GND>
-max10Board_ExternalPins[0] => ~NO_FANOUT~
-max10Board_ExternalPins[1] => ~NO_FANOUT~
-max10Board_ExternalPins[2] => ~NO_FANOUT~
-max10Board_ExternalPins[3] => ~NO_FANOUT~
-max10Board_ExternalPins[4] => ~NO_FANOUT~
-max10Board_ExternalPins[5] => ~NO_FANOUT~
-max10Board_ExternalPins[6] => ~NO_FANOUT~
-max10Board_ExternalPins[7] => ~NO_FANOUT~
-max10Board_ExternalPins[8] => ~NO_FANOUT~
-max10Board_ExternalPins[9] => ~NO_FANOUT~
+max10Board_GPIO_Input_MusicKeys[0] => ~NO_FANOUT~
+max10Board_GPIO_Input_MusicKeys[1] => ~NO_FANOUT~
+max10Board_GPIO_Input_MusicKeys[2] => ~NO_FANOUT~
+max10Board_GPIO_Input_MusicKeys[3] => ~NO_FANOUT~
+max10Board_GPIO_Input_MusicKeys[4] => ~NO_FANOUT~
+max10Board_GPIO_Input_MusicKeys[5] => ~NO_FANOUT~
+max10Board_GPIO_Input_PlaySong1 => ~NO_FANOUT~
+max10Board_GPIO_Input_PlaySong0 => ~NO_FANOUT~
+max10Board_GPIO_Input_MakeRecording => ~NO_FANOUT~
+max10Board_GPIO_Input_PlayRecording => ~NO_FANOUT~
 
 
