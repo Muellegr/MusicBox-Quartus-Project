@@ -94,6 +94,7 @@ module MusicBox_Main(
 	//-- MAIN MODULE CONTROLLER---
 	//----------------------------
 	wire [4:0] outputCurrentState;
+	assign max10Board_LED[9:5] = musicKeysDebugTemp;
 	assign max10Board_LED[4:0] = outputCurrentState;
 	MusicBoxStateController musicBoxStateController (
 		//==INPUT
@@ -104,7 +105,7 @@ module MusicBox_Main(
 		.input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
 		.input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
 		.input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
-		.input_MusicKey(max10Board_GPIO_Input_MusicKeys),
+		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
 		
 		
 		//==OUTPUT
@@ -112,6 +113,20 @@ module MusicBox_Main(
 		.outputState(outputCurrentState) //
 	
 	);
+	//----------------------------
+	//-- Music Keys
+	wire [5:0] musicKeysDebugTemp ; //Stores output.  Basically input keys if in current state.
+	MusicKeysController musicKeysController (
+		.clock_50Mhz(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.currentState(outputCurrentState), //This is controlled by MusicBoxStateController.   
+		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
+		// .debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
+		.outputKeyPressed(musicKeysDebugTemp)
+
+	);
+	
+	
 	
 	//----------------------------
 	//-- INPUT SMOOTHING----------

@@ -1,5 +1,5 @@
 Timing Analyzer report for FPGA_Music_Box
-Sat Jan 25 15:01:31 2020
+Sun Jan 26 11:42:24 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -91,12 +91,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
+; Average used               ; 1.06        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.0%      ;
+;     Processor 2            ;   6.2%      ;
 +----------------------------+-------------+
 
 
@@ -114,7 +114,7 @@ refer to the applicable agreement for further details.
 +------------+-----------------+-----------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name            ; Note ;
 +------------+-----------------+-----------------------+------+
-; 230.31 MHz ; 230.31 MHz      ; max10Board_50MhzClock ;      ;
+; 234.85 MHz ; 234.85 MHz      ; max10Board_50MhzClock ;      ;
 +------------+-----------------+-----------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -124,7 +124,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------+--------+---------------+
 ; Clock                 ; Slack  ; End Point TNS ;
 +-----------------------+--------+---------------+
-; max10Board_50MhzClock ; -3.342 ; -184.736      ;
+; max10Board_50MhzClock ; -3.258 ; -385.024      ;
 +-----------------------+--------+---------------+
 
 
@@ -133,7 +133,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------+-------+---------------+
 ; Clock                 ; Slack ; End Point TNS ;
 +-----------------------+-------+---------------+
-; max10Board_50MhzClock ; 0.421 ; 0.000         ;
+; max10Board_50MhzClock ; 0.420 ; 0.000         ;
 +-----------------------+-------+---------------+
 
 
@@ -154,7 +154,7 @@ No paths to report.
 +-----------------------+--------+------------------+
 ; Clock                 ; Slack  ; End Point TNS    ;
 +-----------------------+--------+------------------+
-; max10Board_50MhzClock ; -3.000 ; -102.613         ;
+; max10Board_50MhzClock ; -3.000 ; -221.868         ;
 +-----------------------+--------+------------------+
 
 
@@ -164,13 +164,13 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                           ;
-+------------+-----------------+-----------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name            ; Note ;
-+------------+-----------------+-----------------------+------+
-; 247.89 MHz ; 247.89 MHz      ; max10Board_50MhzClock ;      ;
-+------------+-----------------+-----------------------+------+
++----------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                                    ;
++------------+-----------------+-----------------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name            ; Note                                                          ;
++------------+-----------------+-----------------------+---------------------------------------------------------------+
+; 255.23 MHz ; 250.0 MHz       ; max10Board_50MhzClock ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+-----------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -179,7 +179,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------+--------+---------------+
 ; Clock                 ; Slack  ; End Point TNS ;
 +-----------------------+--------+---------------+
-; max10Board_50MhzClock ; -3.034 ; -166.162      ;
+; max10Board_50MhzClock ; -2.918 ; -344.907      ;
 +-----------------------+--------+---------------+
 
 
@@ -188,7 +188,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------+-------+---------------+
 ; Clock                 ; Slack ; End Point TNS ;
 +-----------------------+-------+---------------+
-; max10Board_50MhzClock ; 0.385 ; 0.000         ;
+; max10Board_50MhzClock ; 0.386 ; 0.000         ;
 +-----------------------+-------+---------------+
 
 
@@ -209,7 +209,7 @@ No paths to report.
 +-----------------------+--------+-----------------+
 ; Clock                 ; Slack  ; End Point TNS   ;
 +-----------------------+--------+-----------------+
-; max10Board_50MhzClock ; -3.000 ; -102.613        ;
+; max10Board_50MhzClock ; -3.000 ; -221.868        ;
 +-----------------------+--------+-----------------+
 
 
@@ -224,7 +224,7 @@ No synchronizer chains to report.
 +-----------------------+--------+---------------+
 ; Clock                 ; Slack  ; End Point TNS ;
 +-----------------------+--------+---------------+
-; max10Board_50MhzClock ; -0.827 ; -36.056       ;
+; max10Board_50MhzClock ; -0.849 ; -70.541       ;
 +-----------------------+--------+---------------+
 
 
@@ -233,7 +233,7 @@ No synchronizer chains to report.
 +-----------------------+-------+---------------+
 ; Clock                 ; Slack ; End Point TNS ;
 +-----------------------+-------+---------------+
-; max10Board_50MhzClock ; 0.167 ; 0.000         ;
+; max10Board_50MhzClock ; 0.166 ; 0.000         ;
 +-----------------------+-------+---------------+
 
 
@@ -254,7 +254,7 @@ No paths to report.
 +-----------------------+--------+-----------------+
 ; Clock                 ; Slack  ; End Point TNS   ;
 +-----------------------+--------+-----------------+
-; max10Board_50MhzClock ; -3.000 ; -85.896         ;
+; max10Board_50MhzClock ; -3.000 ; -185.019        ;
 +-----------------------+--------+-----------------+
 
 
@@ -269,10 +269,10 @@ No synchronizer chains to report.
 +------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                  ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack       ; -3.342   ; 0.167 ; N/A      ; N/A     ; -3.000              ;
-;  max10Board_50MhzClock ; -3.342   ; 0.167 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS        ; -184.736 ; 0.0   ; 0.0      ; 0.0     ; -102.613            ;
-;  max10Board_50MhzClock ; -184.736 ; 0.000 ; N/A      ; N/A     ; -102.613            ;
+; Worst-case Slack       ; -3.258   ; 0.166 ; N/A      ; N/A     ; -3.000              ;
+;  max10Board_50MhzClock ; -3.258   ; 0.166 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS        ; -385.024 ; 0.0   ; 0.0      ; 0.0     ; -221.868            ;
+;  max10Board_50MhzClock ; -385.024 ; 0.000 ; N/A      ; N/A     ; -221.868            ;
 +------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -392,11 +392,6 @@ No synchronizer chains to report.
 ; max10board_switches[7]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10board_switches[8]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10board_switches[9]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10Board_GPIO_Input_MusicKeys[0]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
-; max10Board_GPIO_Input_MusicKeys[1]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
-; max10Board_GPIO_Input_MusicKeys[2]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
-; max10Board_GPIO_Input_MusicKeys[3]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
-; max10Board_GPIO_Input_MusicKeys[4]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; max10Board_GPIO_Input_MusicKeys[5]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; max10Board_SDRAM_Data[0]            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_SDRAM_Data[1]            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
@@ -416,6 +411,11 @@ No synchronizer chains to report.
 ; max10Board_SDRAM_Data[15]           ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_50MhzClock               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_Buttons[0]               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; max10Board_GPIO_Input_MusicKeys[0]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; max10Board_GPIO_Input_MusicKeys[1]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; max10Board_GPIO_Input_MusicKeys[2]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; max10Board_GPIO_Input_MusicKeys[3]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; max10Board_GPIO_Input_MusicKeys[4]  ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; max10Board_GPIO_Input_PlayRecording ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; max10Board_GPIO_Input_PlaySong1     ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; max10Board_GPIO_Input_MakeRecording ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
@@ -735,7 +735,7 @@ No synchronizer chains to report.
 +-----------------------+-----------------------+----------+----------+----------+----------+
 ; From Clock            ; To Clock              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------+-----------------------+----------+----------+----------+----------+
-; max10Board_50MhzClock ; max10Board_50MhzClock ; 1828     ; 0        ; 0        ; 0        ;
+; max10Board_50MhzClock ; max10Board_50MhzClock ; 3698     ; 0        ; 0        ; 0        ;
 +-----------------------+-----------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -745,7 +745,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------------+-----------------------+----------+----------+----------+----------+
 ; From Clock            ; To Clock              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------+-----------------------+----------+----------+----------+----------+
-; max10Board_50MhzClock ; max10Board_50MhzClock ; 1828     ; 0        ; 0        ; 0        ;
+; max10Board_50MhzClock ; max10Board_50MhzClock ; 3698     ; 0        ; 0        ; 0        ;
 +-----------------------+-----------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -769,10 +769,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 5     ; 5    ;
-; Unconstrained Input Port Paths  ; 139   ; 139  ;
-; Unconstrained Output Ports      ; 3     ; 3    ;
-; Unconstrained Output Port Paths ; 3     ; 3    ;
+; Unconstrained Input Ports       ; 10    ; 10   ;
+; Unconstrained Input Port Paths  ; 309   ; 309  ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 98    ; 98   ;
 +---------------------------------+-------+------+
 
 
@@ -792,6 +792,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------------------------------+--------------------------------------------------------------------------------------+
 ; max10Board_Buttons[0]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_MakeRecording ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_PlayRecording ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_PlaySong0     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_PlaySong1     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -806,6 +811,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; max10Board_LED[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_LED[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_LED[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[5] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[6] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[7] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[8] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[9] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------------+---------------------------------------------------------------------------------------+
 
 
@@ -816,6 +826,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------------------------------+--------------------------------------------------------------------------------------+
 ; max10Board_Buttons[0]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_MakeRecording ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_GPIO_Input_MusicKeys[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_PlayRecording ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_PlaySong0     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Input_PlaySong1     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -830,6 +845,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; max10Board_LED[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_LED[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_LED[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[5] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[6] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[7] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[8] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[9] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------------+---------------------------------------------------------------------------------------+
 
 
@@ -839,7 +859,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Jan 25 15:01:26 2020
+    Info: Processing started: Sun Jan 26 11:42:18 2020
 Info: Command: quartus_sta FPGA_Music_Box -c FPGA_Music_Box
 Info: qsta_default_script.tcl version: #2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -856,62 +876,62 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.342
+Info (332146): Worst-case setup slack is -3.258
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.342            -184.736 max10Board_50MhzClock 
-Info (332146): Worst-case hold slack is 0.421
+    Info (332119):    -3.258            -385.024 max10Board_50MhzClock 
+Info (332146): Worst-case hold slack is 0.420
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.421               0.000 max10Board_50MhzClock 
+    Info (332119):     0.420               0.000 max10Board_50MhzClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -102.613 max10Board_50MhzClock 
+    Info (332119):    -3.000            -221.868 max10Board_50MhzClock 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.034
+Info (332146): Worst-case setup slack is -2.918
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.034            -166.162 max10Board_50MhzClock 
-Info (332146): Worst-case hold slack is 0.385
+    Info (332119):    -2.918            -344.907 max10Board_50MhzClock 
+Info (332146): Worst-case hold slack is 0.386
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.385               0.000 max10Board_50MhzClock 
+    Info (332119):     0.386               0.000 max10Board_50MhzClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -102.613 max10Board_50MhzClock 
+    Info (332119):    -3.000            -221.868 max10Board_50MhzClock 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.827
+Info (332146): Worst-case setup slack is -0.849
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.827             -36.056 max10Board_50MhzClock 
-Info (332146): Worst-case hold slack is 0.167
+    Info (332119):    -0.849             -70.541 max10Board_50MhzClock 
+Info (332146): Worst-case hold slack is 0.166
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.167               0.000 max10Board_50MhzClock 
+    Info (332119):     0.166               0.000 max10Board_50MhzClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -85.896 max10Board_50MhzClock 
+    Info (332119):    -3.000            -185.019 max10Board_50MhzClock 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4812 megabytes
-    Info: Processing ended: Sat Jan 25 15:01:31 2020
-    Info: Elapsed time: 00:00:05
+    Info: Peak virtual memory: 4802 megabytes
+    Info: Processing ended: Sun Jan 26 11:42:24 2020
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:05
 
 
