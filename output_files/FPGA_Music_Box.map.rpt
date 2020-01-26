@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Sat Jan 25 14:54:34 2020
+Sat Jan 25 15:00:59 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -52,7 +52,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan 25 14:54:34 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 25 15:00:59 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
@@ -374,7 +374,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Jan 25 14:54:16 2020
+    Info: Processing started: Sat Jan 25 15:00:37 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -522,10 +522,10 @@ Info (21057): Implemented 223 device resources after synthesis - the final resou
     Info (21060): Implemented 16 bidirectional pins
     Info (21061): Implemented 109 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 126 warnings
-    Info: Peak virtual memory: 4748 megabytes
-    Info: Processing ended: Sat Jan 25 14:54:34 2020
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Peak virtual memory: 4750 megabytes
+    Info: Processing ended: Sat Jan 25 15:00:59 2020
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:42
 
 
 +------------------------------------------+

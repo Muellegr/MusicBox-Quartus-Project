@@ -1,5 +1,5 @@
 Timing Analyzer report for FPGA_Music_Box
-Sat Jan 25 14:55:08 2020
+Sat Jan 25 15:01:31 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -91,12 +91,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.6%      ;
+;     Processor 2            ;   2.0%      ;
 +----------------------------+-------------+
 
 
@@ -839,7 +839,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Jan 25 14:55:03 2020
+    Info: Processing started: Sat Jan 25 15:01:26 2020
 Info: Command: quartus_sta FPGA_Music_Box -c FPGA_Music_Box
 Info: qsta_default_script.tcl version: #2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -909,9 +909,9 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4801 megabytes
-    Info: Processing ended: Sat Jan 25 14:55:08 2020
+    Info: Peak virtual memory: 4812 megabytes
+    Info: Processing ended: Sat Jan 25 15:01:31 2020
     Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Total CPU time (on all processors): 00:00:05
 
 

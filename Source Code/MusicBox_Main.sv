@@ -184,13 +184,4 @@ module MusicBox_Main(
 	
 	
 	
-	/*
-	Do simple button UI
-	Do simple button UI on GPIO
-		test voltage
-		get active low
-		active high
-		
-	*/
-	
 endmodule
