@@ -24,6 +24,7 @@ Acts as main hub for control signals.
 
 module MusicBoxStateController ( 
 		input logic clock_50Mhz,
+		input logic clock_1Khz,
 		input logic reset_n,
 		input logic input_PlaySong0_n,
 		input logic input_PlaySong1_n,
@@ -71,7 +72,9 @@ module MusicBoxStateController (
 				
 				//---PLAY SONG 0 STATE
 				else if (currentState == state_PlaySong0) begin
-				
+					if (playSong0_StateComplete == 1) begin
+						currentState <= state_DoNothing;
+					end
 				end
 				
 				//----PLAY SONG 1 STATE
@@ -93,4 +96,25 @@ module MusicBoxStateController (
 			
 			end
 		end
+		
+		
+		//--Initialize the individual state controllers.
+		//These only run when the current state input matches their own. 
+		reg playSong0_StateComplete;
+		MusicBoxState_PlaySong0 musicBoxState_PlaySong0 (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(playSong0_StateComplete)
+		);
+
+
+	// ClockGenerator clockGenerator_1hz (
+		// .inputClock(CLK_1kHz),
+		// .reset_n(systemReset_n),
+		// .outputClock(CLK_1Hz)
+	// );
+
 endmodule

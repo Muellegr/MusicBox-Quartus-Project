@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Sun Jan 26 12:18:22 2020
+Sun Jan 26 13:14:11 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -18,12 +18,14 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
  10. Multiplexer Restructuring Statistics (Restructuring Performed)
  11. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1Khz
  12. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
- 13. Port Connectivity Checks: "MusicKeysController:musicKeysController"
- 14. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
- 18. Analysis & Synthesis Suppressed Messages
+ 13. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
+ 14. Port Connectivity Checks: "MusicKeysController:musicKeysController"
+ 15. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0"
+ 16. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+ 20. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -49,15 +51,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jan 26 12:18:22 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sun Jan 26 13:14:11 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 157                                         ;
-;     Total combinational functions  ; 157                                         ;
-;     Dedicated logic registers      ; 98                                          ;
-; Total registers                    ; 98                                          ;
+; Total logic elements               ; 160                                         ;
+;     Total combinational functions  ; 160                                         ;
+;     Dedicated logic registers      ; 104                                         ;
+; Total registers                    ; 104                                         ;
 ; Total pins                         ; 114                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -177,6 +179,7 @@ refer to the applicable agreement for further details.
 ; File Name with User-Entered Path                              ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                     ; Library ;
 +---------------------------------------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; Source Code/Utility/ClockGenerator.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv                         ;         ;
+; Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv ;         ;
 ; Source Code/User Interface Modules/MusicKeysController.sv     ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv     ;         ;
 ; Source Code/User Interface Modules/MusicBoxStateController.sv ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv ;         ;
 ; Source Code/User Interface Modules/UI_TriggerSmoother.sv      ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv      ;         ;
@@ -189,59 +192,59 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 157                         ;
+; Estimated Total logic elements              ; 160                         ;
 ;                                             ;                             ;
-; Total combinational functions               ; 157                         ;
+; Total combinational functions               ; 160                         ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 49                          ;
+;     -- 4 input functions                    ; 54                          ;
 ;     -- 3 input functions                    ; 3                           ;
-;     -- <=2 input functions                  ; 105                         ;
+;     -- <=2 input functions                  ; 103                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 70                          ;
-;     -- arithmetic mode                      ; 87                          ;
+;     -- normal mode                          ; 67                          ;
+;     -- arithmetic mode                      ; 93                          ;
 ;                                             ;                             ;
-; Total registers                             ; 98                          ;
-;     -- Dedicated logic registers            ; 98                          ;
+; Total registers                             ; 104                         ;
+;     -- Dedicated logic registers            ; 104                         ;
 ;     -- I/O registers                        ; 0                           ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 114                         ;
 ;                                             ;                             ;
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ;                                             ;                             ;
-; Maximum fan-out node                        ; max10Board_Buttons[0]~input ;
-; Maximum fan-out                             ; 98                          ;
-; Total fan-out                               ; 975                         ;
-; Average fan-out                             ; 1.95                        ;
+; Maximum fan-out node                        ; max10Board_50MhzClock~input ;
+; Maximum fan-out                             ; 87                          ;
+; Total fan-out                               ; 1010                        ;
+; Average fan-out                             ; 1.99                        ;
 +---------------------------------------------+-----------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                 ;
-+------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node                           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                            ; Entity Name             ; Library Name ;
-+------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------+-------------------------+--------------+
-; |MusicBox_Main                                       ; 157 (0)             ; 98 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 114  ; 0            ; 0          ; |MusicBox_Main                                                 ; MusicBox_Main           ; work         ;
-;    |ClockGenerator:clockGenerator_1Khz|              ; 28 (28)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1Khz              ; ClockGenerator          ; work         ;
-;    |ClockGenerator:clockGenerator_1hz|               ; 21 (21)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1hz               ; ClockGenerator          ; work         ;
-;    |MusicBoxStateController:musicBoxStateController| ; 4 (4)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController ; MusicBoxStateController ; work         ;
-;    |UI_TriggerSmoother:UIs_Makerecording|            ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording            ; UI_TriggerSmoother      ; work         ;
-;    |UI_TriggerSmoother:UIs_PlayRecording|            ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording            ; UI_TriggerSmoother      ; work         ;
-;    |UI_TriggerSmoother:UIs_PlaySong0|                ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                ; UI_TriggerSmoother      ; work         ;
-;    |UI_TriggerSmoother:UIs_PlaySong1|                ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1                ; UI_TriggerSmoother      ; work         ;
-+------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------+-------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                    ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                            ; Entity Name             ; Library Name ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; |MusicBox_Main                                          ; 160 (0)             ; 104 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 114  ; 0            ; 0          ; |MusicBox_Main                                                                                                 ; MusicBox_Main           ; work         ;
+;    |ClockGenerator:clockGenerator_1Khz|                 ; 27 (27)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1Khz                                                              ; ClockGenerator          ; work         ;
+;    |MusicBoxStateController:musicBoxStateController|    ; 34 (11)             ; 20 (3)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController                                                 ; MusicBoxStateController ; work         ;
+;       |MusicBoxState_PlaySong0:musicBoxState_PlaySong0| ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0 ; MusicBoxState_PlaySong0 ; work         ;
+;    |UI_TriggerSmoother:UIs_Makerecording|               ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording                                                            ; UI_TriggerSmoother      ; work         ;
+;    |UI_TriggerSmoother:UIs_PlayRecording|               ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording                                                            ; UI_TriggerSmoother      ; work         ;
+;    |UI_TriggerSmoother:UIs_PlaySong0|                   ; 21 (21)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                                                                ; UI_TriggerSmoother      ; work         ;
+;    |UI_TriggerSmoother:UIs_PlaySong1|                   ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1                                                                ; UI_TriggerSmoother      ; work         ;
++---------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                 ;
-+---------------------------------------------------------------------+------------------------------------------------------------------------------+
-; Register name                                                       ; Reason for Removal                                                           ;
-+---------------------------------------------------------------------+------------------------------------------------------------------------------+
-; MusicBoxStateController:musicBoxStateController|currentState[3..30] ; Merged with MusicBoxStateController:musicBoxStateController|currentState[31] ;
-; MusicBoxStateController:musicBoxStateController|currentState[31]    ; Stuck at GND due to stuck port data_in                                       ;
-; Total Number of Removed Registers = 29                              ;                                                                              ;
-+---------------------------------------------------------------------+------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                       ;
++---------------------------------------------------------------------------+------------------------------------------------------------------------------+
+; Register name                                                             ; Reason for Removal                                                           ;
++---------------------------------------------------------------------------+------------------------------------------------------------------------------+
+; MusicBoxStateController:musicBoxStateController|currentState[3..9,11..31] ; Merged with MusicBoxStateController:musicBoxStateController|currentState[10] ;
+; MusicBoxStateController:musicBoxStateController|currentState[10]          ; Stuck at GND due to stuck port data_in                                       ;
+; Total Number of Removed Registers = 29                                    ;                                                                              ;
++---------------------------------------------------------------------------+------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -249,27 +252,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 98    ;
-; Number of registers using Synchronous Clear  ; 68    ;
+; Total registers                              ; 104   ;
+; Number of registers using Synchronous Clear  ; 84    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 96    ;
+; Number of registers using Asynchronous Clear ; 71    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 71    ;
+; Number of registers using Clock Enable       ; 84    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0|timeCounter[8]                 ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1|timeCounter[6]                 ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording|timeCounter[13]            ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording|timeCounter[1]             ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[2] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|counter[0] ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0|timeCounter[14]                                                           ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1|timeCounter[1]                                                            ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording|timeCounter[13]                                                       ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording|timeCounter[11]                                                       ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[2]                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------+
@@ -294,6 +298,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"                                                         ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; outputClock ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "MusicKeysController:musicKeysController"                                                                             ;
 +------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
@@ -304,13 +317,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"                                                                ;
-+-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                  ;
-+-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; debugString ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0"                                                                                          ;
++--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type  ; Severity ; Details                                                                                                                                                                            ;
++--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; currentState ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"                                                  ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                             ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
+; debugString[31..5] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -319,23 +341,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 114                         ;
-; cycloneiii_ff         ; 98                          ;
-;     CLR               ; 25                          ;
-;     ENA CLR           ; 3                           ;
+; cycloneiii_ff         ; 104                         ;
+;     CLR               ; 3                           ;
 ;     ENA CLR SCLR      ; 68                          ;
-;     plain             ; 2                           ;
+;     ENA SCLR          ; 16                          ;
+;     plain             ; 17                          ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 158                         ;
-;     arith             ; 87                          ;
-;         2 data inputs ; 87                          ;
-;     normal            ; 71                          ;
+; cycloneiii_lcell_comb ; 161                         ;
+;     arith             ; 93                          ;
+;         2 data inputs ; 93                          ;
+;     normal            ; 68                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 6                           ;
-;         2 data inputs ; 12                          ;
+;         2 data inputs ; 4                           ;
 ;         3 data inputs ; 3                           ;
-;         4 data inputs ; 49                          ;
+;         4 data inputs ; 54                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
+; Max LUT depth         ; 6.00                        ;
 ; Average LUT depth     ; 2.82                        ;
 +-----------------------+-----------------------------+
 
@@ -355,7 +377,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Jan 26 12:18:06 2020
+    Info: Processing started: Sun Jan 26 13:13:51 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -374,7 +396,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file source 
 Info (12127): Elaborating entity "MusicBox_Main" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at MusicBox_Main.sv(89): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 89
 Warning (10034): Output port "max10Board_LEDSegments" at MusicBox_Main.sv(8) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
-Warning (10034): Output port "max10Board_LED[7..5]" at MusicBox_Main.sv(33) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
 Warning (10034): Output port "max10Board_SDRAM_Address" at MusicBox_Main.sv(46) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
 Warning (10034): Output port "max10Board_SDRAM_BankAddress" at MusicBox_Main.sv(47) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 47
 Warning (10034): Output port "max10Board_SDRAM_Clock" at MusicBox_Main.sv(44) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
@@ -385,10 +406,11 @@ Warning (10034): Output port "max10Board_SDRAM_ChipSelect_n" at MusicBox_Main.sv
 Warning (10034): Output port "max10Board_SDRAM_WriteEnable_n" at MusicBox_Main.sv(54) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 54
 Warning (10034): Output port "max10Board_SDRAM_ColumnAddressStrobe_n" at MusicBox_Main.sv(55) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 55
 Warning (10034): Output port "max10Board_SDRAM_RowAddressStrobe_n" at MusicBox_Main.sv(56) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 56
-Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 119
-Warning (10230): Verilog HDL assignment warning at MusicBoxStateController.sv(39): truncated value with size 32 to match size of target (5) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 39
-Warning (10034): Output port "debugString" at MusicBoxStateController.sv(34) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 34
-Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 131
+Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 121
+Warning (10230): Verilog HDL assignment warning at MusicBoxStateController.sv(40): truncated value with size 32 to match size of target (5) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 40
+Info (12128): Elaborating entity "MusicBoxState_PlaySong0" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 111
+Warning (10230): Verilog HDL assignment warning at MusicBoxState_PlaySong0.sv(32): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv Line: 32
+Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 133
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(15): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 15
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(16): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 16
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(17): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 17
@@ -396,12 +418,12 @@ Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(18): t
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(19): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 19
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(20): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 20
 Warning (10034): Output port "debugString" at MusicKeysController.sv(7) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 7
-Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 144
+Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 146
 Warning (10230): Verilog HDL assignment warning at UI_TriggerSmoother.sv(30): truncated value with size 32 to match size of target (17) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv Line: 30
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 210
-Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(31): truncated value with size 32 to match size of target (15) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 31
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 219
-Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(31): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 31
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 212
+Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(35): truncated value with size 32 to match size of target (15) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 35
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 221
+Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(35): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 35
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "max10Board_SDRAM_Data[0]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
@@ -465,9 +487,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "max10Board_LEDSegments[5][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 8
     Warning (13410): Pin "max10Board_LED[3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
     Warning (13410): Pin "max10Board_LED[4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
-    Warning (13410): Pin "max10Board_LED[5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
-    Warning (13410): Pin "max10Board_LED[6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
-    Warning (13410): Pin "max10Board_LED[7]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 33
     Warning (13410): Pin "max10Board_SDRAM_Clock" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
     Warning (13410): Pin "max10Board_SDRAM_ClockEnable" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 45
     Warning (13410): Pin "max10Board_SDRAM_Address[0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 46
@@ -513,16 +532,16 @@ Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[3]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[4]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[5]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
-Info (21057): Implemented 272 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 275 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 75 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 158 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 133 warnings
-    Info: Peak virtual memory: 4761 megabytes
-    Info: Processing ended: Sun Jan 26 12:18:22 2020
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:33
+    Info (21061): Implemented 161 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 129 warnings
+    Info: Peak virtual memory: 4759 megabytes
+    Info: Processing ended: Sun Jan 26 13:14:11 2020
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:41
 
 
 +------------------------------------------+

@@ -14,12 +14,16 @@ module ClockGenerator  #(parameter BitsNeeded = 15, InputClockEdgesToCount = 250
 		);
 		
 		reg [BitsNeeded - 1 : 0] counter ;
+		//reg a_outputClock;
 		
-		always_ff @(posedge inputClock, negedge reset_n) begin
-			if (reset_n == 0 ) begin
-				counter <= 0;
-			end
-			else begin
+		//assign outputClock = a_outputClock;
+		
+		//, negedge reset_n  Removed reset as it was causing timing problems.
+		always_ff @(posedge inputClock) begin
+			//if (reset_n == 0 ) begin
+			//	counter <= 0;
+		//	end
+			//else begin
 				//If counter is sitting at the required amount of clock edges
 				if (counter == InputClockEdgesToCount) begin
 					counter <= 0;
@@ -30,7 +34,7 @@ module ClockGenerator  #(parameter BitsNeeded = 15, InputClockEdgesToCount = 250
 				else begin
 					counter <= counter + 1;
 				end
-			end
+			//end
 		end
 		
 endmodule

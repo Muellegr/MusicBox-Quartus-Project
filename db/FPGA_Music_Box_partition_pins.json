@@ -16,6 +16,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_LED[5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[7]",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_LED[8]",
 					"strict" : false
 				},
@@ -32,19 +44,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_GPIO_Input_PlayRecording",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_GPIO_Input_PlaySong1",
-					"strict" : false
-				},
-				{
 					"name" : "max10Board_GPIO_Input_MakeRecording",
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_GPIO_Input_PlayRecording",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_GPIO_Input_PlaySong0",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_GPIO_Input_PlaySong1",
 					"strict" : false
 				}
 			]
