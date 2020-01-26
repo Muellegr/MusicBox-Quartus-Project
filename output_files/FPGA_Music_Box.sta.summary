@@ -3,39 +3,75 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'max10Board_50MhzClock'
-Slack : -3.258
-TNS   : -385.024
+Slack : -4.032
+TNS   : -219.964
+
+Type  : Slow 1200mV 85C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -1.861
+TNS   : -14.947
+
+Type  : Slow 1200mV 85C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : 0.329
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'max10Board_50MhzClock'
-Slack : 0.420
+Slack : 0.421
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : -3.000
-TNS   : -221.868
+TNS   : -125.061
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -1.403
+TNS   : -15.433
 
 Type  : Slow 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -2.918
-TNS   : -344.907
+Slack : -3.669
+TNS   : -196.836
+
+Type  : Slow 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -1.587
+TNS   : -12.563
+
+Type  : Slow 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : 0.295
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.386
+Slack : 0.385
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : -3.000
-TNS   : -221.868
+TNS   : -125.061
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -1.403
+TNS   : -15.433
 
 Type  : Fast 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -0.849
-TNS   : -70.541
+Slack : -1.275
+TNS   : -42.726
+
+Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -0.160
+TNS   : -0.531
+
+Type  : Fast 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : 0.143
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.166
+Slack : 0.168
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : -3.000
-TNS   : -185.019
+TNS   : -104.614
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -1.000
+TNS   : -11.000
 
 ------------------------------------------------------------

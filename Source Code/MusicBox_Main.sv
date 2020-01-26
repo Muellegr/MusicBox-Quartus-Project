@@ -94,7 +94,11 @@ module MusicBox_Main(
 	//-- MAIN MODULE CONTROLLER---
 	//----------------------------
 	wire [4:0] outputCurrentState;
-	assign max10Board_LED[9:5] = musicKeysDebugTemp;
+	
+	assign max10Board_LED[9] = CLK_1Hz;
+	assign max10Board_LED[8] = CLK_1kHz;
+	
+	//assign max10Board_LED[9:5] = musicKeysDebugTemp;
 	assign max10Board_LED[4:0] = outputCurrentState;
 	MusicBoxStateController musicBoxStateController (
 		//==INPUT
@@ -197,6 +201,23 @@ module MusicBox_Main(
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
 	
+	//--MISC CLOCK GENERATORS
+	wire CLK_1kHz ;
+	ClockGenerator clockGenerator_1Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_1kHz)
+	);
+	defparam	clockGenerator_1Khz.BitsNeeded = 15; //Must be able to count up to InputClockEdgesToCount.  
+	defparam	clockGenerator_1Khz.InputClockEdgesToCount = 25000;
 	
+	wire CLK_1Hz ;
+	ClockGenerator clockGenerator_1hz (
+		.inputClock(CLK_1kHz),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_1Hz)
+	);
+	defparam	clockGenerator_1hz.BitsNeeded = 10; //Must be able to count up to InputClockEdgesToCount.  
+	defparam	clockGenerator_1hz.InputClockEdgesToCount = 500;
 	
 endmodule
