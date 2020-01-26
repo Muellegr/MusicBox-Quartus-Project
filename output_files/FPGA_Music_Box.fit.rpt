@@ -1,5 +1,5 @@
 Fitter report for FPGA_Music_Box
-Sun Jan 26 13:14:30 2020
+Sun Jan 26 13:37:25 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -69,17 +69,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sun Jan 26 13:14:30 2020       ;
+; Fitter Status                      ; Successful - Sun Jan 26 13:37:25 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 163 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 161 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 104 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 104                                         ;
+; Total logic elements               ; 379 / 49,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 378 / 49,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 240 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 240                                         ;
 ; Total pins                         ; 114 / 360 ( 32 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -155,12 +155,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
+; Average used               ; 1.04        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.2%      ;
+;     Processor 2            ;   4.1%      ;
 +----------------------------+-------------+
 
 
@@ -188,8 +188,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 530 ) ; 0.00 % ( 0 / 530 )         ; 0.00 % ( 0 / 530 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 530 ) ; 0.00 % ( 0 / 530 )         ; 0.00 % ( 0 / 530 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 883 ) ; 0.00 % ( 0 / 883 )         ; 0.00 % ( 0 / 883 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 883 ) ; 0.00 % ( 0 / 883 )         ; 0.00 % ( 0 / 883 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -212,7 +212,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 514 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 867 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -228,26 +228,26 @@ The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 163 / 49,760 ( < 1 % ) ;
-;     -- Combinational with no register       ; 59                     ;
-;     -- Register only                        ; 2                      ;
-;     -- Combinational with a register        ; 102                    ;
+; Total logic elements                        ; 379 / 49,760 ( < 1 % ) ;
+;     -- Combinational with no register       ; 139                    ;
+;     -- Register only                        ; 1                      ;
+;     -- Combinational with a register        ; 239                    ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 54                     ;
-;     -- 3 input functions                    ; 3                      ;
-;     -- <=2 input functions                  ; 104                    ;
-;     -- Register only                        ; 2                      ;
+;     -- 4 input functions                    ; 119                    ;
+;     -- 3 input functions                    ; 14                     ;
+;     -- <=2 input functions                  ; 245                    ;
+;     -- Register only                        ; 1                      ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 68                     ;
-;     -- arithmetic mode                      ; 93                     ;
+;     -- normal mode                          ; 160                    ;
+;     -- arithmetic mode                      ; 218                    ;
 ;                                             ;                        ;
-; Total registers*                            ; 104 / 51,509 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 104 / 49,760 ( < 1 % ) ;
+; Total registers*                            ; 240 / 51,509 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 240 / 49,760 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )      ;
 ;                                             ;                        ;
-; Total LABs:  partially or completely used   ; 14 / 3,110 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 30 / 3,110 ( < 1 % )   ;
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 114 / 360 ( 32 % )     ;
 ;     -- Clock pins                           ; 2 / 8 ( 25 % )         ;
@@ -267,12 +267,12 @@ The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342
 ; Remote update blocks                        ; 0 / 1 ( 0 % )          ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.1%     ;
-; Peak interconnect usage (total/H/V)         ; 0.9% / 1.1% / 0.7%     ;
-; Maximum fan-out                             ; 87                     ;
-; Highest non-global fan-out                  ; 71                     ;
-; Total fan-out                               ; 1025                   ;
-; Average fan-out                             ; 1.93                   ;
+; Average interconnect usage (total/H/V)      ; 0.2% / 0.1% / 0.2%     ;
+; Peak interconnect usage (total/H/V)         ; 1.6% / 1.2% / 2.2%     ;
+; Maximum fan-out                             ; 172                    ;
+; Highest non-global fan-out                  ; 156                    ;
+; Total fan-out                               ; 2151                   ;
+; Average fan-out                             ; 2.43                   ;
 +---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -285,26 +285,26 @@ The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342
 +---------------------------------------------+-----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                   ; Low                            ;
 ;                                             ;                       ;                                ;
-; Total logic elements                        ; 163 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 59                    ; 0                              ;
-;     -- Register only                        ; 2                     ; 0                              ;
-;     -- Combinational with a register        ; 102                   ; 0                              ;
+; Total logic elements                        ; 379 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 139                   ; 0                              ;
+;     -- Register only                        ; 1                     ; 0                              ;
+;     -- Combinational with a register        ; 239                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic element usage by number of LUT inputs ;                       ;                                ;
-;     -- 4 input functions                    ; 54                    ; 0                              ;
-;     -- 3 input functions                    ; 3                     ; 0                              ;
-;     -- <=2 input functions                  ; 104                   ; 0                              ;
-;     -- Register only                        ; 2                     ; 0                              ;
+;     -- 4 input functions                    ; 119                   ; 0                              ;
+;     -- 3 input functions                    ; 14                    ; 0                              ;
+;     -- <=2 input functions                  ; 245                   ; 0                              ;
+;     -- Register only                        ; 1                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Logic elements by mode                      ;                       ;                                ;
-;     -- normal mode                          ; 68                    ; 0                              ;
-;     -- arithmetic mode                      ; 93                    ; 0                              ;
+;     -- normal mode                          ; 160                   ; 0                              ;
+;     -- arithmetic mode                      ; 218                   ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total registers                             ; 104                   ; 0                              ;
-;     -- Dedicated logic registers            ; 104 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
+; Total registers                             ; 240                   ; 0                              ;
+;     -- Dedicated logic registers            ; 240 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
 ;     -- I/O registers                        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
-; Total LABs:  partially or completely used   ; 14 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
+; Total LABs:  partially or completely used   ; 30 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
 ;                                             ;                       ;                                ;
 ; Virtual pins                                ; 0                     ; 0                              ;
 ; I/O pins                                    ; 114                   ; 0                              ;
@@ -322,8 +322,8 @@ The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342
 ;     -- Registered Output Connections        ; 0                     ; 0                              ;
 ;                                             ;                       ;                                ;
 ; Internal Connections                        ;                       ;                                ;
-;     -- Total Connections                    ; 1031                  ; 8                              ;
-;     -- Registered Connections               ; 252                   ; 0                              ;
+;     -- Total Connections                    ; 2157                  ; 8                              ;
+;     -- Registered Connections               ; 604                   ; 0                              ;
 ;                                             ;                       ;                                ;
 ; External Connections                        ;                       ;                                ;
 ;     -- Top                                  ; 32                    ; 0                              ;
@@ -355,15 +355,15 @@ The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342
 +-------------------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+-----------------------+---------------------------+----------------------+-----------+
 ; Name                                ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard          ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-------------------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+-----------------------+---------------------------+----------------------+-----------+
-; max10Board_50MhzClock               ; P11   ; 3        ; 34           ; 0            ; 28           ; 87                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
-; max10Board_Buttons[0]               ; B8    ; 7        ; 46           ; 54           ; 28           ; 71                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+; max10Board_50MhzClock               ; P11   ; 3        ; 34           ; 0            ; 28           ; 172                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
+; max10Board_Buttons[0]               ; B8    ; 7        ; 46           ; 54           ; 28           ; 156                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_Buttons[1]               ; A7    ; 7        ; 49           ; 54           ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_GPIO_Input_MakeRecording ; V5    ; 3        ; 14           ; 0            ; 7            ; 18                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
-; max10Board_GPIO_Input_MusicKeys[0]  ; V10   ; 3        ; 31           ; 0            ; 21           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
-; max10Board_GPIO_Input_MusicKeys[1]  ; W10   ; 3        ; 24           ; 0            ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
-; max10Board_GPIO_Input_MusicKeys[2]  ; V9    ; 3        ; 31           ; 0            ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
-; max10Board_GPIO_Input_MusicKeys[3]  ; W9    ; 3        ; 22           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
-; max10Board_GPIO_Input_MusicKeys[4]  ; V8    ; 3        ; 20           ; 0            ; 14           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+; max10Board_GPIO_Input_MusicKeys[0]  ; V10   ; 3        ; 31           ; 0            ; 21           ; 19                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+; max10Board_GPIO_Input_MusicKeys[1]  ; W10   ; 3        ; 24           ; 0            ; 28           ; 19                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+; max10Board_GPIO_Input_MusicKeys[2]  ; V9    ; 3        ; 31           ; 0            ; 28           ; 19                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+; max10Board_GPIO_Input_MusicKeys[3]  ; W9    ; 3        ; 22           ; 0            ; 0            ; 19                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+; max10Board_GPIO_Input_MusicKeys[4]  ; V8    ; 3        ; 20           ; 0            ; 14           ; 19                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_GPIO_Input_MusicKeys[5]  ; W8    ; 3        ; 24           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_GPIO_Input_PlayRecording ; W5    ; 3        ; 14           ; 0            ; 0            ; 18                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_GPIO_Input_PlaySong0     ; W6    ; 3        ; 16           ; 0            ; 28           ; 19                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
@@ -1113,20 +1113,29 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------------+------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                       ;
-+---------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node                              ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                            ; Entity Name             ; Library Name ;
-+---------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |MusicBox_Main                                          ; 163 (1)     ; 104 (0)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 114  ; 0            ; 59 (1)       ; 2 (0)             ; 102 (0)          ; 0          ; |MusicBox_Main                                                                                                 ; MusicBox_Main           ; work         ;
-;    |ClockGenerator:clockGenerator_1Khz|                 ; 28 (28)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 12 (12)      ; 1 (1)             ; 15 (15)          ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1Khz                                                              ; ClockGenerator          ; work         ;
-;    |MusicBoxStateController:musicBoxStateController|    ; 35 (11)     ; 20 (3)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 15 (8)       ; 1 (0)             ; 19 (3)           ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController                                                 ; MusicBoxStateController ; work         ;
-;       |MusicBoxState_PlaySong0:musicBoxState_PlaySong0| ; 24 (24)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 1 (1)             ; 16 (16)          ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0 ; MusicBoxState_PlaySong0 ; work         ;
-;    |UI_TriggerSmoother:UIs_Makerecording|               ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording                                                            ; UI_TriggerSmoother      ; work         ;
-;    |UI_TriggerSmoother:UIs_PlayRecording|               ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording                                                            ; UI_TriggerSmoother      ; work         ;
-;    |UI_TriggerSmoother:UIs_PlaySong0|                   ; 21 (21)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                                                                ; UI_TriggerSmoother      ; work         ;
-;    |UI_TriggerSmoother:UIs_PlaySong1|                   ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1                                                                ; UI_TriggerSmoother      ; work         ;
-+---------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++-----------------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                                      ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                                    ; Entity Name                 ; Library Name ;
++-----------------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |MusicBox_Main                                                  ; 379 (1)     ; 240 (0)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 114  ; 0            ; 139 (1)      ; 1 (0)             ; 239 (0)          ; 0          ; |MusicBox_Main                                                                                                         ; MusicBox_Main               ; work         ;
+;    |ClockGenerator:clockGenerator_1Khz|                         ; 29 (29)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 13 (13)      ; 1 (1)             ; 15 (15)          ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1Khz                                                                      ; ClockGenerator              ; work         ;
+;    |MusicBoxStateController:musicBoxStateController|            ; 105 (13)    ; 71 (3)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 34 (10)      ; 0 (0)             ; 71 (3)           ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController                                                         ; MusicBoxStateController     ; work         ;
+;       |MusicBoxState_MakeRecording:musicBoxState_MakeRecording| ; 23 (23)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording ; MusicBoxState_MakeRecording ; work         ;
+;       |MusicBoxState_PlayRecording:MusicBoxState_PlayRecording| ; 23 (23)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording ; MusicBoxState_PlayRecording ; work         ;
+;       |MusicBoxState_PlaySong0:musicBoxState_PlaySong0|         ; 23 (23)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0         ; MusicBoxState_PlaySong0     ; work         ;
+;       |MusicBoxState_PlaySong1:musicBoxState_PlaySong1|         ; 23 (23)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1         ; MusicBoxState_PlaySong1     ; work         ;
+;    |MusicKeysController:musicKeysController|                    ; 35 (35)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 35 (35)      ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|MusicKeysController:musicKeysController                                                                 ; MusicKeysController         ; work         ;
+;    |UI_TriggerSmoother:UIs_Makerecording|                       ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording                                                                    ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_MusicKeys0|                          ; 21 (21)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys0                                                                       ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_MusicKeys1|                          ; 21 (21)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys1                                                                       ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_MusicKeys2|                          ; 21 (21)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys2                                                                       ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_MusicKeys3|                          ; 21 (21)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys3                                                                       ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_MusicKeys4|                          ; 21 (21)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys4                                                                       ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_PlayRecording|                       ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording                                                                    ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_PlaySong0|                           ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                                                                        ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_PlaySong1|                           ; 26 (26)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 0 (0)             ; 17 (17)          ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1                                                                        ; UI_TriggerSmoother          ; work         ;
++-----------------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -1221,11 +1230,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10Board_SDRAM_WriteEnable_n         ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_SDRAM_ColumnAddressStrobe_n ; Output   ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_SDRAM_RowAddressStrobe_n    ; Output   ; --            ; --            ; --                    ; --  ; --   ;
-; max10Board_GPIO_Input_MusicKeys[0]     ; Input    ; --            ; --            ; --                    ; --  ; --   ;
-; max10Board_GPIO_Input_MusicKeys[1]     ; Input    ; --            ; --            ; --                    ; --  ; --   ;
-; max10Board_GPIO_Input_MusicKeys[2]     ; Input    ; --            ; --            ; --                    ; --  ; --   ;
-; max10Board_GPIO_Input_MusicKeys[3]     ; Input    ; --            ; --            ; --                    ; --  ; --   ;
-; max10Board_GPIO_Input_MusicKeys[4]     ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_GPIO_Input_MusicKeys[5]     ; Input    ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_SDRAM_Data[0]               ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_SDRAM_Data[1]               ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
@@ -1245,10 +1249,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10Board_SDRAM_Data[15]              ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_50MhzClock                  ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; max10Board_Buttons[0]                  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; max10Board_GPIO_Input_MakeRecording    ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; max10Board_GPIO_Input_MusicKeys[0]     ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; max10Board_GPIO_Input_MusicKeys[1]     ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; max10Board_GPIO_Input_MusicKeys[2]     ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
+; max10Board_GPIO_Input_MusicKeys[3]     ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; max10Board_GPIO_Input_MusicKeys[4]     ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; max10Board_GPIO_Input_PlayRecording    ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; max10Board_GPIO_Input_PlaySong1        ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; max10Board_GPIO_Input_PlaySong0        ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; max10Board_GPIO_Input_PlaySong1        ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; max10Board_GPIO_Input_MakeRecording    ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 +----------------------------------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
@@ -1268,11 +1277,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10board_switches[7]                                                 ;                   ;         ;
 ; max10board_switches[8]                                                 ;                   ;         ;
 ; max10board_switches[9]                                                 ;                   ;         ;
-; max10Board_GPIO_Input_MusicKeys[0]                                     ;                   ;         ;
-; max10Board_GPIO_Input_MusicKeys[1]                                     ;                   ;         ;
-; max10Board_GPIO_Input_MusicKeys[2]                                     ;                   ;         ;
-; max10Board_GPIO_Input_MusicKeys[3]                                     ;                   ;         ;
-; max10Board_GPIO_Input_MusicKeys[4]                                     ;                   ;         ;
 ; max10Board_GPIO_Input_MusicKeys[5]                                     ;                   ;         ;
 ; max10Board_SDRAM_Data[0]                                               ;                   ;         ;
 ; max10Board_SDRAM_Data[1]                                               ;                   ;         ;
@@ -1292,9 +1296,91 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10Board_SDRAM_Data[15]                                              ;                   ;         ;
 ; max10Board_50MhzClock                                                  ;                   ;         ;
 ; max10Board_Buttons[0]                                                  ;                   ;         ;
-;      - MusicBoxStateController:musicBoxStateController|currentState[0] ; 0                 ; 6       ;
-;      - MusicBoxStateController:musicBoxStateController|currentState[1] ; 0                 ; 6       ;
-;      - MusicBoxStateController:musicBoxStateController|currentState[2] ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[0]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[1]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[2]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[3]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[4]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[5]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[6]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[7]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[8]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[9]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[10]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[11]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[12]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[13]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[14]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[15]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[16]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[0]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[1]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[2]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[3]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[4]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[5]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[6]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[7]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[8]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[9]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[10]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[11]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[12]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[13]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[14]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[15]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[16]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[0]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[1]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[2]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[3]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[4]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[5]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[6]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[7]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[8]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[9]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[10]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[11]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[12]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[13]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[14]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[15]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[16]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[0]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[1]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[2]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[3]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[4]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[5]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[6]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[7]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[8]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[9]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[10]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[11]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[12]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[13]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[14]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[15]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[16]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[0]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[1]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[2]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[3]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[4]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[5]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[6]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[7]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[8]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[9]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[10]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[11]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[12]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[13]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[14]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[15]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[16]               ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[0]             ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[1]             ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[2]             ; 0                 ; 6       ;
@@ -1363,25 +1449,90 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[14]                ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[15]                ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[16]                ; 0                 ; 6       ;
-; max10Board_GPIO_Input_MakeRecording                                    ;                   ;         ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[0]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[1]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[2]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[3]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[4]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[5]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[6]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[7]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[8]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[9]             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[10]            ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[11]            ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[12]            ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[13]            ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[14]            ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[15]            ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[16]            ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[11]~41         ; 0                 ; 6       ;
+;      - MusicBoxStateController:musicBoxStateController|currentState[0] ; 0                 ; 6       ;
+;      - MusicBoxStateController:musicBoxStateController|currentState[1] ; 0                 ; 6       ;
+;      - MusicBoxStateController:musicBoxStateController|currentState[2] ; 0                 ; 6       ;
+; max10Board_GPIO_Input_MusicKeys[0]                                     ;                   ;         ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[0]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[1]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[2]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[3]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[4]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[5]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[6]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[7]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[8]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[9]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[10]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[11]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[12]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[13]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[14]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[15]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[16]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[5]~33             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[5]~34             ; 0                 ; 6       ;
+; max10Board_GPIO_Input_MusicKeys[1]                                     ;                   ;         ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[0]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[1]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[2]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[3]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[4]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[5]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[6]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[7]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[8]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[9]                ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[10]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[11]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[12]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[13]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[14]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[15]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[16]               ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[5]~33             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[5]~34             ; 0                 ; 6       ;
+; max10Board_GPIO_Input_MusicKeys[2]                                     ;                   ;         ;
+; max10Board_GPIO_Input_MusicKeys[3]                                     ;                   ;         ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[0]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[1]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[2]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[3]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[4]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[5]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[6]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[7]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[8]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[9]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[10]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[11]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[12]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[13]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[14]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[15]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[16]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[3]~33             ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[3]~34             ; 1                 ; 6       ;
+; max10Board_GPIO_Input_MusicKeys[4]                                     ;                   ;         ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[0]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[1]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[2]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[3]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[4]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[5]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[6]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[7]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[8]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[9]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[10]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[11]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[12]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[13]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[14]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[15]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[16]               ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[6]~33             ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[6]~34             ; 1                 ; 6       ;
 ; max10Board_GPIO_Input_PlayRecording                                    ;                   ;         ;
 ;      - UI_TriggerSmoother:UIs_PlayRecording|timeCounter[0]             ; 1                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlayRecording|timeCounter[1]             ; 1                 ; 6       ;
@@ -1400,7 +1551,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - UI_TriggerSmoother:UIs_PlayRecording|timeCounter[14]            ; 1                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlayRecording|timeCounter[15]            ; 1                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlayRecording|timeCounter[16]            ; 1                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlayRecording|timeCounter[13]~41         ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlayRecording|timeCounter[12]~41         ; 1                 ; 6       ;
+; max10Board_GPIO_Input_PlaySong1                                        ;                   ;         ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[0]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[1]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[2]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[3]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[4]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[5]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[6]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[7]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[8]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[9]                 ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[10]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[11]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[12]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[13]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[14]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[15]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[16]                ; 1                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[2]~41              ; 1                 ; 6       ;
 ; max10Board_GPIO_Input_PlaySong0                                        ;                   ;         ;
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]                 ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[1]                 ; 0                 ; 6       ;
@@ -1419,59 +1589,71 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[14]                ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[15]                ; 0                 ; 6       ;
 ;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[16]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[14]~49             ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[14]~50             ; 0                 ; 6       ;
-; max10Board_GPIO_Input_PlaySong1                                        ;                   ;         ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[0]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[1]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[2]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[3]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[4]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[5]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[6]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[7]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[8]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[9]                 ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[10]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[11]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[12]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[13]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[14]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[15]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[16]                ; 0                 ; 6       ;
-;      - UI_TriggerSmoother:UIs_PlaySong1|timeCounter[1]~41              ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[3]~53              ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_PlaySong0|timeCounter[3]~54              ; 0                 ; 6       ;
+; max10Board_GPIO_Input_MakeRecording                                    ;                   ;         ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[0]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[1]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[2]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[3]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[4]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[5]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[6]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[7]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[8]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[9]             ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[10]            ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[11]            ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[12]            ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[13]            ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[14]            ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[15]            ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[16]            ; 0                 ; 6       ;
+;      - UI_TriggerSmoother:UIs_Makerecording|timeCounter[5]~41          ; 0                 ; 6       ;
 +------------------------------------------------------------------------+-------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                                                            ;
-+---------------------------------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                                                                                          ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------------------------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; ClockGenerator:clockGenerator_1Khz|outputClock                                                                ; FF_X45_Y51_N1      ; 17      ; Clock        ; yes    ; Global Clock         ; GCLK12           ; --                        ;
-; MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|Equal0~0      ; LCCOMB_X36_Y25_N18 ; 17      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|counter[0]~23 ; LCCOMB_X35_Y25_N14 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; UI_TriggerSmoother:UIs_Makerecording|timeCounter[11]~41                                                       ; LCCOMB_X31_Y24_N22 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; UI_TriggerSmoother:UIs_PlayRecording|timeCounter[13]~41                                                       ; LCCOMB_X38_Y24_N18 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; UI_TriggerSmoother:UIs_PlaySong0|timeCounter[14]~50                                                           ; LCCOMB_X32_Y24_N20 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; UI_TriggerSmoother:UIs_PlaySong1|timeCounter[1]~41                                                            ; LCCOMB_X37_Y24_N22 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; max10Board_50MhzClock                                                                                         ; PIN_P11            ; 87      ; Clock        ; yes    ; Global Clock         ; GCLK19           ; --                        ;
-; max10Board_Buttons[0]                                                                                         ; PIN_B8             ; 71      ; Async. clear ; no     ; --                   ; --               ; --                        ;
-; max10Board_GPIO_Input_MakeRecording                                                                           ; PIN_V5             ; 18      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; max10Board_GPIO_Input_PlayRecording                                                                           ; PIN_W5             ; 18      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; max10Board_GPIO_Input_PlaySong0                                                                               ; PIN_W6             ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; max10Board_GPIO_Input_PlaySong1                                                                               ; PIN_W7             ; 18      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-+---------------------------------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                                                                    ;
++-----------------------------------------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                                                                  ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-----------------------------------------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; FF_X7_Y36_N3       ; 68      ; Clock        ; yes    ; Global Clock         ; GCLK1            ; --                        ;
+; MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|counter[5]~50 ; LCCOMB_X42_Y22_N6  ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|counter[0]~50 ; LCCOMB_X39_Y22_N26 ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|counter[12]~50        ; LCCOMB_X41_Y20_N28 ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1|counter[4]~50         ; LCCOMB_X41_Y21_N16 ; 16      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_Makerecording|timeCounter[5]~41                                                                ; LCCOMB_X40_Y21_N30 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[5]~34                                                                   ; LCCOMB_X34_Y24_N26 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[5]~34                                                                   ; LCCOMB_X41_Y24_N26 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[2]~34                                                                   ; LCCOMB_X42_Y25_N14 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[3]~34                                                                   ; LCCOMB_X36_Y24_N26 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[6]~34                                                                   ; LCCOMB_X35_Y24_N26 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_PlayRecording|timeCounter[12]~41                                                               ; LCCOMB_X36_Y21_N26 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_PlaySong0|timeCounter[3]~54                                                                    ; LCCOMB_X37_Y21_N26 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; UI_TriggerSmoother:UIs_PlaySong1|timeCounter[2]~41                                                                    ; LCCOMB_X40_Y24_N20 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; max10Board_50MhzClock                                                                                                 ; PIN_P11            ; 172     ; Clock        ; yes    ; Global Clock         ; GCLK19           ; --                        ;
+; max10Board_Buttons[0]                                                                                                 ; PIN_B8             ; 156     ; Async. clear ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_MakeRecording                                                                                   ; PIN_V5             ; 18      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_MusicKeys[0]                                                                                    ; PIN_V10            ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_MusicKeys[1]                                                                                    ; PIN_W10            ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_MusicKeys[2]                                                                                    ; PIN_V9             ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_MusicKeys[3]                                                                                    ; PIN_W9             ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_MusicKeys[4]                                                                                    ; PIN_V8             ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_PlayRecording                                                                                   ; PIN_W5             ; 18      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_PlaySong0                                                                                       ; PIN_W6             ; 19      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; max10Board_GPIO_Input_PlaySong1                                                                                       ; PIN_W7             ; 18      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
++-----------------------------------------------------------------------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                                                                                           ;
-+------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; Name                                           ; Location      ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; ClockGenerator:clockGenerator_1Khz|outputClock ; FF_X45_Y51_N1 ; 17      ; 0                                    ; Global Clock         ; GCLK12           ; --                        ;
-; max10Board_50MhzClock                          ; PIN_P11       ; 87      ; 8                                    ; Global Clock         ; GCLK19           ; --                        ;
-+------------------------------------------------+---------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                                                                                          ;
++------------------------------------------------+--------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; Name                                           ; Location     ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++------------------------------------------------+--------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
+; ClockGenerator:clockGenerator_1Khz|outputClock ; FF_X7_Y36_N3 ; 68      ; 0                                    ; Global Clock         ; GCLK1            ; --                        ;
+; max10Board_50MhzClock                          ; PIN_P11      ; 172     ; 40                                   ; Global Clock         ; GCLK19           ; --                        ;
++------------------------------------------------+--------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
 +-------------------------------------------------+
@@ -1479,59 +1661,59 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 139 / 148,641 ( < 1 % ) ;
-; C16 interconnects     ; 27 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 60 / 106,704 ( < 1 % )  ;
-; Direct links          ; 69 / 148,641 ( < 1 % )  ;
+; Block interconnects   ; 302 / 148,641 ( < 1 % ) ;
+; C16 interconnects     ; 37 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 106 / 106,704 ( < 1 % ) ;
+; Direct links          ; 131 / 148,641 ( < 1 % ) ;
 ; Global clocks         ; 2 / 20 ( 10 % )         ;
-; Local interconnects   ; 137 / 49,760 ( < 1 % )  ;
+; Local interconnects   ; 318 / 49,760 ( < 1 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
-; R24 interconnects     ; 14 / 5,406 ( < 1 % )    ;
-; R4 interconnects      ; 64 / 147,764 ( < 1 % )  ;
+; R24 interconnects     ; 21 / 5,406 ( < 1 % )    ;
+; R4 interconnects      ; 91 / 147,764 ( < 1 % )  ;
 +-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 11.64) ; Number of LABs  (Total = 14) ;
+; Number of Logic Elements  (Average = 12.63) ; Number of LABs  (Total = 30) ;
 +---------------------------------------------+------------------------------+
 ; 1                                           ; 1                            ;
 ; 2                                           ; 0                            ;
 ; 3                                           ; 0                            ;
 ; 4                                           ; 0                            ;
 ; 5                                           ; 0                            ;
-; 6                                           ; 1                            ;
-; 7                                           ; 0                            ;
+; 6                                           ; 2                            ;
+; 7                                           ; 2                            ;
 ; 8                                           ; 0                            ;
 ; 9                                           ; 0                            ;
-; 10                                          ; 1                            ;
+; 10                                          ; 0                            ;
 ; 11                                          ; 1                            ;
-; 12                                          ; 4                            ;
-; 13                                          ; 1                            ;
-; 14                                          ; 3                            ;
-; 15                                          ; 0                            ;
-; 16                                          ; 2                            ;
+; 12                                          ; 2                            ;
+; 13                                          ; 6                            ;
+; 14                                          ; 8                            ;
+; 15                                          ; 1                            ;
+; 16                                          ; 7                            ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 2.21) ; Number of LABs  (Total = 14) ;
+; LAB-wide Signals  (Average = 2.30) ; Number of LABs  (Total = 30) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 9                            ;
-; 1 Clock                            ; 11                           ;
-; 1 Clock enable                     ; 5                            ;
-; 1 Sync. clear                      ; 5                            ;
-; 2 Clocks                           ; 1                            ;
+; 1 Async. clear                     ; 19                           ;
+; 1 Clock                            ; 25                           ;
+; 1 Clock enable                     ; 9                            ;
+; 1 Sync. clear                      ; 14                           ;
+; 2 Clocks                           ; 2                            ;
 +------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 19.07) ; Number of LABs  (Total = 14) ;
+; Number of Signals Sourced  (Average = 20.63) ; Number of LABs  (Total = 30) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 1                            ;
@@ -1539,84 +1721,87 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 3                                            ; 0                            ;
 ; 4                                            ; 0                            ;
 ; 5                                            ; 0                            ;
-; 6                                            ; 1                            ;
+; 6                                            ; 2                            ;
 ; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
+; 8                                            ; 2                            ;
 ; 9                                            ; 0                            ;
 ; 10                                           ; 0                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 0                            ;
-; 14                                           ; 1                            ;
+; 14                                           ; 0                            ;
 ; 15                                           ; 0                            ;
 ; 16                                           ; 0                            ;
 ; 17                                           ; 0                            ;
 ; 18                                           ; 0                            ;
 ; 19                                           ; 2                            ;
 ; 20                                           ; 3                            ;
-; 21                                           ; 0                            ;
+; 21                                           ; 4                            ;
 ; 22                                           ; 1                            ;
-; 23                                           ; 3                            ;
-; 24                                           ; 0                            ;
-; 25                                           ; 1                            ;
-; 26                                           ; 0                            ;
+; 23                                           ; 8                            ;
+; 24                                           ; 2                            ;
+; 25                                           ; 0                            ;
+; 26                                           ; 1                            ;
 ; 27                                           ; 0                            ;
 ; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
 ; 30                                           ; 0                            ;
 ; 31                                           ; 0                            ;
-; 32                                           ; 1                            ;
+; 32                                           ; 4                            ;
 +----------------------------------------------+------------------------------+
 
 
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 5.29) ; Number of LABs  (Total = 14) ;
+; Number of Signals Sourced Out  (Average = 5.60) ; Number of LABs  (Total = 30) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
-; 1                                               ; 2                            ;
-; 2                                               ; 2                            ;
-; 3                                               ; 4                            ;
+; 1                                               ; 1                            ;
+; 2                                               ; 12                           ;
+; 3                                               ; 3                            ;
 ; 4                                               ; 2                            ;
-; 5                                               ; 0                            ;
-; 6                                               ; 0                            ;
-; 7                                               ; 1                            ;
-; 8                                               ; 0                            ;
-; 9                                               ; 0                            ;
-; 10                                              ; 1                            ;
+; 5                                               ; 1                            ;
+; 6                                               ; 4                            ;
+; 7                                               ; 0                            ;
+; 8                                               ; 1                            ;
+; 9                                               ; 1                            ;
+; 10                                              ; 0                            ;
 ; 11                                              ; 0                            ;
 ; 12                                              ; 0                            ;
 ; 13                                              ; 0                            ;
 ; 14                                              ; 0                            ;
-; 15                                              ; 1                            ;
-; 16                                              ; 1                            ;
+; 15                                              ; 0                            ;
+; 16                                              ; 5                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                        ;
 +---------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 7.50) ; Number of LABs  (Total = 14) ;
+; Number of Distinct Inputs  (Average = 8.50) ; Number of LABs  (Total = 30) ;
 +---------------------------------------------+------------------------------+
 ; 0                                           ; 0                            ;
 ; 1                                           ; 0                            ;
-; 2                                           ; 0                            ;
-; 3                                           ; 1                            ;
+; 2                                           ; 4                            ;
+; 3                                           ; 0                            ;
 ; 4                                           ; 1                            ;
-; 5                                           ; 4                            ;
+; 5                                           ; 3                            ;
 ; 6                                           ; 2                            ;
-; 7                                           ; 0                            ;
-; 8                                           ; 1                            ;
-; 9                                           ; 0                            ;
+; 7                                           ; 5                            ;
+; 8                                           ; 2                            ;
+; 9                                           ; 4                            ;
 ; 10                                          ; 1                            ;
-; 11                                          ; 0                            ;
+; 11                                          ; 1                            ;
 ; 12                                          ; 0                            ;
-; 13                                          ; 0                            ;
+; 13                                          ; 1                            ;
 ; 14                                          ; 0                            ;
-; 15                                          ; 1                            ;
-; 16                                          ; 1                            ;
+; 15                                          ; 0                            ;
+; 16                                          ; 0                            ;
 ; 17                                          ; 1                            ;
+; 18                                          ; 0                            ;
+; 19                                          ; 2                            ;
+; 20                                          ; 2                            ;
 +---------------------------------------------+------------------------------+
 
 
@@ -1766,11 +1951,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10Board_SDRAM_WriteEnable_n         ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_SDRAM_ColumnAddressStrobe_n ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_SDRAM_RowAddressStrobe_n    ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; max10Board_GPIO_Input_MusicKeys[0]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; max10Board_GPIO_Input_MusicKeys[1]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; max10Board_GPIO_Input_MusicKeys[2]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; max10Board_GPIO_Input_MusicKeys[3]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; max10Board_GPIO_Input_MusicKeys[4]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_GPIO_Input_MusicKeys[5]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_SDRAM_Data[0]               ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_SDRAM_Data[1]               ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1790,10 +1970,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10Board_SDRAM_Data[15]              ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_50MhzClock                  ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_Buttons[0]                  ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; max10Board_GPIO_Input_MakeRecording    ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; max10Board_GPIO_Input_MusicKeys[0]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; max10Board_GPIO_Input_MusicKeys[1]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; max10Board_GPIO_Input_MusicKeys[2]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; max10Board_GPIO_Input_MusicKeys[3]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; max10Board_GPIO_Input_MusicKeys[4]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_GPIO_Input_PlayRecording    ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; max10Board_GPIO_Input_PlaySong0        ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; max10Board_GPIO_Input_PlaySong1        ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; max10Board_GPIO_Input_PlaySong0        ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; max10Board_GPIO_Input_MakeRecording    ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Pass         ; Pass         ; Inapplicable ; Pass         ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 +----------------------------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+
 
 
@@ -1839,39 +2024,38 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------+-------------------+
 ; Source Clock(s)       ; Destination Clock(s)  ; Delay Added in ns ;
 +-----------------------+-----------------------+-------------------+
-; max10Board_50MhzClock ; max10Board_50MhzClock ; 4.3               ;
+; max10Board_50MhzClock ; max10Board_50MhzClock ; 4.4               ;
 +-----------------------+-----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                                                                                                                       ;
-+---------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+-------------------+
-; Source Register                                                                                               ; Destination Register                                            ; Delay Added in ns ;
-+---------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+-------------------+
-; ClockGenerator:clockGenerator_1Khz|outputClock                                                                ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 4.344             ;
-; ClockGenerator:clockGenerator_1Khz|counter[13]                                                                ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[14]                                                                ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[11]                                                                ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[10]                                                                ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[9]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[8]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[5]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[3]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[1]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[2]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[7]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[4]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[6]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[0]                                                                 ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; ClockGenerator:clockGenerator_1Khz|counter[12]                                                                ; ClockGenerator:clockGenerator_1Khz|outputClock                  ; 1.847             ;
-; MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|stateComplete ; MusicBoxStateController:musicBoxStateController|currentState[0] ; 0.576             ;
-; MusicBoxStateController:musicBoxStateController|currentState[0]                                               ; MusicBoxStateController:musicBoxStateController|currentState[0] ; 0.287             ;
-; MusicBoxStateController:musicBoxStateController|currentState[1]                                               ; MusicBoxStateController:musicBoxStateController|currentState[0] ; 0.287             ;
-; MusicBoxStateController:musicBoxStateController|currentState[2]                                               ; MusicBoxStateController:musicBoxStateController|currentState[0] ; 0.287             ;
-+---------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+-------------------+
-Note: This table only shows the top 20 path(s) that have the largest delay added for hold.
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                                                                                               ;
++-----------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------------+
+; Source Register                                                 ; Destination Register                                                                                                  ; Delay Added in ns ;
++-----------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------------+
+; ClockGenerator:clockGenerator_1Khz|outputClock                  ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 4.366             ;
+; ClockGenerator:clockGenerator_1Khz|counter[13]                  ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[14]                  ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[11]                  ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[10]                  ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[9]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[8]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[7]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[6]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[5]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[4]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[3]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[2]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[1]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[0]                   ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; ClockGenerator:clockGenerator_1Khz|counter[12]                  ; ClockGenerator:clockGenerator_1Khz|outputClock                                                                        ; 1.950             ;
+; MusicBoxStateController:musicBoxStateController|currentState[2] ; MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|stateComplete ; 0.113             ;
+; MusicBoxStateController:musicBoxStateController|currentState[0] ; MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|stateComplete ; 0.099             ;
+; MusicBoxStateController:musicBoxStateController|currentState[1] ; MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|stateComplete ; 0.095             ;
++-----------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------------+
+Note: This table only shows the top 19 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1933,11 +2117,11 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
+    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.32 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.64 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1956,11 +2140,6 @@ Warning (169177): 39 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
     Info (169178): Pin max10board_switches[7] uses I/O standard 3.3-V LVTTL at A14 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
     Info (169178): Pin max10board_switches[8] uses I/O standard 3.3-V LVTTL at B14 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
     Info (169178): Pin max10board_switches[9] uses I/O standard 3.3-V LVTTL at F15 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[0] uses I/O standard 3.3 V Schmitt Trigger at V10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[1] uses I/O standard 3.3 V Schmitt Trigger at W10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[2] uses I/O standard 3.3 V Schmitt Trigger at V9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[3] uses I/O standard 3.3 V Schmitt Trigger at W9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
-    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[4] uses I/O standard 3.3 V Schmitt Trigger at V8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
     Info (169178): Pin max10Board_GPIO_Input_MusicKeys[5] uses I/O standard 3.3 V Schmitt Trigger at W8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
     Info (169178): Pin max10Board_SDRAM_Data[0] uses I/O standard 3.3-V LVTTL at Y21 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
     Info (169178): Pin max10Board_SDRAM_Data[1] uses I/O standard 3.3-V LVTTL at Y20 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
@@ -1980,10 +2159,15 @@ Warning (169177): 39 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
     Info (169178): Pin max10Board_SDRAM_Data[15] uses I/O standard 3.3-V LVTTL at F22 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
     Info (169178): Pin max10Board_50MhzClock uses I/O standard 3.3-V LVTTL at P11 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 31
     Info (169178): Pin max10Board_Buttons[0] uses I/O standard 3.3 V Schmitt Trigger at B8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 59
-    Info (169178): Pin max10Board_GPIO_Input_MakeRecording uses I/O standard 3.3 V Schmitt Trigger at V5 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 41
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[0] uses I/O standard 3.3 V Schmitt Trigger at V10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[1] uses I/O standard 3.3 V Schmitt Trigger at W10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[2] uses I/O standard 3.3 V Schmitt Trigger at V9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[3] uses I/O standard 3.3 V Schmitt Trigger at W9 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
+    Info (169178): Pin max10Board_GPIO_Input_MusicKeys[4] uses I/O standard 3.3 V Schmitt Trigger at V8 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 38
     Info (169178): Pin max10Board_GPIO_Input_PlayRecording uses I/O standard 3.3 V Schmitt Trigger at W5 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 42
-    Info (169178): Pin max10Board_GPIO_Input_PlaySong0 uses I/O standard 3.3 V Schmitt Trigger at W6 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 40
     Info (169178): Pin max10Board_GPIO_Input_PlaySong1 uses I/O standard 3.3 V Schmitt Trigger at W7 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 39
+    Info (169178): Pin max10Board_GPIO_Input_PlaySong0 uses I/O standard 3.3 V Schmitt Trigger at W6 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 40
+    Info (169178): Pin max10Board_GPIO_Input_MakeRecording uses I/O standard 3.3 V Schmitt Trigger at V5 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 41
 Warning (169064): Following 16 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
     Info (169065): Pin max10Board_SDRAM_Data[0] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
     Info (169065): Pin max10Board_SDRAM_Data[1] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
@@ -2003,10 +2187,10 @@ Warning (169064): Following 16 pins have no output enable or a GND or VCC output
     Info (169065): Pin max10Board_SDRAM_Data[15] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
 Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5385 megabytes
-    Info: Processing ended: Sun Jan 26 13:14:31 2020
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Peak virtual memory: 5384 megabytes
+    Info: Processing ended: Sun Jan 26 13:37:26 2020
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:23
 
 
 +----------------------------+

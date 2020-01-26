@@ -1,10 +1,4 @@
-/*
-PlaySong0 includes issues related to all modules.
-20200126 : When counter reaches end, counter is set to 0.  This prevents a weird hangup issue when the button is held down.
-	The wire stateComplete is checked at 50Mhz.  It is impossible for htis clock to miss this.
-*/
-
-module MusicBoxState_PlaySong0 ( 
+module MusicBoxState_PlaySong1 ( 
 		input logic clock_50Mhz,
 		input logic clock_1Khz,
 		input logic reset_n,
@@ -21,9 +15,9 @@ module MusicBoxState_PlaySong0 (
 		//This will count to 5000 on the 1Khz cock.    15bits can count to 32768.
 		reg [ 15: 0] counter ;
 		always_ff @(posedge clock_1Khz ) begin //clock_1Khz negedge reset_n 
-			//If current state isn't equal to 1. 
+			//If current state isn't equal to 2. 
 				//Does not like resetting here.  I think because reset influences currentState.
-			if (currentState != 1) begin
+			if (currentState != 2) begin
 				counter <= 0;
 				stateComplete <= 0;
 			end
@@ -31,7 +25,7 @@ module MusicBoxState_PlaySong0 (
 				//If counter is sitting at the required amount of clock edges (about 5 seconds worth)
 				if (counter == 5000) begin
 					stateComplete <= 1;
-					counter <= 0;
+					counter <= 0; 
 				end
 				//Otherwhys simply increment
 				else begin

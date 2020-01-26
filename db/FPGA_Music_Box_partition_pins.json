@@ -16,6 +16,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_LED[3]",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_LED[5]",
 					"strict" : false
 				},
@@ -44,7 +48,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_GPIO_Input_MakeRecording",
+					"name" : "max10Board_GPIO_Input_MusicKeys[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_GPIO_Input_MusicKeys[1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_GPIO_Input_MusicKeys[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_GPIO_Input_MusicKeys[3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_GPIO_Input_MusicKeys[4]",
 					"strict" : false
 				},
 				{
@@ -52,11 +72,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_GPIO_Input_PlaySong1",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_GPIO_Input_PlaySong0",
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_GPIO_Input_PlaySong1",
+					"name" : "max10Board_GPIO_Input_MakeRecording",
 					"strict" : false
 				}
 			]

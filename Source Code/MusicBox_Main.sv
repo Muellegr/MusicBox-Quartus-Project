@@ -1,4 +1,10 @@
 
+//==========================================
+//====== ECE 342 JUNIOR DEISGN - W20 - MUSIC BOX
+//====== 	Authors : Graham Mueller muellegr@oregonstate.edu
+//======
+
+
 
 module MusicBox_Main(
 	max10Board_Buttons,
@@ -19,9 +25,6 @@ module MusicBox_Main(
 	max10Board_SDRAM_ColumnAddressStrobe_n,
 	max10Board_SDRAM_RowAddressStrobe_n,
 	
-	//max10Board_GPIO_Input //
-	//max10Board_GPIO_Output //
-	
 	max10Board_GPIO_Input_MusicKeys, //Array
 	max10Board_GPIO_Input_PlaySong1,
 	max10Board_GPIO_Input_PlaySong0,
@@ -32,14 +35,13 @@ module MusicBox_Main(
 	output wire	[5:0][6:0]	max10Board_LEDSegments;//The DE-10 Board LED Segments
 	output reg [9:0] max10Board_LED; //The DE-10 Board LED lights
 	
-	//input wire [35:11] max10Board_GPIO; 
-	//output wire [10:0] max10Board_GPIO; 
 	///////// UI GPIO ///////
 	input wire [5:0] max10Board_GPIO_Input_MusicKeys; //Array
 	input wire max10Board_GPIO_Input_PlaySong1;
 	input wire max10Board_GPIO_Input_PlaySong0;
 	input wire max10Board_GPIO_Input_MakeRecording;
 	input wire max10Board_GPIO_Input_PlayRecording;
+	
 	///////// SDRAM /////////
 	output wire max10Board_SDRAM_Clock;
 	output wire max10Board_SDRAM_ClockEnable;
@@ -57,70 +59,51 @@ module MusicBox_Main(
 	/////////////////////////////////////////////////////////
 	//-- 
 	input wire	[1: 0] max10Board_Buttons ;
-	//assign max10Board_LED = max10board_switches;
-	//assign max10Board_LED[0] = max10board_switches[0];
-	//assign max10Board_LED[1] = 1'b1;
-	//assign max10Board_LED[9:5] = 1'b0;
-	//assign max10Board_LED[4:1] = 1'b1;
-	//These are active low switches when used with LVTTL 
-	//assign max10Board_LED[9:1] = 1;
-	//assign max10Board_LED[0] = max10Board_GPIO_Input_PlaySong0;
-	//assign max10Board_LED[1] = !max10Board_GPIO_Input_PlaySong1;
-	
-	reg [9:0] incrementCounter;
-	 
-	
-	//assign max10Board_LED[7:0] = incrementCounter;
-	//assign max10Board_LED[9] = max10Board_GPIO_Input_PlaySong0_s;
-	//assign max10Board_LED[8] = max10Board_GPIO_Input_PlaySong0;
-	
+
 	//-------------------------
 	//-----Major Variables-----
 	//-------------------------
-	wire systemReset_n = max10Board_Buttons[0];
-	
-	
-	
-	always@(negedge max10Board_GPIO_Input_PlaySong0_s) begin
-		if (systemReset_n == 1'b0) begin
-			incrementCounter = 0;
-		end
-		else begin
-			incrementCounter = incrementCounter + 1;
-		end
-	end
+	wire systemReset_n = max10Board_Buttons[0]; //Currently all systems should reset on this. 
 	
 	//----------------------------
 	//-- MAIN MODULE CONTROLLER---
 	//----------------------------
 	wire [4:0] outputCurrentState;
-	wire [31:0] output_DebugString;
+	wire [31:0] output_DebugString; 
 	
+	//--CURRENT DEBUG SETUP.
+		//State is displayed on first LEDs, music keys on the later half.
 	//assign max10Board_LED[9] = CLK_1Hz;
 	//assign max10Board_LED[8] = CLK_1Khz;
 	//assign max10Board_LED[9:5] = output_DebugString[4:0];
-	//assign max10Board_LED[9:5] = musicKeysDebugTemp;
-	assign max10Board_LED[4:0] = outputCurrentState;
+	assign max10Board_LED[9:4] = musicKeysDebugTemp;
+	assign max10Board_LED[0] = (outputCurrentState == 1);
+	assign max10Board_LED[1] = (outputCurrentState == 2);
+	assign max10Board_LED[2] = (outputCurrentState == 3);
+	assign max10Board_LED[3] = (outputCurrentState == 4);
+
 	MusicBoxStateController musicBoxStateController (
 		//==INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
+		
 		//--UI
 		.input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
 		.input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
 		.input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
 		.input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
 		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
-		
-		
+
 		//==OUTPUT
 		.debugString(output_DebugString), //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.outputState(outputCurrentState) //
 	
 	);
+	
 	//----------------------------
 	//-- Music Keys
+	//-----These operate only in the state DoNothing and MakeRecording.  
 	wire [5:0] musicKeysDebugTemp ; //Stores output.  Basically input keys if in current state.
 	MusicKeysController musicKeysController (
 		.clock_50Mhz(max10Board_50MhzClock),
@@ -129,7 +112,6 @@ module MusicBox_Main(
 		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
 		// .debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.outputKeyPressed(musicKeysDebugTemp)
-
 	);
 	
 	
@@ -137,6 +119,8 @@ module MusicBox_Main(
 	//----------------------------
 	//-- INPUT SMOOTHING----------
 	//----------------------------
+	//These take the hardware IO and smooth it out over 1ms.
+		//These assume active low.
 	wire [5:0] max10Board_GPIO_Input_MusicKeys_s; //Array
 		UI_TriggerSmoother UIs_MusicKeys0 (
 			.clock_50Mhz(max10Board_50MhzClock),
@@ -203,6 +187,7 @@ module MusicBox_Main(
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
 	
+	//-----------------------
 	//--MISC CLOCK GENERATORS
 	wire CLK_1Khz ;
 	ClockGenerator clockGenerator_1Khz (
@@ -210,8 +195,8 @@ module MusicBox_Main(
 		.reset_n(systemReset_n),
 		.outputClock(CLK_1Khz)
 	);
-	defparam	clockGenerator_1Khz.BitsNeeded = 15; //Must be able to count up to InputClockEdgesToCount.  
-	defparam	clockGenerator_1Khz.InputClockEdgesToCount = 25000;
+		defparam	clockGenerator_1Khz.BitsNeeded = 15; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_1Khz.InputClockEdgesToCount = 25000;
 	
 	wire CLK_1Hz ;
 	ClockGenerator clockGenerator_1hz (
@@ -219,7 +204,7 @@ module MusicBox_Main(
 		.reset_n(systemReset_n),
 		.outputClock(CLK_1Hz)
 	);
-	defparam	clockGenerator_1hz.BitsNeeded = 10; //Must be able to count up to InputClockEdgesToCount.  
-	defparam	clockGenerator_1hz.InputClockEdgesToCount = 500;
+		defparam	clockGenerator_1hz.BitsNeeded = 10; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_1hz.InputClockEdgesToCount = 500;
 	
 endmodule

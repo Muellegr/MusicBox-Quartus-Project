@@ -79,17 +79,23 @@ module MusicBoxStateController (
 				
 				//----PLAY SONG 1 STATE
 				else if (currentState == state_PlaySong1) begin
-				
+					if (playSong1_StateComplete == 1) begin
+						currentState <= state_DoNothing;
+					end
 				end
 				
 				//----PLAY RECORDING STATE
 				else if (currentState == state_PlayRecording) begin
-				
+					if (playRecording_StateComplete == 1) begin
+						currentState <= state_DoNothing;
+					end
 				end
 				
 				//----MAKE RECORDING STATE
 				else if (currentState == state_MakeRecording) begin
-				
+					if (makeRecording_StateComplete == 1) begin
+						currentState <= state_DoNothing;
+					end
 				end
 
 			
@@ -109,7 +115,36 @@ module MusicBoxStateController (
 			.debugString(debugString),
 			.stateComplete(playSong0_StateComplete)
 		);
-
+		
+		reg playSong1_StateComplete;
+		MusicBoxState_PlaySong1 musicBoxState_PlaySong1 (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(playSong1_StateComplete)
+		);
+		
+		reg makeRecording_StateComplete;
+		MusicBoxState_MakeRecording musicBoxState_MakeRecording (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(makeRecording_StateComplete)
+		);
+		
+		reg playRecording_StateComplete;
+		MusicBoxState_PlayRecording MusicBoxState_PlayRecording (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(playRecording_StateComplete)
+		);
 
 	// ClockGenerator clockGenerator_1hz (
 		// .inputClock(CLK_1kHz),

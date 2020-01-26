@@ -394,6 +394,9 @@ set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_
 set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_Input_PlaySong1
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_Buttons[1]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_Buttons[0]
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/ClockGenerator.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicKeysController.sv"
