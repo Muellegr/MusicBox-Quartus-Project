@@ -4,7 +4,12 @@
 //====== 	Authors : Graham Mueller muellegr@oregonstate.edu
 //======
 
-
+LEFT OFF
+	Doing SPI in and OUT
+	Do OUT first, so we can get it back IN later.
+	
+	Each are seperate modules since they happen seperately and work slightly differently and standards.
+	
 
 module MusicBox_Main(
 	max10Board_Buttons,
