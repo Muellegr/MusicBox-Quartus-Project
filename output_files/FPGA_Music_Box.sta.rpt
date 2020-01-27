@@ -1,5 +1,5 @@
 Timing Analyzer report for FPGA_Music_Box
-Sun Jan 26 13:50:54 2020
+Mon Jan 27 12:40:40 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -96,7 +96,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   7.5%      ;
+;     Processor 2            ;   6.7%      ;
 +----------------------------+-------------+
 
 
@@ -115,8 +115,8 @@ refer to the applicable agreement for further details.
 +------------+-----------------+------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                     ; Note ;
 +------------+-----------------+------------------------------------------------+------+
-; 211.19 MHz ; 211.19 MHz      ; max10Board_50MhzClock                          ;      ;
-; 271.44 MHz ; 271.44 MHz      ; ClockGenerator:clockGenerator_1Khz|outputClock ;      ;
+; 209.03 MHz ; 209.03 MHz      ; max10Board_50MhzClock                          ;      ;
+; 255.17 MHz ; 255.17 MHz      ; ClockGenerator:clockGenerator_1Khz|outputClock ;      ;
 +------------+-----------------+------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -126,8 +126,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------------------------+--------+---------------+
 ; Clock                                          ; Slack  ; End Point TNS ;
 +------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                          ; -3.735 ; -475.328      ;
-; ClockGenerator:clockGenerator_1Khz|outputClock ; -2.684 ; -169.142      ;
+; max10Board_50MhzClock                          ; -3.784 ; -474.400      ;
+; ClockGenerator:clockGenerator_1Khz|outputClock ; -2.919 ; -167.922      ;
 +------------------------------------------------+--------+---------------+
 
 
@@ -136,8 +136,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------------------------+-------+---------------+
 ; Clock                                          ; Slack ; End Point TNS ;
 +------------------------------------------------+-------+---------------+
-; max10Board_50MhzClock                          ; 0.342 ; 0.000         ;
-; ClockGenerator:clockGenerator_1Khz|outputClock ; 0.508 ; 0.000         ;
+; max10Board_50MhzClock                          ; 0.344 ; 0.000         ;
+; ClockGenerator:clockGenerator_1Khz|outputClock ; 0.622 ; 0.000         ;
 +------------------------------------------------+-------+---------------+
 
 
@@ -174,8 +174,8 @@ No synchronizer chains to report.
 +------------+-----------------+------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                     ; Note ;
 +------------+-----------------+------------------------------------------------+------+
-; 228.94 MHz ; 228.94 MHz      ; max10Board_50MhzClock                          ;      ;
-; 292.57 MHz ; 292.57 MHz      ; ClockGenerator:clockGenerator_1Khz|outputClock ;      ;
+; 225.07 MHz ; 225.07 MHz      ; max10Board_50MhzClock                          ;      ;
+; 277.85 MHz ; 277.85 MHz      ; ClockGenerator:clockGenerator_1Khz|outputClock ;      ;
 +------------+-----------------+------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -185,8 +185,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------------------------+--------+---------------+
 ; Clock                                          ; Slack  ; End Point TNS ;
 +------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                          ; -3.368 ; -418.388      ;
-; ClockGenerator:clockGenerator_1Khz|outputClock ; -2.419 ; -151.240      ;
+; max10Board_50MhzClock                          ; -3.443 ; -417.155      ;
+; ClockGenerator:clockGenerator_1Khz|outputClock ; -2.599 ; -148.548      ;
 +------------------------------------------------+--------+---------------+
 
 
@@ -195,8 +195,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +------------------------------------------------+-------+---------------+
 ; Clock                                          ; Slack ; End Point TNS ;
 +------------------------------------------------+-------+---------------+
-; max10Board_50MhzClock                          ; 0.307 ; 0.000         ;
-; ClockGenerator:clockGenerator_1Khz|outputClock ; 0.462 ; 0.000         ;
+; max10Board_50MhzClock                          ; 0.309 ; 0.000         ;
+; ClockGenerator:clockGenerator_1Khz|outputClock ; 0.589 ; 0.000         ;
 +------------------------------------------------+-------+---------------+
 
 
@@ -233,8 +233,8 @@ No synchronizer chains to report.
 +------------------------------------------------+--------+---------------+
 ; Clock                                          ; Slack  ; End Point TNS ;
 +------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                          ; -1.114 ; -97.010       ;
-; ClockGenerator:clockGenerator_1Khz|outputClock ; -0.647 ; -32.715       ;
+; max10Board_50MhzClock                          ; -1.107 ; -96.707       ;
+; ClockGenerator:clockGenerator_1Khz|outputClock ; -0.627 ; -30.981       ;
 +------------------------------------------------+--------+---------------+
 
 
@@ -243,8 +243,8 @@ No synchronizer chains to report.
 +------------------------------------------------+-------+---------------+
 ; Clock                                          ; Slack ; End Point TNS ;
 +------------------------------------------------+-------+---------------+
-; max10Board_50MhzClock                          ; 0.149 ; 0.000         ;
-; ClockGenerator:clockGenerator_1Khz|outputClock ; 0.186 ; 0.000         ;
+; max10Board_50MhzClock                          ; 0.150 ; 0.000         ;
+; ClockGenerator:clockGenerator_1Khz|outputClock ; 0.175 ; 0.000         ;
 +------------------------------------------------+-------+---------------+
 
 
@@ -265,7 +265,7 @@ No paths to report.
 +------------------------------------------------+--------+---------------+
 ; Clock                                          ; Slack  ; End Point TNS ;
 +------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                          ; -3.000 ; -224.442      ;
+; max10Board_50MhzClock                          ; -3.000 ; -224.635      ;
 ; ClockGenerator:clockGenerator_1Khz|outputClock ; -1.000 ; -68.000       ;
 +------------------------------------------------+--------+---------------+
 
@@ -281,12 +281,12 @@ No synchronizer chains to report.
 +-------------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                           ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +-------------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                                ; -3.735   ; 0.149 ; N/A      ; N/A     ; -3.000              ;
-;  ClockGenerator:clockGenerator_1Khz|outputClock ; -2.684   ; 0.186 ; N/A      ; N/A     ; -1.403              ;
-;  max10Board_50MhzClock                          ; -3.735   ; 0.149 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS                                 ; -644.47  ; 0.0   ; 0.0      ; 0.0     ; -363.571            ;
-;  ClockGenerator:clockGenerator_1Khz|outputClock ; -169.142 ; 0.000 ; N/A      ; N/A     ; -95.404             ;
-;  max10Board_50MhzClock                          ; -475.328 ; 0.000 ; N/A      ; N/A     ; -268.167            ;
+; Worst-case Slack                                ; -3.784   ; 0.150 ; N/A      ; N/A     ; -3.000              ;
+;  ClockGenerator:clockGenerator_1Khz|outputClock ; -2.919   ; 0.175 ; N/A      ; N/A     ; -1.403              ;
+;  max10Board_50MhzClock                          ; -3.784   ; 0.150 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS                                 ; -642.322 ; 0.0   ; 0.0      ; 0.0     ; -363.571            ;
+;  ClockGenerator:clockGenerator_1Khz|outputClock ; -167.922 ; 0.000 ; N/A      ; N/A     ; -95.404             ;
+;  max10Board_50MhzClock                          ; -474.400 ; 0.000 ; N/A      ; N/A     ; -268.167            ;
 +-------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -370,6 +370,9 @@ No synchronizer chains to report.
 ; max10Board_SDRAM_WriteEnable_n         ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; max10Board_SDRAM_ColumnAddressStrobe_n ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; max10Board_SDRAM_RowAddressStrobe_n    ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; max10Board_GPIO_Output_SPI_SCLK        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; max10Board_GPIO_Output_SPI_SYNC_n      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; max10Board_GPIO_Output_SPI_DIN         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; max10Board_SDRAM_Data[0]               ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; max10Board_SDRAM_Data[1]               ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; max10Board_SDRAM_Data[2]               ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -524,6 +527,9 @@ No synchronizer chains to report.
 ; max10Board_SDRAM_WriteEnable_n         ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-08 V                   ; 3.2 V               ; -0.127 V            ; 0.219 V                              ; 0.346 V                              ; 4.45e-10 s                  ; 4.51e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.73e-08 V                  ; 3.2 V              ; -0.127 V           ; 0.219 V                             ; 0.346 V                             ; 4.45e-10 s                 ; 4.51e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_ColumnAddressStrobe_n ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-08 V                   ; 3.2 V               ; -0.127 V            ; 0.219 V                              ; 0.346 V                              ; 4.45e-10 s                  ; 4.51e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.73e-08 V                  ; 3.2 V              ; -0.127 V           ; 0.219 V                             ; 0.346 V                             ; 4.45e-10 s                 ; 4.51e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_RowAddressStrobe_n    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-08 V                   ; 3.2 V               ; -0.128 V            ; 0.219 V                              ; 0.346 V                              ; 4.45e-10 s                  ; 4.51e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.73e-08 V                  ; 3.2 V              ; -0.128 V           ; 0.219 V                             ; 0.346 V                             ; 4.45e-10 s                 ; 4.51e-10 s                 ; No                        ; No                        ;
+; max10Board_GPIO_Output_SPI_SCLK        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; max10Board_GPIO_Output_SPI_SYNC_n      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
+; max10Board_GPIO_Output_SPI_DIN         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; max10Board_SDRAM_Data[0]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-08 V                   ; 3.2 V               ; -0.128 V            ; 0.219 V                              ; 0.346 V                              ; 4.45e-10 s                  ; 4.51e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.73e-08 V                  ; 3.2 V              ; -0.128 V           ; 0.219 V                             ; 0.346 V                             ; 4.45e-10 s                 ; 4.51e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_Data[1]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-08 V                   ; 3.2 V               ; -0.127 V            ; 0.219 V                              ; 0.346 V                              ; 4.45e-10 s                  ; 4.51e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.73e-08 V                  ; 3.2 V              ; -0.127 V           ; 0.219 V                             ; 0.346 V                             ; 4.45e-10 s                 ; 4.51e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_Data[2]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.73e-08 V                   ; 3.2 V               ; -0.128 V            ; 0.219 V                              ; 0.346 V                              ; 4.45e-10 s                  ; 4.51e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.73e-08 V                  ; 3.2 V              ; -0.128 V           ; 0.219 V                             ; 0.346 V                             ; 4.45e-10 s                 ; 4.51e-10 s                 ; No                        ; No                        ;
@@ -624,6 +630,9 @@ No synchronizer chains to report.
 ; max10Board_SDRAM_WriteEnable_n         ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.41e-06 V                   ; 3.16 V              ; -0.0688 V           ; 0.26 V                               ; 0.209 V                              ; 4.69e-10 s                  ; 6.21e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.41e-06 V                  ; 3.16 V             ; -0.0688 V          ; 0.26 V                              ; 0.209 V                             ; 4.69e-10 s                 ; 6.21e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_ColumnAddressStrobe_n ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.41e-06 V                   ; 3.16 V              ; -0.0688 V           ; 0.26 V                               ; 0.209 V                              ; 4.69e-10 s                  ; 6.21e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.41e-06 V                  ; 3.16 V             ; -0.0688 V          ; 0.26 V                              ; 0.209 V                             ; 4.69e-10 s                 ; 6.21e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_RowAddressStrobe_n    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.41e-06 V                   ; 3.16 V              ; -0.0694 V           ; 0.259 V                              ; 0.209 V                              ; 4.69e-10 s                  ; 6.21e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.41e-06 V                  ; 3.16 V             ; -0.0694 V          ; 0.259 V                             ; 0.209 V                             ; 4.69e-10 s                 ; 6.21e-10 s                 ; No                        ; No                        ;
+; max10Board_GPIO_Output_SPI_SCLK        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; max10Board_GPIO_Output_SPI_SYNC_n      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
+; max10Board_GPIO_Output_SPI_DIN         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; max10Board_SDRAM_Data[0]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.41e-06 V                   ; 3.16 V              ; -0.0694 V           ; 0.259 V                              ; 0.209 V                              ; 4.69e-10 s                  ; 6.21e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.41e-06 V                  ; 3.16 V             ; -0.0694 V          ; 0.259 V                             ; 0.209 V                             ; 4.69e-10 s                 ; 6.21e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_Data[1]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.41e-06 V                   ; 3.16 V              ; -0.0688 V           ; 0.26 V                               ; 0.209 V                              ; 4.69e-10 s                  ; 6.21e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.41e-06 V                  ; 3.16 V             ; -0.0688 V          ; 0.26 V                              ; 0.209 V                             ; 4.69e-10 s                 ; 6.21e-10 s                 ; No                        ; No                        ;
 ; max10Board_SDRAM_Data[2]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.41e-06 V                   ; 3.16 V              ; -0.0694 V           ; 0.259 V                              ; 0.209 V                              ; 4.69e-10 s                  ; 6.21e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 3.41e-06 V                  ; 3.16 V             ; -0.0694 V          ; 0.259 V                             ; 0.209 V                             ; 4.69e-10 s                 ; 6.21e-10 s                 ; No                        ; No                        ;
@@ -724,6 +733,9 @@ No synchronizer chains to report.
 ; max10Board_SDRAM_WriteEnable_n         ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; max10Board_SDRAM_ColumnAddressStrobe_n ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; max10Board_SDRAM_RowAddressStrobe_n    ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
+; max10Board_GPIO_Output_SPI_SCLK        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; max10Board_GPIO_Output_SPI_SYNC_n      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; max10Board_GPIO_Output_SPI_DIN         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; max10Board_SDRAM_Data[0]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; max10Board_SDRAM_Data[1]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.64 V              ; -0.0201 V           ; 0.391 V                              ; 0.088 V                              ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.64 V             ; -0.0201 V          ; 0.391 V                             ; 0.088 V                             ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
 ; max10Board_SDRAM_Data[2]               ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 5.04e-07 V                   ; 3.65 V              ; -0.0209 V           ; 0.391 V                              ; 0.09 V                               ; 2.79e-10 s                  ; 3.95e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 5.04e-07 V                  ; 3.65 V             ; -0.0209 V          ; 0.391 V                             ; 0.09 V                              ; 2.79e-10 s                 ; 3.95e-10 s                 ; No                        ; Yes                       ;
@@ -886,7 +898,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Jan 26 13:50:48 2020
+    Info: Processing started: Mon Jan 27 12:40:34 2020
 Info: Command: quartus_sta FPGA_Music_Box -c FPGA_Music_Box
 Info: qsta_default_script.tcl version: #2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -904,16 +916,16 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.735
+Info (332146): Worst-case setup slack is -3.784
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.735            -475.328 max10Board_50MhzClock 
-    Info (332119):    -2.684            -169.142 ClockGenerator:clockGenerator_1Khz|outputClock 
-Info (332146): Worst-case hold slack is 0.342
+    Info (332119):    -3.784            -474.400 max10Board_50MhzClock 
+    Info (332119):    -2.919            -167.922 ClockGenerator:clockGenerator_1Khz|outputClock 
+Info (332146): Worst-case hold slack is 0.344
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.342               0.000 max10Board_50MhzClock 
-    Info (332119):     0.508               0.000 ClockGenerator:clockGenerator_1Khz|outputClock 
+    Info (332119):     0.344               0.000 max10Board_50MhzClock 
+    Info (332119):     0.622               0.000 ClockGenerator:clockGenerator_1Khz|outputClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -926,16 +938,16 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.368
+Info (332146): Worst-case setup slack is -3.443
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.368            -418.388 max10Board_50MhzClock 
-    Info (332119):    -2.419            -151.240 ClockGenerator:clockGenerator_1Khz|outputClock 
-Info (332146): Worst-case hold slack is 0.307
+    Info (332119):    -3.443            -417.155 max10Board_50MhzClock 
+    Info (332119):    -2.599            -148.548 ClockGenerator:clockGenerator_1Khz|outputClock 
+Info (332146): Worst-case hold slack is 0.309
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.307               0.000 max10Board_50MhzClock 
-    Info (332119):     0.462               0.000 ClockGenerator:clockGenerator_1Khz|outputClock 
+    Info (332119):     0.309               0.000 max10Board_50MhzClock 
+    Info (332119):     0.589               0.000 ClockGenerator:clockGenerator_1Khz|outputClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -946,28 +958,28 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.114
+Info (332146): Worst-case setup slack is -1.107
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.114             -97.010 max10Board_50MhzClock 
-    Info (332119):    -0.647             -32.715 ClockGenerator:clockGenerator_1Khz|outputClock 
-Info (332146): Worst-case hold slack is 0.149
+    Info (332119):    -1.107             -96.707 max10Board_50MhzClock 
+    Info (332119):    -0.627             -30.981 ClockGenerator:clockGenerator_1Khz|outputClock 
+Info (332146): Worst-case hold slack is 0.150
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.149               0.000 max10Board_50MhzClock 
-    Info (332119):     0.186               0.000 ClockGenerator:clockGenerator_1Khz|outputClock 
+    Info (332119):     0.150               0.000 max10Board_50MhzClock 
+    Info (332119):     0.175               0.000 ClockGenerator:clockGenerator_1Khz|outputClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -224.442 max10Board_50MhzClock 
+    Info (332119):    -3.000            -224.635 max10Board_50MhzClock 
     Info (332119):    -1.000             -68.000 ClockGenerator:clockGenerator_1Khz|outputClock 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4803 megabytes
-    Info: Processing ended: Sun Jan 26 13:50:54 2020
+    Info: Peak virtual memory: 4809 megabytes
+    Info: Processing ended: Mon Jan 27 12:40:40 2020
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:05
 

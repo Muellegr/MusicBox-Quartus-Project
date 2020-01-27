@@ -3,19 +3,19 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'max10Board_50MhzClock'
-Slack : -3.735
-TNS   : -475.328
+Slack : -3.784
+TNS   : -474.400
 
 Type  : Slow 1200mV 85C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -2.684
-TNS   : -169.142
+Slack : -2.919
+TNS   : -167.922
 
 Type  : Slow 1200mV 85C Model Hold 'max10Board_50MhzClock'
-Slack : 0.342
+Slack : 0.344
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.508
+Slack : 0.622
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'max10Board_50MhzClock'
@@ -27,19 +27,19 @@ Slack : -1.403
 TNS   : -95.404
 
 Type  : Slow 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -3.368
-TNS   : -418.388
+Slack : -3.443
+TNS   : -417.155
 
 Type  : Slow 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -2.419
-TNS   : -151.240
+Slack : -2.599
+TNS   : -148.548
 
 Type  : Slow 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.307
+Slack : 0.309
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.462
+Slack : 0.589
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
@@ -51,24 +51,24 @@ Slack : -1.403
 TNS   : -95.404
 
 Type  : Fast 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -1.114
-TNS   : -97.010
+Slack : -1.107
+TNS   : -96.707
 
 Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -0.647
-TNS   : -32.715
+Slack : -0.627
+TNS   : -30.981
 
 Type  : Fast 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.149
+Slack : 0.150
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.186
+Slack : 0.175
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : -3.000
-TNS   : -224.442
+TNS   : -224.635
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
 Slack : -1.000

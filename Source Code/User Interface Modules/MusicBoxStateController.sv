@@ -23,17 +23,25 @@ Acts as main hub for control signals.
 
 
 module MusicBoxStateController ( 
+		//--FPGA generated clock
 		input logic clock_50Mhz,
+		//--Module generated clock based off 50Mhz
 		input logic clock_1Khz,
+		//--Controlled by switch
 		input logic reset_n,
+		
+		//--GPIO input.  These pins are connected to debouncing modules.
 		input logic input_PlaySong0_n,
 		input logic input_PlaySong1_n,
 		input logic input_MakeRecording_n,
 		input logic input_PlayRecording_n,
 		input logic [5:0] input_MusicKey,
 		
-		output logic [31:0] debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
-		output logic [4:0] outputState //
+		//--This is used to send any data out of the module for testing purposes.  Follows no format.
+		output logic [31:0] debugString,  
+		
+		//--Current state the state machine is in.
+		output logic [4:0] outputState 
 		);
 		
 		//This is a clocked state machine for sake of simplicity.  

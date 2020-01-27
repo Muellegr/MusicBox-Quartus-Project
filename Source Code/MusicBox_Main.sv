@@ -4,13 +4,6 @@
 //====== 	Authors : Graham Mueller muellegr@oregonstate.edu
 //======
 
-LEFT OFF
-	Doing SPI in and OUT
-	Do OUT first, so we can get it back IN later.
-	
-	Each are seperate modules since they happen seperately and work slightly differently and standards.
-	
-
 module MusicBox_Main(
 	max10Board_Buttons,
 	max10board_switches,
@@ -34,7 +27,11 @@ module MusicBox_Main(
 	max10Board_GPIO_Input_PlaySong1,
 	max10Board_GPIO_Input_PlaySong0,
 	max10Board_GPIO_Input_MakeRecording,
-	max10Board_GPIO_Input_PlayRecording
+	max10Board_GPIO_Input_PlayRecording,
+	
+	max10Board_GPIO_Output_SPI_SCLK,
+	max10Board_GPIO_Output_SPI_SYNC_n,
+	max10Board_GPIO_Output_SPI_DIN
 );
 	input wire	max10Board_50MhzClock;
 	output wire	[5:0][6:0]	max10Board_LEDSegments;//The DE-10 Board LED Segments
@@ -47,6 +44,10 @@ module MusicBox_Main(
 	input wire max10Board_GPIO_Input_MakeRecording;
 	input wire max10Board_GPIO_Input_PlayRecording;
 	
+	///////// GPIO SPI Output to Dac
+	output wire max10Board_GPIO_Output_SPI_SCLK; //Data clock per bit
+	output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
+	output wire max10Board_GPIO_Output_SPI_DIN; //Data bits
 	///////// SDRAM /////////
 	output wire max10Board_SDRAM_Clock;
 	output wire max10Board_SDRAM_ClockEnable;
@@ -118,9 +119,32 @@ module MusicBox_Main(
 		// .debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.outputKeyPressed(musicKeysDebugTemp)
 	);
-	
-	
-	
+	//----------------------------
+	//-- SPI Output---------------
+	//----------------------------
+	//Will always have a set of X bits and a signal to send.
+	//The system will take those bits and send them bit by bit in the neccesary way.
+	//The system will have a 'IsBusy' flag, and a 'SendComplete' flag.  
+	wire [11:0] SPI_Output_WriteSample;
+	wire 		SPI_Output_SendSample;
+	wire 		SPI_Output_isBusy;
+	wire 		SPI_Output_transmitComplete;
+	SPI_OutputControllerDac sPI_OutputControllerDac (
+		.clock_50Mhz(max10Board_50MhzClock),
+		.clock_1Khz(CLK_1Khz),
+		.reset_n(systemReset_n),
+		
+		.output_SPI_SCLK(output_SPI_SCLK),
+		.output_SPI_SYNC_n(output_SPI_SYNC_n),
+		.output_SPI_DIN(output_SPI_DIN),
+		
+		.inputSample(SPI_Output_WriteSample), //12 bits that will be sent to the DAC
+		.sendSample_n(SPI_Output_SendSample), //Active low signal.  If the system is not busy, it will begin sending the sample out.
+		
+		.isBusy(SPI_Output_isBusy),
+		.transmitComplete(SPI_Output_transmitComplete) //Goes high for 71Khz when this completes the signal
+	);
+
 	//----------------------------
 	//-- INPUT SMOOTHING----------
 	//----------------------------
