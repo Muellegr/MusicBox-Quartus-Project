@@ -43,10 +43,54 @@ module MusicBoxStateController (
 		//--Current state the state machine is in.
 		output logic [4:0] outputState 
 		);
-		
+		enum { state_DoNothing, state_PlaySong0, state_PlaySong1, state_PlayRecording, state_MakeRecording } currentState;
 		//This is a clocked state machine for sake of simplicity.  
 		assign outputState = currentState;
-		enum { state_DoNothing, state_PlaySong0, state_PlaySong1, state_PlayRecording, state_MakeRecording } currentState;
+			
+		//--Initialize the individual state controllers.
+		//These only run when the current state input matches their own. 
+		reg playSong0_StateComplete;
+		MusicBoxState_PlaySong0 musicBoxState_PlaySong0 (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(playSong0_StateComplete)
+		);
+		
+		reg playSong1_StateComplete;
+		MusicBoxState_PlaySong1 musicBoxState_PlaySong1 (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(playSong1_StateComplete)
+		);
+		
+		reg makeRecording_StateComplete;
+		MusicBoxState_MakeRecording musicBoxState_MakeRecording (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(makeRecording_StateComplete)
+		);
+		
+		reg playRecording_StateComplete;
+		MusicBoxState_PlayRecording MusicBoxState_PlayRecording (
+			.clock_50Mhz(clock_50Mhz),
+			.clock_1Khz(clock_1Khz),
+			.reset_n(reset_n),
+			.currentState(currentState),
+			.debugString(debugString),
+			.stateComplete(playRecording_StateComplete)
+		);
+		
+		
+		
 		
 		always_ff @(posedge clock_50Mhz, negedge reset_n) begin
 			if (reset_n == 1'b0) begin
@@ -111,48 +155,7 @@ module MusicBoxStateController (
 			end
 		end
 		
-		
-		//--Initialize the individual state controllers.
-		//These only run when the current state input matches their own. 
-		reg playSong0_StateComplete;
-		MusicBoxState_PlaySong0 musicBoxState_PlaySong0 (
-			.clock_50Mhz(clock_50Mhz),
-			.clock_1Khz(clock_1Khz),
-			.reset_n(reset_n),
-			.currentState(currentState),
-			.debugString(debugString),
-			.stateComplete(playSong0_StateComplete)
-		);
-		
-		reg playSong1_StateComplete;
-		MusicBoxState_PlaySong1 musicBoxState_PlaySong1 (
-			.clock_50Mhz(clock_50Mhz),
-			.clock_1Khz(clock_1Khz),
-			.reset_n(reset_n),
-			.currentState(currentState),
-			.debugString(debugString),
-			.stateComplete(playSong1_StateComplete)
-		);
-		
-		reg makeRecording_StateComplete;
-		MusicBoxState_MakeRecording musicBoxState_MakeRecording (
-			.clock_50Mhz(clock_50Mhz),
-			.clock_1Khz(clock_1Khz),
-			.reset_n(reset_n),
-			.currentState(currentState),
-			.debugString(debugString),
-			.stateComplete(makeRecording_StateComplete)
-		);
-		
-		reg playRecording_StateComplete;
-		MusicBoxState_PlayRecording MusicBoxState_PlayRecording (
-			.clock_50Mhz(clock_50Mhz),
-			.clock_1Khz(clock_1Khz),
-			.reset_n(reset_n),
-			.currentState(currentState),
-			.debugString(debugString),
-			.stateComplete(playRecording_StateComplete)
-		);
+	
 
 	// ClockGenerator clockGenerator_1hz (
 		// .inputClock(CLK_1kHz),

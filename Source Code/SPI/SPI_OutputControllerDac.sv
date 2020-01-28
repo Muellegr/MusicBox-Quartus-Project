@@ -24,11 +24,20 @@ module SPI_OutputControllerDac(
 		
 		);
 		
-		assign output_SPI_SCLK = CLK_71Khz;
-		//Sync is held high while we are in state 0.  
-		assign output_SPI_SYNC_n = (currentState == 0);
-		assign output_SPI_DIN = writeBit * (currentState != 0);
-		assign isBusy = !(currentState == 0);
+		//--CLOCK GENERATOR
+		//--The DAC will need to send at least 16 bits in 22050Hz.  
+			//For safety, it will be designed to send 32 bits in the same time.
+			// (50*10^6 / 2) * (1/x) = 22050*32
+				//x = 35,    outputFreq :  714285 or 71.2Khz
+		wire CLK_71Khz ;
+		ClockGenerator clockGenerator_71Khz (
+			.inputClock(clock_50Mhz),
+			.reset_n(reset_n),
+			.outputClock(CLK_71Khz)
+		);
+		defparam	clockGenerator_71Khz.BitsNeeded = 8; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_71Khz.InputClockEdgesToCount = 35;
+		
 		
 		reg [4:0]  currentState;
 		reg [15:0] counter; //Temporary use counter.  
@@ -36,10 +45,19 @@ module SPI_OutputControllerDac(
 		reg		   writeBit; //Individual bit we are writing
 		//This enable sinputSample to change while we are writing. 
 		
+		
+		
+		assign output_SPI_SCLK = CLK_71Khz;
+		//Sync is held high while we are in state 0.  
+		assign output_SPI_SYNC_n = (currentState == 0);
+		assign output_SPI_DIN = writeBit * (currentState != 0);
+		assign isBusy = !(currentState == 0);
+		
 		always_ff@(posedge CLK_71Khz, negedge reset_n) begin
 			if (reset_n == 0) begin
 				currentState <= 0;
 				writeBit <= 0;
+				counter <= 0;
 				transmitComplete <= 0;
 			end
 			//--Not sending data.  Wait until we get a request for information.
@@ -47,8 +65,11 @@ module SPI_OutputControllerDac(
 				//We are now ready to send the signal
 				transmitComplete <= 0;
 				if (sendSample_n == 0) begin
+				//$display("%m Good start sequence bro! %d", $stime);
+					$display("%m Beginning SPI output transmit %d", $stime);
 					writeSample <= inputSample;
 					currentState <= 1;
+					writeBit <= 0;
 				end
 			end
 			//--Beginning sending data.
@@ -71,13 +92,17 @@ module SPI_OutputControllerDac(
 			else if (currentState == 2) begin
 				//Transmit complete : All bits sent
 				if (counter == 11) begin
+					$display("%m 	System complete");
 					transmitComplete <= 1;
 					counter <= 0;
 					currentState <= 0;
+					writeBit<=0;
 					
 				end
 				//Continue sending bits
 				else begin
+					$display("%m Sending bit : %d  Remaining Sample : %b!", writeBit, writeSample);
+					$display("%m 	Counter : %d!", counter);
 					writeBit <= writeSample[11];
 					writeSample <= writeSample << 1;
 					
@@ -89,20 +114,6 @@ module SPI_OutputControllerDac(
 			
 		end
 	
-		
-		
-		//--CLOCK GENERATOR
-		//--The DAC will need to send at least 16 bits in 22050Hz.  
-			//For safety, it will be designed to send 32 bits in the same time.
-			// (50*10^6 / 2) * (1/x) = 22050*32
-				//x = 35,    outputFreq :  714285 or 71.2Khz
-		wire CLK_71Khz ;
-		ClockGenerator clockGenerator_71Khz (
-			.inputClock(max10Board_50MhzClock),
-			.reset_n(systemReset_n),
-			.outputClock(CLK_71Khz)
-		);
-		defparam	clockGenerator_71Khz.BitsNeeded = 8; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_71Khz.InputClockEdgesToCount = 35;
+
 		
 endmodule
