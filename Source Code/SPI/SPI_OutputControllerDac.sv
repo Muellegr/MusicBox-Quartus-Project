@@ -49,7 +49,7 @@ module SPI_OutputControllerDac(
 		
 		assign output_SPI_SCLK = CLK_71Khz;
 		//Sync is held high while we are in state 0.  
-		assign output_SPI_SYNC_n = (currentState == 0);
+		assign output_SPI_SYNC_n = (currentState == 0 );
 		assign output_SPI_DIN = writeBit * (currentState != 0);
 		assign isBusy = !(currentState == 0);
 		
@@ -65,8 +65,8 @@ module SPI_OutputControllerDac(
 				//We are now ready to send the signal
 				transmitComplete <= 0;
 				if (sendSample_n == 0) begin
-				//$display("%m Good start sequence bro! %d", $stime);
-					$display("%m Beginning SPI output transmit %d", $stime);
+					//$display("%m Good start sequence bro! %d", $stime);
+					$display("%m Beginning SPI output transmit %b", $writeSample);
 					writeSample <= inputSample;
 					currentState <= 1;
 					writeBit <= 0;
@@ -95,7 +95,7 @@ module SPI_OutputControllerDac(
 					$display("%m 	System complete");
 					transmitComplete <= 1;
 					counter <= 0;
-					currentState <= 0;
+					currentState <= 3;
 					writeBit<=0;
 					
 				end
@@ -107,6 +107,27 @@ module SPI_OutputControllerDac(
 					writeSample <= writeSample << 1;
 					
 					transmitComplete <= 0;
+					counter <= counter + 1;
+				end
+			end
+			else if (currentState == 3) begin
+				//Transmit complete : All bits sent
+				if (counter == 5) begin
+					$display("%m 	System complete");
+					transmitComplete <= 1;
+					counter <= 0;
+					currentState <= 0;
+					writeBit<=0;
+					
+				end
+				//Continue sending bits
+				else begin
+					$display("%m Sending bit : %d  Remaining Sample : %b!", writeBit, writeSample);
+					$display("%m 	Counter : %d!", counter);
+					//writeBit <= writeSample[11];
+					//writeSample <= writeSample << 1;
+					
+					//transmitComplete <= 0;
 					counter <= counter + 1;
 				end
 			end

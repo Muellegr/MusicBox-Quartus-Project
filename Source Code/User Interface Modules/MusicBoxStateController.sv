@@ -118,8 +118,6 @@ module MusicBoxStateController (
 					if (input_MakeRecording_n == 0) begin
 						currentState <= state_MakeRecording;
 					end
-					
-					
 				end
 				
 				//---PLAY SONG 0 STATE
@@ -150,8 +148,6 @@ module MusicBoxStateController (
 					end
 				end
 
-			
-			
 			end
 		end
 		

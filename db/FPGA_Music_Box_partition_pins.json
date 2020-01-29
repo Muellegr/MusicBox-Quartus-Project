@@ -44,11 +44,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_50MhzClock",
+					"name" : "max10Board_GPIO_Output_SPI_SCLK",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_GPIO_Output_SPI_SYNC_n",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_GPIO_Output_SPI_DIN",
 					"strict" : false
 				},
 				{
 					"name" : "max10Board_Buttons[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_50MhzClock",
 					"strict" : false
 				},
 				{
@@ -76,6 +88,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_GPIO_Input_MakeRecording",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_GPIO_Input_PlayRecording",
 					"strict" : false
 				},
@@ -85,10 +101,6 @@
 				},
 				{
 					"name" : "max10Board_GPIO_Input_PlaySong0",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_GPIO_Input_MakeRecording",
 					"strict" : false
 				}
 			]

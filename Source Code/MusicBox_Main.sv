@@ -223,7 +223,7 @@ module MusicBox_Main(
 	//assign max10Board_LED[8] = CLK_1Khz;
 	//assign max10Board_LED[9:5] = output_DebugString[4:0];
 	assign max10Board_LED[9:4] = musicKeysDebugTemp;
-	assign max10Board_LED[0] = (outputCurrentState == 1);
+	//assign max10Board_LED[0] = (outputCurrentState == 1);
 	assign max10Board_LED[1] = (outputCurrentState == 2);
 	assign max10Board_LED[2] = (outputCurrentState == 3);
 	assign max10Board_LED[3] = (outputCurrentState == 4);
@@ -255,17 +255,36 @@ module MusicBox_Main(
 	//The system will take those bits and send them bit by bit in the neccesary way.
 	//The system will have a 'IsBusy' flag, and a 'SendComplete' flag.  
 	wire [11:0] SPI_Output_WriteSample;
-	wire 		SPI_Output_SendSample;
+	
+	
+	assign SPI_Output_WriteSample = (max10Board_GPIO_Input_PlaySong1_s == 1) ? 12'b1111_1111_1111 : 12'b1010_0101_1111;// + 12'b0000_0010_0000;
+	reg 		SPI_Output_SendSample;
+	//assign SPI_Output_SendSample = 0;//max10Board_GPIO_Input_PlaySong1_s;
 	wire 		SPI_Output_isBusy;
+	assign max10Board_LED[0] =SPI_Output_isBusy;
 	wire 		SPI_Output_transmitComplete;
+	
+	//	output wire max10Board_GPIO_Output_SPI_SCLK; //Data clock per bit
+	//output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
+	//output wire max10Board_GPIO_Output_SPI_DIN; //Data bits
+	
+	always_ff @ (negedge max10Board_GPIO_Input_PlaySong0_s, posedge SPI_Output_isBusy) begin
+		if (SPI_Output_isBusy == 1) begin
+			SPI_Output_SendSample <= 1;
+		end
+		else begin
+			SPI_Output_SendSample <= 0;
+		end
+	end
+	
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		.clock_50Mhz(max10Board_50MhzClock),
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		
-		.output_SPI_SCLK(output_SPI_SCLK),
-		.output_SPI_SYNC_n(output_SPI_SYNC_n),
-		.output_SPI_DIN(output_SPI_DIN),
+		.output_SPI_SCLK(max10Board_GPIO_Output_SPI_SCLK),
+		.output_SPI_SYNC_n(max10Board_GPIO_Output_SPI_SYNC_n),
+		.output_SPI_DIN(max10Board_GPIO_Output_SPI_DIN),
 		
 		.inputSample(SPI_Output_WriteSample), //12 bits that will be sent to the DAC
 		.sendSample_n(SPI_Output_SendSample), //Active low signal.  If the system is not busy, it will begin sending the sample out.

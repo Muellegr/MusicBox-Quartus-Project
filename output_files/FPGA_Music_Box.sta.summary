@@ -3,75 +3,147 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'max10Board_50MhzClock'
-Slack : -3.784
-TNS   : -474.400
+Slack : -5.355
+TNS   : -513.028
+
+Type  : Slow 1200mV 85C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : -4.149
+TNS   : -125.933
 
 Type  : Slow 1200mV 85C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -2.919
-TNS   : -167.922
+Slack : -2.767
+TNS   : -175.139
+
+Type  : Slow 1200mV 85C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : 0.341
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'max10Board_50MhzClock'
-Slack : 0.344
+Slack : 0.342
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.622
+Slack : 0.628
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : -0.229
+TNS   : -0.229
+
+Type  : Slow 1200mV 85C Model Removal 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : 0.634
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : -3.000
-TNS   : -268.167
+TNS   : -280.794
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
 Slack : -1.403
 TNS   : -95.404
 
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : -1.403
+TNS   : -1.403
+
 Type  : Slow 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -3.443
-TNS   : -417.155
+Slack : -4.972
+TNS   : -452.247
+
+Type  : Slow 1200mV 0C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : -3.731
+TNS   : -113.165
 
 Type  : Slow 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -2.599
-TNS   : -148.548
+Slack : -2.523
+TNS   : -157.844
+
+Type  : Slow 1200mV 0C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : 0.306
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.309
+Slack : 0.308
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.589
+Slack : 0.584
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : -0.083
+TNS   : -0.083
+
+Type  : Slow 1200mV 0C Model Removal 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : 0.533
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : -3.000
-TNS   : -268.167
+TNS   : -280.794
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
 Slack : -1.403
 TNS   : -95.404
 
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : -1.403
+TNS   : -46.299
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : -1.403
+TNS   : -1.403
+
 Type  : Fast 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -1.107
-TNS   : -96.707
+Slack : -1.526
+TNS   : -108.412
+
+Type  : Fast 1200mV 0C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : -1.141
+TNS   : -32.345
 
 Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -0.627
-TNS   : -30.981
+Slack : -0.651
+TNS   : -37.115
+
+Type  : Fast 1200mV 0C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : 0.148
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.150
+Slack : 0.149
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.175
+Slack : 0.241
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : -0.071
+TNS   : -0.071
+
+Type  : Fast 1200mV 0C Model Removal 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : 0.795
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : -3.000
-TNS   : -224.635
+TNS   : -237.285
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
 Slack : -1.000
 TNS   : -68.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock'
+Slack : -1.000
+TNS   : -33.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'UI_TriggerSmoother:UIs_PlaySong0|timeCounter[0]'
+Slack : -1.000
+TNS   : -1.000
 
 ------------------------------------------------------------

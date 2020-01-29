@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Mon Jan 27 12:40:05 2020
+Wed Jan 29 12:12:04 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -15,20 +15,20 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
   9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz
- 14. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1Khz
- 15. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
- 16. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
- 17. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
- 18. Port Connectivity Checks: "MusicKeysController:musicKeysController"
- 19. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording"
- 20. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording"
- 21. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1"
- 22. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0"
- 23. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
+ 13. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1Khz
+ 14. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
+ 15. Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz
+ 16. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
+ 17. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording"
+ 18. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording"
+ 19. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1"
+ 20. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0"
+ 21. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
+ 22. Port Connectivity Checks: "MusicKeysController:musicKeysController"
+ 23. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
  24. Post-Synthesis Netlist Statistics for Top Partition
  25. Elapsed Time Per Partition
  26. Analysis & Synthesis Messages
@@ -58,15 +58,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jan 27 12:40:05 2020       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jan 29 12:12:04 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 402                                         ;
-;     Total combinational functions  ; 402                                         ;
-;     Dedicated logic registers      ; 257                                         ;
-; Total registers                    ; 257                                         ;
+; Total logic elements               ; 470                                         ;
+;     Total combinational functions  ; 468                                         ;
+;     Dedicated logic registers      ; 300                                         ;
+; Total registers                    ; 300                                         ;
 ; Total pins                         ; 117                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -203,30 +203,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 402                         ;
+; Estimated Total logic elements              ; 470                         ;
 ;                                             ;                             ;
-; Total combinational functions               ; 402                         ;
+; Total combinational functions               ; 468                         ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 127                         ;
-;     -- 3 input functions                    ; 14                          ;
-;     -- <=2 input functions                  ; 261                         ;
+;     -- 4 input functions                    ; 152                         ;
+;     -- 3 input functions                    ; 21                          ;
+;     -- <=2 input functions                  ; 295                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 168                         ;
-;     -- arithmetic mode                      ; 234                         ;
+;     -- normal mode                          ; 212                         ;
+;     -- arithmetic mode                      ; 256                         ;
 ;                                             ;                             ;
-; Total registers                             ; 257                         ;
-;     -- Dedicated logic registers            ; 257                         ;
+; Total registers                             ; 300                         ;
+;     -- Dedicated logic registers            ; 300                         ;
 ;     -- I/O registers                        ; 0                           ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 117                         ;
 ;                                             ;                             ;
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ;                                             ;                             ;
-; Maximum fan-out node                        ; max10Board_50MhzClock~input ;
-; Maximum fan-out                             ; 189                         ;
-; Total fan-out                               ; 2291                        ;
-; Average fan-out                             ; 2.52                        ;
+; Maximum fan-out node                        ; max10Board_Buttons[0]~input ;
+; Maximum fan-out                             ; 222                         ;
+; Total fan-out                               ; 2661                        ;
+; Average fan-out                             ; 2.61                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -235,15 +235,17 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 ; Compilation Hierarchy Node                                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                    ; Entity Name                 ; Library Name ;
 +-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; |MusicBox_Main                                                  ; 402 (0)             ; 257 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 117  ; 0            ; 0          ; |MusicBox_Main                                                                                                         ; MusicBox_Main               ; work         ;
+; |MusicBox_Main                                                  ; 468 (1)             ; 300 (1)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 117  ; 0            ; 0          ; |MusicBox_Main                                                                                                         ; MusicBox_Main               ; work         ;
 ;    |ClockGenerator:clockGenerator_1Khz|                         ; 28 (28)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1Khz                                                                      ; ClockGenerator              ; work         ;
 ;    |MusicBoxStateController:musicBoxStateController|            ; 103 (11)            ; 71 (3)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController                                                         ; MusicBoxStateController     ; work         ;
 ;       |MusicBoxState_MakeRecording:musicBoxState_MakeRecording| ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording ; MusicBoxState_MakeRecording ; work         ;
 ;       |MusicBoxState_PlayRecording:MusicBoxState_PlayRecording| ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording ; MusicBoxState_PlayRecording ; work         ;
 ;       |MusicBoxState_PlaySong0:musicBoxState_PlaySong0|         ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0         ; MusicBoxState_PlaySong0     ; work         ;
 ;       |MusicBoxState_PlaySong1:musicBoxState_PlaySong1|         ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1         ; MusicBoxState_PlaySong1     ; work         ;
-;    |MusicKeysController:musicKeysController|                    ; 41 (41)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicKeysController:musicKeysController                                                                 ; MusicKeysController         ; work         ;
-;    |UI_TriggerSmoother:UIs_Makerecording|                       ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording                                                                    ; UI_TriggerSmoother          ; work         ;
+;    |MusicKeysController:musicKeysController|                    ; 40 (40)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicKeysController:musicKeysController                                                                 ; MusicKeysController         ; work         ;
+;    |SPI_OutputControllerDac:sPI_OutputControllerDac|            ; 66 (53)             ; 42 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                         ; SPI_OutputControllerDac     ; work         ;
+;       |ClockGenerator:clockGenerator_71Khz|                     ; 13 (13)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz                     ; ClockGenerator              ; work         ;
+;    |UI_TriggerSmoother:UIs_Makerecording|                       ; 27 (27)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording                                                                    ; UI_TriggerSmoother          ; work         ;
 ;    |UI_TriggerSmoother:UIs_MusicKeys0|                          ; 21 (21)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys0                                                                       ; UI_TriggerSmoother          ; work         ;
 ;    |UI_TriggerSmoother:UIs_MusicKeys1|                          ; 21 (21)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys1                                                                       ; UI_TriggerSmoother          ; work         ;
 ;    |UI_TriggerSmoother:UIs_MusicKeys2|                          ; 21 (21)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys2                                                                       ; UI_TriggerSmoother          ; work         ;
@@ -251,66 +253,39 @@ refer to the applicable agreement for further details.
 ;    |UI_TriggerSmoother:UIs_MusicKeys4|                          ; 21 (21)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys4                                                                       ; UI_TriggerSmoother          ; work         ;
 ;    |UI_TriggerSmoother:UIs_MusicKeys5|                          ; 21 (21)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys5                                                                       ; UI_TriggerSmoother          ; work         ;
 ;    |UI_TriggerSmoother:UIs_PlayRecording|                       ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording                                                                    ; UI_TriggerSmoother          ; work         ;
-;    |UI_TriggerSmoother:UIs_PlaySong0|                           ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                                                                        ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_PlaySong0|                           ; 25 (25)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                                                                        ; UI_TriggerSmoother          ; work         ;
 ;    |UI_TriggerSmoother:UIs_PlaySong1|                           ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1                                                                        ; UI_TriggerSmoother          ; work         ;
 +-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------+
-; State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState ;
-+--------------------+--------------------+--------------------+------------------------------+
-; Name               ; currentState.00000 ; currentState.00010 ; currentState.00001           ;
-+--------------------+--------------------+--------------------+------------------------------+
-; currentState.00000 ; 0                  ; 0                  ; 0                            ;
-; currentState.00001 ; 1                  ; 0                  ; 1                            ;
-; currentState.00010 ; 1                  ; 1                  ; 0                            ;
-+--------------------+--------------------+--------------------+------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState            ;
++--------------------+--------------------+--------------------+--------------------+--------------------+
+; Name               ; currentState.00011 ; currentState.00010 ; currentState.00001 ; currentState.00000 ;
++--------------------+--------------------+--------------------+--------------------+--------------------+
+; currentState.00000 ; 0                  ; 0                  ; 0                  ; 0                  ;
+; currentState.00001 ; 0                  ; 0                  ; 1                  ; 1                  ;
+; currentState.00010 ; 0                  ; 1                  ; 0                  ; 1                  ;
+; currentState.00011 ; 1                  ; 0                  ; 0                  ; 1                  ;
++--------------------+--------------------+--------------------+--------------------+--------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                               ;
-+---------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-; Register name                                                                                     ; Reason for Removal                                                           ;
-+---------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock   ; Stuck at GND due to stuck port clock                                         ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|counter[0..7] ; Stuck at GND due to stuck port clock                                         ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[0..15]                                    ; Stuck at GND due to stuck port clock                                         ;
-; MusicBoxStateController:musicBoxStateController|currentState[3..9,11..31]                         ; Merged with MusicBoxStateController:musicBoxStateController|currentState[10] ;
-; MusicBoxStateController:musicBoxStateController|currentState[10]                                  ; Stuck at GND due to stuck port data_in                                       ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00000                                ; Lost fanout                                                                  ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00001                                ; Lost fanout                                                                  ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00010                                ; Stuck at GND due to stuck port clock                                         ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8                                    ; Lost fanout                                                                  ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9                                    ; Lost fanout                                                                  ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10                                   ; Lost fanout                                                                  ;
-; Total Number of Removed Registers = 60                                                            ;                                                                              ;
-+---------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                              ;
-+-------------------------------------------------------------------------------------------------+-------------------------+--------------------------------------------------------------+
-; Register name                                                                                   ; Reason for Removal      ; Registers Removed due to This Register                       ;
-+-------------------------------------------------------------------------------------------------+-------------------------+--------------------------------------------------------------+
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz|outputClock ; Stuck at GND            ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[0],  ;
-;                                                                                                 ; due to stuck port clock ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[15], ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[14], ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[13], ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[12], ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[11], ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[10], ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[9],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[8],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[7],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[6],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[5],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[4],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[3],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[2],  ;
-;                                                                                                 ;                         ; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[1]   ;
-+-------------------------------------------------------------------------------------------------+-------------------------+--------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                       ;
++---------------------------------------------------------------------------+------------------------------------------------------------------------------+
+; Register name                                                             ; Reason for Removal                                                           ;
++---------------------------------------------------------------------------+------------------------------------------------------------------------------+
+; MusicBoxStateController:musicBoxStateController|currentState[3..9,11..31] ; Merged with MusicBoxStateController:musicBoxStateController|currentState[10] ;
+; MusicBoxStateController:musicBoxStateController|currentState[10]          ; Stuck at GND due to stuck port data_in                                       ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~7            ; Lost fanout                                                                  ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8            ; Lost fanout                                                                  ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9            ; Lost fanout                                                                  ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10           ; Lost fanout                                                                  ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~11           ; Lost fanout                                                                  ;
+; Total Number of Removed Registers = 34                                    ;                                                                              ;
++---------------------------------------------------------------------------+------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -318,14 +293,24 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 257   ;
-; Number of registers using Synchronous Clear  ; 234   ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 173   ;
+; Total registers                              ; 300   ;
+; Number of registers using Synchronous Clear  ; 250   ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 220   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 170   ;
+; Number of registers using Clock Enable       ; 199   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; SPI_Output_SendSample                  ; 5       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -333,33 +318,25 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|counter[11] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|counter[4]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1|counter[15]         ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|counter[10]         ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[0]                                                                    ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[16]                                                                   ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[3]                                                                    ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[14]                                                                   ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[2]                                                                    ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys5|timeCounter[5]                                                                    ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0|timeCounter[5]                                                                     ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1|timeCounter[16]                                                                    ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording|timeCounter[4]                                                                 ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording|timeCounter[3]                                                                 ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[10]                                                    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|counter[15] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|counter[5]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1|counter[14]         ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|counter[15]         ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys0|timeCounter[16]                                                                   ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys1|timeCounter[14]                                                                   ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys2|timeCounter[2]                                                                    ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys3|timeCounter[13]                                                                   ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys4|timeCounter[10]                                                                   ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_MusicKeys5|timeCounter[1]                                                                    ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1|timeCounter[10]                                                                    ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording|timeCounter[5]                                                                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording|timeCounter[9]                                                                 ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0|timeCounter[1]                                                                     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11]                                                     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[5]                                                      ;
+; 7:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[15]                                                         ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[1]                                                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz ;
-+------------------------+-------+-------------------------------------------------------------------------------------------------+
-; Parameter Name         ; Value ; Type                                                                                            ;
-+------------------------+-------+-------------------------------------------------------------------------------------------------+
-; BitsNeeded             ; 8     ; Signed Integer                                                                                  ;
-; InputClockEdgesToCount ; 35    ; Signed Integer                                                                                  ;
-+------------------------+-------+-------------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------+
@@ -384,13 +361,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"                                                         ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; outputClock ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz ;
++------------------------+-------+-------------------------------------------------------------------------------------------------+
+; Parameter Name         ; Value ; Type                                                                                            ;
++------------------------+-------+-------------------------------------------------------------------------------------------------+
+; BitsNeeded             ; 8     ; Signed Integer                                                                                  ;
+; InputClockEdgesToCount ; 35    ; Signed Integer                                                                                  ;
++------------------------+-------+-------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -398,21 +377,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port              ; Type   ; Severity ; Details                                                                             ;
 +-------------------+--------+----------+-------------------------------------------------------------------------------------+
-; output_SPI_SCLK   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; output_SPI_SYNC_n ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; output_SPI_DIN    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; isBusy            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; inputSample[4..0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; inputSample[11]   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; inputSample[9]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; inputSample[6]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; transmitComplete  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-------------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MusicKeysController:musicKeysController"                                                                        ;
-+-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                                                  ;
-+-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; debugString ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -460,30 +430,51 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MusicKeysController:musicKeysController"                                                                        ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                  ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; debugString ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"                                                         ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; outputClock ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 117                         ;
-; cycloneiii_ff         ; 257                         ;
-;     CLR               ; 3                           ;
-;     ENA CLR SCLR      ; 170                         ;
+; cycloneiii_ff         ; 300                         ;
+;     CLR               ; 30                          ;
+;     CLR SLD           ; 2                           ;
+;     ENA               ; 11                          ;
+;     ENA CLR           ; 2                           ;
+;     ENA CLR SCLR      ; 186                         ;
 ;     SCLR              ; 64                          ;
-;     plain             ; 20                          ;
+;     plain             ; 5                           ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 403                         ;
-;     arith             ; 234                         ;
-;         2 data inputs ; 234                         ;
-;     normal            ; 169                         ;
+; cycloneiii_lcell_comb ; 470                         ;
+;     arith             ; 256                         ;
+;         2 data inputs ; 256                         ;
+;     normal            ; 214                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 15                          ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 127                         ;
+;         1 data inputs ; 19                          ;
+;         2 data inputs ; 21                          ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 152                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 2.82                        ;
+; Average LUT depth     ; 2.84                        ;
 +-----------------------+-----------------------------+
 
 
@@ -502,7 +493,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Mon Jan 27 12:39:45 2020
+    Info: Processing started: Wed Jan 29 12:11:35 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -526,11 +517,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file source 
     Info (12023): Found entity 1: UI_TriggerSmoother File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file source code/musicbox_main.sv
     Info (12023): Found entity 1: MusicBox_Main File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 7
-Warning (10236): Verilog HDL Implicit Net warning at SPI_OutputControllerDac.sv(101): created implicit net for "max10Board_50MhzClock" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 101
-Warning (10236): Verilog HDL Implicit Net warning at SPI_OutputControllerDac.sv(102): created implicit net for "systemReset_n" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 102
-Warning (10236): Verilog HDL Implicit Net warning at MusicBox_Main.sv(137): created implicit net for "output_SPI_SCLK" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 137
-Warning (10236): Verilog HDL Implicit Net warning at MusicBox_Main.sv(138): created implicit net for "output_SPI_SYNC_n" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 138
-Warning (10236): Verilog HDL Implicit Net warning at MusicBox_Main.sv(139): created implicit net for "output_SPI_DIN" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 139
 Info (12127): Elaborating entity "MusicBox_Main" for the top level hierarchy
 Warning (10034): Output port "max10Board_LEDSegments" at MusicBox_Main.sv(12) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 12
 Warning (10034): Output port "max10Board_SDRAM_Address" at MusicBox_Main.sv(54) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 54
@@ -543,20 +529,13 @@ Warning (10034): Output port "max10Board_SDRAM_ChipSelect_n" at MusicBox_Main.sv
 Warning (10034): Output port "max10Board_SDRAM_WriteEnable_n" at MusicBox_Main.sv(62) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 62
 Warning (10034): Output port "max10Board_SDRAM_ColumnAddressStrobe_n" at MusicBox_Main.sv(63) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 63
 Warning (10034): Output port "max10Board_SDRAM_RowAddressStrobe_n" at MusicBox_Main.sv(64) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 64
-Warning (10034): Output port "max10Board_GPIO_Output_SPI_SCLK" at MusicBox_Main.sv(48) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
-Warning (10034): Output port "max10Board_GPIO_Output_SPI_SYNC_n" at MusicBox_Main.sv(49) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
-Warning (10034): Output port "max10Board_GPIO_Output_SPI_DIN" at MusicBox_Main.sv(50) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 50
-Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-Warning (10230): Verilog HDL assignment warning at MusicBoxStateController.sv(48): truncated value with size 32 to match size of target (5) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 48
-Info (12128): Elaborating entity "MusicBoxState_PlaySong0" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 125
-Warning (10230): Verilog HDL assignment warning at MusicBoxState_PlaySong0.sv(39): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv Line: 39
-Info (12128): Elaborating entity "MusicBoxState_PlaySong1" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 135
-Warning (10230): Verilog HDL assignment warning at MusicBoxState_PlaySong1.sv(33): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv Line: 33
-Info (12128): Elaborating entity "MusicBoxState_MakeRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 145
-Warning (10230): Verilog HDL assignment warning at MusicBoxState_MakeRecording.sv(33): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv Line: 33
-Info (12128): Elaborating entity "MusicBoxState_PlayRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 155
-Warning (10230): Verilog HDL assignment warning at MusicBoxState_PlayRecording.sv(33): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv Line: 33
-Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 121
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 93
+Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (15) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 102
+Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
+Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 128
+Warning (10230): Verilog HDL assignment warning at UI_TriggerSmoother.sv(30): truncated value with size 32 to match size of target (17) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv Line: 30
+Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 205
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(15): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 15
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(16): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 16
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(17): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 17
@@ -564,17 +543,22 @@ Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(18): t
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(19): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 19
 Warning (10230): Verilog HDL assignment warning at MusicKeysController.sv(20): truncated value with size 32 to match size of target (1) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 20
 Warning (10034): Output port "debugString" at MusicKeysController.sv(7) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 7
-Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 146
-Warning (10230): Verilog HDL assignment warning at SPI_OutputControllerDac.sv(68): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 68
-Warning (10230): Verilog HDL assignment warning at SPI_OutputControllerDac.sv(85): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 85
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 104
-Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(35): truncated value with size 32 to match size of target (8) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 35
-Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 159
-Warning (10230): Verilog HDL assignment warning at UI_TriggerSmoother.sv(30): truncated value with size 32 to match size of target (17) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv Line: 30
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 226
-Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(35): truncated value with size 32 to match size of target (15) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 35
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 235
-Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(35): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 35
+Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 248
+Warning (10230): Verilog HDL assignment warning at MusicBoxStateController.sv(48): truncated value with size 32 to match size of target (5) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 48
+Info (12128): Elaborating entity "MusicBoxState_PlaySong0" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 60
+Warning (10230): Verilog HDL assignment warning at MusicBoxState_PlaySong0.sv(39): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv Line: 39
+Info (12128): Elaborating entity "MusicBoxState_PlaySong1" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 70
+Warning (10230): Verilog HDL assignment warning at MusicBoxState_PlaySong1.sv(34): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv Line: 34
+Info (12128): Elaborating entity "MusicBoxState_MakeRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 80
+Warning (10230): Verilog HDL assignment warning at MusicBoxState_MakeRecording.sv(34): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv Line: 34
+Info (12128): Elaborating entity "MusicBoxState_PlayRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 90
+Warning (10230): Verilog HDL assignment warning at MusicBoxState_PlayRecording.sv(34): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv Line: 34
+Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 294
+Warning (10230): Verilog HDL assignment warning at SPI_OutputControllerDac.sv(89): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 89
+Warning (10230): Verilog HDL assignment warning at SPI_OutputControllerDac.sv(110): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 110
+Warning (10230): Verilog HDL assignment warning at SPI_OutputControllerDac.sv(131): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 131
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_71Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 37
+Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (8) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
 Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "max10Board_SDRAM_Data[0]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 56
@@ -593,6 +577,8 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "max10Board_SDRAM_Data[13]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 56
     Warning (13040): bidirectional pin "max10Board_SDRAM_Data[14]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 56
     Warning (13040): bidirectional pin "max10Board_SDRAM_Data[15]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 56
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 261
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "max10Board_LEDSegments[0][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 12
     Warning (13410): Pin "max10Board_LEDSegments[0][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 12
@@ -659,9 +645,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "max10Board_SDRAM_WriteEnable_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 62
     Warning (13410): Pin "max10Board_SDRAM_ColumnAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 63
     Warning (13410): Pin "max10Board_SDRAM_RowAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 64
-    Warning (13410): Pin "max10Board_GPIO_Output_SPI_SCLK" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 48
-    Warning (13410): Pin "max10Board_GPIO_Output_SPI_SYNC_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 49
-    Warning (13410): Pin "max10Board_GPIO_Output_SPI_DIN" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 50
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.map.smsg
@@ -679,16 +662,16 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10board_switches[7]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 57
     Warning (15610): No output dependent on input pin "max10board_switches[8]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 57
     Warning (15610): No output dependent on input pin "max10board_switches[9]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 57
-Info (21057): Implemented 519 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 587 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 78 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 402 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 137 warnings
-    Info: Peak virtual memory: 4763 megabytes
-    Info: Processing ended: Mon Jan 27 12:40:06 2020
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:40
+    Info (21061): Implemented 470 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 127 warnings
+    Info: Peak virtual memory: 4757 megabytes
+    Info: Processing ended: Wed Jan 29 12:12:04 2020
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:38
 
 
 +------------------------------------------+

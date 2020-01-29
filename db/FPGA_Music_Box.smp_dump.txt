@@ -1,6 +1,7 @@
 
 State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
-Name currentState.00000 currentState.00010 currentState.00001 
-currentState.00000 0 0 0 
-currentState.00001 1 0 1 
-currentState.00010 1 1 0 
+Name currentState.00011 currentState.00010 currentState.00001 currentState.00000 
+currentState.00000 0 0 0 0 
+currentState.00001 0 0 1 1 
+currentState.00010 0 1 0 1 
+currentState.00011 1 0 0 1 
