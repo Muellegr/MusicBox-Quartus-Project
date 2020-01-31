@@ -1,5 +1,5 @@
 |MusicBox_Main
-max10Board_Buttons[0] => systemReset_n.IN15
+max10Board_Buttons[0] => systemReset_n.IN16
 max10Board_Buttons[1] => ~NO_FANOUT~
 max10board_switches[0] => ~NO_FANOUT~
 max10board_switches[1] => ~NO_FANOUT~
@@ -11,7 +11,7 @@ max10board_switches[6] => ~NO_FANOUT~
 max10board_switches[7] => ~NO_FANOUT~
 max10board_switches[8] => ~NO_FANOUT~
 max10board_switches[9] => ~NO_FANOUT~
-max10Board_50MhzClock => max10Board_50MhzClock.IN14
+max10Board_50MhzClock => max10Board_50MhzClock.IN15
 max10Board_LEDSegments[0][0] <= <GND>
 max10Board_LEDSegments[0][1] <= <GND>
 max10Board_LEDSegments[0][2] <= <GND>
@@ -116,6 +116,42 @@ max10Board_GPIO_Input_PlayRecording => max10Board_GPIO_Input_PlayRecording.IN1
 max10Board_GPIO_Output_SPI_SCLK <= SPI_OutputControllerDac:sPI_OutputControllerDac.output_SPI_SCLK
 max10Board_GPIO_Output_SPI_SYNC_n <= SPI_OutputControllerDac:sPI_OutputControllerDac.output_SPI_SYNC_n
 max10Board_GPIO_Output_SPI_DIN <= SPI_OutputControllerDac:sPI_OutputControllerDac.output_SPI_DIN
+
+
+|MusicBox_Main|ClockGenerator:clockGenerator_100hz
+inputClock => outputClock~reg0.CLK
+inputClock => counter[0].CLK
+inputClock => counter[1].CLK
+inputClock => counter[2].CLK
+inputClock => counter[3].CLK
+inputClock => counter[4].CLK
+inputClock => counter[5].CLK
+inputClock => counter[6].CLK
+inputClock => counter[7].CLK
+inputClock => counter[8].CLK
+inputClock => counter[9].CLK
+inputClock => counter[10].CLK
+inputClock => counter[11].CLK
+inputClock => counter[12].CLK
+inputClock => counter[13].CLK
+inputClock => counter[14].CLK
+reset_n => outputClock~reg0.ACLR
+reset_n => counter[0].ACLR
+reset_n => counter[1].ACLR
+reset_n => counter[2].ACLR
+reset_n => counter[3].ACLR
+reset_n => counter[4].ACLR
+reset_n => counter[5].ACLR
+reset_n => counter[6].ACLR
+reset_n => counter[7].ACLR
+reset_n => counter[8].ACLR
+reset_n => counter[9].ACLR
+reset_n => counter[10].ACLR
+reset_n => counter[11].ACLR
+reset_n => counter[12].ACLR
+reset_n => counter[13].ACLR
+reset_n => counter[14].ACLR
+outputClock <= outputClock~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |MusicBox_Main|ClockGenerator:clockGenerator_1Khz

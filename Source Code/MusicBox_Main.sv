@@ -80,7 +80,16 @@ module MusicBox_Main(
 	wire systemReset_n = max10Board_Buttons[0]; //Currently all systems should reset on this. 
 	
 	
-	
+	//-----------------------
+	//--MISC CLOCK GENERATORS
+	wire CLK_100hz ;
+	ClockGenerator clockGenerator_100hz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_100hz)
+	);
+		defparam	clockGenerator_1Khz.BitsNeeded = 25; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_1Khz.InputClockEdgesToCount = 250000;
 	
 	
 	//-----------------------
@@ -254,11 +263,25 @@ module MusicBox_Main(
 	//Will always have a set of X bits and a signal to send.
 	//The system will take those bits and send them bit by bit in the neccesary way.
 	//The system will have a 'IsBusy' flag, and a 'SendComplete' flag.  
-	wire [11:0] SPI_Output_WriteSample;
+	reg [11:0] SPI_Output_WriteSample;
 	
 	
-	assign SPI_Output_WriteSample = (max10Board_GPIO_Input_PlaySong1_s == 1) ? 12'b1111_1111_1111 : 12'b1010_0101_1111;// + 12'b0000_0010_0000;
-	reg 		SPI_Output_SendSample;
+	always_ff @ (posedge CLK_100hz, negedge systemReset_n) begin
+		if (systemReset_n == 0) begin
+			SPI_Output_WriteSample <= 0;
+		end
+		else if (SPI_Output_WriteSample == 4000) begin
+			SPI_Output_WriteSample <= 0;
+		end
+		else begin
+			SPI_Output_WriteSample <= SPI_Output_WriteSample + 1;
+		end
+	
+	end 
+	wire 		SPI_Output_SendSample;
+	assign SPI_Output_SendSample = 0;
+	//assign SPI_Output_WriteSample = (max10Board_GPIO_Input_PlaySong1_s == 1) ? 12'b1111_1111_1111 : 12'b000_0000_1111;// + 12'b0000_0010_0000;
+	 
 	//assign SPI_Output_SendSample = 0;//max10Board_GPIO_Input_PlaySong1_s;
 	wire 		SPI_Output_isBusy;
 	assign max10Board_LED[0] =SPI_Output_isBusy;
@@ -268,14 +291,14 @@ module MusicBox_Main(
 	//output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
 	//output wire max10Board_GPIO_Output_SPI_DIN; //Data bits
 	
-	always_ff @ (negedge max10Board_GPIO_Input_PlaySong0_s, posedge SPI_Output_isBusy) begin
-		if (SPI_Output_isBusy == 1) begin
-			SPI_Output_SendSample <= 1;
-		end
-		else begin
-			SPI_Output_SendSample <= 0;
-		end
-	end
+	// always_ff @ (negedge max10Board_GPIO_Input_PlaySong0_s, posedge SPI_Output_isBusy) begin
+		// if (SPI_Output_isBusy == 1) begin
+			// SPI_Output_SendSample <= 1;
+		// end
+		// else begin
+			// SPI_Output_SendSample <= 0;
+		// end
+	// end
 	
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		.clock_50Mhz(max10Board_50MhzClock),

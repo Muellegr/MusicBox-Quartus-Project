@@ -53,7 +53,7 @@ module SPI_OutputControllerDac(
 		assign output_SPI_DIN = writeBit * (currentState != 0);
 		assign isBusy = !(currentState == 0);
 		
-		always_ff@(posedge CLK_71Khz, negedge reset_n) begin
+		always_ff@(negedge CLK_71Khz, negedge reset_n) begin
 			if (reset_n == 0) begin
 				currentState <= 0;
 				writeBit <= 0;
@@ -91,11 +91,11 @@ module SPI_OutputControllerDac(
 			end
 			else if (currentState == 2) begin
 				//Transmit complete : All bits sent
-				if (counter == 11) begin
+				if (counter == 15) begin
 					$display("%m 	System complete");
 					transmitComplete <= 1;
 					counter <= 0;
-					currentState <= 3;
+					currentState <= 0;
 					writeBit<=0;
 					
 				end
@@ -112,7 +112,7 @@ module SPI_OutputControllerDac(
 			end
 			else if (currentState == 3) begin
 				//Transmit complete : All bits sent
-				if (counter == 5) begin
+				if (counter == 1) begin
 					$display("%m 	System complete");
 					transmitComplete <= 1;
 					counter <= 0;

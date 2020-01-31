@@ -816,7 +816,7 @@ Resolution = ns
 UserTimeUnit = default
 
 ; Default run length
-RunLength = 100 ns
+RunLength = 100 ms
 
 ; Maximum iterations that can be run without advancing simulation time
 IterationLimit = 10000000
@@ -2040,7 +2040,7 @@ Project_File_P_0 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_i
 Project_File_1 = C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv
 Project_File_P_1 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} last_compile 1580164729 cover_fsm 0 cover_branch 0 vlog_noload 0 vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to work vlog_upper 0 cover_noshort 0 compile_order 4 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_2 = C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv
-Project_File_P_2 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} cover_branch 0 cover_fsm 0 last_compile 1580328388 vlog_noload 0 cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 1 cover_expr 0 dont_compile 0 cover_stmt 0
+Project_File_P_2 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 cover_fsm 0 cover_branch 0 vlog_noload 0 last_compile 1580416721 folder {Top Level} cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 1 cover_expr 0 dont_compile 0 cover_stmt 0
 Project_File_3 = C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv
 Project_File_P_3 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} last_compile 1580164740 cover_fsm 0 cover_branch 0 vlog_noload 0 vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to work vlog_upper 0 cover_noshort 0 compile_order 5 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_4 = C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv
@@ -2056,7 +2056,7 @@ Project_File_P_8 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_i
 Project_File_9 = C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv
 Project_File_P_9 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 folder {Top Level} last_compile 1579993190 cover_fsm 0 cover_branch 0 vlog_noload 0 vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to work vlog_upper 0 cover_noshort 0 compile_order 8 dont_compile 0 cover_expr 0 cover_stmt 0
 Project_File_10 = C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv
-Project_File_P_10 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 vlog_noload 0 last_compile 1580328621 folder {Top Level} cover_branch 0 cover_fsm 0 vlog_enable0In 0 cover_excludedefault 0 vlog_disableopt 0 cover_covercells 0 vlog_hazard 0 vlog_showsource 0 cover_optlevel 3 voptflow 1 ood 0 vlog_0InOptions {} toggle - vlog_options {} compile_to work vlog_upper 0 cover_noshort 0 compile_order 0 dont_compile 0 cover_expr 0 cover_stmt 0
+Project_File_P_10 = cover_toggle 0 vlog_protect 0 file_type systemverilog group_id 0 cover_exttoggle 0 cover_nofec 0 cover_cond 0 vlog_1995compat SV vlog_nodebug 0 cover_fsm 0 cover_branch 0 vlog_noload 0 last_compile 1580429458 folder {Top Level} cover_excludedefault 0 vlog_enable0In 0 vlog_disableopt 0 cover_covercells 0 voptflow 1 cover_optlevel 3 vlog_showsource 0 vlog_hazard 0 toggle - vlog_0InOptions {} ood 0 cover_noshort 0 vlog_upper 0 compile_to work vlog_options {} compile_order 0 cover_expr 0 dont_compile 0 cover_stmt 0
 Project_Sim_Count = 0
 Project_Folder_Count = 0
 Echo_Compile_Output = 0
