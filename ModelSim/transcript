@@ -874,6 +874,7 @@ run
 # 
 #           Using alternate file: ./wlftvrixbn
 # 
+<<<<<<< HEAD
 # Compile of MusicBox_Main.sv was successful.
 # Compile of SPI_OutputControllerDac.sv was successful.
 # Compile of MusicBoxState_MakeRecording.sv was successful.
@@ -937,3 +938,5 @@ run
 # 
 #           Using alternate file: ./wlft92gg31
 # 
+=======
+>>>>>>> SPI_IO
