@@ -199,6 +199,11 @@ set_location_assignment PIN_AA14 -to max10Board_GPIO_Output_SPI_SCLK
 set_location_assignment PIN_W12 -to max10Board_GPIO_Output_SPI_SYNC_n
 set_location_assignment PIN_AB12 -to max10Board_GPIO_Output_SPI_DIN
 
+	#SPI Input from ADC
+set_location_assignment PIN_W13 -to max10Board_GPIO_Output_SPI_SCLK
+set_location_assignment PIN_AB13 -to max10Board_GPIO_Output_SPI_SYNC_n
+set_location_assignment PIN_Y11 -to max10Board_GPIO_Output_SPI_DIN
+
 #DE10 LITE GPIO PINS
 # set_location_assignment PIN_V7 -to max10Board_GPIO[6]
 # set_location_assignment PIN_W7 -to max10Board_GPIO[7]

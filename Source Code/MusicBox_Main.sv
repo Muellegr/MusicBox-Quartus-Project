@@ -31,7 +31,11 @@ module MusicBox_Main(
 	
 	max10Board_GPIO_Output_SPI_SCLK,
 	max10Board_GPIO_Output_SPI_SYNC_n,
-	max10Board_GPIO_Output_SPI_DIN
+	max10Board_GPIO_Output_SPI_DIN,
+	
+	max10Board_GPIO_Input_SPI_SCLK, //Clock pin.  Technically output!
+	max10Board_GPIO_Input_SPI_SDO, //Data pin
+	max10Board_GPIO_Input_SPI_CS_n //Tells ADC to begin sending message.  Technically output!
 );
 	input wire	max10Board_50MhzClock;
 	output wire	[5:0][6:0]	max10Board_LEDSegments;//The DE-10 Board LED Segments
@@ -48,6 +52,10 @@ module MusicBox_Main(
 	output wire max10Board_GPIO_Output_SPI_SCLK; //Data clock per bit
 	output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
 	output wire max10Board_GPIO_Output_SPI_DIN; //Data bits
+	///////// GPIO SPI Input from ADC
+	output wire max10Board_GPIO_Input_SPI_SCLK; //Clock pin
+	input wire max10Board_GPIO_Input_SPI_SDO; //Data pin
+	output wire max10Board_GPIO_Input_SPI_CS_n; //Tells ADC to begin sending message
 	///////// SDRAM /////////
 	output wire max10Board_SDRAM_Clock;
 	output wire max10Board_SDRAM_ClockEnable;
@@ -315,6 +323,29 @@ module MusicBox_Main(
 		.isBusy(SPI_Output_isBusy),
 		.transmitComplete(SPI_Output_transmitComplete) //Goes high for 71Khz when this completes the signal
 	);
+	
+	//----------------------------
+	//---SPI Input from ADC ------
+	//----------------------------
+	wire SPI_Input_sendSample;
+	wire [7:0] SPI_Output_outputSample;
+	wire SPI_Output_newSample;
+	
+	SPI_InputControllerDac sPI_InputControllerDac(
+		.clock_50Mhz(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.sendSample(SPI_Input_sendSample),
+		
+		
+		//HARDWARE I/O
+		.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
+		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
+		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
+		
+		.outputSample(SPI_Output_outputSample),
+		.sampleReady(SPI_Output_newSample)
+	);
+
 
 	
 	
