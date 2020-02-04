@@ -874,3 +874,66 @@ run
 # 
 #           Using alternate file: ./wlftvrixbn
 # 
+# Compile of MusicBox_Main.sv was successful.
+# Compile of SPI_OutputControllerDac.sv was successful.
+# Compile of MusicBoxState_MakeRecording.sv was successful.
+# Compile of MusicBoxState_PlayRecording.sv was successful.
+# Compile of MusicBoxState_PlaySong0.sv was successful.
+# Compile of MusicBoxState_PlaySong1.sv was successful.
+# Compile of MusicBoxStateController.sv was successful.
+# Compile of MusicKeysController.sv was successful.
+# Compile of UI_TriggerSmoother.sv was successful.
+# Compile of ClockGenerator.sv was successful.
+# Compile of SPI_InputControllerSPI.sv was successful.
+# 11 compiles, 0 failed with no errors.
+# vsim 
+# Start time: 15:53:25 on Feb 04,2020
+# Loading sv_std.std
+# Loading work.MusicBox_Main
+# Loading work.ClockGenerator
+# Loading work.UI_TriggerSmoother
+# Loading work.MusicKeysController
+# Loading work.MusicBoxStateController
+# Loading work.MusicBoxState_PlaySong0
+# Loading work.MusicBoxState_PlaySong1
+# Loading work.MusicBoxState_MakeRecording
+# Loading work.MusicBoxState_PlayRecording
+# Loading work.SPI_OutputControllerDac
+# Loading work.SPI_InputControllerDac
+# ** Warning: (vsim-3007) Defparam iteration limit of 10 exceeded.
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/sPI_OutputControllerDac File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv
+# Here are the next few assignments to give an indication of where the problem might be:
+#   Assigned to parameter "/MusicBox_Main/clockGenerator_1Khz/BitsNeeded".
+#     Parameter value differs from assigned value
+#   Assigned to parameter "/MusicBox_Main/clockGenerator_1Khz/InputClockEdgesToCount".
+#     Parameter value differs from assigned value
+#   Assigned to parameter "/MusicBox_Main/clockGenerator_1Khz/BitsNeeded".
+#     Parameter value differs from assigned value
+#   Assigned to parameter "/MusicBox_Main/clockGenerator_1Khz/InputClockEdgesToCount".
+#     Parameter value differs from assigned value
+# ** Warning: (vsim-3017) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv(215): [TFMPC] - Too few port connections. Expected 6, found 5.
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicKeysController File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv
+# ** Warning: (vsim-3722) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv(215): [TFMPC] - Missing connection for port 'debugString'.
+# ** Warning: (vsim-3015) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(53): [PCDPC] - Port size (5) does not match connection size (32) for port 'currentState'. The port definition is at: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv(11).
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicBoxStateController/musicBoxState_PlaySong0 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv
+# ** Warning: (vsim-3015) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(63): [PCDPC] - Port size (5) does not match connection size (32) for port 'currentState'. The port definition is at: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv(5).
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicBoxStateController/musicBoxState_PlaySong1 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv
+# ** Warning: (vsim-3839) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(63): Variable '/MusicBox_Main/musicBoxStateController/debugString', driven via a port connection, is multiply driven. See C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(53).
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicBoxStateController/musicBoxState_PlaySong1 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv
+# ** Warning: (vsim-3015) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(73): [PCDPC] - Port size (5) does not match connection size (32) for port 'currentState'. The port definition is at: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv(5).
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicBoxStateController/musicBoxState_MakeRecording File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv
+# ** Warning: (vsim-3839) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(73): Variable '/MusicBox_Main/musicBoxStateController/debugString', driven via a port connection, is multiply driven. See C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(53).
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicBoxStateController/musicBoxState_MakeRecording File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv
+# ** Warning: (vsim-3015) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(83): [PCDPC] - Port size (5) does not match connection size (32) for port 'currentState'. The port definition is at: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv(5).
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicBoxStateController/MusicBoxState_PlayRecording File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv
+# ** Warning: (vsim-3839) C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(83): Variable '/MusicBox_Main/musicBoxStateController/debugString', driven via a port connection, is multiply driven. See C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv(53).
+#    Time: 0 ns  Iteration: 0  Instance: /MusicBox_Main/musicBoxStateController/MusicBoxState_PlayRecording File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Graham  Hostname: DESKTOP-FEA0LIL  ProcessID: 12132
+# 
+#           Attempting to use alternate WLF file "./wlft92gg31".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft92gg31
+# 

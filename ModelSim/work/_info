@@ -10,7 +10,7 @@ cModel Technology
 dC:/Users/Graham/Documents/Quartus Projects/Project 1/ModelSim
 vClockGenerator
 Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z1 !s110 1580858874
+Z1 !s110 1580860404
 !i10b 1
 !s100 ZYoQZAa>WUn`Ikn<N6dJ<0
 IG1G:mnIOGn:;Hco:7g6KI2
@@ -26,7 +26,7 @@ Z5 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z6 !s108 1580858874.000000
+Z6 !s108 1580860404.000000
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv|
 !s101 -O0
@@ -35,7 +35,7 @@ Z7 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -
 n@clock@generator
 vMusicBox_Main
 R0
-Z8 !s110 1580858873
+Z8 !s110 1580860403
 !i10b 1
 !s100 O<W]Q6lUiIEbbo@LRH?1b1
 ISI9g6`>0Z<C=:KPnjzm^j0
@@ -43,7 +43,7 @@ R2
 !s105 MusicBox_Main_sv_unit
 S1
 R3
-w1580856167
+Z9 w1580860387
 8C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv
 FC:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv
 L0 7
@@ -51,7 +51,7 @@ R5
 r1
 !s85 0
 31
-Z9 !s108 1580858873.000000
+Z10 !s108 1580860403.000000
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv|
 !s101 -O0
@@ -76,7 +76,7 @@ R5
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv|
 !s101 -O0
@@ -85,7 +85,7 @@ R7
 n@music@box@state_@make@recording
 vMusicBoxState_PlayRecording
 R0
-R1
+R8
 !i10b 1
 !s100 T5gLcER=PSlPzzzXa846;2
 IU9J6:;ZIEL1oZ@ZOY1gIl2
@@ -101,7 +101,7 @@ R5
 r1
 !s85 0
 31
-R6
+R10
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv|
 !s101 -O0
@@ -212,13 +212,13 @@ vSPI_InputControllerDac
 R0
 R1
 !i10b 1
-!s100 BYO8W=VmUSVh`MgiLK8g[3
-IlG=Va>466glNEL6ShYifM3
+!s100 E_@4fEDm8d=FJ^GUF0RS:0
+IYYOE_1;3=G4gXZ[Mj2SU^0
 R2
 !s105 SPI_InputControllerSPI_sv_unit
 S1
 R3
-w1580858741
+R9
 8C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_InputControllerSPI.sv
 FC:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_InputControllerSPI.sv
 L0 9
@@ -251,7 +251,7 @@ R5
 r1
 !s85 0
 31
-R9
+R10
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv|
 !s101 -O0
