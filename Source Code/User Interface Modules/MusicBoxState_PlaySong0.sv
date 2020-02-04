@@ -16,10 +16,10 @@ module MusicBoxState_PlaySong0 (
 		output logic stateComplete
 		);
 		
-		assign debugString = counter;
-		
 		//This will count to 5000 on the 1Khz cock.    15bits can count to 32768.
 		reg [ 15: 0] counter ;
+		assign debugString = counter;
+	
 		always_ff @(posedge clock_1Khz ) begin //clock_1Khz negedge reset_n 
 			//If current state isn't equal to 1. 
 				//Does not like resetting here.  I think because reset influences currentState.

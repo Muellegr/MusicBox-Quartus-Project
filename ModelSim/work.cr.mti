@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module MusicBoxStateController
 
 Top level modules:
 	MusicBoxStateController
+=======
+{C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module SPI_OutputControllerDac
+
+Top level modules:
+	SPI_OutputControllerDac
+>>>>>>> SPI_IO
 
 } {} {}} {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_PlaySong0.sv}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
@@ -33,4 +42,21 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	UI_TriggerSmoother
 
+<<<<<<< HEAD
+=======
+} {} {}} {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ClockGenerator
+
+Top level modules:
+	ClockGenerator
+
+} {} {}} {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv} {1 {vlog -work work -sv -stats=none {C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module MusicBox_Main
+
+Top level modules:
+	MusicBox_Main
+
+>>>>>>> SPI_IO
 } {} {}}

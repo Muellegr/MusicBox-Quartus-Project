@@ -1,5 +1,5 @@
 Flow report for FPGA_Music_Box
-Sun Jan 26 13:50:54 2020
+Thu Jan 30 12:44:36 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Jan 26 13:50:47 2020       ;
+; Flow Status                        ; Successful - Thu Jan 30 12:44:29 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 405 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 403 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 257 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 257                                         ;
-; Total pins                         ; 114 / 360 ( 32 % )                          ;
+; Total logic elements               ; 490 / 49,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 487 / 49,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 311 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 311                                         ;
+; Total pins                         ; 117 / 360 ( 33 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/26/2020 13:50:01 ;
+; Start date & time ; 01/30/2020 12:43:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGA_Music_Box      ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+----------------+---------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value  ; Entity Name   ; Section Id ;
 +-------------------------------------+----------------------------------------+----------------+---------------+------------+
-; COMPILER_SIGNATURE_ID               ; 93383152511034.158007540116452         ; --             ; --            ; --         ;
+; COMPILER_SIGNATURE_ID               ; 93383152511034.158041701412868         ; --             ; --            ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --             ; --            ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --             ; --            ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --             ; MusicBox_Main ; Top        ;
@@ -95,11 +95,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:20     ; 1.0                     ; 4751 MB             ; 00:00:43                           ;
-; Fitter               ; 00:00:18     ; 1.0                     ; 5380 MB             ; 00:00:23                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 4688 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:06     ; 1.1                     ; 4803 MB             ; 00:00:05                           ;
-; Total                ; 00:00:49     ; --                      ; --                  ; 00:01:16                           ;
+; Analysis & Synthesis ; 00:00:22     ; 1.0                     ; 4752 MB             ; 00:00:42                           ;
+; Fitter               ; 00:00:23     ; 1.1                     ; 5390 MB             ; 00:00:27                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4694 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.1                     ; 4807 MB             ; 00:00:06                           ;
+; Total                ; 00:00:57     ; --                      ; --                  ; 00:01:21                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

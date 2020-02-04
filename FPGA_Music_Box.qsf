@@ -194,6 +194,11 @@ set_location_assignment PIN_W6 -to max10Board_GPIO_Input_PlaySong0
 set_location_assignment PIN_V5 -to max10Board_GPIO_Input_MakeRecording
 set_location_assignment PIN_W5 -to max10Board_GPIO_Input_PlayRecording
 
+	#SPI Output to Dac
+set_location_assignment PIN_AA14 -to max10Board_GPIO_Output_SPI_SCLK
+set_location_assignment PIN_W12 -to max10Board_GPIO_Output_SPI_SYNC_n
+set_location_assignment PIN_AB12 -to max10Board_GPIO_Output_SPI_DIN
+
 #DE10 LITE GPIO PINS
 # set_location_assignment PIN_V7 -to max10Board_GPIO[6]
 # set_location_assignment PIN_W7 -to max10Board_GPIO[7]
@@ -346,6 +351,8 @@ set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_PlaySong0
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_PlaySong1
 
+
+
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[9]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[8]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[7]
@@ -394,6 +401,7 @@ set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_
 set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_Input_PlaySong1
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_Buttons[1]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_Buttons[0]
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SPI/SPI_OutputControllerDac.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxState_PlaySong1.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxState_PlayRecording.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv"
@@ -403,4 +411,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modul
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/MusicBoxStateController.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/UI_TriggerSmoother.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MusicBox_Main.sv"
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Output_SPI_DIN
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Output_SPI_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Output_SPI_SYNC_n
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
