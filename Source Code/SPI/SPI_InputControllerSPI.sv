@@ -1,22 +1,35 @@
 /*
+
+ECE 342 - Junior Design - Music Box
+Written by Graham Mueller
+
+This integrates an extral ADC with the FPGA.
+
+
 SPI input through the ADS7868 ADC.  A full message is 12 bits, with 8 bits representing the data.
 https://www.mouser.com/ProductDetail/Texas-Instruments/ADS7868IDBVR?qs=sGAEpiMZZMvTvDTV69d2Qt3F3KjDSYf5IFO8E4Bk9Lk%3D
 
 
-We tell the ADC when to send a sample at sample rate of 10KHz. 
+HOW TO USE
+	set sendSample high.  this tells device to send signal.
+	Wait for sampleReady to go from low to high.  This indicates outputSample has been updated.
+	outputSample is now updated to a new value.
 */
 
 module SPI_InputControllerDac( 
+		//--SYSTEM INPUT
 		input logic clock_50Mhz,
 		input logic reset_n,
-
-		input logic sendSample, //Signal tells the ADC to send signal.
 		
 		//--Configured as output.  These inputs connect directly to the GPIO pins.
 		output logic input_SPI_SCLK, //Clock
 		output logic input_SPI_CS_n, //Active low input.  
 		input logic input_SPI_SDO,  //Serial data input.  Comes in MSB first.  Falling edge.
 		
+		
+		//--Control IO
+		input logic sendSample, //Signal tells the ADC to send signal.
+		//--OUTPUT
 		output logic [7:0] outputSample, //Last generated sample
 		output logic sampleReady //Sample is updated
 		);

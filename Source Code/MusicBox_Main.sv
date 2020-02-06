@@ -4,6 +4,43 @@
 //====== 	Authors : Graham Mueller muellegr@oregonstate.edu
 //======
 
+
+/*
+I (Graham) am the main author of this at the moment.  Some things are not commented as well as they should be.
+Many things are either out of place (especiall in this file) to make it work with ModelSim or weird debug options that won't be in the final product.
+
+Finally, haven't used branching much before so I'm making weird mistakes trying to use it better.  
+
+
+MAIN TASKS
+	SDRAM Integration
+	
+	Frequency Generator
+	
+	Test SPI Output with device
+	
+	Test SPI Input with device
+	
+	Integrate LED control to buttons
+	
+	FFT
+		System to pull main frequency out
+		
+	Add Mode Functionality
+		Song 0, Song 1
+			Needs frequency generator
+			
+		Record Song
+			Needs FFT
+			SDRAM IO
+		
+		Play Song
+			SDRAM IO
+			Debug  mode : Fill SDRAM with sine wave to retrieve it properly and output it as if we had recorded something before.
+
+
+
+*/
 module MusicBox_Main(
 	max10Board_Buttons,
 	max10board_switches,

@@ -1,39 +1,39 @@
 /*
+ECE 342 - Junior Design - Music Box
+Written by Graham Mueller
+This integrates an external DAC with the FPGA. 
 
+
+AD5320BRTZ-REEL7 
+https://www.mouser.com/ProductDetail/Analog-Devices/AD5320BRTZ-REEL7?qs=sGAEpiMZZMv9Q1JI0Mo%2FtWTtmYxlbhYU
 Must send 16 bits.  Only 12 of those bits are used to set the output value.  
  X  X  0  0  D  D  D  D  D  D  D  D  D  D  D  D
 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
-
-The two 0s configure the state : Basically tell it the system is on.
-
+The bits for 13&12 tell the DAC that it is now on. 
 
 HOW TO USE
-	Give 50Mhz clock, reset_n
-	Give physical hardware output pins for SPI
-	
 	inputSample is 12 bits you will want to send.
-	sendSample_n is active low signal. When low it will send sample.
+	sendSample_n is active low signal. When low it will copy current inputSample and begin sending copy out.
 		InputSample can be changed while this is busy
 		sendSample can go back high once this busy
-		
+	When transmitComplete goes from low to high, this has completed and is ready to send again.
 */
 module SPI_OutputControllerDac( 
+		//--SYSTEM INPUT
 		input logic clock_50Mhz,
 		input logic clock_1Khz,
 		input logic reset_n,
 		
-		//--Configured as output.  These outputs connect directly to the GPIO pins.
+		//--SYSTEM OUTPUT. Connected to GPIO pins.
 		output logic output_SPI_SCLK,
 		output logic output_SPI_SYNC_n,
 		output logic output_SPI_DIN,
 		
-		//--Module interface
-			//inputSample are the 12 bits you wish to send.
-			//sendSample_n isan active low signal.  When it is low during 714kHz clock, it begins sending bits.
+		//--IO interface
 		input logic [11:0] inputSample, //12 bits that will be sent to the DAC
 		input logic sendSample_n, //Active low signal.  If the system is not busy, it will begin sending the sample out.
 		
-		//While sending message, this signal is high.
+		//--Output
 		output logic isBusy,
 		output logic transmitComplete //Goes high for 71Khz when this completes the signal
 		);
@@ -115,4 +115,5 @@ module SPI_OutputControllerDac(
 				end
 			end //States
 		end //Always @ negedge 714k clock and reset_n
+		
 endmodule
