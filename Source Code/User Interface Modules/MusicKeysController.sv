@@ -11,7 +11,7 @@ module MusicKeysController (
 		);
 
 		
-		//							 If the music key is held down  AND   current state is doing nothing(0) or playing recording(4)
+		//If the music key is held down  AND   current state is doing nothing(0) or playing recording(4)
 		assign outputKeyPressed[0] = (input_MusicKey[0] == 0 && (currentState == 0 || currentState == 4)) * 1;
 		assign outputKeyPressed[1] = (input_MusicKey[1] == 0 && (currentState == 0 || currentState == 4)) * 1;
 		assign outputKeyPressed[2] = (input_MusicKey[2] == 0 && (currentState == 0 || currentState == 4)) * 1;

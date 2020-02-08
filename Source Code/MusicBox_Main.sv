@@ -42,12 +42,9 @@ MAIN TASKS
 
 */
 module MusicBox_Main(
-	max10Board_Buttons,
-	max10board_switches,
-	
+	//GPIO
 	max10Board_50MhzClock,
-	max10Board_LEDSegments,
-	max10Board_LED,
+	
 	max10Board_SDRAM_Clock,
 	max10Board_SDRAM_ClockEnable,
 	max10Board_SDRAM_Address,
@@ -72,19 +69,28 @@ module MusicBox_Main(
 	
 	max10Board_GPIO_Input_SPI_SCLK, //Clock pin.  Technically output!
 	max10Board_GPIO_Input_SPI_SDO, //Data pin
-	max10Board_GPIO_Input_SPI_CS_n //Tells ADC to begin sending message.  Technically output!
+	max10Board_GPIO_Input_SPI_CS_n, //Tells ADC to begin sending message.  Technically output!
+	//DE10LITE DEDICATED
+	max10Board_Buttons,
+	max10board_switches,
+	max10Board_LEDSegments,
+	max10Board_LED
+
 );
+	/////////////////////////////////////////////////////////
+	/////////////////// MAJOR VARIABLE SETUP ////////////////
+	///////// MISC 
 	input wire	max10Board_50MhzClock;
 	output wire	[5:0][6:0]	max10Board_LEDSegments;//The DE-10 Board LED Segments
 	output reg [9:0] max10Board_LED; //The DE-10 Board LED lights
+	input wire	[1: 0] max10Board_Buttons ;
 	
-	///////// UI GPIO ///////
+	///////// GPIO UI ///////
 	input wire [5:0] max10Board_GPIO_Input_MusicKeys; //Array
 	input wire max10Board_GPIO_Input_PlaySong1;
 	input wire max10Board_GPIO_Input_PlaySong0;
 	input wire max10Board_GPIO_Input_MakeRecording;
 	input wire max10Board_GPIO_Input_PlayRecording;
-	
 	///////// GPIO SPI Output to Dac
 	output wire max10Board_GPIO_Output_SPI_SCLK; //Data clock per bit
 	output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
@@ -93,6 +99,7 @@ module MusicBox_Main(
 	output wire max10Board_GPIO_Input_SPI_SCLK; //Clock pin
 	input wire max10Board_GPIO_Input_SPI_SDO; //Data pin
 	output wire max10Board_GPIO_Input_SPI_CS_n; //Tells ADC to begin sending message
+	
 	///////// SDRAM /////////
 	output wire max10Board_SDRAM_Clock;
 	output wire max10Board_SDRAM_ClockEnable;
@@ -107,38 +114,24 @@ module MusicBox_Main(
 	output wire max10Board_SDRAM_WriteEnable_n; //active low
 	output wire max10Board_SDRAM_ColumnAddressStrobe_n; //active low
 	output wire max10Board_SDRAM_RowAddressStrobe_n; //active low
+	
 	/////////////////////////////////////////////////////////
-	//-- 
-	input wire	[1: 0] max10Board_Buttons ;
-
-
-
-
-
-
-
-
-
+	/////////////////////////////////////////////////////////
 	//-------------------------
 	//-----Major Variables-----
 	//-------------------------
 	wire systemReset_n = max10Board_Buttons[0]; //Currently all systems should reset on this. 
+	//----------------------------
+	//-- MAIN MODULE CONTROLLER---
+	//----------------------------
+	wire [4:0] outputCurrentState; //See MusicBoxStateController for output values
+	wire [31:0] output_DebugString; //Typically unused.
 	
-	
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
 	//-----------------------
 	//--MISC CLOCK GENERATORS
-	wire CLK_100hz ;
-	ClockGenerator clockGenerator_100hz (
-		.inputClock(max10Board_50MhzClock),
-		.reset_n(systemReset_n),
-		.outputClock(CLK_100hz)
-	);
-		defparam	clockGenerator_1Khz.BitsNeeded = 25; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_1Khz.InputClockEdgesToCount = 250000;
-	
-	
 	//-----------------------
-	//--MISC CLOCK GENERATORS
 	wire CLK_1Khz ;
 	ClockGenerator clockGenerator_1Khz (
 		.inputClock(max10Board_50MhzClock),
@@ -147,6 +140,15 @@ module MusicBox_Main(
 	);
 		defparam	clockGenerator_1Khz.BitsNeeded = 15; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_1Khz.InputClockEdgesToCount = 25000;
+		
+	wire CLK_100hz ;
+	ClockGenerator clockGenerator_100hz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_100hz)
+	);
+		defparam	clockGenerator_1Khz.BitsNeeded = 25; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_1Khz.InputClockEdgesToCount = 250000;
 	
 	wire CLK_1Hz ;
 	ClockGenerator clockGenerator_1hz (
@@ -157,17 +159,8 @@ module MusicBox_Main(
 		defparam	clockGenerator_1hz.BitsNeeded = 10; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_1hz.InputClockEdgesToCount = 500;
 	
-	
-	
-	//----------------------------
-	//-- MAIN MODULE CONTROLLER---
-	//----------------------------
-	wire [4:0] outputCurrentState;
-	wire [31:0] output_DebugString; 
-	
-	
-	
-	
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
 	//----------------------------
 	//-- INPUT SMOOTHING----------
 	//----------------------------
@@ -239,15 +232,11 @@ module MusicBox_Main(
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
 
-	
-	
-	
-	
-	
-	
+
 	//----------------------------
-	//-- Music Keys
-	//-----These operate only in the state DoNothing and MakeRecording.  
+	//-- Music Keys---------------
+	//----------------------------
+	//These operate only in the state DoNothing and MakeRecording.  
 	wire [5:0] musicKeysDebugTemp ; //Stores output.  Basically input keys if in current state.
 	MusicKeysController musicKeysController (
 		.clock_50Mhz(max10Board_50MhzClock),
@@ -258,111 +247,85 @@ module MusicBox_Main(
 		.outputKeyPressed(musicKeysDebugTemp)
 	);
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//--CURRENT DEBUG SETUP.
-		//State is displayed on first LEDs, music keys on the later half.
-	//assign max10Board_LED[9] = CLK_1Hz;
-	//assign max10Board_LED[8] = CLK_1Khz;
-	//assign max10Board_LED[9:5] = output_DebugString[4:0];
-	assign max10Board_LED[9:4] = musicKeysDebugTemp;
-	//assign max10Board_LED[0] = (outputCurrentState == 1);
-	assign max10Board_LED[1] = (outputCurrentState == 2);
-	assign max10Board_LED[2] = (outputCurrentState == 3);
-	assign max10Board_LED[3] = (outputCurrentState == 4);
 
+
+	// assign max10Board_LED[9:4] = musicKeysDebugTemp;
+	// assign max10Board_LED[1] = (max10Board_Buttons[1] == 0);
+	// assign max10Board_LED[2] = (outputCurrentState == 3);
+	// assign max10Board_LED[3] = (outputCurrentState == 4);
+	
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
+	//----------------------------
+	//-- STATE MACHINE -----------
+	//----------------------------
 	MusicBoxStateController musicBoxStateController (
-		//==INPUT
+		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		
-		//--UI
+		//--USER UI
 		.input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
 		.input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
 		.input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
 		.input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
 		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
 
-		//==OUTPUT
+		//--OUTPUT
 		.debugString(output_DebugString), //This is used to send any data out of the module for testing purposes.  Follows no format.
-		.outputState(outputCurrentState) //
-	
+		.outputState(outputCurrentState) //Current state so other modules may use it.
 	);
 	
-
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
 	//----------------------------
 	//-- SPI Output---------------
 	//----------------------------
 	//Will always have a set of X bits and a signal to send.
 	//The system will take those bits and send them bit by bit in the neccesary way.
 	//The system will have a 'IsBusy' flag, and a 'SendComplete' flag.  
-	reg [11:0] SPI_Output_WriteSample;
+	reg [11:0] SPI_Output_WriteSample; //TESTING ONLY
+	wire SPI_Output_SendSample_n; //Hardware IO
+		assign SPI_Output_SendSample_n = 0;
+	wire 		SPI_Output_isBusy; //High when sending a message
+	wire 		SPI_Output_transmitComplete;//This goes high briefly when complete
 	
-	
+	//--TESTING INTERFACE
 	always_ff @ (posedge CLK_100hz, negedge systemReset_n) begin
 		if (systemReset_n == 0) begin
 			SPI_Output_WriteSample <= 0;
 		end
-		else if (SPI_Output_WriteSample == 4000) begin
+		else if (SPI_Output_WriteSample == 4095) begin
 			SPI_Output_WriteSample <= 0;
 		end
-		else begin
+		else if ( max10Board_Buttons[1] == 0) begin
 			SPI_Output_WriteSample <= SPI_Output_WriteSample + 1;
 		end
-	
 	end 
-	wire 		SPI_Output_SendSample_n;
-	assign SPI_Output_SendSample_n = 0;
-	//assign SPI_Output_WriteSample = (max10Board_GPIO_Input_PlaySong1_s == 1) ? 12'b1111_1111_1111 : 12'b000_0000_1111;// + 12'b0000_0010_0000;
-	 
-	//assign SPI_Output_SendSample_n = 0;//max10Board_GPIO_Input_PlaySong1_s;
-
-//	assign max10Board_LED[0] =SPI_Output_isBusy;
-
-	wire 		SPI_Output_isBusy; //High when sending a message
-	wire 		SPI_Output_transmitComplete;//This goes high briefly when complete
-	
-	//	output wire max10Board_GPIO_Output_SPI_SCLK; //Data clock per bit
-	//output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
-	//output wire max10Board_GPIO_Output_SPI_DIN; //Data bits
-	
-	// always_ff @ (negedge max10Board_GPIO_Input_PlaySong0_s, posedge SPI_Output_isBusy) begin
-		// if (SPI_Output_isBusy == 1) begin
-			// SPI_Output_SendSample_n <= 1;
-		// end
-		// else begin
-			// SPI_Output_SendSample_n <= 0;
-		// end
-	// end
-	
+	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
 	SPI_OutputControllerDac sPI_OutputControllerDac (
+		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		
+		//--CONTROL
+		.inputSample(SPI_Output_WriteSample), //12 bits that will be sent to the DAC
+		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
+		
+		//--OUTPUT
 		.output_SPI_SCLK(max10Board_GPIO_Output_SPI_SCLK),
 		.output_SPI_SYNC_n(max10Board_GPIO_Output_SPI_SYNC_n),
 		.output_SPI_DIN(max10Board_GPIO_Output_SPI_DIN),
 		
-		.inputSample(SPI_Output_WriteSample), //12 bits that will be sent to the DAC
-		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
-		
+		//--SIGNAL
 		.isBusy(SPI_Output_isBusy),
 		.transmitComplete(SPI_Output_transmitComplete) //Goes high for 71Khz when this completes the signal
 	);
 	
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
 	//----------------------------
 	//---SPI Input from ADC ------
 	//----------------------------
@@ -371,21 +334,23 @@ module MusicBox_Main(
 	wire SPI_ADC_Output_newSample;
 	
 	SPI_InputControllerDac sPI_InputControllerDac(
+		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.reset_n(systemReset_n),
+		
+		//--CONTROL
 		.sendSample(SPI_ADC_Input_sendSample),
-		
-		
-		//HARDWARE I/O
+
+		//--HARDWARE I/O
 		.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
 		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
 		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
 		
+		//--OUTPUT
 		.outputSample(SPI_ADC_Output_outputSample),
+		
+		//--SIGNAL
 		.sampleReady(SPI_ADC_Output_newSample)
 	);
-
-
-	
 	
 endmodule

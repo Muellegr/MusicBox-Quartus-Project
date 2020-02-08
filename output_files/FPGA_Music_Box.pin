@@ -125,7 +125,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AB9       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB10      :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB11      :        :                   :         : 4         :                
 max10Board_GPIO_Output_SPI_DIN : AB12      : output : 3.3-V LVCMOS      :         : 4         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB13      :        :                   :         : 4         :                
+max10Board_GPIO_Input_SPI_CS_n : AB13      : output : 3.3-V LVCMOS      :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB14      :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB15      :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB16      :        :                   :         : 4         :                
@@ -510,7 +510,7 @@ max10Board_SDRAM_WriteEnable_n : V20       : output : 3.3-V LVTTL       :       
 max10Board_SDRAM_Data[7]     : V21       : bidir  : 3.3-V LVTTL       :         : 5         : Y              
 max10Board_SDRAM_DataMask0   : V22       : output : 3.3-V LVTTL       :         : 5         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W1        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : W2        :        :                   :         : 2         :                
+max10Board_Buttons[2]        : W2        : input  : 2.5 V             :         : 2         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W3        :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W4        :        :                   :         : 3         :                
 max10Board_GPIO_Input_PlayRecording : W5        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
@@ -521,7 +521,7 @@ max10Board_GPIO_Input_MusicKeys[3] : W9        : input  : 3.3 V Schmitt Trigger 
 max10Board_GPIO_Input_MusicKeys[1] : W10       : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W11       :        :                   :         : 4         :                
 max10Board_GPIO_Output_SPI_SYNC_n : W12       : output : 3.3-V LVCMOS      :         : 4         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : W13       :        :                   :         : 4         :                
+max10Board_GPIO_Input_SPI_SCLK : W13       : output : 3.3-V LVCMOS      :         : 4         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W14       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W15       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W16       :        :                   :         : 4         :                
@@ -541,7 +541,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : Y7        :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y8        :        :                   :         : 3         :                
 GND                          : Y9        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y10       :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y11       :        :                   :         : 4         :                
+max10Board_GPIO_Input_SPI_SDO : Y11       : input  : 3.3-V LVCMOS      :         : 4         : Y              
 GND                          : Y12       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y13       :        :                   :         : 4         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y14       :        :                   :         : 4         :                

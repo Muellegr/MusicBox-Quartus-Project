@@ -44,11 +44,14 @@ module MusicBoxStateController (
 		output logic [4:0] outputState 
 		);
 		enum { state_DoNothing, state_PlaySong0, state_PlaySong1, state_PlayRecording, state_MakeRecording } currentState;
+		
 		//This is a clocked state machine for sake of simplicity.  
 		assign outputState = currentState;
 			
+		//------------------------------------------
 		//--Initialize the individual state controllers.
-		//These only run when the current state input matches their own. 
+		//		These only run when the current state input matches their own. 
+		//		Automatically reset when the state does not match their own.
 		reg playSong0_StateComplete;
 		MusicBoxState_PlaySong0 musicBoxState_PlaySong0 (
 			.clock_50Mhz(clock_50Mhz),
@@ -89,15 +92,15 @@ module MusicBoxStateController (
 			.stateComplete(playRecording_StateComplete)
 		);
 		
-		
-		
-		
+		//------------------------------------------
+		//--State machine controller.  Looks at User Interface signals.
 		always_ff @(posedge clock_50Mhz, negedge reset_n) begin
 			if (reset_n == 1'b0) begin
 				 currentState = state_DoNothing; //Force to 0, the 'Do Nothing' State
 			end
 			else begin
 				//----DO NOTHING STATE
+				//--If user is holding button down, it will activate the correct state. 
 				if (currentState == state_DoNothing) begin
 					//If user is pressing Song0 button
 					if (input_PlaySong0_n == 0) begin
@@ -150,13 +153,5 @@ module MusicBoxStateController (
 
 			end
 		end
-		
-	
-
-	// ClockGenerator clockGenerator_1hz (
-		// .inputClock(CLK_1kHz),
-		// .reset_n(systemReset_n),
-		// .outputClock(CLK_1Hz)
-	// );
 
 endmodule
