@@ -12,26 +12,25 @@ module MusicBoxState_PlayRecording(
 		
 		//This will count to 5000 on the 1Khz cock.    15bits can count to 32768.
 		reg [ 15: 0] counter ;
-		assign debugString = counter;
-		
-		
+		assign debugString = {16'b0, counter};
+	
 		always_ff @(posedge clock_1Khz ) begin //clock_1Khz negedge reset_n 
-			//If current state isn't equal to 3. 
+			//If current state isn't equal to 1. 
 				//Does not like resetting here.  I think because reset influences currentState.
-			if (currentState != 3) begin
-				counter <= 0;
-				stateComplete <= 0;
+			if (currentState != 1'b1) begin
+				counter <= 16'b0;
+				stateComplete <= 1'b0;
 			end
 			else begin
 				//If counter is sitting at the required amount of clock edges (about 5 seconds worth)
-				if (counter == 5000) begin
-					stateComplete <= 1;
-					counter <= 0; 
+				if (counter == 16'd5000) begin
+					stateComplete <= 1'b1;
+					counter <= 16'd0;
 				end
 				//Otherwhys simply increment
 				else begin
-					stateComplete <= 0;
-					counter <= counter + 1;
+					stateComplete <= 1'b0;
+					counter <= counter + 16'd1;
 				end
 			end
 		

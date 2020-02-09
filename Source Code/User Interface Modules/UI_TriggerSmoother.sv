@@ -15,23 +15,23 @@ module UI_TriggerSmoother (
 		output logic outputWire);
 		
 		reg [16:0] timeCounter;
-		assign outputWire = !(timeCounter == 50000); //50000 is about 0.001s @ 50Mhz.  A tenth of this is not enough.
+		assign outputWire = !(timeCounter == 17'd50000); //50000 is about 0.001s @ 50Mhz.  A tenth of this is not enough.
 		
 		
 		always_ff @(posedge clock_50Mhz, negedge reset_n) begin
 			//Has reset.  Reset counter.
 			if (reset_n == 1'b0) begin
-				 timeCounter = 0;
+				 timeCounter = 17'd0;
 			end
 			else begin
 			
 				if (inputWire == 1'b0 ) begin
-					if (timeCounter < 50000) begin
-						timeCounter = timeCounter+1;
+					if (timeCounter < 17'd50000) begin
+						timeCounter = timeCounter+17'd1;
 					end
 				end
 				else begin
-					timeCounter = 0;
+					timeCounter = 17'd0;
 				end
 			end
 

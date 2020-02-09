@@ -12,11 +12,11 @@ module MusicKeysController (
 
 		
 		//If the music key is held down  AND   current state is doing nothing(0) or playing recording(4)
-		assign outputKeyPressed[0] = (input_MusicKey[0] == 0 && (currentState == 0 || currentState == 4)) * 1;
-		assign outputKeyPressed[1] = (input_MusicKey[1] == 0 && (currentState == 0 || currentState == 4)) * 1;
-		assign outputKeyPressed[2] = (input_MusicKey[2] == 0 && (currentState == 0 || currentState == 4)) * 1;
-		assign outputKeyPressed[3] = (input_MusicKey[3] == 0 && (currentState == 0 || currentState == 4)) * 1;
-		assign outputKeyPressed[4] = (input_MusicKey[4] == 0 && (currentState == 0 || currentState == 4)) * 1;
-		assign outputKeyPressed[5] = (input_MusicKey[5] == 0 && (currentState == 0 || currentState == 4)) * 1;
+		assign outputKeyPressed[0] = (input_MusicKey[0] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
+		assign outputKeyPressed[1] = (input_MusicKey[1] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
+		assign outputKeyPressed[2] = (input_MusicKey[2] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
+		assign outputKeyPressed[3] = (input_MusicKey[3] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
+		assign outputKeyPressed[4] = (input_MusicKey[4] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
+		assign outputKeyPressed[5] = (input_MusicKey[5] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
 		
 endmodule

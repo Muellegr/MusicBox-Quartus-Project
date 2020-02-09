@@ -1,5 +1,5 @@
 Flow report for FPGA_Music_Box
-Sun Feb 09 11:22:28 2020
+Sun Feb 09 12:37:01 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sun Feb 09 11:22:22 2020       ;
+; Flow Status                        ; Successful - Sun Feb 09 12:36:55 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 474 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 471 / 49,760 ( < 1 % )                      ;
+; Total logic elements               ; 547 / 49,760 ( 1 % )                        ;
+;     Total combinational functions  ; 544 / 49,760 ( 1 % )                        ;
 ;     Dedicated logic registers      ; 125 / 49,760 ( < 1 % )                      ;
 ; Total registers                    ; 125                                         ;
 ; Total pins                         ; 120 / 360 ( 33 % )                          ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/09/2020 11:21:43 ;
+; Start date & time ; 02/09/2020 12:36:15 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGA_Music_Box      ;
 +-------------------+---------------------+
@@ -77,9 +77,10 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+----------------+---------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value  ; Entity Name   ; Section Id ;
 +-------------------------------------+----------------------------------------+----------------+---------------+------------+
-; COMPILER_SIGNATURE_ID               ; 93383152511034.158127610309844         ; --             ; --            ; --         ;
+; COMPILER_SIGNATURE_ID               ; 93383152511034.158128057420892         ; --             ; --            ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --             ; --            ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --             ; --            ; --         ;
+; NUM_PARALLEL_PROCESSORS             ; All                                    ; --             ; --            ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --             ; MusicBox_Main ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --             ; MusicBox_Main ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --             ; MusicBox_Main ; Top        ;
@@ -87,6 +88,8 @@ refer to the applicable agreement for further details.
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --             ; --            ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --             ; --            ; --         ;
 ; TOP_LEVEL_ENTITY                    ; MusicBox_Main                          ; FPGA_Music_Box ; --            ; --         ;
+; VERILOG_INPUT_VERSION               ; SystemVerilog_2005                     ; Verilog_2001   ; --            ; --         ;
+; VERILOG_SHOW_LMF_MAPPING_MESSAGES   ; Off                                    ; --             ; --            ; --         ;
 +-------------------------------------+----------------------------------------+----------------+---------------+------------+
 
 
@@ -95,11 +98,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4757 MB             ; 00:00:35                           ;
-; Fitter               ; 00:00:15     ; 1.0                     ; 5378 MB             ; 00:00:18                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4688 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 4805 MB             ; 00:00:05                           ;
-; Total                ; 00:00:42     ; --                      ; --                  ; 00:01:02                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4756 MB             ; 00:00:37                           ;
+; Fitter               ; 00:00:16     ; 1.0                     ; 5388 MB             ; 00:00:19                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4687 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.1                     ; 4807 MB             ; 00:00:05                           ;
+; Total                ; 00:00:43     ; --                      ; --                  ; 00:01:05                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

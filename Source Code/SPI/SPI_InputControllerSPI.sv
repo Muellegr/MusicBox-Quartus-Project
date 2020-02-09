@@ -14,6 +14,10 @@ HOW TO USE
 	set sendSample high.  this tells device to send signal.
 	Wait for sampleReady to go from low to high.  This indicates outputSample has been updated.
 	outputSample is now updated to a new value.
+	
+	
+TODO : Test bottom portion.
+	May be suspect. Was simply adding +1 instead of looking at data pin.  was very odd.
 */
 
 module SPI_InputControllerDac( 
@@ -51,38 +55,38 @@ module SPI_InputControllerDac(
 		
 		
 		//SPI must be low while we are getting a new sample.
-		assign input_SPI_CS_n = (currentState == 0);
+		assign input_SPI_CS_n = (currentState == 5'd0);
 		assign input_SPI_SCLK = CLK_240KHz;
 		
 		always_ff@(negedge CLK_240KHz, negedge reset_n) begin
 			//--RESET 
-			if (reset_n == 0)begin
-				workingSample <= 0;
-				currentState <= 0;
-				counter <= 0;
-				sampleReady <=0;
-				outputSample <=0;
+			if (reset_n == 1'b0)begin
+				workingSample <= 8'd0;
+				currentState <= 5'd0;
+				counter <= 16'd0;
+				sampleReady <=1'b0;
+				outputSample <=8'd0;
 			end
 			//--STATE 0 : Look to start
-			else if (currentState == 0) begin
-				workingSample <= 0; 
-				counter <= 0;
-				sampleReady <= 0;
-				if (sendSample == 1) begin
-					currentState <= 1;
+			else if (currentState == 5'd0) begin
+				workingSample <= 8'd0; 
+				counter <= 16'd0;
+				sampleReady <= 1'b0;
+				if (sendSample == 1'b1) begin
+					currentState <= 5'd1;
 				end
 			end
 			//--STATE 1 : Sample data pin
-			else if (currentState == 1) begin
+			else if (currentState == 5'd1) begin
 				//If we have counted all the neccesary bits, end
-				if (counter >= 11) begin
-					currentState <= 0;
+				if (counter >= 16'd11) begin
+					currentState <= 5'd0;
 					outputSample <= workingSample;
-					sampleReady <= 1;
+					sampleReady <= 1'b1;
 				end
 				else begin //Increment counter, shift the working sample 1 bit left, and fill the new rightmost bit with the data pin.
-					counter <= counter + 1;
-					workingSample <= (workingSample << 1 )+ 1;
+					counter <= counter + 16'd1;
+					workingSample <= (workingSample << 1'd1 ) + {7'b0 , input_SPI_SDO};//8'd1;
 					//The ADC selected has 4 '0' bits.  This technically records them, but these are overwritten by the actual data pins.  Basically we don't care about the first 4 data pins.
 				end
 			end //State or Reset

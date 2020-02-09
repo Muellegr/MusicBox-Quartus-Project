@@ -311,14 +311,14 @@ module MusicBox_Main(
 	
 	//--TESTING INTERFACE
 	always_ff @ (posedge CLK_100hz, negedge systemReset_n) begin
-		if (systemReset_n == 0) begin
-			SPI_Output_WriteSample <= 0;
+		if (systemReset_n == 1'b0) begin
+			SPI_Output_WriteSample <= 1'b0;
 		end
-		else if (SPI_Output_WriteSample == 4095) begin
-			SPI_Output_WriteSample <= 0;
+		else if (SPI_Output_WriteSample == 12'd4095) begin
+			SPI_Output_WriteSample <= 12'd0;
 		end
-		else if ( max10Board_Buttons[1] == 0) begin
-			SPI_Output_WriteSample <= SPI_Output_WriteSample + 1;
+		else if ( max10Board_Buttons[1] == 1'b0) begin
+			SPI_Output_WriteSample <= SPI_Output_WriteSample + 12'd1;
 		end
 	end 
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
@@ -371,7 +371,12 @@ module MusicBox_Main(
 		.sampleReady(SPI_ADC_Output_newSample)
 	);
 	
-	reg [8 : 0] signalOutput;
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
+	//------------------------------------
+	//---Frequency Generator Sample ------
+	//------------------------------------
+	reg [7 : 0] signalOutput;
 	SignalGenerator signalGenerator(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
@@ -379,6 +384,7 @@ module MusicBox_Main(
 		.outputSample(signalOutput)
 	);
 	
+	//Helps show sine wave pattern a bit
 	 assign max10Board_LED[0] = (signalOutput > 005);
 	 assign max10Board_LED[1] = (signalOutput > 032);
 	 assign max10Board_LED[2] = (signalOutput > 059);
@@ -389,16 +395,5 @@ module MusicBox_Main(
 	 assign max10Board_LED[7] = (signalOutput > 194);
 	 assign max10Board_LED[8] = (signalOutput > 221);
 	 assign max10Board_LED[9] = (signalOutput > 250);
-	
-	
-	
-	// module SignalGenerator  ( 
-		// input logic inputClock,
-		// input logic reset_n,
-		
-		// output logic[7 : 0] outputSample
-		// );
-	
-	
 	
 endmodule

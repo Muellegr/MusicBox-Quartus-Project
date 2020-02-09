@@ -35,7 +35,7 @@ module MusicBoxStateController (
 		input logic input_PlaySong1_n,
 		input logic input_MakeRecording_n,
 		input logic input_PlayRecording_n,
-		input logic [5:0] input_MusicKey,
+		input logic [5:0] input_MusicKey, //Unused
 		
 		//--This is used to send any data out of the module for testing purposes.  Follows no format.
 		output logic [31:0] debugString,  
@@ -43,7 +43,7 @@ module MusicBoxStateController (
 		//--Current state the state machine is in.
 		output logic [4:0] outputState 
 		);
-		enum { state_DoNothing, state_PlaySong0, state_PlaySong1, state_PlayRecording, state_MakeRecording } currentState;
+		enum bit [4:0] { state_DoNothing=5'd0, state_PlaySong0=5'd1, state_PlaySong1=5'd2, state_PlayRecording=5'd3, state_MakeRecording=5'd4 } currentState;
 		
 		//This is a clocked state machine for sake of simplicity.  
 		assign outputState = currentState;
@@ -96,57 +96,57 @@ module MusicBoxStateController (
 		//--State machine controller.  Looks at User Interface signals.
 		always_ff @(posedge clock_50Mhz, negedge reset_n) begin
 			if (reset_n == 1'b0) begin
-				 currentState = state_DoNothing; //Force to 0, the 'Do Nothing' State
+				 currentState <= state_DoNothing; //Force to 0, the 'Do Nothing' State
 			end
 			else begin
 				//----DO NOTHING STATE
 				//--If user is holding button down, it will activate the correct state. 
 				if (currentState == state_DoNothing) begin
 					//If user is pressing Song0 button
-					if (input_PlaySong0_n == 0) begin
+					if (input_PlaySong0_n == 1'b0) begin
 						currentState <= state_PlaySong0;
 					end
 					
 					//If user is pressing Song1 button
-					if (input_PlaySong1_n == 0) begin
+					if (input_PlaySong1_n == 1'b0) begin
 						currentState <= state_PlaySong1;
 					end
 					
 					//If user is pressing PLAY recording button
-					if (input_PlayRecording_n == 0) begin
+					if (input_PlayRecording_n == 1'b0) begin
 						currentState <= state_PlayRecording;
 					end
 					
 					//If user is pressing MAKE recording button
-					if (input_MakeRecording_n == 0) begin
+					if (input_MakeRecording_n == 1'b0) begin
 						currentState <= state_MakeRecording;
 					end
 				end
 				
 				//---PLAY SONG 0 STATE
 				else if (currentState == state_PlaySong0) begin
-					if (playSong0_StateComplete == 1) begin
+					if (playSong0_StateComplete == 1'b1) begin
 						currentState <= state_DoNothing;
 					end
 				end
 				
 				//----PLAY SONG 1 STATE
 				else if (currentState == state_PlaySong1) begin
-					if (playSong1_StateComplete == 1) begin
+					if (playSong1_StateComplete == 1'b1) begin
 						currentState <= state_DoNothing;
 					end
 				end
 				
 				//----PLAY RECORDING STATE
 				else if (currentState == state_PlayRecording) begin
-					if (playRecording_StateComplete == 1) begin
+					if (playRecording_StateComplete == 1'b1) begin
 						currentState <= state_DoNothing;
 					end
 				end
 				
 				//----MAKE RECORDING STATE
 				else if (currentState == state_MakeRecording) begin
-					if (makeRecording_StateComplete == 1) begin
+					if (makeRecording_StateComplete == 1'b1) begin
 						currentState <= state_DoNothing;
 					end
 				end
