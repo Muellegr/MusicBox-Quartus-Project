@@ -1,79 +1,23 @@
-//This module counts the rising edges of the Input Clock.  
-//When this count reaches InputClockEdgesToCount, outputClock is flipped.  
-
 /*
-Have array with precalculated sine values.
-
-Index value.
-Every clock we might increment this.
-When incremented, update sample.
-
+Signal Generator - Creates a sine wave that has the supplied input frequency.
+	Operates from 100Hz to 8000Hz.  
+	
+	outputSample is the current sine amplitude.
+	
+	
+	This is a bit hardcoded to 128 total samples at a 32000 clock but can be changed by modifying some of the constants.
 */
 
 module SignalGenerator  ( 
-		input logic inputClock,
+		input logic CLK_32KHz,
 		input logic reset_n,
-		
+		input logic[13:0] inputFrequency,
 		output logic[7 : 0] outputSample
 		);
 		
-		// parameter reg preCalcSine =
-		// {
-		// 7'b10000110, 7'b10001101, 7'b10010011, 7'b10011001, 7'b10011111, 7'b10100101, 7'b10101011, 7'b10110001, 
-		// 7'b10110111, 7'b10111100, 7'b11000010, 7'b11000111, 7'b11001100, 7'b11010001, 7'b11010110, 7'b11011011, 
-		// 7'b11011111, 7'b11100011, 7'b11100111, 7'b11101010, 7'b11101110, 7'b11110001, 7'b11110100, 7'b11110110, 
-		// 7'b11111001, 7'b11111010, 7'b11111100, 7'b11111110, 7'b11111111, 7'b11111111, 7'b11111111, 7'b11111111, 
-		// 7'b11111111, 7'b11111111, 7'b11111111, 7'b11111110, 7'b11111100, 7'b11111010, 7'b11111001, 7'b11110110, 
-		// 7'b11110100, 7'b11110001, 7'b11101110, 7'b11101010, 7'b11100111, 7'b11100011, 7'b11011111, 7'b11011011, 
-		// 7'b11010110, 7'b11010001, 7'b11001100, 7'b11000111, 7'b11000010, 7'b10111100, 7'b10110111, 7'b10110001, 
-		// 7'b10101011, 7'b10100101, 7'b10011111, 7'b10011001, 7'b10010011, 7'b10001101, 7'b10000110, 7'b10000000, 
-		// 7'b01111010, 7'b01110011, 7'b01101101, 7'b01100111, 7'b01100001, 7'b01011011, 7'b01010101, 7'b01001111, 
-		// 7'b01001001, 7'b01000100, 7'b00111110, 7'b00111001, 7'b00110100, 7'b00101111, 7'b00101010, 7'b00100101, 
-		// 7'b00100001, 7'b00011101, 7'b00011001, 7'b00010110, 7'b00010010, 7'b00001111, 7'b00001100, 7'b00001010, 
-		// 7'b00000111, 7'b00000110, 7'b00000100, 7'b00000010, 7'b00000001, 7'b00000001, 7'b00000000, 7'b00000000, 
-		// 7'b00000000, 7'b00000001, 7'b00000001, 7'b00000010, 7'b00000100, 7'b00000110, 7'b00000111, 7'b00001010, 
-		// 7'b00001100, 7'b00001111, 7'b00010010, 7'b00010110, 7'b00011001, 7'b00011101, 7'b00100001, 7'b00100101, 
-		// 7'b00101010, 7'b00101111, 7'b00110100, 7'b00111001, 7'b00111110, 7'b01000100, 7'b01001001, 7'b01001111, 
-		// 7'b01010101, 7'b01011011, 7'b01100001, 7'b01100111, 7'b01101101, 7'b01110011, 7'b01111010, 7'b10000000 
-		// };
-		
-		// reg [7:0] byteShiftReg[127:0];
-		// integer i;
-		// initial begin
-			// for (i=0;i<127;i=i+1) begin
-				// //Extract each 16bit chunk in turn from the initial value parameter
-				// //and use that as the initial value for this part of the shift register.
-				// // Note the (9-i) bit is used because concatenation of the initial value places the first value in the most significant bits, and last value in the least significant bits.
-				// byteShiftReg = preCalcSine[((127-i)*7)+:7];
-			// end
-		// end
-
-		
-		
-		
-		
-		
-		// localparam bit [7:0] preCalcSine[127:0] =
-		// {
-// 7'b10000110, 7'b10001101, 7'b10010011, 7'b10011001, 7'b10011111, 7'b10100101, 7'b10101011, 7'b10110001, 
-// 7'b10110111, 7'b10111100, 7'b11000010, 7'b11000111, 7'b11001100, 7'b11010001, 7'b11010110, 7'b11011011, 
-// 7'b11011111, 7'b11100011, 7'b11100111, 7'b11101010, 7'b11101110, 7'b11110001, 7'b11110100, 7'b11110110, 
-// 7'b11111001, 7'b11111010, 7'b11111100, 7'b11111110, 7'b11111111, 7'b11111111, 7'b11111111, 7'b11111111, 
-// 7'b11111111, 7'b11111111, 7'b11111111, 7'b11111110, 7'b11111100, 7'b11111010, 7'b11111001, 7'b11110110, 
-// 7'b11110100, 7'b11110001, 7'b11101110, 7'b11101010, 7'b11100111, 7'b11100011, 7'b11011111, 7'b11011011, 
-// 7'b11010110, 7'b11010001, 7'b11001100, 7'b11000111, 7'b11000010, 7'b10111100, 7'b10110111, 7'b10110001, 
-// 7'b10101011, 7'b10100101, 7'b10011111, 7'b10011001, 7'b10010011, 7'b10001101, 7'b10000110, 7'b10000000, 
-// 7'b01111010, 7'b01110011, 7'b01101101, 7'b01100111, 7'b01100001, 7'b01011011, 7'b01010101, 7'b01001111, 
-// 7'b01001001, 7'b01000100, 7'b00111110, 7'b00111001, 7'b00110100, 7'b00101111, 7'b00101010, 7'b00100101, 
-// 7'b00100001, 7'b00011101, 7'b00011001, 7'b00010110, 7'b00010010, 7'b00001111, 7'b00001100, 7'b00001010, 
-// 7'b00000111, 7'b00000110, 7'b00000100, 7'b00000010, 7'b00000001, 7'b00000001, 7'b00000000, 7'b00000000, 
-// 7'b00000000, 7'b00000001, 7'b00000001, 7'b00000010, 7'b00000100, 7'b00000110, 7'b00000111, 7'b00001010, 
-// 7'b00001100, 7'b00001111, 7'b00010010, 7'b00010110, 7'b00011001, 7'b00011101, 7'b00100001, 7'b00100101, 
-// 7'b00101010, 7'b00101111, 7'b00110100, 7'b00111001, 7'b00111110, 7'b01000100, 7'b01001001, 7'b01001111, 
-// 7'b01010101, 7'b01011011, 7'b01100001, 7'b01100111, 7'b01101101, 7'b01110011, 7'b01111010, 7'b10000000 
-// };
-		// [valueSize] name [Amount];
+	//  [Amount of bits -1] Name [AmountOfSamples]
 	bit [7:0] preCalcSine[127:0];
+	//Generated with python in \Python Support\SineValues\GenerateValues_Assign.py
 	assign preCalcSine[0] = 8'b10000000;
 	assign preCalcSine[1] = 8'b10000110;
 	assign preCalcSine[2] = 8'b10001101;
@@ -203,18 +147,31 @@ module SignalGenerator  (
 	assign preCalcSine[126] = 8'b01110011;
 	assign preCalcSine[127] = 8'b01111010;
 		
-				
-		reg [8 : 0] counter ;
-		always_ff @(posedge inputClock, negedge reset_n) begin
-			if (reset_n == 0)begin
-				counter <= 0;
+		//Will count up to 320000.
+		reg [15 : 0] counter ; //16 bits max value is 64k ~
+		always_ff @(posedge CLK_32KHz, negedge reset_n) begin
+			if (reset_n == 1'b0)begin
+				counter <= 1'b0;
 			end
 			else begin
-				if (counter == 127) begin counter <= 0; end
-				else begin counter <= counter + 1; end
+				//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
+				if (counter > 16'd32000 || counter == 16'd32000) begin counter <= counter % 16'd32000; end
+				//inputFrequency holds 14 bits, so we need 2 extra in front.
+				else begin counter <= counter + { 2'b0, inputFrequency }; end
 			end
 		end
-		assign outputSample = preCalcSine[counter];
+		//counter goes from 0 to 32000, but index ranges from 0 to 127.  This corrects that.
+			//This gives worst case value to get 127.  
+		assign outputSample = preCalcSine[counter / 16'd250];
+			/*
+			countsPerIndex = (32000 / 128)
+				250 = 32000 / 128
+			So from 0-249, index is 0.
+			from 250-499, index is 1.
+			This is shown with the following code.  LED 0 and LED 2 are on, but 1 was not.  
+				assign max10Board_LED[0] = ((16'd499 / 16'd250) == (16'd1));
+				assign max10Board_LED[1] = ((16'd499 / 16'd250) == (16'd2));
+				assign max10Board_LED[2] = 1'b1;
+			*/
 		
-		Next step will be to have a regular value (frequency) that will update this.
 endmodule

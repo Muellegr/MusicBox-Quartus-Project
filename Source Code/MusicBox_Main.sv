@@ -84,7 +84,7 @@ module MusicBox_Main(
 	output wire	[5:0][6:0]	max10Board_LEDSegments;//The DE-10 Board LED Segments
 	output reg [9:0] max10Board_LED; //The DE-10 Board LED lights
 	input wire	[1: 0] max10Board_Buttons ;
-	
+	input wire [9:0] max10board_switches;
 	///////// GPIO UI ///////
 	input wire [5:0] max10Board_GPIO_Input_MusicKeys; //Array
 	input wire max10Board_GPIO_Input_PlaySong1;
@@ -106,7 +106,7 @@ module MusicBox_Main(
 	output wire [12: 0]   max10Board_SDRAM_Address;
 	output wire [ 1: 0]   max10Board_SDRAM_BankAddress;
 	inout wire [15: 0]   max10Board_SDRAM_Data;
-	input wire [9:0] max10board_switches;
+	 
 	
 	output wire max10Board_SDRAM_DataMask0;
 	output wire max10Board_SDRAM_DataMask1;
@@ -158,6 +158,15 @@ module MusicBox_Main(
 	);
 		defparam	clockGenerator_10hz.BitsNeeded = 35; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_10hz.InputClockEdgesToCount = 2500000;
+	
+	wire CLK_32Khz ;
+	ClockGenerator clockGenerator_32Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_32Khz)
+	);
+		defparam	clockGenerator_32Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781;
 	
 	wire CLK_1Hz ;
 	ClockGenerator clockGenerator_1hz (
@@ -364,8 +373,9 @@ module MusicBox_Main(
 	
 	reg [8 : 0] signalOutput;
 	SignalGenerator signalGenerator(
-		.inputClock(CLK_10hz),
+		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
+		.inputFrequency(max10board_switches ),
 		.outputSample(signalOutput)
 	);
 	

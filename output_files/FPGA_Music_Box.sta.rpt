@@ -1,5 +1,5 @@
 Timing Analyzer report for FPGA_Music_Box
-Sat Feb 08 21:40:04 2020
+Sun Feb 09 11:22:28 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -91,12 +91,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
+; Average used               ; 1.08        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.6%      ;
+;     Processor 2            ;   8.3%      ;
 +----------------------------+-------------+
 
 
@@ -105,6 +105,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------------------------------------------------------------------------------+
 ; Clock Name                                                                                       ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                                                                              ;
 +--------------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------------------------------------------------------------------------------+
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ClockGenerator:clockGenerator_32Khz|outputClock }                                                  ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ClockGenerator:clockGenerator_100hz|outputClock }                                                  ;
 ; max10Board_50MhzClock                                                                            ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { max10Board_50MhzClock }                                                                            ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock } ;
@@ -116,9 +117,10 @@ refer to the applicable agreement for further details.
 +------------+-----------------+--------------------------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                                       ; Note ;
 +------------+-----------------+--------------------------------------------------------------------------------------------------+------+
-; 208.99 MHz ; 208.99 MHz      ; max10Board_50MhzClock                                                                            ;      ;
-; 233.1 MHz  ; 233.1 MHz       ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ;      ;
-; 289.69 MHz ; 289.69 MHz      ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ;      ;
+; 152.88 MHz ; 152.88 MHz      ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ;      ;
+; 201.61 MHz ; 201.61 MHz      ; max10Board_50MhzClock                                                                            ;      ;
+; 234.74 MHz ; 234.74 MHz      ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ;      ;
+; 270.64 MHz ; 270.64 MHz      ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ;      ;
 +------------+-----------------+--------------------------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -128,9 +130,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                                                                            ; -3.785 ; -83.459       ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -3.290 ; -84.501       ;
-; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -2.452 ; -28.076       ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -5.541 ; -65.657       ;
+; max10Board_50MhzClock                                                                            ; -3.960 ; -111.651      ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -3.260 ; -83.776       ;
+; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -2.695 ; -28.836       ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -142,6 +145,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; 0.347 ; 0.000         ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0.347 ; 0.000         ;
 ; max10Board_50MhzClock                                                                            ; 0.347 ; 0.000         ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 0.633 ; 0.000         ;
 +--------------------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -162,8 +166,9 @@ No paths to report.
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                                                                            ; -3.000 ; -71.747       ;
+; max10Board_50MhzClock                                                                            ; -3.000 ; -94.195       ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -1.403 ; -44.896       ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -1.403 ; -22.448       ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -1.403 ; -16.836       ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 
@@ -179,9 +184,10 @@ No synchronizer chains to report.
 +------------+-----------------+--------------------------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                                       ; Note ;
 +------------+-----------------+--------------------------------------------------------------------------------------------------+------+
-; 226.19 MHz ; 226.19 MHz      ; max10Board_50MhzClock                                                                            ;      ;
-; 250.88 MHz ; 250.88 MHz      ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ;      ;
-; 316.66 MHz ; 316.66 MHz      ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ;      ;
+; 167.73 MHz ; 167.73 MHz      ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ;      ;
+; 216.78 MHz ; 216.78 MHz      ; max10Board_50MhzClock                                                                            ;      ;
+; 252.4 MHz  ; 252.4 MHz       ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ;      ;
+; 292.14 MHz ; 292.14 MHz      ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ;      ;
 +------------+-----------------+--------------------------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -191,9 +197,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                                                                            ; -3.421 ; -71.560       ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -2.986 ; -75.575       ;
-; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -2.158 ; -24.671       ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -4.962 ; -59.038       ;
+; max10Board_50MhzClock                                                                            ; -3.613 ; -95.634       ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -2.962 ; -75.202       ;
+; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -2.423 ; -25.721       ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -205,6 +212,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; 0.311 ; 0.000         ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0.311 ; 0.000         ;
 ; max10Board_50MhzClock                                                                            ; 0.312 ; 0.000         ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 0.574 ; 0.000         ;
 +--------------------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -225,8 +233,9 @@ No paths to report.
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                                                                            ; -3.000 ; -71.747       ;
+; max10Board_50MhzClock                                                                            ; -3.000 ; -94.195       ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -1.403 ; -44.896       ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -1.403 ; -22.448       ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -1.403 ; -16.836       ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 
@@ -242,9 +251,10 @@ No synchronizer chains to report.
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                                                                            ; -1.096 ; -8.558        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -0.792 ; -16.049       ;
-; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -0.460 ; -5.017        ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -1.683 ; -18.956       ;
+; max10Board_50MhzClock                                                                            ; -1.145 ; -10.911       ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -0.775 ; -15.653       ;
+; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -0.557 ; -5.672        ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -253,9 +263,10 @@ No synchronizer chains to report.
 +--------------------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                                            ; Slack ; End Point TNS ;
 +--------------------------------------------------------------------------------------------------+-------+---------------+
+; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; 0.151 ; 0.000         ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0.151 ; 0.000         ;
-; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; 0.152 ; 0.000         ;
 ; max10Board_50MhzClock                                                                            ; 0.152 ; 0.000         ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 0.247 ; 0.000         ;
 +--------------------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -276,8 +287,9 @@ No paths to report.
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
-; max10Board_50MhzClock                                                                            ; -3.000 ; -60.367       ;
+; max10Board_50MhzClock                                                                            ; -3.000 ; -79.084       ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -1.000 ; -32.000       ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -1.000 ; -16.000       ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -1.000 ; -12.000       ;
 +--------------------------------------------------------------------------------------------------+--------+---------------+
 
@@ -293,14 +305,16 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                                                                             ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +---------------------------------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                                                  ; -3.785   ; 0.151 ; N/A      ; N/A     ; -3.000              ;
-;  ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -2.452   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
-;  SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -3.290   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
-;  max10Board_50MhzClock                                                                            ; -3.785   ; 0.152 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS                                                                                   ; -196.036 ; 0.0   ; 0.0      ; 0.0     ; -133.479            ;
-;  ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -28.076  ; 0.000 ; N/A      ; N/A     ; -16.836             ;
-;  SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -84.501  ; 0.000 ; N/A      ; N/A     ; -44.896             ;
-;  max10Board_50MhzClock                                                                            ; -83.459  ; 0.000 ; N/A      ; N/A     ; -71.747             ;
+; Worst-case Slack                                                                                  ; -5.541   ; 0.151 ; N/A      ; N/A     ; -3.000              ;
+;  ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -2.695   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
+;  ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -5.541   ; 0.247 ; N/A      ; N/A     ; -1.403              ;
+;  SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -3.260   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
+;  max10Board_50MhzClock                                                                            ; -3.960   ; 0.152 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS                                                                                   ; -289.92  ; 0.0   ; 0.0      ; 0.0     ; -178.375            ;
+;  ClockGenerator:clockGenerator_100hz|outputClock                                                  ; -28.836  ; 0.000 ; N/A      ; N/A     ; -16.836             ;
+;  ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; -65.657  ; 0.000 ; N/A      ; N/A     ; -22.448             ;
+;  SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; -83.776  ; 0.000 ; N/A      ; N/A     ; -44.896             ;
+;  max10Board_50MhzClock                                                                            ; -111.651 ; 0.000 ; N/A      ; N/A     ; -94.195             ;
 +---------------------------------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -425,16 +439,6 @@ No synchronizer chains to report.
 ; max10Board_GPIO_Input_MakeRecording ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; max10Board_GPIO_Input_PlayRecording ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; max10Board_GPIO_Input_SPI_SDO       ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[0]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[1]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[2]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[3]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[4]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[5]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[6]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[7]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[8]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; max10board_switches[9]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_SDRAM_Data[0]            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_SDRAM_Data[1]            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_SDRAM_Data[2]            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
@@ -453,6 +457,16 @@ No synchronizer chains to report.
 ; max10Board_SDRAM_Data[15]           ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_50MhzClock               ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_Buttons[0]               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[9]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[8]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[7]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[6]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[5]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[4]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[3]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[2]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[1]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; max10board_switches[0]              ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; max10Board_Buttons[1]               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_TMS~                        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~                        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -784,9 +798,11 @@ No synchronizer chains to report.
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                                       ; To Clock                                                                                         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1910     ; 0        ; 0        ; 0        ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; 378      ; 0        ; 0        ; 0        ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; max10Board_50MhzClock                                                                            ; 1        ; 1        ; 0        ; 0        ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; max10Board_50MhzClock                                                                            ; 1        ; 1        ; 0        ; 0        ;
-; max10Board_50MhzClock                                                                            ; max10Board_50MhzClock                                                                            ; 767      ; 0        ; 0        ; 0        ;
+; max10Board_50MhzClock                                                                            ; max10Board_50MhzClock                                                                            ; 998      ; 0        ; 0        ; 0        ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; max10Board_50MhzClock                                                                            ; 1        ; 1        ; 0        ; 0        ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0        ; 0        ; 12       ; 0        ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0        ; 0        ; 0        ; 767      ;
@@ -799,9 +815,11 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                                                                       ; To Clock                                                                                         ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1910     ; 0        ; 0        ; 0        ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; 378      ; 0        ; 0        ; 0        ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; max10Board_50MhzClock                                                                            ; 1        ; 1        ; 0        ; 0        ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; max10Board_50MhzClock                                                                            ; 1        ; 1        ; 0        ; 0        ;
-; max10Board_50MhzClock                                                                            ; max10Board_50MhzClock                                                                            ; 767      ; 0        ; 0        ; 0        ;
+; max10Board_50MhzClock                                                                            ; max10Board_50MhzClock                                                                            ; 998      ; 0        ; 0        ; 0        ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; max10Board_50MhzClock                                                                            ; 1        ; 1        ; 0        ; 0        ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0        ; 0        ; 12       ; 0        ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0        ; 0        ; 0        ; 767      ;
@@ -828,10 +846,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 2     ; 2    ;
-; Unconstrained Input Port Paths  ; 105   ; 105  ;
-; Unconstrained Output Ports      ; 4     ; 4    ;
-; Unconstrained Output Port Paths ; 5     ; 5    ;
+; Unconstrained Input Ports       ; 12    ; 12   ;
+; Unconstrained Input Port Paths  ; 252   ; 252  ;
+; Unconstrained Output Ports      ; 11    ; 11   ;
+; Unconstrained Output Port Paths ; 110   ; 110  ;
 +---------------------------------+-------+------+
 
 
@@ -840,20 +858,31 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+------+-------------+
 ; Target                                                                                           ; Clock                                                                                            ; Type ; Status      ;
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+------+-------------+
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; Base ; Constrained ;
 ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; ClockGenerator:clockGenerator_100hz|outputClock                                                  ; Base ; Constrained ;
 ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; Base ; Constrained ;
 ; max10Board_50MhzClock                                                                            ; max10Board_50MhzClock                                                                            ; Base ; Constrained ;
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                                    ;
-+-----------------------+--------------------------------------------------------------------------------------+
-; Input Port            ; Comment                                                                              ;
-+-----------------------+--------------------------------------------------------------------------------------+
-; max10Board_Buttons[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; max10Board_Buttons[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+-----------------------+--------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                     ;
++------------------------+--------------------------------------------------------------------------------------+
+; Input Port             ; Comment                                                                              ;
++------------------------+--------------------------------------------------------------------------------------+
+; max10Board_Buttons[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_Buttons[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[8] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[9] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------------------+--------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -865,17 +894,34 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; max10Board_GPIO_Output_SPI_DIN    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Output_SPI_SCLK   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Output_SPI_SYNC_n ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[7]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[8]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[9]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-----------------------------------+---------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                                    ;
-+-----------------------+--------------------------------------------------------------------------------------+
-; Input Port            ; Comment                                                                              ;
-+-----------------------+--------------------------------------------------------------------------------------+
-; max10Board_Buttons[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; max10Board_Buttons[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+-----------------------+--------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                     ;
++------------------------+--------------------------------------------------------------------------------------+
+; Input Port             ; Comment                                                                              ;
++------------------------+--------------------------------------------------------------------------------------+
+; max10Board_Buttons[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_Buttons[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[8] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10board_switches[9] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------------------+--------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -887,6 +933,13 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; max10Board_GPIO_Output_SPI_DIN    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Output_SPI_SCLK   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; max10Board_GPIO_Output_SPI_SYNC_n ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[7]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[8]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; max10Board_LED[9]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-----------------------------------+---------------------------------------------------------------------------------------+
 
 
@@ -896,7 +949,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sat Feb 08 21:39:59 2020
+    Info: Processing started: Sun Feb 09 11:22:23 2020
 Info: Command: quartus_sta FPGA_Music_Box -c FPGA_Music_Box
 Info: qsta_default_script.tcl version: #2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -909,85 +962,95 @@ Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock
     Info (332105): create_clock -period 1.000 -name max10Board_50MhzClock max10Board_50MhzClock
     Info (332105): create_clock -period 1.000 -name ClockGenerator:clockGenerator_100hz|outputClock ClockGenerator:clockGenerator_100hz|outputClock
+    Info (332105): create_clock -period 1.000 -name ClockGenerator:clockGenerator_32Khz|outputClock ClockGenerator:clockGenerator_32Khz|outputClock
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.785
+Info (332146): Worst-case setup slack is -5.541
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.785             -83.459 max10Board_50MhzClock 
-    Info (332119):    -3.290             -84.501 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
-    Info (332119):    -2.452             -28.076 ClockGenerator:clockGenerator_100hz|outputClock 
+    Info (332119):    -5.541             -65.657 ClockGenerator:clockGenerator_32Khz|outputClock 
+    Info (332119):    -3.960            -111.651 max10Board_50MhzClock 
+    Info (332119):    -3.260             -83.776 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
+    Info (332119):    -2.695             -28.836 ClockGenerator:clockGenerator_100hz|outputClock 
 Info (332146): Worst-case hold slack is 0.347
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.347               0.000 ClockGenerator:clockGenerator_100hz|outputClock 
     Info (332119):     0.347               0.000 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
     Info (332119):     0.347               0.000 max10Board_50MhzClock 
+    Info (332119):     0.633               0.000 ClockGenerator:clockGenerator_32Khz|outputClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -71.747 max10Board_50MhzClock 
+    Info (332119):    -3.000             -94.195 max10Board_50MhzClock 
     Info (332119):    -1.403             -44.896 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
+    Info (332119):    -1.403             -22.448 ClockGenerator:clockGenerator_32Khz|outputClock 
     Info (332119):    -1.403             -16.836 ClockGenerator:clockGenerator_100hz|outputClock 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.421
+Info (332146): Worst-case setup slack is -4.962
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.421             -71.560 max10Board_50MhzClock 
-    Info (332119):    -2.986             -75.575 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
-    Info (332119):    -2.158             -24.671 ClockGenerator:clockGenerator_100hz|outputClock 
+    Info (332119):    -4.962             -59.038 ClockGenerator:clockGenerator_32Khz|outputClock 
+    Info (332119):    -3.613             -95.634 max10Board_50MhzClock 
+    Info (332119):    -2.962             -75.202 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
+    Info (332119):    -2.423             -25.721 ClockGenerator:clockGenerator_100hz|outputClock 
 Info (332146): Worst-case hold slack is 0.311
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.311               0.000 ClockGenerator:clockGenerator_100hz|outputClock 
     Info (332119):     0.311               0.000 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
     Info (332119):     0.312               0.000 max10Board_50MhzClock 
+    Info (332119):     0.574               0.000 ClockGenerator:clockGenerator_32Khz|outputClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -71.747 max10Board_50MhzClock 
+    Info (332119):    -3.000             -94.195 max10Board_50MhzClock 
     Info (332119):    -1.403             -44.896 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
+    Info (332119):    -1.403             -22.448 ClockGenerator:clockGenerator_32Khz|outputClock 
     Info (332119):    -1.403             -16.836 ClockGenerator:clockGenerator_100hz|outputClock 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.096
+Info (332146): Worst-case setup slack is -1.683
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.096              -8.558 max10Board_50MhzClock 
-    Info (332119):    -0.792             -16.049 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
-    Info (332119):    -0.460              -5.017 ClockGenerator:clockGenerator_100hz|outputClock 
+    Info (332119):    -1.683             -18.956 ClockGenerator:clockGenerator_32Khz|outputClock 
+    Info (332119):    -1.145             -10.911 max10Board_50MhzClock 
+    Info (332119):    -0.775             -15.653 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
+    Info (332119):    -0.557              -5.672 ClockGenerator:clockGenerator_100hz|outputClock 
 Info (332146): Worst-case hold slack is 0.151
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
+    Info (332119):     0.151               0.000 ClockGenerator:clockGenerator_100hz|outputClock 
     Info (332119):     0.151               0.000 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
-    Info (332119):     0.152               0.000 ClockGenerator:clockGenerator_100hz|outputClock 
     Info (332119):     0.152               0.000 max10Board_50MhzClock 
+    Info (332119):     0.247               0.000 ClockGenerator:clockGenerator_32Khz|outputClock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -60.367 max10Board_50MhzClock 
+    Info (332119):    -3.000             -79.084 max10Board_50MhzClock 
     Info (332119):    -1.000             -32.000 SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock 
+    Info (332119):    -1.000             -16.000 ClockGenerator:clockGenerator_32Khz|outputClock 
     Info (332119):    -1.000             -12.000 ClockGenerator:clockGenerator_100hz|outputClock 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4801 megabytes
-    Info: Processing ended: Sat Feb 08 21:40:04 2020
+    Info: Peak virtual memory: 4805 megabytes
+    Info: Processing ended: Sun Feb 09 11:22:28 2020
     Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:05
 
