@@ -147,8 +147,17 @@ module MusicBox_Main(
 		.reset_n(systemReset_n),
 		.outputClock(CLK_100hz)
 	);
-		defparam	clockGenerator_1Khz.BitsNeeded = 25; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_1Khz.InputClockEdgesToCount = 250000;
+		defparam	clockGenerator_100hz.BitsNeeded = 25; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_100hz.InputClockEdgesToCount = 250000;
+	
+	wire CLK_10hz ;
+	ClockGenerator clockGenerator_10hz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_10hz)
+	);
+		defparam	clockGenerator_10hz.BitsNeeded = 35; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_10hz.InputClockEdgesToCount = 2500000;
 	
 	wire CLK_1Hz ;
 	ClockGenerator clockGenerator_1hz (
@@ -352,5 +361,34 @@ module MusicBox_Main(
 		//--SIGNAL
 		.sampleReady(SPI_ADC_Output_newSample)
 	);
+	
+	reg [8 : 0] signalOutput;
+	SignalGenerator signalGenerator(
+		.inputClock(CLK_10hz),
+		.reset_n(systemReset_n),
+		.outputSample(signalOutput)
+	);
+	
+	 assign max10Board_LED[0] = (signalOutput > 005);
+	 assign max10Board_LED[1] = (signalOutput > 032);
+	 assign max10Board_LED[2] = (signalOutput > 059);
+	 assign max10Board_LED[3] = (signalOutput > 086);
+	 assign max10Board_LED[4] = (signalOutput > 113);
+	 assign max10Board_LED[5] = (signalOutput > 140);
+	 assign max10Board_LED[6] = (signalOutput > 167);
+	 assign max10Board_LED[7] = (signalOutput > 194);
+	 assign max10Board_LED[8] = (signalOutput > 221);
+	 assign max10Board_LED[9] = (signalOutput > 250);
+	
+	
+	
+	// module SignalGenerator  ( 
+		// input logic inputClock,
+		// input logic reset_n,
+		
+		// output logic[7 : 0] outputSample
+		// );
+	
+	
 	
 endmodule

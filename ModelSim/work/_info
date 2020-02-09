@@ -10,7 +10,7 @@ cModel Technology
 dC:/Users/Graham/Documents/Quartus Projects/Project 1/ModelSim
 vClockGenerator
 Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z1 !s110 1581195478
+Z1 !s110 1581221861
 !i10b 1
 !s100 ZYoQZAa>WUn`Ikn<N6dJ<0
 IG1G:mnIOGn:;Hco:7g6KI2
@@ -26,7 +26,7 @@ Z5 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z6 !s108 1581195478.000000
+Z6 !s108 1581221861.000000
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv|
 !s101 -O0
@@ -35,15 +35,15 @@ Z7 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -
 n@clock@generator
 vMusicBox_Main
 R0
-Z8 !s110 1581195477
+Z8 !s110 1581221860
 !i10b 1
-!s100 UHL]E;A@NeLYYdld?]@Kk0
-IU>P40h8:ib_<6`SL:_U3_0
+!s100 Ph6ilF`0RlaBjQim<V>_^2
+IXojef?kEFWnQ_CYJ7Czjj2
 R2
 !s105 MusicBox_Main_sv_unit
 S1
 R3
-w1581195471
+w1581221849
 8C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv
 FC:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv
 L0 44
@@ -51,7 +51,7 @@ R5
 r1
 !s85 0
 31
-!s108 1581195476.000000
+Z9 !s108 1581221860.000000
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv|
 !s101 -O0
@@ -76,7 +76,7 @@ R5
 r1
 !s85 0
 31
-Z9 !s108 1581195477.000000
+R9
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxState_MakeRecording.sv|
 !s101 -O0
@@ -160,15 +160,15 @@ R7
 n@music@box@state_@play@song1
 vMusicBoxStateController
 R0
-R8
+R1
 !i10b 1
-!s100 KUV@hHgJgnngPiFzg0c5b0
-IIMT:?E2g^16eELOVHom:32
+!s100 H`M4`MnGf_aZOdoBEZBRD2
+I;K`7`ofVTo[I?I:IFe[8D1
 R2
 !s105 MusicBoxStateController_sv_unit
 S1
 R3
-R4
+w1581196354
 8C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv
 FC:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv
 L0 25
@@ -176,7 +176,7 @@ R5
 r1
 !s85 0
 31
-R9
+R6
 !s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv|
 !s101 -O0
@@ -193,7 +193,7 @@ R2
 !s105 MusicKeysController_sv_unit
 S1
 R3
-w1580103631
+w1581196378
 8C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv
 FC:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv
 L0 1
@@ -208,6 +208,31 @@ R6
 !i113 1
 R7
 n@music@keys@controller
+vSignalGenerator
+R0
+R1
+!i10b 1
+!s100 nF7DU56bNGm=e^GUA>FH_2
+IWkzfc9W^BH<ohHdm?5?@81
+R2
+!s105 SignalGenerator_sv_unit
+S1
+R3
+w1581221717
+8C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv
+FC:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv
+L0 13
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv|
+!s101 -O0
+!i113 1
+R7
+n@signal@generator
 vSPI_InputControllerDac
 R0
 R1

@@ -510,7 +510,7 @@ max10Board_SDRAM_WriteEnable_n : V20       : output : 3.3-V LVTTL       :       
 max10Board_SDRAM_Data[7]     : V21       : bidir  : 3.3-V LVTTL       :         : 5         : Y              
 max10Board_SDRAM_DataMask0   : V22       : output : 3.3-V LVTTL       :         : 5         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : W1        :        :                   :         : 2         :                
-max10Board_Buttons[2]        : W2        : input  : 2.5 V             :         : 2         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : W2        :        :                   :         : 2         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W3        :        :                   :         : 3         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : W4        :        :                   :         : 3         :                
 max10Board_GPIO_Input_PlayRecording : W5        : input  : 3.3 V Schmitt Trigger :         : 3         : Y              
