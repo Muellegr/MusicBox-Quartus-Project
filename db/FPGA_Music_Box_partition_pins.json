@@ -106,10 +106,6 @@
 				{
 					"name" : "max10board_switches[0]",
 					"strict" : false
-				},
-				{
-					"name" : "max10Board_Buttons[1]",
-					"strict" : false
 				}
 			]
 		}

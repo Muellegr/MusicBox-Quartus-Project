@@ -310,18 +310,19 @@ module MusicBox_Main(
 	wire 		SPI_Output_transmitComplete;//This goes high briefly when complete
 	
 	//--TESTING INTERFACE
-	always_ff @ (posedge CLK_100hz, negedge systemReset_n) begin
-		if (systemReset_n == 1'b0) begin
-			SPI_Output_WriteSample <= 1'b0;
-		end
-		else if (SPI_Output_WriteSample == 12'd4095) begin
-			SPI_Output_WriteSample <= 12'd0;
-		end
-		else if ( max10Board_Buttons[1] == 1'b0) begin
-			SPI_Output_WriteSample <= SPI_Output_WriteSample + 12'd1;
-		end
-	end 
+	// always_ff @ (posedge CLK_100hz, negedge systemReset_n) begin
+		// if (systemReset_n == 1'b0) begin
+			// SPI_Output_WriteSample <= 1'b0;
+		// end
+		// else if (SPI_Output_WriteSample == 12'd4095) begin
+			// SPI_Output_WriteSample <= 12'd0;
+		// end
+		// else if ( max10Board_Buttons[1] == 1'b0) begin
+			// SPI_Output_WriteSample <= SPI_Output_WriteSample + 12'd1;
+		// end
+	// end 
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
+	
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
@@ -329,7 +330,7 @@ module MusicBox_Main(
 		.reset_n(systemReset_n),
 		
 		//--CONTROL
-		.inputSample(SPI_Output_WriteSample), //12 bits that will be sent to the DAC
+		.inputSample( {2'b0, signalOutput} * 16'd16 ), //12 bits that will be sent to the DAC
 		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
 		
 		//--OUTPUT
@@ -380,7 +381,7 @@ module MusicBox_Main(
 	SignalGenerator signalGenerator(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(max10board_switches ),
+		.inputFrequency(({4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches}) ),
 		.outputSample(signalOutput)
 	);
 	

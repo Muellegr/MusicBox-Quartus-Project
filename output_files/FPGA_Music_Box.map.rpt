@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Sun Feb 09 12:36:32 2020
+Mon Feb 10 08:06:20 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -35,9 +35,10 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
  27. Port Connectivity Checks: "MusicKeysController:musicKeysController"
  28. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
  29. Port Connectivity Checks: "ClockGenerator:clockGenerator_10hz"
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
+ 30. Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -63,15 +64,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb 09 12:36:32 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb 10 08:06:20 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 544                                         ;
-;     Total combinational functions  ; 544                                         ;
-;     Dedicated logic registers      ; 125                                         ;
-; Total registers                    ; 125                                         ;
+; Total logic elements               ; 494                                         ;
+;     Total combinational functions  ; 494                                         ;
+;     Dedicated logic registers      ; 82                                          ;
+; Total registers                    ; 82                                          ;
 ; Total pins                         ; 120                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -224,20 +225,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 544                         ;
+; Estimated Total logic elements              ; 494                         ;
 ;                                             ;                             ;
-; Total combinational functions               ; 544                         ;
+; Total combinational functions               ; 494                         ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 176                         ;
-;     -- 3 input functions                    ; 123                         ;
-;     -- <=2 input functions                  ; 245                         ;
+;     -- 4 input functions                    ; 145                         ;
+;     -- 3 input functions                    ; 130                         ;
+;     -- <=2 input functions                  ; 219                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 360                         ;
-;     -- arithmetic mode                      ; 184                         ;
+;     -- normal mode                          ; 324                         ;
+;     -- arithmetic mode                      ; 170                         ;
 ;                                             ;                             ;
-; Total registers                             ; 125                         ;
-;     -- Dedicated logic registers            ; 125                         ;
+; Total registers                             ; 82                          ;
+;     -- Dedicated logic registers            ; 82                          ;
 ;     -- I/O registers                        ; 0                           ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 120                         ;
@@ -245,9 +246,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; max10Board_Buttons[0]~input ;
-; Maximum fan-out                             ; 115                         ;
-; Total fan-out                               ; 2124                        ;
-; Average fan-out                             ; 2.30                        ;
+; Maximum fan-out                             ; 76                          ;
+; Total fan-out                               ; 1847                        ;
+; Average fan-out                             ; 2.22                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -256,22 +257,21 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                            ; Entity Name             ; Library Name ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |MusicBox_Main                                       ; 544 (60)            ; 125 (12)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
-;    |ClockGenerator:clockGenerator_100hz|             ; 42 (42)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_100hz                                                                                             ; ClockGenerator          ; work         ;
+; |MusicBox_Main                                       ; 494 (48)            ; 82 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
 ;    |ClockGenerator:clockGenerator_32Khz|             ; 26 (26)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator          ; work         ;
 ;    |SPI_InputControllerDac:sPI_InputControllerDac|   ; 22 (0)              ; 14 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac                                                                                   ; SPI_InputControllerDac  ; work         ;
 ;       |ClockGenerator:clockGenerator_240KHz|         ; 22 (22)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz                                              ; ClockGenerator          ; work         ;
-;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 54 (41)             ; 41 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
+;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 58 (45)             ; 37 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
 ;       |ClockGenerator:clockGenerator_714Khz|         ; 13 (13)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator          ; work         ;
-;    |SignalGenerator:signalGenerator|                 ; 340 (92)            ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
+;    |SignalGenerator:signalGenerator|                 ; 340 (76)            ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
 ;       |lpm_divide:Div0|                              ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0                                                                                 ; lpm_divide              ; work         ;
 ;          |lpm_divide_ttl:auto_generated|             ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated                                                   ; lpm_divide_ttl          ; work         ;
 ;             |sign_div_unsign_ulh:divider|            ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider                       ; sign_div_unsign_ulh     ; work         ;
 ;                |alt_u_div_6ie:divider|               ; 208 (208)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider|alt_u_div_6ie:divider ; alt_u_div_6ie           ; work         ;
-;       |lpm_divide:Mod0|                              ; 40 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
-;          |lpm_divide_dnl:auto_generated|             ; 40 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
-;             |sign_div_unsign_cnh:divider|            ; 40 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
-;                |alt_u_div_2le:divider|               ; 40 (40)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
+;       |lpm_divide:Mod0|                              ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
+;          |lpm_divide_dnl:auto_generated|             ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
+;             |sign_div_unsign_cnh:divider|            ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
+;                |alt_u_div_2le:divider|               ; 56 (56)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -299,47 +299,52 @@ Encoding Type:  One-Hot
 +--------------------+--------------------+--------------------+------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                             ;
-+------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-; Register name                                                    ; Reason for Removal                                                                                          ;
-+------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~6     ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~7     ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~8     ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~9     ; Lost fanout                                                                                                 ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8   ; Lost fanout                                                                                                 ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9   ; Lost fanout                                                                                                 ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10  ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001 ; Stuck at GND due to stuck port data_in                                                                      ;
-; SPI_InputControllerDac:sPI_InputControllerDac|counter[0..15]     ; Stuck at GND due to stuck port data_in                                                                      ;
-; ClockGenerator:clockGenerator_32Khz|counter[0]                   ; Merged with SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0] ;
-; Total Number of Removed Registers = 25                           ;                                                                                                             ;
-+------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                              ;
++-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+; Register name                                                     ; Reason for Removal                                                                                          ;
++-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0..3] ; Stuck at GND due to stuck port data_in                                                                      ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~6      ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~7      ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~8      ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~9      ; Lost fanout                                                                                                 ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8    ; Lost fanout                                                                                                 ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9    ; Lost fanout                                                                                                 ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10   ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001  ; Stuck at GND due to stuck port data_in                                                                      ;
+; SPI_InputControllerDac:sPI_InputControllerDac|counter[0..15]      ; Stuck at GND due to stuck port data_in                                                                      ;
+; ClockGenerator:clockGenerator_32Khz|counter[0]                    ; Merged with SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0] ;
+; SignalGenerator:signalGenerator|counter[0]                        ; Lost fanout                                                                                                 ;
+; Total Number of Removed Registers = 30                            ;                                                                                                             ;
++-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                               ;
-+------------------------------------------------------------------+---------------------------+------------------------------------------------------------+
-; Register name                                                    ; Reason for Removal        ; Registers Removed due to This Register                     ;
-+------------------------------------------------------------------+---------------------------+------------------------------------------------------------+
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001 ; Stuck at GND              ; SPI_InputControllerDac:sPI_InputControllerDac|counter[15], ;
-;                                                                  ; due to stuck port data_in ; SPI_InputControllerDac:sPI_InputControllerDac|counter[14], ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[13], ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[12], ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[11], ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[10], ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[9],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[8],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[7],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[6],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[5],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[4],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[3],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[2],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[1],  ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[0]   ;
-+------------------------------------------------------------------+---------------------------+------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                    ;
++------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------+
+; Register name                                                    ; Reason for Removal        ; Registers Removed due to This Register                          ;
++------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------+
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001 ; Stuck at GND              ; SPI_InputControllerDac:sPI_InputControllerDac|counter[15],      ;
+;                                                                  ; due to stuck port data_in ; SPI_InputControllerDac:sPI_InputControllerDac|counter[14],      ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[13],      ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[12],      ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[11],      ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[10],      ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[9],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[8],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[7],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[6],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[5],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[4],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[3],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[2],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[1],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[0]        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0]   ; Stuck at GND              ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[1], ;
+;                                                                  ; due to stuck port data_in ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[2], ;
+;                                                                  ;                           ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[3]  ;
++------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -347,26 +352,25 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 125   ;
+; Total registers                              ; 82    ;
 ; Number of registers using Synchronous Clear  ; 17    ;
-; Number of registers using Synchronous Load   ; 17    ;
-; Number of registers using Asynchronous Clear ; 113   ;
+; Number of registers using Synchronous Load   ; 21    ;
+; Number of registers using Asynchronous Clear ; 74    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 28    ;
+; Number of registers using Clock Enable       ; 24    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[12]      ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[3] ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |MusicBox_Main|SPI_Output_WriteSample[8]                                      ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[14]    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[14]       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11] ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[1]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------+
@@ -492,13 +496,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SignalGenerator:signalGenerator"                                                                                                                                    ;
-+----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port           ; Type  ; Severity ; Details                                                                                                                                                    ;
-+----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; inputFrequency ; Input ; Warning  ; Input port expression (10 bits) is smaller than the input port (14 bits) it drives.  Extra input bit(s) "inputFrequency[13..10]" will be connected to GND. ;
-+----------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "SignalGenerator:signalGenerator" ;
++-------------------+-------+----------+----------------------+
+; Port              ; Type  ; Severity ; Details              ;
++-------------------+-------+----------+----------------------+
+; inputFrequency[0] ; Input ; Info     ; Stuck at GND         ;
++-------------------+-------+----------+----------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -511,15 +515,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"                                                ;
-+------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port             ; Type   ; Severity ; Details                                                                             ;
-+------------------+--------+----------+-------------------------------------------------------------------------------------+
-; sendSample_n     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; isBusy           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; transmitComplete ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"                                                                                                                                                ;
++-------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; inputSample       ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (12 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; inputSample[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sendSample_n      ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; isBusy            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; transmitComplete  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++-------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------+
@@ -559,33 +565,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"                                                       ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; outputClock ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 120                         ;
-; cycloneiii_ff         ; 125                         ;
-;     CLR               ; 80                          ;
+; cycloneiii_ff         ; 82                          ;
+;     CLR               ; 42                          ;
 ;     CLR SCLR          ; 1                           ;
-;     CLR SLD           ; 16                          ;
-;     ENA               ; 11                          ;
+;     CLR SLD           ; 15                          ;
+;     ENA               ; 2                           ;
 ;     ENA CLR SCLR      ; 16                          ;
-;     ENA SLD           ; 1                           ;
+;     ENA SLD           ; 6                           ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 546                         ;
-;     arith             ; 184                         ;
-;         2 data inputs ; 101                         ;
-;         3 data inputs ; 83                          ;
-;     normal            ; 362                         ;
-;         0 data inputs ; 13                          ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 125                         ;
-;         3 data inputs ; 40                          ;
-;         4 data inputs ; 176                         ;
+; cycloneiii_lcell_comb ; 496                         ;
+;     arith             ; 170                         ;
+;         2 data inputs ; 69                          ;
+;         3 data inputs ; 101                         ;
+;     normal            ; 326                         ;
+;         0 data inputs ; 14                          ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 131                         ;
+;         3 data inputs ; 29                          ;
+;         4 data inputs ; 145                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 31.10                       ;
-; Average LUT depth     ; 14.71                       ;
+; Average LUT depth     ; 16.50                       ;
 +-----------------------+-----------------------------+
 
 
@@ -604,7 +619,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Feb 09 12:36:14 2020
+    Info: Processing started: Mon Feb 10 08:06:01 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file source code/utility/signalgenerator.sv
@@ -660,13 +675,13 @@ Info (12128): Elaborating entity "MusicBoxState_PlaySong0" for hierarchy "MusicB
 Info (12128): Elaborating entity "MusicBoxState_PlaySong1" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 73
 Info (12128): Elaborating entity "MusicBoxState_MakeRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 83
 Info (12128): Elaborating entity "MusicBoxState_PlayRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 93
-Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 343
+Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 344
 Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 51
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (8) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "SPI_InputControllerDac" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 372
+Info (12128): Elaborating entity "SPI_InputControllerDac" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 373
 Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_InputControllerSPI.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (13) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "SignalGenerator" for hierarchy "SignalGenerator:signalGenerator" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 385
+Info (12128): Elaborating entity "SignalGenerator" for hierarchy "SignalGenerator:signalGenerator" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 386
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Div0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 165
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Mod0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 158
@@ -784,10 +799,10 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "max10Board_LEDSegments[5][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[5][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[0]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 89
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 89
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[2]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 89
@@ -799,15 +814,16 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MakeRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 92
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 93
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_SPI_SDO" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 100
-Info (21057): Implemented 665 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "max10Board_Buttons[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 86
+Info (21057): Implemented 621 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 80 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 545 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 115 warnings
-    Info: Peak virtual memory: 4762 megabytes
-    Info: Processing ended: Sun Feb 09 12:36:32 2020
-    Info: Elapsed time: 00:00:18
+    Info (21061): Implemented 501 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 116 warnings
+    Info: Peak virtual memory: 4766 megabytes
+    Info: Processing ended: Mon Feb 10 08:06:20 2020
+    Info: Elapsed time: 00:00:19
     Info: Total CPU time (on all processors): 00:00:38
 
 
