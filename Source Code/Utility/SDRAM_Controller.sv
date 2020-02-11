@@ -1,9 +1,25 @@
 
-module SDRAM_Controller(
-	//--Hardware interface
-	output wire max10Board_SDRAM_Clock, //143Mhz
-    output wire max10Board_SDRAM_ClockEnable,
-    output reg [12: 0]   max10Board_SDRAM_Address,
+module SDRAM_Controller(	
+	//--INTERFACE INPUT.  These control if we read or write.
+	input wire reset_n , //Active low reset
+	input wire activeClock, //143Mhz clock
+	input reg [24:0] address, //BANK (2) , Row (13) , Collumn (10)   
+	input wire [15:0] inputData, //Data to be written into the address 
+	input wire isWriting, //High when the command is to write to that address.  Low when you wish to read from the address
+	input wire inputValid, //Pulsed high when input is valid.  Begin command. 
+	
+	//--INTERFACE OUTPUT.  These give output from read and other signals.
+	output wire [15:0] outputData, //Data that has been read from the address
+	output reg outputValid, //Pulsed high when output is valid.  Ready for new command.
+	output wire isBusy, //Goes high when performing an action to include AutoRefresh.
+	output reg recievedCommand, //Used to indicate if a command was recieved.  Pulsed high before returning to low.
+	output wire [15:0] debugOutputData, 
+	
+	//-------------------------
+	//--Hardware interface Pins
+	output wire max10Board_SDRAM_Clock, 
+    output wire max10Board_SDRAM_ClockEnable, 
+    output reg [12: 0]   max10Board_SDRAM_Address, 
     output reg [ 1: 0]   max10Board_SDRAM_BankAddress,
     inout  reg [15: 0]   max10Board_SDRAM_Data,
     output wire max10Board_SDRAM_DataMask0,
@@ -11,127 +27,117 @@ module SDRAM_Controller(
     output reg max10Board_SDRAM_ChipSelect_n,
     output reg max10Board_SDRAM_WriteEnable_n,
     output reg max10Board_SDRAM_ColumnAddressStrobe_n,
-    output reg max10Board_SDRAM_RowAddressStrobe_n,
-	
-	//--Interface.  These wires are exposed outside this module, allowing other things to use this.  
-	input wire reset_n ,
-	input wire activeClock,
-	input reg [24:0] address, //BANK (2) , Row (13) , Collumn (10)   
-	input wire [15:0] inputData, //Data to be written into the address 
-	input wire isWriting, //High when the command is to write to that address.  Low when you wish to read from the address
-	input wire inputValid, //Pulsed high when input is valid, begin command. 
-	//--
-	output wire [15:0] outputData, //Data that has been read from the address
-	output reg outputValid, //Pulsed high when output is valid.  Ready for new command.
-	output wire isBusy, //Controller is busy when this is high.  Ignores inputValid and outputValid during this.
-	output reg recievedCommand, //Used to indicate if a command was recieved
-	output wire [15:0] debugOutputData
+    output reg max10Board_SDRAM_RowAddressStrobe_n
 	);
-	assign debugOutputData = isBusy ? inputData : 16'd0;
+
+	
+	//-------------------------------------
+	//---------- COMBINATIONAL ------------
+	//-------------------------------------
+	assign debugOutputData = isBusy ? inputData : 16'd0; //Currently mostly unused.  Lets us easily port information out.
 	
 	wire isBusy_AutoRefresh ;  //Does an autorefresh need to occur
-	reg isBusy_Command; //is it busy due to a current command
-	  
-	assign isBusy = isBusy_AutoRefresh || isBusy_Command;
-	reg [10:0] autorefreshCounter ; //Counts to 1050 and sets isBusy high
-	//assign isBusy_AutoRefresh = 1'b0;//(autorefreshCounter >= 11'd1050) ? 1'b1 : 1'b0;
+	reg isBusy_Command; //is it busy due to a current command.  
 	assign isBusy_AutoRefresh = (autorefreshCounter >= 11'd1050) ? 1'b1 : 1'b0;
+	assign isBusy = isBusy_AutoRefresh || isBusy_Command; //Combine busy signals into 1 for interface output.
 
-	reg [3:0] currentCommand ;//= CMD_NOP;
-	assign {max10Board_SDRAM_ChipSelect_n, max10Board_SDRAM_RowAddressStrobe_n, max10Board_SDRAM_ColumnAddressStrobe_n, max10Board_SDRAM_WriteEnable_n } = currentCommand;
+	assign outputData = outputValid ? max10Board_SDRAM_Data : 16'hZZZZ; //Ensures anything outside this is getting the data at the right time.  
 	
-	//-------------------------------------
-	//-------------------------------------
-	// Commands for the SDRAM.  We can set multiple pins at once by currentCommand = CMD_NOP . 
-	//All inputs are active low.
-	//CS : Chip Select (allows it to see input)
-	//RAS : Row Address Strobe
-	//CAS : Column Address Strobe
-	//WE : Write Enable
-	                             //CS_n, RAS_n , CAS_n , WE_n
-	localparam CMD_UNSELECTED           = 4'b1000; //Device Deselected.  
-	localparam CMD_NOP                  = 4'b0111; //No Operation.  Banks : X  A10 : X  Address:X
-	localparam CMD_LOADMODE				= 4'b0000; //MRS			Banks : L  A10 : L  Address:V
-	//--
-	localparam CMD_BANKACTIVATE         = 4'b0011; //ACT            Banks : V  A10 : V  Address:V
-	//--
-	localparam CMD_READ                 = 4'b0101; //               Banks : V  A10 : L  Address:V
-	localparam CMD_READ_AUTOPRECHARGE   = 4'b0101; //               Banks : V  A10 : H  Address:V
-		//10 is low for no autoprecharge, high for autoprecharge
-	//--
-	localparam CMD_WRITE                = 4'b0100; //               Banks : V  A10 : L  Address:V
-	localparam CMD_WRITE_AUTOPRECHARGE  = 4'b0100; //               Banks : V  A10 : H  Address:V  
-		//10 is low for no autoprecharge, high for autoprecharge
-	//--
-	localparam CMD_PRECHARGE_SELECTBANK = 4'b0010; //PRE            Banks : V  A10 : L  Address:X
-	localparam CMD_PRECHARGE_ALLBANKS   = 4'b0010; //PALL           Banks : X  A10 : H  Address:X
-		//A10 is low for single bank, high for all banks.
-	//--	
-	localparam CMD_CBR_AUTOREFRESH      = 4'b0001; //REF            Banks : X  A10 : X  Address:X
-	localparam CMD_SELFREFRESH          = 4'b0001; //SELF           Banks : X  A10 : X  Address:X
-		//AutoRefresh has Clock Enable high.  
-		//SelfRefresh has Clock Enable low.
-	//--------------------------------------------------------------
-	
-	//--------------------------------------------------------------
+	//------- FPGA Hardware Pins ---------
 	//Data mask allows reading and writing when both are set to logic low. 
 	assign max10Board_SDRAM_DataMask0 = 1'b0;
 	assign max10Board_SDRAM_DataMask1 = 1'b0;
-	//Always have this high for now.
+	//Always have this high.
 	assign max10Board_SDRAM_ClockEnable = 1'b1;
+	//Data clock always active. 
 	assign max10Board_SDRAM_Clock = activeClock;
 	
-	assign outputData = outputValid ? max10Board_SDRAM_Data : 16'hZZZZ;
-
+	//-------------------------------------
+	//------- STATIC PARAMETERS -----------
+	//-------------------------------------
+	//--HARDWARE CONTROL PINS : currentCommand
+		//This assigns each of these single bit values from curret command.  Sort of like saying chipSelect = currentCommand[3]
+		reg [3:0] currentCommand ;
+		assign {max10Board_SDRAM_ChipSelect_n, max10Board_SDRAM_RowAddressStrobe_n, max10Board_SDRAM_ColumnAddressStrobe_n, max10Board_SDRAM_WriteEnable_n } = currentCommand;
 	
+		localparam CMD_UNSELECTED           = 4'b1000; //Device Deselected.  
+		localparam CMD_NOP                  = 4'b0111; //No Operation.  Banks : X  A10 : X  Address:X
+		localparam CMD_LOADMODE				= 4'b0000; //MRS			Banks : L  A10 : L  Address:V
+		//--
+		localparam CMD_BANKACTIVATE         = 4'b0011; //ACT            Banks : V  A10 : V  Address:V
+		//--
+		localparam CMD_READ                 = 4'b0101; //               Banks : V  A10 : L  Address:V
+		localparam CMD_READ_AUTOPRECHARGE   = 4'b0101; //               Banks : V  A10 : H  Address:V
+		//--
+		localparam CMD_WRITE                = 4'b0100; //               Banks : V  A10 : L  Address:V
+		localparam CMD_WRITE_AUTOPRECHARGE  = 4'b0100; //               Banks : V  A10 : H  Address:V  
+		//--
+		localparam CMD_PRECHARGE_SELECTBANK = 4'b0010; //PRE            Banks : V  A10 : L  Address:X
+		localparam CMD_PRECHARGE_ALLBANKS   = 4'b0010; //PALL           Banks : X  A10 : H  Address:X
+		//--	
+		localparam CMD_CBR_AUTOREFRESH      = 4'b0001; //REF            Banks : X  A10 : X  Address:X
+		localparam CMD_SELFREFRESH          = 4'b0001; //SELF           Banks : X  A10 : X  Address:X
+		//-------------------------------------
+	
+	//--STATE MACHINE
+		reg [4:0] currentState ;
+		//--
+		localparam INIT = 4'd0; //Leads to next. Initializes some values.
+		localparam INIT_STARTUPWAIT = 4'd1; //Wait phase.  Exits when enough clicks have passed.
+		localparam INIT_PRECHARGE = 4'd2; //Precharges all banks. Initalizes loop for auto refrehs. Goes to next.
+		localparam INIT_AUTOREFRESH = 4'd3; //Autofreshes 8 times. Goes to next.
+		localparam INIT_LOADMODE = 4'd4; //Exits to idle state
+		//--
+		localparam IDLE = 4'd5; //Waits for command
+		localparam AUTOFRESH_ALL = 4'd6;  //Sent here from idle after a period of time
+		//--
+		localparam READ_ROWACTIVATE = 4'd7; //Read command recieved.  Goes to next.
+		localparam READ_ACTION = 4'd8; //Actual data becomes available. Goes to next.
+		localparam READ_DATAAVAILABLE = 4'd9; //Ends read.  Goes to IDLE
+		localparam READ_PRECHARGE = 4'd10; //Ends read.  Goes to IDLE
+		//--
+		localparam WRITE_ROWACTIVATE = 4'd11; //Write command recieved.  Goes to next.
+		localparam WRITE_ACTION = 4'd12; //Actual write to memory.
+		localparam WRITE_PRECHARGE = 4'd13; //Ends write.  Goes to IDLE
 	//--------------------------------------------------------------
 	
+	//-------------------------------------
+	//-------- Counters & Misc-------------
+	//-------------------------------------
+	reg [10:0] autorefreshCounter ; //Increments each clock and counts to 1050.  At this point we should perform a single autorefresh.
+	reg [16:0] pauseCycles; //clock cycles to pause in the current state
+	
 	//--------------------------------------------------------------
-	reg [24:0] inputStoredAddress;
+	//--When we begin a command, we store the input address and data. 
+	reg [24:0] inputStoredAddress; 
 	reg [15:0] inputStoredData;
 	//--------------------------------------------------------------
 	 
 	 
+	 //Done with seutp.  Now state machine.
+	 //This state machine is excessively verbose.  It tracks each stage of what the SDRAM controller should be doing.
+	 //Orignal intention was that this would be easier to learn from compared to a lot of the controller examples on the internet.
+	 
+	 
+	 
 	//--------------------------------------------------------------
 	//--STATE MACHINE CONTROL. currentState determines which state//action we are doing.  These states will change pins as it sees fit.
-	 
-	
-	reg [4:0] currentState ;
-	reg [16:0] pauseCycles; //clock cycles to pause in the current state
-	//--
-	localparam INIT = 0; //Leads to next. Initializes some values.
-	localparam INIT_STARTUPWAIT = 1; //Wait phase.  Exits when enough clicks have passed.
-	localparam INIT_PRECHARGE = 2; //Precharges all banks. Initalizes loop for auto refrehs. Goes to next.
-	localparam INIT_AUTOREFRESH = 3; //Autofreshes 8 times. Goes to next.
-	localparam INIT_LOADMODE = 4; //Exits to idle state
-	//--
-	localparam IDLE = 5; //Waits for command
-	localparam AUTOFRESH_ALL = 6;  //Sent here from idle after a period of time
-	//--
-	localparam READ_ROWACTIVATE = 7; //Read command recieved.  Goes to next.
-	localparam READ_ACTION = 8; //Actual data becomes available. Goes to next.
-	localparam READ_DATAAVAILABLE = 9; //Ends read.  Goes to IDLE
-	localparam READ_PRECHARGE = 10; //Ends read.  Goes to IDLE
-	//--
-	localparam WRITE_ROWACTIVATE = 11; //Write command recieved.  Goes to next.
-	localparam WRITE_ACTION = 12; //Actual write to memory.
-	localparam WRITE_PRECHARGE = 13; //Ends write.  Goes to IDLE
-	
+	//--------------------------------------------------------------
 	always @(posedge max10Board_SDRAM_Clock) begin
 			//Activation // Reset
-			if (reset_n == 1'b0)begin
+			if (reset_n == 1'b0) begin
 				currentCommand = CMD_NOP;
 				currentState <= INIT;
 				//Basic state on setup
 				recievedCommand = 1'b0;
 				max10Board_SDRAM_Address = 13'd0;
 				max10Board_SDRAM_BankAddress = 2'd0;
-				max10Board_SDRAM_Data	 = 16'hZZZZ;
+				max10Board_SDRAM_Data = 16'hZZZZ;
 				isBusy_Command = 1'b1;
 				outputValid = 1'b0;
 				pauseCycles = 17'd0;
-				recievedCommand = 16'd0;
-				autorefreshCounter = 16'd0;
+				//recievedCommand = 16'd0;
+				autorefreshCounter = 11'd0;
 				inputStoredAddress = 25'd0;
 				inputStoredData = 16'd0;
 			end 
@@ -155,8 +161,9 @@ module SDRAM_Controller(
 					//Wait for 200ms
 					if (pauseCycles != 17'd28600) begin 
 						currentCommand = CMD_NOP;
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 					end
+					//If we have reached the proper amount, prepare for next state.
 					else begin
 						currentState <= INIT_PRECHARGE;
 						//Set up next state
@@ -170,7 +177,7 @@ module SDRAM_Controller(
 				INIT_PRECHARGE: begin //2
 					if (pauseCycles != 3) begin //Wait for tRP (15ns)
 						currentCommand = CMD_NOP; 
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 					end
 					else begin
 						currentState <= INIT_AUTOREFRESH;
@@ -198,7 +205,6 @@ module SDRAM_Controller(
 											//A2-A0 : Burst Length // 000
 					end
 					else begin
-						//REMOVE MODULO HERE, HARDCODE INTEGERS INSTEAD (two counters?)
 						//Need 8x autorefresh cycles.  Each cycles requires 63ns (9 clock periods) to be good. 
 							//0 (give command)
 							//1  0 COMMAND
@@ -211,18 +217,18 @@ module SDRAM_Controller(
 							//8  7
 							//9   8(give command)
 							//10   9COMMAND
+						//Each autorefresh needs their pins set, but afterwards their pins need to go to nop. 
 						if (pauseCycles == 0 || pauseCycles == 9 || pauseCycles == 18 || pauseCycles == 27 || pauseCycles == 36 || pauseCycles == 45
 						||pauseCycles == 54 || pauseCycles == 63 )begin
 								currentCommand = CMD_CBR_AUTOREFRESH;
-								pauseCycles = pauseCycles + 1'b1;
+								pauseCycles = pauseCycles + 17'b1;
 						  end
 						  else begin
 							currentCommand = CMD_NOP;
-							pauseCycles = pauseCycles + 1'b1;
+							pauseCycles = pauseCycles + 17'b1;
 						  end
-						
-					end
-				end
+					end //Else for cycle count
+				end //Sate : INIT_AUTOREFRESH
 
 				//--------------------------
 				INIT_LOADMODE: begin //4
@@ -233,14 +239,17 @@ module SDRAM_Controller(
 					end
 					else begin
 						currentCommand = CMD_NOP;
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 					end
 				end
 				
 				//--------------------------
+				//----- IDLE STATE ---------
+				//--------------------------
 				IDLE: begin //5
+					//We recieved a command while not busy.  
 					 if (inputValid == 1'b1 && isBusy == 1'b0 )begin
-						//Read command
+						//Ensure the current input data is stored.  Lets us safely use it later.
 						inputStoredAddress = address;
 						inputStoredData = inputData;
 						
@@ -260,13 +269,13 @@ module SDRAM_Controller(
 							currentState <= WRITE_ROWACTIVATE;
 						end
 					end
+					//If we are not recieving a command and aren't busy, check if it's time for autorefresh
 					else if (isBusy_AutoRefresh == 1'b1 ) begin
-					//else if (isBusy_AutoRefresh >= 11'd1050 ) begin //Slight pause allows us to avoid a possible glitch
 						currentState <= AUTOFRESH_ALL;
 						currentCommand = CMD_CBR_AUTOREFRESH;
 						pauseCycles = 17'd0;
 					end
-					//We are not asking to begin a read/write
+					//We are staying idle. 
 					else begin
 						currentCommand = CMD_NOP;
 						max10Board_SDRAM_Address 	 =  13'b0_000_000_000_000 ;
@@ -277,11 +286,12 @@ module SDRAM_Controller(
 					
 						isBusy_Command = 1'b0; 
 						inputStoredAddress = 25'd0;
-					//	inputStoredData = 16'd0;
 						recievedCommand = 1'd0;
 					end
 				end
 				
+				//--------------------------
+				//----- AUTO REFRESH -------
 				//--------------------------
 				AUTOFRESH_ALL: begin //6
 					if (pauseCycles == 17'd9) begin
@@ -296,6 +306,8 @@ module SDRAM_Controller(
 				end
 				
 				//--------------------------
+				//----- READ STATE ---------
+				//--------------------------
 				READ_ROWACTIVATE: begin //7
 					if (pauseCycles == 17'd2) begin //Reached end of row activation, continue to read action.
 						currentState <= READ_ACTION;
@@ -307,7 +319,7 @@ module SDRAM_Controller(
 					else begin
 						recievedCommand = 1'b0;
 						currentCommand = CMD_NOP;
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 					end
 				end
 				
@@ -321,8 +333,7 @@ module SDRAM_Controller(
 					end
 					else begin
 						currentCommand = CMD_NOP;
-						//max10Board_SDRAM_Data = 16'd0; 
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 					end
 				end
 				
@@ -341,11 +352,13 @@ module SDRAM_Controller(
 					end
 					else begin
 						outputValid = 1'b0; 
-						pauseCycles = pauseCycles + 1'd1;
-					//	max10Board_SDRAM_Data        = 16'hZZZZ; 
+						pauseCycles = pauseCycles + 17'd1;
 					end
 				end
 				
+				//--------------------------
+				//----- WRITE STATE --------
+				//--------------------------
 				//--------------------------
 				WRITE_ROWACTIVATE: begin //11
 					if (pauseCycles == 17'd2) begin //Reached end of row activation, continue to read action.
@@ -356,7 +369,7 @@ module SDRAM_Controller(
 					end
 					else begin
 						currentCommand = CMD_NOP;
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 						max10Board_SDRAM_Data = inputStoredData; //Tell it to write early
 						recievedCommand = 1'b0;
 					end
@@ -373,7 +386,7 @@ module SDRAM_Controller(
 					end
 					else begin
 						currentCommand = CMD_NOP;
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 					end
 				end
 	
@@ -387,7 +400,7 @@ module SDRAM_Controller(
 						currentCommand = CMD_NOP;
 						//Read is no longer valid.
 						isBusy_Command <= 1'b0; 
-						pauseCycles = pauseCycles + 1'd1;
+						pauseCycles = pauseCycles + 17'd1;
 					end
 				end
 				
@@ -396,8 +409,8 @@ module SDRAM_Controller(
 					currentState = INIT;
 				end
 			endcase
-			
-				autorefreshCounter = autorefreshCounter + 1'd1;
-			end
+			//At end of state machine, increment autoRefreshCounter.
+			autorefreshCounter = autorefreshCounter + 1'd1;
+		end
 	 end //posedge max10Board_SDRAM_Clock
 endmodule
