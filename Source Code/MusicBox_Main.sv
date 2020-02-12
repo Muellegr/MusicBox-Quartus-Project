@@ -130,6 +130,14 @@ module MusicBox_Main(
 	//-----------------------
 	//--MISC CLOCK GENERATORS
 	//-----------------------
+	wire CLK_143Mhz; 
+	ALTPLL_Clock aLTPLL_Clock_143Mhz(
+		.areset(), //???    Left empty.
+		.inclk0(max10Board_50MhzClock), //input clock @ 50Mhz
+		.c0(CLK_143Mhz),
+		.locked()
+	);	
+	
 	wire CLK_1Khz ;
 	ClockGenerator clockGenerator_1Khz (
 		.inputClock(max10Board_50MhzClock),
@@ -422,7 +430,7 @@ module MusicBox_Main(
 	
 	SDRAM_Controller sDRAM_Controller (
 		//--INTERFACE INPUT.  These control if we read or write.
-		.activeClock(CLK_32Khz), //Configured at 143Mhz 
+		.activeClock(CLK_143Mhz), //Configured at 143Mhz 
 		.reset_n(systemReset_n),
 		
 		.address(sdram_inputAddress), //SDRAM copies these two values when it begins a command. These are free to change when 'recievedCommand' goes high.

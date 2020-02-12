@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Tue Feb 11 18:40:56 2020
+Wed Feb 12 07:51:22 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -13,36 +13,40 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState
-  9. State Machine - |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|currentState
- 10. State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1Khz
- 16. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_100hz
- 17. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_10hz
- 18. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_32Khz
- 19. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
- 20. Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz
- 21. Parameter Settings for User Entity Instance: SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz
- 22. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Div0
- 23. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Mod0
- 24. Port Connectivity Checks: "SDRAM_Controller:sDRAM_Controller"
- 25. Port Connectivity Checks: "SignalGenerator:signalGenerator"
- 26. Port Connectivity Checks: "SPI_InputControllerDac:sPI_InputControllerDac"
- 27. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
- 28. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
- 29. Port Connectivity Checks: "MusicKeysController:musicKeysController"
- 30. Port Connectivity Checks: "SevenSegmentParser:sevenSegmentParser"
- 31. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
- 32. Port Connectivity Checks: "ClockGenerator:clockGenerator_10hz"
- 33. Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"
- 34. Post-Synthesis Netlist Statistics for Top Partition
- 35. Elapsed Time Per Partition
- 36. Analysis & Synthesis Messages
- 37. Analysis & Synthesis Suppressed Messages
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState
+ 10. State Machine - |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|currentState
+ 11. State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component
+ 17. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1Khz
+ 18. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_100hz
+ 19. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_10hz
+ 20. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_32Khz
+ 21. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
+ 22. Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz
+ 23. Parameter Settings for User Entity Instance: SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz
+ 24. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Div0
+ 25. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Mod0
+ 26. altpll Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "SDRAM_Controller:sDRAM_Controller"
+ 28. Port Connectivity Checks: "SignalGenerator:signalGenerator"
+ 29. Port Connectivity Checks: "SPI_InputControllerDac:sPI_InputControllerDac"
+ 30. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
+ 31. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
+ 32. Port Connectivity Checks: "MusicKeysController:musicKeysController"
+ 33. Port Connectivity Checks: "SevenSegmentParser:sevenSegmentParser"
+ 34. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
+ 35. Port Connectivity Checks: "ClockGenerator:clockGenerator_10hz"
+ 36. Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"
+ 37. Port Connectivity Checks: "ALTPLL_Clock:aLTPLL_Clock_143Mhz"
+ 38. Post-Synthesis Netlist Statistics for Top Partition
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+ 41. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -68,20 +72,20 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Feb 11 18:40:56 2020       ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb 12 07:51:22 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 588                                         ;
-;     Total combinational functions  ; 571                                         ;
+; Total logic elements               ; 595                                         ;
+;     Total combinational functions  ; 578                                         ;
 ;     Dedicated logic registers      ; 138                                         ;
 ; Total registers                    ; 138                                         ;
 ; Total pins                         ; 120                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
 ; UFM blocks                         ; 0                                           ;
 ; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
@@ -212,10 +216,16 @@ refer to the applicable agreement for further details.
 ; Source Code/User Interface Modules/MusicBoxStateController.sv     ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv     ;         ;
 ; Source Code/User Interface Modules/UI_TriggerSmoother.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv          ;         ;
 ; Source Code/MusicBox_Main.sv                                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv                                      ;         ;
+; ALTPLL_Clock.v                                                    ; yes             ; User Wizard-Generated File   ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/ALTPLL_Clock.v                                                    ;         ;
+; altpll.tdf                                                        ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf                                                                      ;         ;
+; aglobal180.inc                                                    ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc                                                                  ;         ;
+; stratix_pll.inc                                                   ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratix_pll.inc                                                                 ;         ;
+; stratixii_pll.inc                                                 ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/stratixii_pll.inc                                                               ;         ;
+; cycloneii_pll.inc                                                 ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/cycloneii_pll.inc                                                               ;         ;
+; db/altpll_clock_altpll.v                                          ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/altpll_clock_altpll.v                                          ;         ;
 ; lpm_divide.tdf                                                    ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_divide.tdf                                                                  ;         ;
 ; abs_divider.inc                                                   ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/abs_divider.inc                                                                 ;         ;
 ; sign_div_unsign.inc                                               ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/sign_div_unsign.inc                                                             ;         ;
-; aglobal180.inc                                                    ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/aglobal180.inc                                                                  ;         ;
 ; db/lpm_divide_ttl.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_ttl.tdf                                             ;         ;
 ; db/sign_div_unsign_ulh.tdf                                        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_ulh.tdf                                        ;         ;
 ; db/alt_u_div_6ie.tdf                                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_6ie.tdf                                              ;         ;
@@ -232,16 +242,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 588                         ;
+; Estimated Total logic elements              ; 595                         ;
 ;                                             ;                             ;
-; Total combinational functions               ; 571                         ;
+; Total combinational functions               ; 578                         ;
 ; Logic element usage by number of LUT inputs ;                             ;
 ;     -- 4 input functions                    ; 183                         ;
-;     -- 3 input functions                    ; 148                         ;
-;     -- <=2 input functions                  ; 240                         ;
+;     -- 3 input functions                    ; 150                         ;
+;     -- <=2 input functions                  ; 245                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 375                         ;
+;     -- normal mode                          ; 382                         ;
 ;     -- arithmetic mode                      ; 196                         ;
 ;                                             ;                             ;
 ; Total registers                             ; 138                         ;
@@ -252,9 +262,12 @@ refer to the applicable agreement for further details.
 ;                                             ;                             ;
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ;                                             ;                             ;
+; Total PLLs                                  ; 1                           ;
+;     -- PLLs                                 ; 1                           ;
+;                                             ;                             ;
 ; Maximum fan-out node                        ; max10Board_Buttons[0]~input ;
 ; Maximum fan-out                             ; 103                         ;
-; Total fan-out                               ; 2298                        ;
+; Total fan-out                               ; 2316                        ;
 ; Average fan-out                             ; 2.38                        ;
 +---------------------------------------------+-----------------------------+
 
@@ -264,24 +277,36 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                            ; Entity Name             ; Library Name ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |MusicBox_Main                                       ; 571 (48)            ; 138 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
-;    |ClockGenerator:clockGenerator_32Khz|             ; 27 (27)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator          ; work         ;
-;    |SDRAM_Controller:sDRAM_Controller|               ; 85 (85)             ; 56 (56)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller                                                                                               ; SDRAM_Controller        ; work         ;
+; |MusicBox_Main                                       ; 578 (48)            ; 138 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
+;    |ALTPLL_Clock:aLTPLL_Clock_143Mhz|                ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz                                                                                                ; ALTPLL_Clock            ; work         ;
+;       |altpll:altpll_component|                      ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component                                                                        ; altpll                  ; work         ;
+;          |ALTPLL_Clock_altpll:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component|ALTPLL_Clock_altpll:auto_generated                                     ; ALTPLL_Clock_altpll     ; work         ;
+;    |ClockGenerator:clockGenerator_32Khz|             ; 26 (26)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator          ; work         ;
+;    |SDRAM_Controller:sDRAM_Controller|               ; 84 (84)             ; 56 (56)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller                                                                                               ; SDRAM_Controller        ; work         ;
 ;    |SPI_InputControllerDac:sPI_InputControllerDac|   ; 22 (0)              ; 14 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac                                                                                   ; SPI_InputControllerDac  ; work         ;
 ;       |ClockGenerator:clockGenerator_240KHz|         ; 22 (22)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz                                              ; ClockGenerator          ; work         ;
-;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 57 (45)             ; 36 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
-;       |ClockGenerator:clockGenerator_714Khz|         ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator          ; work         ;
-;    |SignalGenerator:signalGenerator|                 ; 332 (76)            ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
+;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 58 (45)             ; 37 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
+;       |ClockGenerator:clockGenerator_714Khz|         ; 13 (13)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator          ; work         ;
+;    |SignalGenerator:signalGenerator|                 ; 340 (76)            ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
 ;       |lpm_divide:Div0|                              ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0                                                                                 ; lpm_divide              ; work         ;
 ;          |lpm_divide_ttl:auto_generated|             ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated                                                   ; lpm_divide_ttl          ; work         ;
 ;             |sign_div_unsign_ulh:divider|            ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider                       ; sign_div_unsign_ulh     ; work         ;
 ;                |alt_u_div_6ie:divider|               ; 208 (208)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider|alt_u_div_6ie:divider ; alt_u_div_6ie           ; work         ;
-;       |lpm_divide:Mod0|                              ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
-;          |lpm_divide_dnl:auto_generated|             ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
-;             |sign_div_unsign_cnh:divider|            ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
-;                |alt_u_div_2le:divider|               ; 48 (48)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
+;       |lpm_divide:Mod0|                              ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
+;          |lpm_divide_dnl:auto_generated|             ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
+;             |sign_div_unsign_cnh:divider|            ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
+;                |alt_u_div_2le:divider|               ; 56 (56)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                             ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                 ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------+-----------------+
+; Altera ; ALTPLL       ; 18.0    ; N/A          ; N/A          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz ; ALTPLL_Clock.v  ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------+-----------------+
 
 
 Encoding Type:  One-Hot
@@ -329,63 +354,63 @@ Encoding Type:  One-Hot
 +--------------------+--------------------+--------------------+------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                              ;
-+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-; Register name                                                                                   ; Reason for Removal                                                            ;
-+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-; SDRAM_Controller:sDRAM_Controller|isBusy_Command                                                ; Lost fanout                                                                   ;
-; SDRAM_Controller:sDRAM_Controller|inputStoredData[0..15]                                        ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[0]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[15]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[14]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[13]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[12]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[11]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[10]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[9]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[8]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[7]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[6]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[5]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[4]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[3]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[2]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[1]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[1..3,6..8]                           ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0]     ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[5,9]                                 ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[4]     ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[12]                                  ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[11]    ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[1]                               ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[0] ;
-; SDRAM_Controller:sDRAM_Controller|inputStoredAddress[1..9]                                      ; Merged with SDRAM_Controller:sDRAM_Controller|inputStoredAddress[0]           ;
-; SDRAM_Controller:sDRAM_Controller|inputStoredAddress[0]                                         ; Stuck at GND due to stuck port data_in                                        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0..3]                               ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0,11]                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[0]                               ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|currentState~15                                               ; Lost fanout                                                                   ;
-; SDRAM_Controller:sDRAM_Controller|currentState~16                                               ; Lost fanout                                                                   ;
-; SDRAM_Controller:sDRAM_Controller|currentState~17                                               ; Lost fanout                                                                   ;
-; SDRAM_Controller:sDRAM_Controller|currentState~18                                               ; Lost fanout                                                                   ;
-; SDRAM_Controller:sDRAM_Controller|currentState~19                                               ; Lost fanout                                                                   ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~6                                    ; Lost fanout                                                                   ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~7                                    ; Lost fanout                                                                   ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~8                                    ; Lost fanout                                                                   ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~9                                    ; Lost fanout                                                                   ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8                                  ; Lost fanout                                                                   ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9                                  ; Lost fanout                                                                   ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10                                 ; Lost fanout                                                                   ;
-; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_ROWACTIVATE                                ; Merged with SDRAM_Controller:sDRAM_Controller|currentState.READ_ROWACTIVATE   ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001                                ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|currentState.READ_ROWACTIVATE                                 ; Stuck at GND due to stuck port data_in                                        ;
-; SPI_InputControllerDac:sPI_InputControllerDac|counter[0..15]                                    ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_ACTION                                     ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|currentState.READ_ACTION                                      ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|currentState.READ_PRECHARGE                                   ; Stuck at GND due to stuck port data_in                                        ;
-; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_PRECHARGE                                  ; Stuck at GND due to stuck port data_in                                        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0] ; Merged with ClockGenerator:clockGenerator_32Khz|counter[0]                    ;
-; SignalGenerator:signalGenerator|counter[0]                                                      ; Lost fanout                                                                   ;
-; SDRAM_Controller:sDRAM_Controller|currentCommand[3]                                             ; Stuck at GND due to stuck port data_in                                        ;
-; Total Number of Removed Registers = 98                                                          ;                                                                               ;
-+-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                  ;
++-----------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+; Register name                                                         ; Reason for Removal                                                                                          ;
++-----------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
+; SDRAM_Controller:sDRAM_Controller|isBusy_Command                      ; Lost fanout                                                                                                 ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[0..15]              ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[0]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[15]~reg0      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[14]~reg0      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[13]~reg0      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[12]~reg0      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[11]~reg0      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[10]~reg0      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[9]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[8]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[7]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[6]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[5]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[4]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[3]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[2]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[1]~reg0       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[1..3,6..8] ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0]                                   ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[5,9]       ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[4]                                   ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[12]        ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[11]                                  ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[1]     ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[0]                               ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredAddress[1..9]            ; Merged with SDRAM_Controller:sDRAM_Controller|inputStoredAddress[0]                                         ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredAddress[0]               ; Stuck at GND due to stuck port data_in                                                                      ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0..3]     ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0,11]      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[0]     ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|currentState~15                     ; Lost fanout                                                                                                 ;
+; SDRAM_Controller:sDRAM_Controller|currentState~16                     ; Lost fanout                                                                                                 ;
+; SDRAM_Controller:sDRAM_Controller|currentState~17                     ; Lost fanout                                                                                                 ;
+; SDRAM_Controller:sDRAM_Controller|currentState~18                     ; Lost fanout                                                                                                 ;
+; SDRAM_Controller:sDRAM_Controller|currentState~19                     ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~6          ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~7          ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~8          ; Lost fanout                                                                                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~9          ; Lost fanout                                                                                                 ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8        ; Lost fanout                                                                                                 ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9        ; Lost fanout                                                                                                 ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10       ; Lost fanout                                                                                                 ;
+; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_ROWACTIVATE      ; Merged with SDRAM_Controller:sDRAM_Controller|currentState.READ_ROWACTIVATE                                 ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001      ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|currentState.READ_ROWACTIVATE       ; Stuck at GND due to stuck port data_in                                                                      ;
+; SPI_InputControllerDac:sPI_InputControllerDac|counter[0..15]          ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_ACTION           ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|currentState.READ_ACTION            ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|currentState.READ_PRECHARGE         ; Stuck at GND due to stuck port data_in                                                                      ;
+; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_PRECHARGE        ; Stuck at GND due to stuck port data_in                                                                      ;
+; ClockGenerator:clockGenerator_32Khz|counter[0]                        ; Merged with SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0] ;
+; SignalGenerator:signalGenerator|counter[0]                            ; Lost fanout                                                                                                 ;
+; SDRAM_Controller:sDRAM_Controller|currentCommand[3]                   ; Stuck at GND due to stuck port data_in                                                                      ;
+; Total Number of Removed Registers = 98                                ;                                                                                                             ;
++-----------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -474,13 +499,387 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[7]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[6]        ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11] ;
 ; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[8]      ;
 ; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[10]  ;
 ; 15:1               ; 17 bits   ; 170 LEs       ; 17 LEs               ; 153 LEs                ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|pauseCycles[14]               ;
 ; 15:1               ; 7 bits    ; 70 LEs        ; 28 LEs               ; 42 LEs                 ; No         ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component ;
++-------------------------------+--------------------------------+--------------------------------------+
+; Parameter Name                ; Value                          ; Type                                 ;
++-------------------------------+--------------------------------+--------------------------------------+
+; OPERATION_MODE                ; NORMAL                         ; Untyped                              ;
+; PLL_TYPE                      ; AUTO                           ; Untyped                              ;
+; LPM_HINT                      ; CBX_MODULE_PREFIX=ALTPLL_Clock ; Untyped                              ;
+; QUALIFY_CONF_DONE             ; OFF                            ; Untyped                              ;
+; COMPENSATE_CLOCK              ; CLK0                           ; Untyped                              ;
+; SCAN_CHAIN                    ; LONG                           ; Untyped                              ;
+; PRIMARY_CLOCK                 ; INCLK0                         ; Untyped                              ;
+; INCLK0_INPUT_FREQUENCY        ; 20000                          ; Signed Integer                       ;
+; INCLK1_INPUT_FREQUENCY        ; 0                              ; Untyped                              ;
+; GATE_LOCK_SIGNAL              ; NO                             ; Untyped                              ;
+; GATE_LOCK_COUNTER             ; 0                              ; Untyped                              ;
+; LOCK_HIGH                     ; 1                              ; Untyped                              ;
+; LOCK_LOW                      ; 1                              ; Untyped                              ;
+; VALID_LOCK_MULTIPLIER         ; 1                              ; Untyped                              ;
+; INVALID_LOCK_MULTIPLIER       ; 5                              ; Untyped                              ;
+; SWITCH_OVER_ON_LOSSCLK        ; OFF                            ; Untyped                              ;
+; SWITCH_OVER_ON_GATED_LOCK     ; OFF                            ; Untyped                              ;
+; ENABLE_SWITCH_OVER_COUNTER    ; OFF                            ; Untyped                              ;
+; SKIP_VCO                      ; OFF                            ; Untyped                              ;
+; SWITCH_OVER_COUNTER           ; 0                              ; Untyped                              ;
+; SWITCH_OVER_TYPE              ; AUTO                           ; Untyped                              ;
+; FEEDBACK_SOURCE               ; EXTCLK0                        ; Untyped                              ;
+; BANDWIDTH                     ; 0                              ; Untyped                              ;
+; BANDWIDTH_TYPE                ; AUTO                           ; Untyped                              ;
+; SPREAD_FREQUENCY              ; 0                              ; Untyped                              ;
+; DOWN_SPREAD                   ; 0                              ; Untyped                              ;
+; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF                            ; Untyped                              ;
+; SELF_RESET_ON_LOSS_LOCK       ; OFF                            ; Untyped                              ;
+; CLK9_MULTIPLY_BY              ; 0                              ; Untyped                              ;
+; CLK8_MULTIPLY_BY              ; 0                              ; Untyped                              ;
+; CLK7_MULTIPLY_BY              ; 0                              ; Untyped                              ;
+; CLK6_MULTIPLY_BY              ; 0                              ; Untyped                              ;
+; CLK5_MULTIPLY_BY              ; 1                              ; Untyped                              ;
+; CLK4_MULTIPLY_BY              ; 1                              ; Untyped                              ;
+; CLK3_MULTIPLY_BY              ; 1                              ; Untyped                              ;
+; CLK2_MULTIPLY_BY              ; 1                              ; Untyped                              ;
+; CLK1_MULTIPLY_BY              ; 1                              ; Untyped                              ;
+; CLK0_MULTIPLY_BY              ; 143                            ; Signed Integer                       ;
+; CLK9_DIVIDE_BY                ; 0                              ; Untyped                              ;
+; CLK8_DIVIDE_BY                ; 0                              ; Untyped                              ;
+; CLK7_DIVIDE_BY                ; 0                              ; Untyped                              ;
+; CLK6_DIVIDE_BY                ; 0                              ; Untyped                              ;
+; CLK5_DIVIDE_BY                ; 1                              ; Untyped                              ;
+; CLK4_DIVIDE_BY                ; 1                              ; Untyped                              ;
+; CLK3_DIVIDE_BY                ; 1                              ; Untyped                              ;
+; CLK2_DIVIDE_BY                ; 1                              ; Untyped                              ;
+; CLK1_DIVIDE_BY                ; 1                              ; Untyped                              ;
+; CLK0_DIVIDE_BY                ; 50                             ; Signed Integer                       ;
+; CLK9_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK8_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK7_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK6_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK5_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK4_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK3_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK2_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK1_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK0_PHASE_SHIFT              ; 0                              ; Untyped                              ;
+; CLK5_TIME_DELAY               ; 0                              ; Untyped                              ;
+; CLK4_TIME_DELAY               ; 0                              ; Untyped                              ;
+; CLK3_TIME_DELAY               ; 0                              ; Untyped                              ;
+; CLK2_TIME_DELAY               ; 0                              ; Untyped                              ;
+; CLK1_TIME_DELAY               ; 0                              ; Untyped                              ;
+; CLK0_TIME_DELAY               ; 0                              ; Untyped                              ;
+; CLK9_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK8_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK7_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK6_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK5_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK4_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK3_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK2_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK1_DUTY_CYCLE               ; 50                             ; Untyped                              ;
+; CLK0_DUTY_CYCLE               ; 50                             ; Signed Integer                       ;
+; CLK9_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK8_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK7_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK6_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK5_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK4_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK3_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK2_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK1_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK0_USE_EVEN_COUNTER_MODE    ; OFF                            ; Untyped                              ;
+; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF                            ; Untyped                              ;
+; LOCK_WINDOW_UI                ;  0.05                          ; Untyped                              ;
+; LOCK_WINDOW_UI_BITS           ; UNUSED                         ; Untyped                              ;
+; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED                         ; Untyped                              ;
+; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED                         ; Untyped                              ;
+; DPA_MULTIPLY_BY               ; 0                              ; Untyped                              ;
+; DPA_DIVIDE_BY                 ; 1                              ; Untyped                              ;
+; DPA_DIVIDER                   ; 0                              ; Untyped                              ;
+; EXTCLK3_MULTIPLY_BY           ; 1                              ; Untyped                              ;
+; EXTCLK2_MULTIPLY_BY           ; 1                              ; Untyped                              ;
+; EXTCLK1_MULTIPLY_BY           ; 1                              ; Untyped                              ;
+; EXTCLK0_MULTIPLY_BY           ; 1                              ; Untyped                              ;
+; EXTCLK3_DIVIDE_BY             ; 1                              ; Untyped                              ;
+; EXTCLK2_DIVIDE_BY             ; 1                              ; Untyped                              ;
+; EXTCLK1_DIVIDE_BY             ; 1                              ; Untyped                              ;
+; EXTCLK0_DIVIDE_BY             ; 1                              ; Untyped                              ;
+; EXTCLK3_PHASE_SHIFT           ; 0                              ; Untyped                              ;
+; EXTCLK2_PHASE_SHIFT           ; 0                              ; Untyped                              ;
+; EXTCLK1_PHASE_SHIFT           ; 0                              ; Untyped                              ;
+; EXTCLK0_PHASE_SHIFT           ; 0                              ; Untyped                              ;
+; EXTCLK3_TIME_DELAY            ; 0                              ; Untyped                              ;
+; EXTCLK2_TIME_DELAY            ; 0                              ; Untyped                              ;
+; EXTCLK1_TIME_DELAY            ; 0                              ; Untyped                              ;
+; EXTCLK0_TIME_DELAY            ; 0                              ; Untyped                              ;
+; EXTCLK3_DUTY_CYCLE            ; 50                             ; Untyped                              ;
+; EXTCLK2_DUTY_CYCLE            ; 50                             ; Untyped                              ;
+; EXTCLK1_DUTY_CYCLE            ; 50                             ; Untyped                              ;
+; EXTCLK0_DUTY_CYCLE            ; 50                             ; Untyped                              ;
+; VCO_MULTIPLY_BY               ; 0                              ; Untyped                              ;
+; VCO_DIVIDE_BY                 ; 0                              ; Untyped                              ;
+; SCLKOUT0_PHASE_SHIFT          ; 0                              ; Untyped                              ;
+; SCLKOUT1_PHASE_SHIFT          ; 0                              ; Untyped                              ;
+; VCO_MIN                       ; 0                              ; Untyped                              ;
+; VCO_MAX                       ; 0                              ; Untyped                              ;
+; VCO_CENTER                    ; 0                              ; Untyped                              ;
+; PFD_MIN                       ; 0                              ; Untyped                              ;
+; PFD_MAX                       ; 0                              ; Untyped                              ;
+; M_INITIAL                     ; 0                              ; Untyped                              ;
+; M                             ; 0                              ; Untyped                              ;
+; N                             ; 1                              ; Untyped                              ;
+; M2                            ; 1                              ; Untyped                              ;
+; N2                            ; 1                              ; Untyped                              ;
+; SS                            ; 1                              ; Untyped                              ;
+; C0_HIGH                       ; 0                              ; Untyped                              ;
+; C1_HIGH                       ; 0                              ; Untyped                              ;
+; C2_HIGH                       ; 0                              ; Untyped                              ;
+; C3_HIGH                       ; 0                              ; Untyped                              ;
+; C4_HIGH                       ; 0                              ; Untyped                              ;
+; C5_HIGH                       ; 0                              ; Untyped                              ;
+; C6_HIGH                       ; 0                              ; Untyped                              ;
+; C7_HIGH                       ; 0                              ; Untyped                              ;
+; C8_HIGH                       ; 0                              ; Untyped                              ;
+; C9_HIGH                       ; 0                              ; Untyped                              ;
+; C0_LOW                        ; 0                              ; Untyped                              ;
+; C1_LOW                        ; 0                              ; Untyped                              ;
+; C2_LOW                        ; 0                              ; Untyped                              ;
+; C3_LOW                        ; 0                              ; Untyped                              ;
+; C4_LOW                        ; 0                              ; Untyped                              ;
+; C5_LOW                        ; 0                              ; Untyped                              ;
+; C6_LOW                        ; 0                              ; Untyped                              ;
+; C7_LOW                        ; 0                              ; Untyped                              ;
+; C8_LOW                        ; 0                              ; Untyped                              ;
+; C9_LOW                        ; 0                              ; Untyped                              ;
+; C0_INITIAL                    ; 0                              ; Untyped                              ;
+; C1_INITIAL                    ; 0                              ; Untyped                              ;
+; C2_INITIAL                    ; 0                              ; Untyped                              ;
+; C3_INITIAL                    ; 0                              ; Untyped                              ;
+; C4_INITIAL                    ; 0                              ; Untyped                              ;
+; C5_INITIAL                    ; 0                              ; Untyped                              ;
+; C6_INITIAL                    ; 0                              ; Untyped                              ;
+; C7_INITIAL                    ; 0                              ; Untyped                              ;
+; C8_INITIAL                    ; 0                              ; Untyped                              ;
+; C9_INITIAL                    ; 0                              ; Untyped                              ;
+; C0_MODE                       ; BYPASS                         ; Untyped                              ;
+; C1_MODE                       ; BYPASS                         ; Untyped                              ;
+; C2_MODE                       ; BYPASS                         ; Untyped                              ;
+; C3_MODE                       ; BYPASS                         ; Untyped                              ;
+; C4_MODE                       ; BYPASS                         ; Untyped                              ;
+; C5_MODE                       ; BYPASS                         ; Untyped                              ;
+; C6_MODE                       ; BYPASS                         ; Untyped                              ;
+; C7_MODE                       ; BYPASS                         ; Untyped                              ;
+; C8_MODE                       ; BYPASS                         ; Untyped                              ;
+; C9_MODE                       ; BYPASS                         ; Untyped                              ;
+; C0_PH                         ; 0                              ; Untyped                              ;
+; C1_PH                         ; 0                              ; Untyped                              ;
+; C2_PH                         ; 0                              ; Untyped                              ;
+; C3_PH                         ; 0                              ; Untyped                              ;
+; C4_PH                         ; 0                              ; Untyped                              ;
+; C5_PH                         ; 0                              ; Untyped                              ;
+; C6_PH                         ; 0                              ; Untyped                              ;
+; C7_PH                         ; 0                              ; Untyped                              ;
+; C8_PH                         ; 0                              ; Untyped                              ;
+; C9_PH                         ; 0                              ; Untyped                              ;
+; L0_HIGH                       ; 1                              ; Untyped                              ;
+; L1_HIGH                       ; 1                              ; Untyped                              ;
+; G0_HIGH                       ; 1                              ; Untyped                              ;
+; G1_HIGH                       ; 1                              ; Untyped                              ;
+; G2_HIGH                       ; 1                              ; Untyped                              ;
+; G3_HIGH                       ; 1                              ; Untyped                              ;
+; E0_HIGH                       ; 1                              ; Untyped                              ;
+; E1_HIGH                       ; 1                              ; Untyped                              ;
+; E2_HIGH                       ; 1                              ; Untyped                              ;
+; E3_HIGH                       ; 1                              ; Untyped                              ;
+; L0_LOW                        ; 1                              ; Untyped                              ;
+; L1_LOW                        ; 1                              ; Untyped                              ;
+; G0_LOW                        ; 1                              ; Untyped                              ;
+; G1_LOW                        ; 1                              ; Untyped                              ;
+; G2_LOW                        ; 1                              ; Untyped                              ;
+; G3_LOW                        ; 1                              ; Untyped                              ;
+; E0_LOW                        ; 1                              ; Untyped                              ;
+; E1_LOW                        ; 1                              ; Untyped                              ;
+; E2_LOW                        ; 1                              ; Untyped                              ;
+; E3_LOW                        ; 1                              ; Untyped                              ;
+; L0_INITIAL                    ; 1                              ; Untyped                              ;
+; L1_INITIAL                    ; 1                              ; Untyped                              ;
+; G0_INITIAL                    ; 1                              ; Untyped                              ;
+; G1_INITIAL                    ; 1                              ; Untyped                              ;
+; G2_INITIAL                    ; 1                              ; Untyped                              ;
+; G3_INITIAL                    ; 1                              ; Untyped                              ;
+; E0_INITIAL                    ; 1                              ; Untyped                              ;
+; E1_INITIAL                    ; 1                              ; Untyped                              ;
+; E2_INITIAL                    ; 1                              ; Untyped                              ;
+; E3_INITIAL                    ; 1                              ; Untyped                              ;
+; L0_MODE                       ; BYPASS                         ; Untyped                              ;
+; L1_MODE                       ; BYPASS                         ; Untyped                              ;
+; G0_MODE                       ; BYPASS                         ; Untyped                              ;
+; G1_MODE                       ; BYPASS                         ; Untyped                              ;
+; G2_MODE                       ; BYPASS                         ; Untyped                              ;
+; G3_MODE                       ; BYPASS                         ; Untyped                              ;
+; E0_MODE                       ; BYPASS                         ; Untyped                              ;
+; E1_MODE                       ; BYPASS                         ; Untyped                              ;
+; E2_MODE                       ; BYPASS                         ; Untyped                              ;
+; E3_MODE                       ; BYPASS                         ; Untyped                              ;
+; L0_PH                         ; 0                              ; Untyped                              ;
+; L1_PH                         ; 0                              ; Untyped                              ;
+; G0_PH                         ; 0                              ; Untyped                              ;
+; G1_PH                         ; 0                              ; Untyped                              ;
+; G2_PH                         ; 0                              ; Untyped                              ;
+; G3_PH                         ; 0                              ; Untyped                              ;
+; E0_PH                         ; 0                              ; Untyped                              ;
+; E1_PH                         ; 0                              ; Untyped                              ;
+; E2_PH                         ; 0                              ; Untyped                              ;
+; E3_PH                         ; 0                              ; Untyped                              ;
+; M_PH                          ; 0                              ; Untyped                              ;
+; C1_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C2_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C3_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C4_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C5_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C6_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C7_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C8_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; C9_USE_CASC_IN                ; OFF                            ; Untyped                              ;
+; CLK0_COUNTER                  ; G0                             ; Untyped                              ;
+; CLK1_COUNTER                  ; G0                             ; Untyped                              ;
+; CLK2_COUNTER                  ; G0                             ; Untyped                              ;
+; CLK3_COUNTER                  ; G0                             ; Untyped                              ;
+; CLK4_COUNTER                  ; G0                             ; Untyped                              ;
+; CLK5_COUNTER                  ; G0                             ; Untyped                              ;
+; CLK6_COUNTER                  ; E0                             ; Untyped                              ;
+; CLK7_COUNTER                  ; E1                             ; Untyped                              ;
+; CLK8_COUNTER                  ; E2                             ; Untyped                              ;
+; CLK9_COUNTER                  ; E3                             ; Untyped                              ;
+; L0_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; L1_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; G0_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; G1_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; G2_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; G3_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; E0_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; E1_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; E2_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; E3_TIME_DELAY                 ; 0                              ; Untyped                              ;
+; M_TIME_DELAY                  ; 0                              ; Untyped                              ;
+; N_TIME_DELAY                  ; 0                              ; Untyped                              ;
+; EXTCLK3_COUNTER               ; E3                             ; Untyped                              ;
+; EXTCLK2_COUNTER               ; E2                             ; Untyped                              ;
+; EXTCLK1_COUNTER               ; E1                             ; Untyped                              ;
+; EXTCLK0_COUNTER               ; E0                             ; Untyped                              ;
+; ENABLE0_COUNTER               ; L0                             ; Untyped                              ;
+; ENABLE1_COUNTER               ; L0                             ; Untyped                              ;
+; CHARGE_PUMP_CURRENT           ; 2                              ; Untyped                              ;
+; LOOP_FILTER_R                 ;  1.000000                      ; Untyped                              ;
+; LOOP_FILTER_C                 ; 5                              ; Untyped                              ;
+; CHARGE_PUMP_CURRENT_BITS      ; 9999                           ; Untyped                              ;
+; LOOP_FILTER_R_BITS            ; 9999                           ; Untyped                              ;
+; LOOP_FILTER_C_BITS            ; 9999                           ; Untyped                              ;
+; VCO_POST_SCALE                ; 0                              ; Untyped                              ;
+; CLK2_OUTPUT_FREQUENCY         ; 0                              ; Untyped                              ;
+; CLK1_OUTPUT_FREQUENCY         ; 0                              ; Untyped                              ;
+; CLK0_OUTPUT_FREQUENCY         ; 0                              ; Untyped                              ;
+; INTENDED_DEVICE_FAMILY        ; MAX 10                         ; Untyped                              ;
+; PORT_CLKENA0                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKENA1                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKENA2                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKENA3                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKENA4                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKENA5                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_EXTCLK0                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_EXTCLK1                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_EXTCLK2                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_EXTCLK3                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKBAD0                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKBAD1                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK0                     ; PORT_USED                      ; Untyped                              ;
+; PORT_CLK1                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK2                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK3                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK4                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK5                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK6                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK7                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK8                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLK9                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANDATA                 ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANDATAOUT              ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANDONE                 ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_ACTIVECLOCK              ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKLOSS                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_INCLK1                   ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_INCLK0                   ; PORT_USED                      ; Untyped                              ;
+; PORT_FBIN                     ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_PLLENA                   ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_CLKSWITCH                ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_ARESET                   ; PORT_USED                      ; Untyped                              ;
+; PORT_PFDENA                   ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANCLK                  ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANACLR                 ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANREAD                 ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANWRITE                ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_ENABLE0                  ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_ENABLE1                  ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_LOCKED                   ; PORT_USED                      ; Untyped                              ;
+; PORT_CONFIGUPDATE             ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_FBOUT                    ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_PHASEDONE                ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_PHASESTEP                ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_PHASEUPDOWN              ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_SCANCLKENA               ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_PHASECOUNTERSELECT       ; PORT_UNUSED                    ; Untyped                              ;
+; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY              ; Untyped                              ;
+; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY              ; Untyped                              ;
+; M_TEST_SOURCE                 ; 5                              ; Untyped                              ;
+; C0_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C1_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C2_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C3_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C4_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C5_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C6_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C7_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C8_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; C9_TEST_SOURCE                ; 5                              ; Untyped                              ;
+; CBXI_PARAMETER                ; ALTPLL_Clock_altpll            ; Untyped                              ;
+; VCO_FREQUENCY_CONTROL         ; AUTO                           ; Untyped                              ;
+; VCO_PHASE_SHIFT_STEP          ; 0                              ; Untyped                              ;
+; WIDTH_CLOCK                   ; 5                              ; Signed Integer                       ;
+; WIDTH_PHASECOUNTERSELECT      ; 4                              ; Untyped                              ;
+; USING_FBMIMICBIDIR_PORT       ; OFF                            ; Untyped                              ;
+; DEVICE_FAMILY                 ; MAX 10                         ; Untyped                              ;
+; SCAN_CHAIN_MIF_FILE           ; UNUSED                         ; Untyped                              ;
+; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF                            ; Untyped                              ;
+; AUTO_CARRY_CHAINS             ; ON                             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS          ; OFF                            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS           ; ON                             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS        ; OFF                            ; IGNORE_CASCADE                       ;
++-------------------------------+--------------------------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------+
@@ -606,6 +1005,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                                             ;
++-------------------------------+----------------------------------------------------------+
+; Name                          ; Value                                                    ;
++-------------------------------+----------------------------------------------------------+
+; Number of entity instances    ; 1                                                        ;
+; Entity Instance               ; ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                                                   ;
+;     -- PLL_TYPE               ; AUTO                                                     ;
+;     -- PRIMARY_CLOCK          ; INCLK0                                                   ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                                                    ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                                        ;
+;     -- VCO_MULTIPLY_BY        ; 0                                                        ;
+;     -- VCO_DIVIDE_BY          ; 0                                                        ;
++-------------------------------+----------------------------------------------------------+
+
+
 +------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "SDRAM_Controller:sDRAM_Controller"                                                                                  ;
 +-----------------+--------+----------+----------------------------------------------------------------------------------------------------------+
@@ -706,6 +1122,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++--------------------------------------------------------------+
+; Port Connectivity Checks: "ALTPLL_Clock:aLTPLL_Clock_143Mhz" ;
++--------+--------+----------+---------------------------------+
+; Port   ; Type   ; Severity ; Details                         ;
++--------+--------+----------+---------------------------------+
+; areset ; Input  ; Info     ; Explicitly unconnected          ;
+; locked ; Output ; Info     ; Explicitly unconnected          ;
++--------+--------+----------+---------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
@@ -724,19 +1150,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 3                           ;
 ;     plain             ; 6                           ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 573                         ;
+; cycloneiii_lcell_comb ; 580                         ;
 ;     arith             ; 196                         ;
 ;         2 data inputs ; 85                          ;
 ;         3 data inputs ; 111                         ;
-;     normal            ; 377                         ;
+;     normal            ; 384                         ;
 ;         0 data inputs ; 14                          ;
 ;         1 data inputs ; 8                           ;
-;         2 data inputs ; 135                         ;
-;         3 data inputs ; 37                          ;
+;         2 data inputs ; 140                         ;
+;         3 data inputs ; 39                          ;
 ;         4 data inputs ; 183                         ;
+; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 31.10                       ;
-; Average LUT depth     ; 14.36                       ;
+; Average LUT depth     ; 14.25                       ;
 +-----------------------+-----------------------------+
 
 
@@ -745,7 +1172,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -755,7 +1182,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Tue Feb 11 18:40:38 2020
+    Info: Processing started: Wed Feb 12 07:50:52 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file source code/utility/max10 segment display/sevensegmentparser.sv
@@ -788,18 +1215,82 @@ Info (12021): Found 1 design units, including 1 entities, in source file source 
     Info (12023): Found entity 1: UI_TriggerSmoother File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/UI_TriggerSmoother.sv Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file source code/musicbox_main.sv
     Info (12023): Found entity 1: MusicBox_Main File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file altpll_clock.v
+    Info (12023): Found entity 1: ALTPLL_Clock File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/ALTPLL_Clock.v Line: 39
 Info (12127): Elaborating entity "MusicBox_Main" for the top level hierarchy
-Warning (10030): Net "segmentDisplay_DisplayValue" at MusicBox_Main.sv(181) has no driver or initial value, using a default initial value '0' File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 181
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 138
+Warning (10030): Net "segmentDisplay_DisplayValue" at MusicBox_Main.sv(189) has no driver or initial value, using a default initial value '0' File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 189
+Info (12128): Elaborating entity "ALTPLL_Clock" for hierarchy "ALTPLL_Clock:aLTPLL_Clock_143Mhz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 139
+Info (12128): Elaborating entity "altpll" for hierarchy "ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/ALTPLL_Clock.v Line: 103
+Info (12130): Elaborated megafunction instantiation "ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/ALTPLL_Clock.v Line: 103
+Info (12133): Instantiated megafunction "ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/ALTPLL_Clock.v Line: 103
+    Info (12134): Parameter "bandwidth_type" = "AUTO"
+    Info (12134): Parameter "clk0_divide_by" = "50"
+    Info (12134): Parameter "clk0_duty_cycle" = "50"
+    Info (12134): Parameter "clk0_multiply_by" = "143"
+    Info (12134): Parameter "clk0_phase_shift" = "0"
+    Info (12134): Parameter "compensate_clock" = "CLK0"
+    Info (12134): Parameter "inclk0_input_frequency" = "20000"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "lpm_hint" = "CBX_MODULE_PREFIX=ALTPLL_Clock"
+    Info (12134): Parameter "lpm_type" = "altpll"
+    Info (12134): Parameter "operation_mode" = "NORMAL"
+    Info (12134): Parameter "pll_type" = "AUTO"
+    Info (12134): Parameter "port_activeclock" = "PORT_UNUSED"
+    Info (12134): Parameter "port_areset" = "PORT_USED"
+    Info (12134): Parameter "port_clkbad0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkbad1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkloss" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkswitch" = "PORT_UNUSED"
+    Info (12134): Parameter "port_configupdate" = "PORT_UNUSED"
+    Info (12134): Parameter "port_fbin" = "PORT_UNUSED"
+    Info (12134): Parameter "port_inclk0" = "PORT_USED"
+    Info (12134): Parameter "port_inclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_locked" = "PORT_USED"
+    Info (12134): Parameter "port_pfdena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasecounterselect" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasedone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasestep" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phaseupdown" = "PORT_UNUSED"
+    Info (12134): Parameter "port_pllena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanaclr" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclk" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclkena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandata" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandataout" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanread" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanwrite" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk0" = "PORT_USED"
+    Info (12134): Parameter "port_clk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
+    Info (12134): Parameter "self_reset_on_loss_lock" = "OFF"
+    Info (12134): Parameter "width_clock" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_clock_altpll.v
+    Info (12023): Found entity 1: ALTPLL_Clock_altpll File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/altpll_clock_altpll.v Line: 30
+Info (12128): Elaborating entity "ALTPLL_Clock_altpll" for hierarchy "ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component|ALTPLL_Clock_altpll:auto_generated" File: c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/altpll.tdf Line: 897
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 146
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (15) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_100hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 147
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_100hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 155
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (25) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_10hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 156
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_32Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 165
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_10hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 164
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_32Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 173
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 174
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 182
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "SevenSegmentParser" for hierarchy "SevenSegmentParser:sevenSegmentParser" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 185
+Info (12128): Elaborating entity "SevenSegmentParser" for hierarchy "SevenSegmentParser:sevenSegmentParser" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 193
 Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(49): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 49
 Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(72): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 72
 Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(52): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
@@ -808,22 +1299,22 @@ Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(60): tr
 Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(64): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 64
 Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(68): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 68
 Info (12128): Elaborating entity "SevenSegmentDisplay" for hierarchy "SevenSegmentParser:sevenSegmentParser|SevenSegmentDisplay:sevenSegmentDisplay0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 17
-Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 199
-Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 272
+Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 207
+Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 280
 Warning (10034): Output port "debugString" at MusicKeysController.sv(7) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 7
-Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 302
+Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 310
 Info (12128): Elaborating entity "MusicBoxState_PlaySong0" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 63
 Info (12128): Elaborating entity "MusicBoxState_PlaySong1" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 73
 Info (12128): Elaborating entity "MusicBoxState_MakeRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 83
 Info (12128): Elaborating entity "MusicBoxState_PlayRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 93
-Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 350
+Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 358
 Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 51
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (8) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "SPI_InputControllerDac" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 381
+Info (12128): Elaborating entity "SPI_InputControllerDac" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 389
 Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_InputControllerSPI.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (13) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "SignalGenerator" for hierarchy "SignalGenerator:signalGenerator" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 394
-Info (12128): Elaborating entity "SDRAM_Controller" for hierarchy "SDRAM_Controller:sDRAM_Controller" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 452
+Info (12128): Elaborating entity "SignalGenerator" for hierarchy "SignalGenerator:signalGenerator" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 402
+Info (12128): Elaborating entity "SDRAM_Controller" for hierarchy "SDRAM_Controller:sDRAM_Controller" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 460
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Div0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 165
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Mod0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 158
@@ -919,7 +1410,7 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 14 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[0]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 89
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_MusicKeys[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 89
@@ -933,16 +1424,17 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 93
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_SPI_SDO" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 100
     Warning (15610): No output dependent on input pin "max10Board_Buttons[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 86
-Info (21057): Implemented 716 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 724 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 80 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 596 logic cells
+    Info (21061): Implemented 603 logic cells
+    Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 88 warnings
-    Info: Peak virtual memory: 4764 megabytes
-    Info: Processing ended: Tue Feb 11 18:40:56 2020
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:36
+    Info: Peak virtual memory: 4770 megabytes
+    Info: Processing ended: Wed Feb 12 07:51:22 2020
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:37
 
 
 +------------------------------------------+
