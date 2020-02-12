@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Feb 10 08:06:38 2020
+Fitter Status : Successful - Tue Feb 11 18:41:14 2020
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : FPGA_Music_Box
 Top-level Entity Name : MusicBox_Main
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 498 / 49,760 ( 1 % )
-    Total combinational functions : 494 / 49,760 ( < 1 % )
-    Dedicated logic registers : 82 / 49,760 ( < 1 % )
-Total registers : 82
+Total logic elements : 593 / 49,760 ( 1 % )
+    Total combinational functions : 571 / 49,760 ( 1 % )
+    Dedicated logic registers : 138 / 49,760 ( < 1 % )
+Total registers : 138
 Total pins : 120 / 360 ( 33 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
