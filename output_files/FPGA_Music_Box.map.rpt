@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Mon Feb 10 08:06:20 2020
+Tue Feb 11 18:40:56 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -13,32 +13,36 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|currentState
-  9. State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1Khz
- 15. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_100hz
- 16. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_10hz
- 17. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_32Khz
- 18. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
- 19. Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz
- 20. Parameter Settings for User Entity Instance: SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz
- 21. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Div0
- 22. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Mod0
- 23. Port Connectivity Checks: "SignalGenerator:signalGenerator"
- 24. Port Connectivity Checks: "SPI_InputControllerDac:sPI_InputControllerDac"
- 25. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
- 26. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
- 27. Port Connectivity Checks: "MusicKeysController:musicKeysController"
- 28. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
- 29. Port Connectivity Checks: "ClockGenerator:clockGenerator_10hz"
- 30. Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"
- 31. Post-Synthesis Netlist Statistics for Top Partition
- 32. Elapsed Time Per Partition
- 33. Analysis & Synthesis Messages
+  8. State Machine - |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState
+  9. State Machine - |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|currentState
+ 10. State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1Khz
+ 16. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_100hz
+ 17. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_10hz
+ 18. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_32Khz
+ 19. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
+ 20. Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz
+ 21. Parameter Settings for User Entity Instance: SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz
+ 22. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Mod0
+ 24. Port Connectivity Checks: "SDRAM_Controller:sDRAM_Controller"
+ 25. Port Connectivity Checks: "SignalGenerator:signalGenerator"
+ 26. Port Connectivity Checks: "SPI_InputControllerDac:sPI_InputControllerDac"
+ 27. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
+ 28. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
+ 29. Port Connectivity Checks: "MusicKeysController:musicKeysController"
+ 30. Port Connectivity Checks: "SevenSegmentParser:sevenSegmentParser"
+ 31. Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"
+ 32. Port Connectivity Checks: "ClockGenerator:clockGenerator_10hz"
+ 33. Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"
+ 34. Post-Synthesis Netlist Statistics for Top Partition
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
+ 37. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -64,15 +68,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Feb 10 08:06:20 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Feb 11 18:40:56 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 494                                         ;
-;     Total combinational functions  ; 494                                         ;
-;     Dedicated logic registers      ; 82                                          ;
-; Total registers                    ; 82                                          ;
+; Total logic elements               ; 588                                         ;
+;     Total combinational functions  ; 571                                         ;
+;     Dedicated logic registers      ; 138                                         ;
+; Total registers                    ; 138                                         ;
 ; Total pins                         ; 120                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -193,6 +197,9 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path                                  ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                         ; Library ;
 +-------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv   ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv   ;         ;
+; Source Code/Utility/Max10 Segment Display/SevenSegmentDisplay.sv  ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentDisplay.sv  ;         ;
+; Source Code/Utility/SDRAM_Controller.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SDRAM_Controller.sv                           ;         ;
 ; Source Code/Utility/SignalGenerator.sv                            ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv                            ;         ;
 ; Source Code/SPI/SPI_InputControllerSPI.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_InputControllerSPI.sv                         ;         ;
 ; Source Code/SPI/SPI_OutputControllerDac.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv                        ;         ;
@@ -225,20 +232,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 494                         ;
+; Estimated Total logic elements              ; 588                         ;
 ;                                             ;                             ;
-; Total combinational functions               ; 494                         ;
+; Total combinational functions               ; 571                         ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 145                         ;
-;     -- 3 input functions                    ; 130                         ;
-;     -- <=2 input functions                  ; 219                         ;
+;     -- 4 input functions                    ; 183                         ;
+;     -- 3 input functions                    ; 148                         ;
+;     -- <=2 input functions                  ; 240                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 324                         ;
-;     -- arithmetic mode                      ; 170                         ;
+;     -- normal mode                          ; 375                         ;
+;     -- arithmetic mode                      ; 196                         ;
 ;                                             ;                             ;
-; Total registers                             ; 82                          ;
-;     -- Dedicated logic registers            ; 82                          ;
+; Total registers                             ; 138                         ;
+;     -- Dedicated logic registers            ; 138                         ;
 ;     -- I/O registers                        ; 0                           ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 120                         ;
@@ -246,9 +253,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; max10Board_Buttons[0]~input ;
-; Maximum fan-out                             ; 76                          ;
-; Total fan-out                               ; 1847                        ;
-; Average fan-out                             ; 2.22                        ;
+; Maximum fan-out                             ; 103                         ;
+; Total fan-out                               ; 2298                        ;
+; Average fan-out                             ; 2.38                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -257,23 +264,46 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                            ; Entity Name             ; Library Name ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |MusicBox_Main                                       ; 494 (48)            ; 82 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
-;    |ClockGenerator:clockGenerator_32Khz|             ; 26 (26)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator          ; work         ;
+; |MusicBox_Main                                       ; 571 (48)            ; 138 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
+;    |ClockGenerator:clockGenerator_32Khz|             ; 27 (27)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator          ; work         ;
+;    |SDRAM_Controller:sDRAM_Controller|               ; 85 (85)             ; 56 (56)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller                                                                                               ; SDRAM_Controller        ; work         ;
 ;    |SPI_InputControllerDac:sPI_InputControllerDac|   ; 22 (0)              ; 14 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac                                                                                   ; SPI_InputControllerDac  ; work         ;
 ;       |ClockGenerator:clockGenerator_240KHz|         ; 22 (22)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz                                              ; ClockGenerator          ; work         ;
-;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 58 (45)             ; 37 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
-;       |ClockGenerator:clockGenerator_714Khz|         ; 13 (13)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator          ; work         ;
-;    |SignalGenerator:signalGenerator|                 ; 340 (76)            ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
+;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 57 (45)             ; 36 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
+;       |ClockGenerator:clockGenerator_714Khz|         ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator          ; work         ;
+;    |SignalGenerator:signalGenerator|                 ; 332 (76)            ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
 ;       |lpm_divide:Div0|                              ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0                                                                                 ; lpm_divide              ; work         ;
 ;          |lpm_divide_ttl:auto_generated|             ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated                                                   ; lpm_divide_ttl          ; work         ;
 ;             |sign_div_unsign_ulh:divider|            ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider                       ; sign_div_unsign_ulh     ; work         ;
 ;                |alt_u_div_6ie:divider|               ; 208 (208)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider|alt_u_div_6ie:divider ; alt_u_div_6ie           ; work         ;
-;       |lpm_divide:Mod0|                              ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
-;          |lpm_divide_dnl:auto_generated|             ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
-;             |sign_div_unsign_cnh:divider|            ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
-;                |alt_u_div_2le:divider|               ; 56 (56)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
+;       |lpm_divide:Mod0|                              ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
+;          |lpm_divide_dnl:auto_generated|             ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
+;             |sign_div_unsign_cnh:divider|            ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
+;                |alt_u_div_2le:divider|               ; 48 (48)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
 +------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState                                                                                                                                                                                                                                                                                                                                       ;
++--------------------------------+------------------------------+---------------------------+--------------------------------+-----------------------------+--------------------------+-------------------------------+----------------------------+-------------------+----------------------------+-------------------------------+-----------------------------+-------------------------------+-------------------+
+; Name                           ; currentState.WRITE_PRECHARGE ; currentState.WRITE_ACTION ; currentState.WRITE_ROWACTIVATE ; currentState.READ_PRECHARGE ; currentState.READ_ACTION ; currentState.READ_ROWACTIVATE ; currentState.AUTOFRESH_ALL ; currentState.IDLE ; currentState.INIT_LOADMODE ; currentState.INIT_AUTOREFRESH ; currentState.INIT_PRECHARGE ; currentState.INIT_STARTUPWAIT ; currentState.INIT ;
++--------------------------------+------------------------------+---------------------------+--------------------------------+-----------------------------+--------------------------+-------------------------------+----------------------------+-------------------+----------------------------+-------------------------------+-----------------------------+-------------------------------+-------------------+
+; currentState.INIT              ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 0                 ;
+; currentState.INIT_STARTUPWAIT  ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 1                             ; 1                 ;
+; currentState.INIT_PRECHARGE    ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 1                           ; 0                             ; 1                 ;
+; currentState.INIT_AUTOREFRESH  ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 1                             ; 0                           ; 0                             ; 1                 ;
+; currentState.INIT_LOADMODE     ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 1                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.IDLE              ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 1                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.AUTOFRESH_ALL     ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 1                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.READ_ROWACTIVATE  ; 0                            ; 0                         ; 0                              ; 0                           ; 0                        ; 1                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.READ_ACTION       ; 0                            ; 0                         ; 0                              ; 0                           ; 1                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.READ_PRECHARGE    ; 0                            ; 0                         ; 0                              ; 1                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.WRITE_ROWACTIVATE ; 0                            ; 0                         ; 1                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.WRITE_ACTION      ; 0                            ; 1                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
+; currentState.WRITE_PRECHARGE   ; 1                            ; 0                         ; 0                              ; 0                           ; 0                        ; 0                             ; 0                          ; 0                 ; 0                          ; 0                             ; 0                           ; 0                             ; 1                 ;
++--------------------------------+------------------------------+---------------------------+--------------------------------+-----------------------------+--------------------------+-------------------------------+----------------------------+-------------------+----------------------------+-------------------------------+-----------------------------+-------------------------------+-------------------+
 
 
 Encoding Type:  One-Hot
@@ -301,50 +331,127 @@ Encoding Type:  One-Hot
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                                                                                                              ;
-+-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-; Register name                                                     ; Reason for Removal                                                                                          ;
-+-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0..3] ; Stuck at GND due to stuck port data_in                                                                      ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~6      ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~7      ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~8      ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState~9      ; Lost fanout                                                                                                 ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8    ; Lost fanout                                                                                                 ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9    ; Lost fanout                                                                                                 ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10   ; Lost fanout                                                                                                 ;
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001  ; Stuck at GND due to stuck port data_in                                                                      ;
-; SPI_InputControllerDac:sPI_InputControllerDac|counter[0..15]      ; Stuck at GND due to stuck port data_in                                                                      ;
-; ClockGenerator:clockGenerator_32Khz|counter[0]                    ; Merged with SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0] ;
-; SignalGenerator:signalGenerator|counter[0]                        ; Lost fanout                                                                                                 ;
-; Total Number of Removed Registers = 30                            ;                                                                                                             ;
-+-------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; Register name                                                                                   ; Reason for Removal                                                            ;
++-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+; SDRAM_Controller:sDRAM_Controller|isBusy_Command                                                ; Lost fanout                                                                   ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[0..15]                                        ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[0]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[15]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[14]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[13]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[12]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[11]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[10]~reg0                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[9]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[8]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[7]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[6]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[5]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[4]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[3]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[2]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[1]~reg0                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[1..3,6..8]                           ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0]     ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[5,9]                                 ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[4]     ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[12]                                  ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[11]    ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[1]                               ; Merged with SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[0] ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredAddress[1..9]                                      ; Merged with SDRAM_Controller:sDRAM_Controller|inputStoredAddress[0]           ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredAddress[0]                                         ; Stuck at GND due to stuck port data_in                                        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0..3]                               ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0,11]                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_BankAddress[0]                               ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|currentState~15                                               ; Lost fanout                                                                   ;
+; SDRAM_Controller:sDRAM_Controller|currentState~16                                               ; Lost fanout                                                                   ;
+; SDRAM_Controller:sDRAM_Controller|currentState~17                                               ; Lost fanout                                                                   ;
+; SDRAM_Controller:sDRAM_Controller|currentState~18                                               ; Lost fanout                                                                   ;
+; SDRAM_Controller:sDRAM_Controller|currentState~19                                               ; Lost fanout                                                                   ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~6                                    ; Lost fanout                                                                   ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~7                                    ; Lost fanout                                                                   ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~8                                    ; Lost fanout                                                                   ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState~9                                    ; Lost fanout                                                                   ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~8                                  ; Lost fanout                                                                   ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~9                                  ; Lost fanout                                                                   ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState~10                                 ; Lost fanout                                                                   ;
+; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_ROWACTIVATE                                ; Merged with SDRAM_Controller:sDRAM_Controller|currentState.READ_ROWACTIVATE   ;
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001                                ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|currentState.READ_ROWACTIVATE                                 ; Stuck at GND due to stuck port data_in                                        ;
+; SPI_InputControllerDac:sPI_InputControllerDac|counter[0..15]                                    ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_ACTION                                     ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|currentState.READ_ACTION                                      ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|currentState.READ_PRECHARGE                                   ; Stuck at GND due to stuck port data_in                                        ;
+; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_PRECHARGE                                  ; Stuck at GND due to stuck port data_in                                        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0] ; Merged with ClockGenerator:clockGenerator_32Khz|counter[0]                    ;
+; SignalGenerator:signalGenerator|counter[0]                                                      ; Lost fanout                                                                   ;
+; SDRAM_Controller:sDRAM_Controller|currentCommand[3]                                             ; Stuck at GND due to stuck port data_in                                        ;
+; Total Number of Removed Registers = 98                                                          ;                                                                               ;
++-------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                    ;
-+------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------+
-; Register name                                                    ; Reason for Removal        ; Registers Removed due to This Register                          ;
-+------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------+
-; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001 ; Stuck at GND              ; SPI_InputControllerDac:sPI_InputControllerDac|counter[15],      ;
-;                                                                  ; due to stuck port data_in ; SPI_InputControllerDac:sPI_InputControllerDac|counter[14],      ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[13],      ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[12],      ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[11],      ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[10],      ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[9],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[8],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[7],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[6],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[5],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[4],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[3],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[2],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[1],       ;
-;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[0]        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0]   ; Stuck at GND              ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[1], ;
-;                                                                  ; due to stuck port data_in ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[2], ;
-;                                                                  ;                           ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[3]  ;
-+------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                     ;
++------------------------------------------------------------------+---------------------------+------------------------------------------------------------------+
+; Register name                                                    ; Reason for Removal        ; Registers Removed due to This Register                           ;
++------------------------------------------------------------------+---------------------------+------------------------------------------------------------------+
+; SPI_InputControllerDac:sPI_InputControllerDac|currentState.00001 ; Stuck at GND              ; SPI_InputControllerDac:sPI_InputControllerDac|counter[15],       ;
+;                                                                  ; due to stuck port data_in ; SPI_InputControllerDac:sPI_InputControllerDac|counter[14],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[13],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[12],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[11],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[10],       ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[9],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[8],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[7],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[6],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[5],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[4],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[3],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[2],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[1],        ;
+;                                                                  ;                           ; SPI_InputControllerDac:sPI_InputControllerDac|counter[0]         ;
+; SDRAM_Controller:sDRAM_Controller|currentState.READ_ROWACTIVATE  ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_ACTION,     ;
+;                                                                  ; due to stuck port data_in ; SDRAM_Controller:sDRAM_Controller|currentState.READ_ACTION,      ;
+;                                                                  ;                           ; SDRAM_Controller:sDRAM_Controller|currentState.READ_PRECHARGE,   ;
+;                                                                  ;                           ; SDRAM_Controller:sDRAM_Controller|currentState.WRITE_PRECHARGE,  ;
+;                                                                  ;                           ; SDRAM_Controller:sDRAM_Controller|currentCommand[3]              ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[0]   ; Stuck at GND              ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[1],  ;
+;                                                                  ; due to stuck port data_in ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[2],  ;
+;                                                                  ;                           ; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[3]   ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[9]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[9]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[8]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[8]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[7]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[7]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[6]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[6]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[5]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[5]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[4]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[4]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[3]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[3]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[15]            ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[15]~reg0 ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[14]            ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[14]~reg0 ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[2]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[2]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[1]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[1]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[0]             ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[0]~reg0  ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[13]            ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[13]~reg0 ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[12]            ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[12]~reg0 ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[11]            ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[11]~reg0 ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredData[10]            ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[10]~reg0 ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
+; SDRAM_Controller:sDRAM_Controller|inputStoredAddress[0]          ; Stuck at GND              ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0]    ;
+;                                                                  ; due to stuck port data_in ;                                                                  ;
++------------------------------------------------------------------+---------------------------+------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -352,12 +459,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 82    ;
-; Number of registers using Synchronous Clear  ; 17    ;
-; Number of registers using Synchronous Load   ; 21    ;
+; Total registers                              ; 138   ;
+; Number of registers using Synchronous Clear  ; 48    ;
+; Number of registers using Synchronous Load   ; 24    ;
 ; Number of registers using Asynchronous Clear ; 74    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 24    ;
+; Number of registers using Clock Enable       ; 58    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -367,9 +474,12 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[14]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[7]        ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11] ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[1]      ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[8]      ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[10]  ;
+; 15:1               ; 17 bits   ; 170 LEs       ; 17 LEs               ; 153 LEs                ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|pauseCycles[14]               ;
+; 15:1               ; 7 bits    ; 70 LEs        ; 28 LEs               ; 42 LEs                 ; No         ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
 
 
@@ -496,6 +606,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SDRAM_Controller:sDRAM_Controller"                                                                                  ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                  ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; outputData      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; outputValid     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; recievedCommand ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; isBusy          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; debugOutputData ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------+
 ; Port Connectivity Checks: "SignalGenerator:signalGenerator" ;
 +-------------------+-------+----------+----------------------+
@@ -547,6 +670,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "SevenSegmentParser:sevenSegmentParser" ;
++--------------+-------+----------+---------------------------------+
+; Port         ; Type  ; Severity ; Details                         ;
++--------------+-------+----------+---------------------------------+
+; displayValue ; Input ; Info     ; Stuck at GND                    ;
++--------------+-------+----------+---------------------------------+
+
+
 +-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ClockGenerator:clockGenerator_1hz"                                                         ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -580,27 +712,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 120                         ;
-; cycloneiii_ff         ; 82                          ;
+; cycloneiii_ff         ; 138                         ;
 ;     CLR               ; 42                          ;
 ;     CLR SCLR          ; 1                           ;
 ;     CLR SLD           ; 15                          ;
-;     ENA               ; 2                           ;
+;     ENA               ; 18                          ;
 ;     ENA CLR SCLR      ; 16                          ;
+;     ENA SCLR          ; 18                          ;
 ;     ENA SLD           ; 6                           ;
+;     SCLR              ; 13                          ;
+;     SLD               ; 3                           ;
+;     plain             ; 6                           ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 496                         ;
-;     arith             ; 170                         ;
-;         2 data inputs ; 69                          ;
-;         3 data inputs ; 101                         ;
-;     normal            ; 326                         ;
+; cycloneiii_lcell_comb ; 573                         ;
+;     arith             ; 196                         ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 111                         ;
+;     normal            ; 377                         ;
 ;         0 data inputs ; 14                          ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 131                         ;
-;         3 data inputs ; 29                          ;
-;         4 data inputs ; 145                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 135                         ;
+;         3 data inputs ; 37                          ;
+;         4 data inputs ; 183                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 31.10                       ;
-; Average LUT depth     ; 16.50                       ;
+; Average LUT depth     ; 14.36                       ;
 +-----------------------+-----------------------------+
 
 
@@ -619,9 +755,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Mon Feb 10 08:06:01 2020
+    Info: Processing started: Tue Feb 11 18:40:38 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file source code/utility/max10 segment display/sevensegmentparser.sv
+    Info (12023): Found entity 1: SevenSegmentParser File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file source code/utility/max10 segment display/sevensegmentdisplay.sv
+    Info (12023): Found entity 1: SevenSegmentDisplay File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentDisplay.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file source code/utility/sdram_controller.sv
+    Info (12023): Found entity 1: SDRAM_Controller File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SDRAM_Controller.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file source code/utility/signalgenerator.sv
     Info (12023): Found entity 1: SignalGenerator File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file source code/spi/spi_inputcontrollerspi.sv
@@ -647,41 +789,41 @@ Info (12021): Found 1 design units, including 1 entities, in source file source 
 Info (12021): Found 1 design units, including 1 entities, in source file source code/musicbox_main.sv
     Info (12023): Found entity 1: MusicBox_Main File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 44
 Info (12127): Elaborating entity "MusicBox_Main" for the top level hierarchy
-Warning (10034): Output port "max10Board_SDRAM_Address" at MusicBox_Main.sv(106) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
-Warning (10034): Output port "max10Board_SDRAM_BankAddress" at MusicBox_Main.sv(107) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 107
-Warning (10034): Output port "max10Board_LEDSegments" at MusicBox_Main.sv(76) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
-Warning (10034): Output port "max10Board_SDRAM_Clock" at MusicBox_Main.sv(104) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 104
-Warning (10034): Output port "max10Board_SDRAM_ClockEnable" at MusicBox_Main.sv(105) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 105
-Warning (10034): Output port "max10Board_SDRAM_DataMask0" at MusicBox_Main.sv(111) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 111
-Warning (10034): Output port "max10Board_SDRAM_DataMask1" at MusicBox_Main.sv(112) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 112
-Warning (10034): Output port "max10Board_SDRAM_ChipSelect_n" at MusicBox_Main.sv(113) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 113
-Warning (10034): Output port "max10Board_SDRAM_WriteEnable_n" at MusicBox_Main.sv(114) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 114
-Warning (10034): Output port "max10Board_SDRAM_ColumnAddressStrobe_n" at MusicBox_Main.sv(115) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 115
-Warning (10034): Output port "max10Board_SDRAM_RowAddressStrobe_n" at MusicBox_Main.sv(116) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 116
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 140
+Warning (10030): Net "segmentDisplay_DisplayValue" at MusicBox_Main.sv(181) has no driver or initial value, using a default initial value '0' File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 181
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 138
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (15) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_100hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 149
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_100hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 147
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (25) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_10hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 158
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_32Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 167
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_10hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 156
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_32Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 165
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (16) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 176
+Info (12128): Elaborating entity "ClockGenerator" for hierarchy "ClockGenerator:clockGenerator_1hz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 174
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (10) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 193
-Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 266
+Info (12128): Elaborating entity "SevenSegmentParser" for hierarchy "SevenSegmentParser:sevenSegmentParser" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 185
+Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(49): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 49
+Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(72): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 72
+Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(52): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
+Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(56): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 56
+Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(60): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 60
+Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(64): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 64
+Warning (10230): Verilog HDL assignment warning at SevenSegmentParser.sv(68): truncated value with size 32 to match size of target (4) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 68
+Info (12128): Elaborating entity "SevenSegmentDisplay" for hierarchy "SevenSegmentParser:sevenSegmentParser|SevenSegmentDisplay:sevenSegmentDisplay0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 17
+Info (12128): Elaborating entity "UI_TriggerSmoother" for hierarchy "UI_TriggerSmoother:UIs_MusicKeys0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 199
+Info (12128): Elaborating entity "MusicKeysController" for hierarchy "MusicKeysController:musicKeysController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 272
 Warning (10034): Output port "debugString" at MusicKeysController.sv(7) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicKeysController.sv Line: 7
-Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 296
+Info (12128): Elaborating entity "MusicBoxStateController" for hierarchy "MusicBoxStateController:musicBoxStateController" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 302
 Info (12128): Elaborating entity "MusicBoxState_PlaySong0" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 63
 Info (12128): Elaborating entity "MusicBoxState_PlaySong1" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 73
 Info (12128): Elaborating entity "MusicBoxState_MakeRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 83
 Info (12128): Elaborating entity "MusicBoxState_PlayRecording" for hierarchy "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/User Interface Modules/MusicBoxStateController.sv Line: 93
-Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 344
+Info (12128): Elaborating entity "SPI_OutputControllerDac" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 350
 Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_OutputControllerDac.sv Line: 51
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (8) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "SPI_InputControllerDac" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 373
+Info (12128): Elaborating entity "SPI_InputControllerDac" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 381
 Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_InputControllerSPI.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (13) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
-Info (12128): Elaborating entity "SignalGenerator" for hierarchy "SignalGenerator:signalGenerator" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 386
+Info (12128): Elaborating entity "SignalGenerator" for hierarchy "SignalGenerator:signalGenerator" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 394
+Info (12128): Elaborating entity "SDRAM_Controller" for hierarchy "SDRAM_Controller:sDRAM_Controller" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 452
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Div0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 165
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Mod0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 158
@@ -713,48 +855,23 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_cnh File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_cnh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2le.tdf
     Info (12023): Found entity 1: alt_u_div_2le File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_2le.tdf Line: 26
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[0]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[1]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[2]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[3]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[4]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[5]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[6]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[7]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[8]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[9]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[10]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[11]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[12]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[13]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[14]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Warning (13040): bidirectional pin "max10Board_SDRAM_Data[15]" has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "max10Board_SDRAM_Clock" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 104
-    Warning (13410): Pin "max10Board_SDRAM_ClockEnable" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 105
+    Warning (13410): Pin "max10Board_SDRAM_ClockEnable" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 105
     Warning (13410): Pin "max10Board_SDRAM_Address[0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
-    Warning (13410): Pin "max10Board_SDRAM_Address[4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
-    Warning (13410): Pin "max10Board_SDRAM_Address[5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[7]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[8]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
-    Warning (13410): Pin "max10Board_SDRAM_Address[9]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
-    Warning (13410): Pin "max10Board_SDRAM_Address[10]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[11]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_Address[12]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 106
     Warning (13410): Pin "max10Board_SDRAM_BankAddress[0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 107
     Warning (13410): Pin "max10Board_SDRAM_BankAddress[1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 107
-    Warning (13410): Pin "max10Board_SDRAM_DataMask0" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 111
-    Warning (13410): Pin "max10Board_SDRAM_DataMask1" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 112
-    Warning (13410): Pin "max10Board_SDRAM_ChipSelect_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 113
-    Warning (13410): Pin "max10Board_SDRAM_WriteEnable_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 114
-    Warning (13410): Pin "max10Board_SDRAM_ColumnAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 115
-    Warning (13410): Pin "max10Board_SDRAM_RowAddressStrobe_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 116
+    Warning (13410): Pin "max10Board_SDRAM_DataMask0" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 109
+    Warning (13410): Pin "max10Board_SDRAM_DataMask1" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 110
+    Warning (13410): Pin "max10Board_SDRAM_ChipSelect_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 111
     Warning (13410): Pin "max10Board_GPIO_Input_SPI_CS_n" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 101
     Warning (13410): Pin "max10Board_LEDSegments[0][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[0][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
@@ -762,44 +879,45 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "max10Board_LEDSegments[0][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[0][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[0][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
-    Warning (13410): Pin "max10Board_LEDSegments[0][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
+    Warning (13410): Pin "max10Board_LEDSegments[0][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[1][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[1][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[1][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[1][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[1][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[1][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
-    Warning (13410): Pin "max10Board_LEDSegments[1][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
+    Warning (13410): Pin "max10Board_LEDSegments[1][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[2][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[2][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[2][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[2][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[2][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[2][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
-    Warning (13410): Pin "max10Board_LEDSegments[2][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
+    Warning (13410): Pin "max10Board_LEDSegments[2][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[3][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[3][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[3][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[3][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[3][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[3][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
-    Warning (13410): Pin "max10Board_LEDSegments[3][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
+    Warning (13410): Pin "max10Board_LEDSegments[3][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[4][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[4][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[4][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[4][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[4][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[4][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
-    Warning (13410): Pin "max10Board_LEDSegments[4][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
+    Warning (13410): Pin "max10Board_LEDSegments[4][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[5][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[5][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[5][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[5][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[5][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
     Warning (13410): Pin "max10Board_LEDSegments[5][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
-    Warning (13410): Pin "max10Board_LEDSegments[5][6]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
+    Warning (13410): Pin "max10Board_LEDSegments[5][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 76
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (17049): 14 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 12 input pin(s) that do not drive logic
@@ -815,15 +933,21 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 93
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_SPI_SDO" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 100
     Warning (15610): No output dependent on input pin "max10Board_Buttons[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 86
-Info (21057): Implemented 621 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 716 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 80 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 501 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 116 warnings
-    Info: Peak virtual memory: 4766 megabytes
-    Info: Processing ended: Mon Feb 10 08:06:20 2020
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:38
+    Info (21061): Implemented 596 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 88 warnings
+    Info: Peak virtual memory: 4764 megabytes
+    Info: Processing ended: Tue Feb 11 18:40:56 2020
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:36
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.map.smsg.
 
 

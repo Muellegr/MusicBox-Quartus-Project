@@ -1,4 +1,20 @@
 
+State Machine - |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState
+Name currentState.WRITE_PRECHARGE currentState.WRITE_ACTION currentState.WRITE_ROWACTIVATE currentState.READ_PRECHARGE currentState.READ_ACTION currentState.READ_ROWACTIVATE currentState.AUTOFRESH_ALL currentState.IDLE currentState.INIT_LOADMODE currentState.INIT_AUTOREFRESH currentState.INIT_PRECHARGE currentState.INIT_STARTUPWAIT currentState.INIT 
+currentState.INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 
+currentState.INIT_STARTUPWAIT 0 0 0 0 0 0 0 0 0 0 0 1 1 
+currentState.INIT_PRECHARGE 0 0 0 0 0 0 0 0 0 0 1 0 1 
+currentState.INIT_AUTOREFRESH 0 0 0 0 0 0 0 0 0 1 0 0 1 
+currentState.INIT_LOADMODE 0 0 0 0 0 0 0 0 1 0 0 0 1 
+currentState.IDLE 0 0 0 0 0 0 0 1 0 0 0 0 1 
+currentState.AUTOFRESH_ALL 0 0 0 0 0 0 1 0 0 0 0 0 1 
+currentState.READ_ROWACTIVATE 0 0 0 0 0 1 0 0 0 0 0 0 1 
+currentState.READ_ACTION 0 0 0 0 1 0 0 0 0 0 0 0 1 
+currentState.READ_PRECHARGE 0 0 0 1 0 0 0 0 0 0 0 0 1 
+currentState.WRITE_ROWACTIVATE 0 0 1 0 0 0 0 0 0 0 0 0 1 
+currentState.WRITE_ACTION 0 1 0 0 0 0 0 0 0 0 0 0 1 
+currentState.WRITE_PRECHARGE 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
 State Machine - |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|currentState
 Name currentState.00001 
 currentState.00000 0 

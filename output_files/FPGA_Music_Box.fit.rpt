@@ -1,5 +1,5 @@
 Fitter report for FPGA_Music_Box
-Mon Feb 10 08:06:38 2020
+Tue Feb 11 18:41:14 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -69,17 +69,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Feb 10 08:06:38 2020       ;
+; Fitter Status                      ; Successful - Tue Feb 11 18:41:14 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 498 / 49,760 ( 1 % )                        ;
-;     Total combinational functions  ; 494 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 82 / 49,760 ( < 1 % )                       ;
-; Total registers                    ; 82                                          ;
+; Total logic elements               ; 593 / 49,760 ( 1 % )                        ;
+;     Total combinational functions  ; 571 / 49,760 ( 1 % )                        ;
+;     Dedicated logic registers      ; 138 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 138                                         ;
 ; Total pins                         ; 120 / 360 ( 33 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -161,7 +161,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   5.6%      ;
+;     Processor 2            ;   6.4%      ;
 +----------------------------+-------------+
 
 
@@ -189,8 +189,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 854 ) ; 0.00 % ( 0 / 854 )         ; 0.00 % ( 0 / 854 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 854 ) ; 0.00 % ( 0 / 854 )         ; 0.00 % ( 0 / 854 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 987 ) ; 0.00 % ( 0 / 987 )         ; 0.00 % ( 0 / 987 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 987 ) ; 0.00 % ( 0 / 987 )         ; 0.00 % ( 0 / 987 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -213,7 +213,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 838 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 971 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -224,131 +224,131 @@ refer to the applicable agreement for further details.
 The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.pin.
 
 
-+---------------------------------------------------------------------+
-; Fitter Resource Usage Summary                                       ;
-+---------------------------------------------+-----------------------+
-; Resource                                    ; Usage                 ;
-+---------------------------------------------+-----------------------+
-; Total logic elements                        ; 498 / 49,760 ( 1 % )  ;
-;     -- Combinational with no register       ; 416                   ;
-;     -- Register only                        ; 4                     ;
-;     -- Combinational with a register        ; 78                    ;
-;                                             ;                       ;
-; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 145                   ;
-;     -- 3 input functions                    ; 130                   ;
-;     -- <=2 input functions                  ; 219                   ;
-;     -- Register only                        ; 4                     ;
-;                                             ;                       ;
-; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 324                   ;
-;     -- arithmetic mode                      ; 170                   ;
-;                                             ;                       ;
-; Total registers*                            ; 82 / 51,509 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 82 / 49,760 ( < 1 % ) ;
-;     -- I/O registers                        ; 0 / 1,749 ( 0 % )     ;
-;                                             ;                       ;
-; Total LABs:  partially or completely used   ; 41 / 3,110 ( 1 % )    ;
-; Virtual pins                                ; 0                     ;
-; I/O pins                                    ; 120 / 360 ( 33 % )    ;
-;     -- Clock pins                           ; 2 / 8 ( 25 % )        ;
-;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )       ;
-;                                             ;                       ;
-; M9Ks                                        ; 0 / 182 ( 0 % )       ;
-; UFM blocks                                  ; 0 / 1 ( 0 % )         ;
-; ADC blocks                                  ; 0 / 2 ( 0 % )         ;
-; Total block memory bits                     ; 0 / 1,677,312 ( 0 % ) ;
-; Total block memory implementation bits      ; 0 / 1,677,312 ( 0 % ) ;
-; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )       ;
-; PLLs                                        ; 0 / 4 ( 0 % )         ;
-; Global signals                              ; 3                     ;
-;     -- Global clocks                        ; 3 / 20 ( 15 % )       ;
-; JTAGs                                       ; 0 / 1 ( 0 % )         ;
-; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
-; Remote update blocks                        ; 0 / 1 ( 0 % )         ;
-; Oscillator blocks                           ; 0 / 1 ( 0 % )         ;
-; Impedance control blocks                    ; 0 / 1 ( 0 % )         ;
-; Average interconnect usage (total/H/V)      ; 0.3% / 0.3% / 0.3%    ;
-; Peak interconnect usage (total/H/V)         ; 4.9% / 4.7% / 5.1%    ;
-; Maximum fan-out                             ; 76                    ;
-; Highest non-global fan-out                  ; 76                    ;
-; Total fan-out                               ; 1864                  ;
-; Average fan-out                             ; 2.18                  ;
-+---------------------------------------------+-----------------------+
++----------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                        ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Total logic elements                        ; 593 / 49,760 ( 1 % )   ;
+;     -- Combinational with no register       ; 455                    ;
+;     -- Register only                        ; 22                     ;
+;     -- Combinational with a register        ; 116                    ;
+;                                             ;                        ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 183                    ;
+;     -- 3 input functions                    ; 148                    ;
+;     -- <=2 input functions                  ; 240                    ;
+;     -- Register only                        ; 22                     ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 375                    ;
+;     -- arithmetic mode                      ; 196                    ;
+;                                             ;                        ;
+; Total registers*                            ; 138 / 51,509 ( < 1 % ) ;
+;     -- Dedicated logic registers            ; 138 / 49,760 ( < 1 % ) ;
+;     -- I/O registers                        ; 0 / 1,749 ( 0 % )      ;
+;                                             ;                        ;
+; Total LABs:  partially or completely used   ; 46 / 3,110 ( 1 % )     ;
+; Virtual pins                                ; 0                      ;
+; I/O pins                                    ; 120 / 360 ( 33 % )     ;
+;     -- Clock pins                           ; 2 / 8 ( 25 % )         ;
+;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )        ;
+;                                             ;                        ;
+; M9Ks                                        ; 0 / 182 ( 0 % )        ;
+; UFM blocks                                  ; 0 / 1 ( 0 % )          ;
+; ADC blocks                                  ; 0 / 2 ( 0 % )          ;
+; Total block memory bits                     ; 0 / 1,677,312 ( 0 % )  ;
+; Total block memory implementation bits      ; 0 / 1,677,312 ( 0 % )  ;
+; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )        ;
+; PLLs                                        ; 0 / 4 ( 0 % )          ;
+; Global signals                              ; 3                      ;
+;     -- Global clocks                        ; 3 / 20 ( 15 % )        ;
+; JTAGs                                       ; 0 / 1 ( 0 % )          ;
+; CRC blocks                                  ; 0 / 1 ( 0 % )          ;
+; Remote update blocks                        ; 0 / 1 ( 0 % )          ;
+; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
+; Impedance control blocks                    ; 0 / 1 ( 0 % )          ;
+; Average interconnect usage (total/H/V)      ; 0.3% / 0.2% / 0.4%     ;
+; Peak interconnect usage (total/H/V)         ; 3.1% / 2.3% / 4.3%     ;
+; Maximum fan-out                             ; 103                    ;
+; Highest non-global fan-out                  ; 103                    ;
+; Total fan-out                               ; 2333                   ;
+; Average fan-out                             ; 2.31                   ;
++---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Fitter Partition Statistics                                                                         ;
-+---------------------------------------------+----------------------+--------------------------------+
-; Statistic                                   ; Top                  ; hard_block:auto_generated_inst ;
-+---------------------------------------------+----------------------+--------------------------------+
-; Difficulty Clustering Region                ; Low                  ; Low                            ;
-;                                             ;                      ;                                ;
-; Total logic elements                        ; 498 / 49760 ( 1 % )  ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 416                  ; 0                              ;
-;     -- Register only                        ; 4                    ; 0                              ;
-;     -- Combinational with a register        ; 78                   ; 0                              ;
-;                                             ;                      ;                                ;
-; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 145                  ; 0                              ;
-;     -- 3 input functions                    ; 130                  ; 0                              ;
-;     -- <=2 input functions                  ; 219                  ; 0                              ;
-;     -- Register only                        ; 4                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 324                  ; 0                              ;
-;     -- arithmetic mode                      ; 170                  ; 0                              ;
-;                                             ;                      ;                                ;
-; Total registers                             ; 82                   ; 0                              ;
-;     -- Dedicated logic registers            ; 82 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- I/O registers                        ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 41 / 3110 ( 1 % )    ; 0 / 3110 ( 0 % )               ;
-;                                             ;                      ;                                ;
-; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 120                  ; 0                              ;
-; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )      ; 0 / 288 ( 0 % )                ;
-; Total memory bits                           ; 0                    ; 0                              ;
-; Total RAM block bits                        ; 0                    ; 0                              ;
-; Clock control block                         ; 3 / 24 ( 12 % )      ; 0 / 24 ( 0 % )                 ;
-; User Flash Memory                           ; 1 / 1 ( 100 % )      ; 0 / 1 ( 0 % )                  ;
-; Analog-to-Digital Converter                 ; 2 / 2 ( 100 % )      ; 0 / 2 ( 0 % )                  ;
-;                                             ;                      ;                                ;
-; Connections                                 ;                      ;                                ;
-;     -- Input Connections                    ; 16                   ; 0                              ;
-;     -- Registered Input Connections         ; 0                    ; 0                              ;
-;     -- Output Connections                   ; 16                   ; 0                              ;
-;     -- Registered Output Connections        ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 1870                 ; 8                              ;
-;     -- Registered Connections               ; 271                  ; 0                              ;
-;                                             ;                      ;                                ;
-; External Connections                        ;                      ;                                ;
-;     -- Top                                  ; 32                   ; 0                              ;
-;     -- hard_block:auto_generated_inst       ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Partition Interface                         ;                      ;                                ;
-;     -- Input Ports                          ; 24                   ; 0                              ;
-;     -- Output Ports                         ; 80                   ; 0                              ;
-;     -- Bidir Ports                          ; 16                   ; 0                              ;
-;                                             ;                      ;                                ;
-; Registered Ports                            ;                      ;                                ;
-;     -- Registered Input Ports               ; 0                    ; 0                              ;
-;     -- Registered Output Ports              ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Port Connectivity                           ;                      ;                                ;
-;     -- Input Ports driven by GND            ; 0                    ; 0                              ;
-;     -- Output Ports driven by GND           ; 0                    ; 0                              ;
-;     -- Input Ports driven by VCC            ; 0                    ; 0                              ;
-;     -- Output Ports driven by VCC           ; 0                    ; 0                              ;
-;     -- Input Ports with no Source           ; 0                    ; 0                              ;
-;     -- Output Ports with no Source          ; 0                    ; 0                              ;
-;     -- Input Ports with no Fanout           ; 0                    ; 0                              ;
-;     -- Output Ports with no Fanout          ; 0                    ; 0                              ;
-+---------------------------------------------+----------------------+--------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Fitter Partition Statistics                                                                          ;
++---------------------------------------------+-----------------------+--------------------------------+
+; Statistic                                   ; Top                   ; hard_block:auto_generated_inst ;
++---------------------------------------------+-----------------------+--------------------------------+
+; Difficulty Clustering Region                ; Low                   ; Low                            ;
+;                                             ;                       ;                                ;
+; Total logic elements                        ; 593 / 49760 ( 1 % )   ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 455                   ; 0                              ;
+;     -- Register only                        ; 22                    ; 0                              ;
+;     -- Combinational with a register        ; 116                   ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic element usage by number of LUT inputs ;                       ;                                ;
+;     -- 4 input functions                    ; 183                   ; 0                              ;
+;     -- 3 input functions                    ; 148                   ; 0                              ;
+;     -- <=2 input functions                  ; 240                   ; 0                              ;
+;     -- Register only                        ; 22                    ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic elements by mode                      ;                       ;                                ;
+;     -- normal mode                          ; 375                   ; 0                              ;
+;     -- arithmetic mode                      ; 196                   ; 0                              ;
+;                                             ;                       ;                                ;
+; Total registers                             ; 138                   ; 0                              ;
+;     -- Dedicated logic registers            ; 138 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- I/O registers                        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Total LABs:  partially or completely used   ; 46 / 3110 ( 1 % )     ; 0 / 3110 ( 0 % )               ;
+;                                             ;                       ;                                ;
+; Virtual pins                                ; 0                     ; 0                              ;
+; I/O pins                                    ; 120                   ; 0                              ;
+; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )       ; 0 / 288 ( 0 % )                ;
+; Total memory bits                           ; 0                     ; 0                              ;
+; Total RAM block bits                        ; 0                     ; 0                              ;
+; Clock control block                         ; 3 / 24 ( 12 % )       ; 0 / 24 ( 0 % )                 ;
+; User Flash Memory                           ; 1 / 1 ( 100 % )       ; 0 / 1 ( 0 % )                  ;
+; Analog-to-Digital Converter                 ; 2 / 2 ( 100 % )       ; 0 / 2 ( 0 % )                  ;
+;                                             ;                       ;                                ;
+; Connections                                 ;                       ;                                ;
+;     -- Input Connections                    ; 16                    ; 0                              ;
+;     -- Registered Input Connections         ; 0                     ; 0                              ;
+;     -- Output Connections                   ; 16                    ; 0                              ;
+;     -- Registered Output Connections        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Internal Connections                        ;                       ;                                ;
+;     -- Total Connections                    ; 2339                  ; 8                              ;
+;     -- Registered Connections               ; 428                   ; 0                              ;
+;                                             ;                       ;                                ;
+; External Connections                        ;                       ;                                ;
+;     -- Top                                  ; 32                    ; 0                              ;
+;     -- hard_block:auto_generated_inst       ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Partition Interface                         ;                       ;                                ;
+;     -- Input Ports                          ; 24                    ; 0                              ;
+;     -- Output Ports                         ; 80                    ; 0                              ;
+;     -- Bidir Ports                          ; 16                    ; 0                              ;
+;                                             ;                       ;                                ;
+; Registered Ports                            ;                       ;                                ;
+;     -- Registered Input Ports               ; 0                     ; 0                              ;
+;     -- Registered Output Ports              ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Port Connectivity                           ;                       ;                                ;
+;     -- Input Ports driven by GND            ; 0                     ; 0                              ;
+;     -- Output Ports driven by GND           ; 0                     ; 0                              ;
+;     -- Input Ports driven by VCC            ; 0                     ; 0                              ;
+;     -- Output Ports driven by VCC           ; 0                     ; 0                              ;
+;     -- Input Ports with no Source           ; 0                     ; 0                              ;
+;     -- Output Ports with no Source          ; 0                     ; 0                              ;
+;     -- Input Ports with no Fanout           ; 0                     ; 0                              ;
+;     -- Output Ports with no Fanout          ; 0                     ; 0                              ;
++---------------------------------------------+-----------------------+--------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -357,7 +357,7 @@ The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342
 ; Name                                ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard          ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-------------------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+-----------------------+---------------------------+----------------------+-----------+
 ; max10Board_50MhzClock               ; P11   ; 3        ; 34           ; 0            ; 28           ; 39                    ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 3.3-V LVTTL           ; --                        ; User                 ; 0         ;
-; max10Board_Buttons[0]               ; B8    ; 7        ; 46           ; 54           ; 28           ; 76                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
+; max10Board_Buttons[0]               ; B8    ; 7        ; 46           ; 54           ; 28           ; 103                   ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_Buttons[1]               ; A7    ; 7        ; 49           ; 54           ; 28           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_GPIO_Input_MakeRecording ; V5    ; 3        ; 14           ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
 ; max10Board_GPIO_Input_MusicKeys[0]  ; V10   ; 3        ; 31           ; 0            ; 21           ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; On           ; 3.3 V Schmitt Trigger ; --                        ; User                 ; 0         ;
@@ -471,28 +471,28 @@ The pin-out file can be found in C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342
 +----------------------------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Bidir Pins                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
-+---------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------+-----------------+------------+----------+--------------+--------------+------------------+--------------------+---------------------------+----------------------------+----------------------+----------------------+---------------------+
-; Name                      ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Output Termination ; Termination Control Block ; Output Buffer Pre-emphasis ; Location assigned by ; Output Enable Source ; Output Enable Group ;
-+---------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------+-----------------+------------+----------+--------------+--------------+------------------+--------------------+---------------------------+----------------------------+----------------------+----------------------+---------------------+
-; max10Board_SDRAM_Data[0]  ; Y21   ; 5        ; 78           ; 16           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[10] ; H21   ; 6        ; 78           ; 29           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[11] ; H22   ; 6        ; 78           ; 29           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[12] ; G22   ; 6        ; 78           ; 31           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[13] ; G20   ; 6        ; 78           ; 31           ; 21           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[14] ; G19   ; 6        ; 78           ; 31           ; 14           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[15] ; F22   ; 6        ; 78           ; 31           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[1]  ; Y20   ; 5        ; 78           ; 16           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[2]  ; AA22  ; 5        ; 78           ; 3            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[3]  ; AA21  ; 5        ; 78           ; 3            ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[4]  ; Y22   ; 5        ; 78           ; 15           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[5]  ; W22   ; 5        ; 78           ; 15           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[6]  ; W20   ; 5        ; 78           ; 16           ; 14           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[7]  ; V21   ; 5        ; 78           ; 17           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[8]  ; P21   ; 5        ; 78           ; 23           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; max10Board_SDRAM_Data[9]  ; J22   ; 6        ; 78           ; 30           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-+---------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------+-----------------+------------+----------+--------------+--------------+------------------+--------------------+---------------------------+----------------------------+----------------------+----------------------+---------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Bidir Pins                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++---------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------+-----------------+------------+----------+--------------+--------------+------------------+--------------------+---------------------------+----------------------------+----------------------+----------------------+----------------------------------------------------------------+
+; Name                      ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Output Termination ; Termination Control Block ; Output Buffer Pre-emphasis ; Location assigned by ; Output Enable Source ; Output Enable Group                                            ;
++---------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------+-----------------+------------+----------+--------------+--------------+------------------+--------------------+---------------------------+----------------------------+----------------------+----------------------+----------------------------------------------------------------+
+; max10Board_SDRAM_Data[0]  ; Y21   ; 5        ; 78           ; 16           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[0]~en  ;
+; max10Board_SDRAM_Data[10] ; H21   ; 6        ; 78           ; 29           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[10]~en ;
+; max10Board_SDRAM_Data[11] ; H22   ; 6        ; 78           ; 29           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[11]~en ;
+; max10Board_SDRAM_Data[12] ; G22   ; 6        ; 78           ; 31           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[12]~en ;
+; max10Board_SDRAM_Data[13] ; G20   ; 6        ; 78           ; 31           ; 21           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[13]~en ;
+; max10Board_SDRAM_Data[14] ; G19   ; 6        ; 78           ; 31           ; 14           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[14]~en ;
+; max10Board_SDRAM_Data[15] ; F22   ; 6        ; 78           ; 31           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[15]~en ;
+; max10Board_SDRAM_Data[1]  ; Y20   ; 5        ; 78           ; 16           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[1]~en  ;
+; max10Board_SDRAM_Data[2]  ; AA22  ; 5        ; 78           ; 3            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[2]~en  ;
+; max10Board_SDRAM_Data[3]  ; AA21  ; 5        ; 78           ; 3            ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[3]~en  ;
+; max10Board_SDRAM_Data[4]  ; Y22   ; 5        ; 78           ; 15           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[4]~en  ;
+; max10Board_SDRAM_Data[5]  ; W22   ; 5        ; 78           ; 15           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[5]~en  ;
+; max10Board_SDRAM_Data[6]  ; W20   ; 5        ; 78           ; 16           ; 14           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[6]~en  ;
+; max10Board_SDRAM_Data[7]  ; V21   ; 5        ; 78           ; 17           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[7]~en  ;
+; max10Board_SDRAM_Data[8]  ; P21   ; 5        ; 78           ; 23           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[8]~en  ;
+; max10Board_SDRAM_Data[9]  ; J22   ; 6        ; 78           ; 30           ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL  ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[9]~en  ;
++---------------------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------+-----------------+------------+----------+--------------+--------------+------------------+--------------------+---------------------------+----------------------------+----------------------+----------------------+----------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+
@@ -1130,21 +1130,22 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                           ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                                                            ; Entity Name             ; Library Name ;
 +------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |MusicBox_Main                                       ; 498 (48)    ; 82 (0)                    ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 120  ; 0            ; 416 (48)     ; 4 (0)             ; 78 (0)           ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
-;    |ClockGenerator:clockGenerator_32Khz|             ; 27 (27)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 11 (11)      ; 1 (1)             ; 15 (15)          ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator          ; work         ;
+; |MusicBox_Main                                       ; 593 (48)    ; 138 (0)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 120  ; 0            ; 455 (48)     ; 22 (0)            ; 116 (0)          ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main           ; work         ;
+;    |ClockGenerator:clockGenerator_32Khz|             ; 28 (28)     ; 17 (17)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 11 (11)      ; 1 (1)             ; 16 (16)          ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator          ; work         ;
+;    |SDRAM_Controller:sDRAM_Controller|               ; 101 (101)   ; 56 (56)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 45 (45)      ; 16 (16)           ; 40 (40)          ; 0          ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller                                                                                               ; SDRAM_Controller        ; work         ;
 ;    |SPI_InputControllerDac:sPI_InputControllerDac|   ; 22 (0)      ; 14 (0)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (0)        ; 0 (0)             ; 14 (0)           ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac                                                                                   ; SPI_InputControllerDac  ; work         ;
 ;       |ClockGenerator:clockGenerator_240KHz|         ; 22 (22)     ; 14 (14)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 14 (14)          ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz                                              ; ClockGenerator          ; work         ;
-;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 60 (46)     ; 37 (28)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 23 (18)      ; 2 (1)             ; 35 (27)          ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
-;       |ClockGenerator:clockGenerator_714Khz|         ; 14 (14)     ; 9 (9)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 1 (1)             ; 8 (8)            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator          ; work         ;
-;    |SignalGenerator:signalGenerator|                 ; 341 (77)    ; 15 (15)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 326 (62)     ; 1 (1)             ; 14 (14)          ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
+;    |SPI_OutputControllerDac:sPI_OutputControllerDac| ; 60 (47)     ; 36 (28)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 24 (19)      ; 3 (2)             ; 33 (26)          ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac ; work         ;
+;       |ClockGenerator:clockGenerator_714Khz|         ; 13 (13)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5 (5)        ; 1 (1)             ; 7 (7)            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator          ; work         ;
+;    |SignalGenerator:signalGenerator|                 ; 334 (78)    ; 15 (15)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 319 (63)     ; 2 (2)             ; 13 (13)          ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator         ; work         ;
 ;       |lpm_divide:Div0|                              ; 208 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 208 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0                                                                                 ; lpm_divide              ; work         ;
 ;          |lpm_divide_ttl:auto_generated|             ; 208 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 208 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated                                                   ; lpm_divide_ttl          ; work         ;
 ;             |sign_div_unsign_ulh:divider|            ; 208 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 208 (0)      ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider                       ; sign_div_unsign_ulh     ; work         ;
 ;                |alt_u_div_6ie:divider|               ; 208 (208)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 208 (208)    ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider|alt_u_div_6ie:divider ; alt_u_div_6ie           ; work         ;
-;       |lpm_divide:Mod0|                              ; 56 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 56 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
-;          |lpm_divide_dnl:auto_generated|             ; 56 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 56 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
-;             |sign_div_unsign_cnh:divider|            ; 56 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 56 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
-;                |alt_u_div_2le:divider|               ; 56 (56)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 56 (56)      ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
+;       |lpm_divide:Mod0|                              ; 48 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 48 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide              ; work         ;
+;          |lpm_divide_dnl:auto_generated|             ; 48 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 48 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl          ; work         ;
+;             |sign_div_unsign_cnh:divider|            ; 48 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 48 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh     ; work         ;
+;                |alt_u_div_2le:divider|               ; 48 (48)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 48 (48)      ; 0 (0)             ; 0 (0)            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le           ; work         ;
 +------------------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1263,16 +1264,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10Board_SDRAM_Data[14]              ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_SDRAM_Data[15]              ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; max10Board_50MhzClock                  ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
-; max10Board_Buttons[0]                  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; max10Board_Buttons[0]                  ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; max10board_switches[9]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; max10board_switches[8]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; max10board_switches[7]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; max10board_switches[6]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; max10board_switches[6]                 ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; max10board_switches[5]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; max10board_switches[4]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; max10board_switches[3]                 ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; max10board_switches[4]                 ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; max10board_switches[3]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; max10board_switches[2]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; max10board_switches[1]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; max10board_switches[1]                 ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; max10board_switches[0]                 ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 +----------------------------------------+----------+---------------+---------------+-----------------------+-----+------+
 
@@ -1312,82 +1313,109 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; max10Board_SDRAM_Data[15]                                                                               ;                   ;         ;
 ; max10Board_50MhzClock                                                                                   ;                   ;         ;
 ; max10Board_Buttons[0]                                                                                   ;                   ;         ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0]  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[1]  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[2]  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[3]  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[4]  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[5]  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[6]  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[7]  ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|outputClock   ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|writeBit                                         ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00000                               ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[15]                                                      ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[14]                                                      ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[13]                                                      ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[12]                                                      ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[11]                                                      ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[10]                                                      ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[9]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[8]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[7]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[6]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[5]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[4]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[3]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[2]                                                       ; 0                 ; 6       ;
-;      - SignalGenerator:signalGenerator|counter[1]                                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[0]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[1]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[2]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[3]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[4]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[5]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[6]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[7]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[8]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[9]                                       ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[10]                                      ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[11]                                      ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[12]                                      ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[13]                                      ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[14]                                      ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[15]                                      ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00010                               ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00001                               ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[12]   ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[11]   ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[10]   ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[9]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[6]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[5]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[8]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[7]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[3]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[4]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[2]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[1]    ; 0                 ; 6       ;
-;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[0]    ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11]~15                               ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[15]                                                  ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[14]                                                  ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[13]                                                  ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[12]                                                  ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[9]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[8]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[11]                                                  ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[10]                                                  ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[7]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[6]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[5]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[4]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[3]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[2]                                                   ; 0                 ; 6       ;
-;      - ClockGenerator:clockGenerator_32Khz|counter[1]                                                   ; 0                 ; 6       ;
-;      - SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[4]                                   ; 0                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[0]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[1]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[2]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[3]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[4]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[5]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[6]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[7]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[8]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[9]                                                   ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[10]                                                  ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[11]                                                  ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[12]                                                  ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[13]                                                  ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[14]                                                  ; 1                 ; 6       ;
+;      - ClockGenerator:clockGenerator_32Khz|counter[15]                                                  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|outputClock   ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[10]                                   ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentCommand[0]                                              ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentCommand[1]                                              ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentCommand[2]                                              ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|writeBit                                         ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00000                               ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentState.INIT_AUTOREFRESH                                  ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentState.IDLE                                              ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[15]                                                      ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[14]                                                      ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[13]                                                      ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[12]                                                      ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[11]                                                      ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[10]                                                      ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[9]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[8]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[7]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[6]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[5]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[4]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[3]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[2]                                                       ; 1                 ; 6       ;
+;      - SignalGenerator:signalGenerator|counter[1]                                                       ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[1]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[2]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[3]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[4]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[5]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[6]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[7]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[8]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[9]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[10]                                         ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[0]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[1]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[2]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[3]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[4]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[5]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[6]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[7]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[8]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[9]                                       ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[10]                                      ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[11]                                      ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[12]                                      ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[13]                                      ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[14]                                      ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|counter[15]                                      ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|autorefreshCounter[0]                                          ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[10]~5                                 ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[4]~6                                  ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentState.INIT                                              ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[5]  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[7]  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[6]  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[1]  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[4]  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[3]  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[2]  ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00010                               ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00001                               ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[12]   ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[11]   ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[10]   ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[9]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[6]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[5]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[8]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[7]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[3]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[4]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[2]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[1]    ; 1                 ; 6       ;
+;      - SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz|counter[0]    ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentState~40                                                ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[0]~16                                    ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|pauseCycles[14]~24                                             ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentState~41                                                ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentState~42                                                ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|currentState~43                                                ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11]~15                               ; 1                 ; 6       ;
+;      - SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[15]~17                                   ; 1                 ; 6       ;
+;      - SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[4]                                   ; 1                 ; 6       ;
 ; max10board_switches[9]                                                                                  ;                   ;         ;
 ;      - Add3~18                                                                                          ; 0                 ; 6       ;
 ;      - Add2~18                                                                                          ; 0                 ; 6       ;
@@ -1401,48 +1429,52 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - Add2~14                                                                                          ; 0                 ; 6       ;
 ;      - Add2~10                                                                                          ; 0                 ; 6       ;
 ; max10board_switches[6]                                                                                  ;                   ;         ;
-;      - Add3~12                                                                                          ; 0                 ; 6       ;
-;      - Add2~12                                                                                          ; 0                 ; 6       ;
-;      - Add2~8                                                                                           ; 0                 ; 6       ;
+;      - Add3~12                                                                                          ; 1                 ; 6       ;
+;      - Add2~12                                                                                          ; 1                 ; 6       ;
+;      - Add2~8                                                                                           ; 1                 ; 6       ;
 ; max10board_switches[5]                                                                                  ;                   ;         ;
 ;      - Add3~10                                                                                          ; 0                 ; 6       ;
 ;      - Add2~10                                                                                          ; 0                 ; 6       ;
 ;      - Add2~6                                                                                           ; 0                 ; 6       ;
 ; max10board_switches[4]                                                                                  ;                   ;         ;
-;      - Add3~8                                                                                           ; 0                 ; 6       ;
-;      - Add2~8                                                                                           ; 0                 ; 6       ;
-;      - Add2~4                                                                                           ; 0                 ; 6       ;
+;      - Add3~8                                                                                           ; 1                 ; 6       ;
+;      - Add2~8                                                                                           ; 1                 ; 6       ;
+;      - Add2~4                                                                                           ; 1                 ; 6       ;
 ; max10board_switches[3]                                                                                  ;                   ;         ;
-;      - Add3~6                                                                                           ; 1                 ; 6       ;
-;      - Add2~6                                                                                           ; 1                 ; 6       ;
-;      - Add2~2                                                                                           ; 1                 ; 6       ;
+;      - Add3~6                                                                                           ; 0                 ; 6       ;
+;      - Add2~6                                                                                           ; 0                 ; 6       ;
+;      - Add2~2                                                                                           ; 0                 ; 6       ;
 ; max10board_switches[2]                                                                                  ;                   ;         ;
 ;      - Add3~4                                                                                           ; 0                 ; 6       ;
 ;      - Add2~4                                                                                           ; 0                 ; 6       ;
 ;      - Add2~0                                                                                           ; 0                 ; 6       ;
 ; max10board_switches[1]                                                                                  ;                   ;         ;
-;      - Add3~2                                                                                           ; 0                 ; 6       ;
-;      - Add2~2                                                                                           ; 0                 ; 6       ;
+;      - Add3~2                                                                                           ; 1                 ; 6       ;
+;      - Add2~2                                                                                           ; 1                 ; 6       ;
 ; max10board_switches[0]                                                                                  ;                   ;         ;
 ;      - Add2~0                                                                                           ; 0                 ; 6       ;
 ;      - Add3~1                                                                                           ; 0                 ; 6       ;
 +---------------------------------------------------------------------------------------------------------+-------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                                                                        ;
-+--------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
-; Name                                                                                             ; Location           ; Fan-Out ; Usage                                 ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+--------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
-; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; FF_X44_Y49_N27     ; 15      ; Clock                                 ; yes    ; Global Clock         ; GCLK12           ; --                        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; FF_X45_Y52_N9      ; 28      ; Clock                                 ; yes    ; Global Clock         ; GCLK11           ; --                        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[1]~24                                    ; LCCOMB_X44_Y38_N28 ; 16      ; Sync. clear                           ; no     ; --                   ; --               ; --                        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00000                               ; FF_X46_Y38_N23     ; 29      ; Clock enable, Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11]~15                               ; LCCOMB_X44_Y38_N30 ; 7       ; Clock enable                          ; no     ; --                   ; --               ; --                        ;
-; SignalGenerator:signalGenerator|always0~2                                                        ; LCCOMB_X39_Y34_N4  ; 15      ; Sync. load                            ; no     ; --                   ; --               ; --                        ;
-; max10Board_50MhzClock                                                                            ; PIN_P11            ; 39      ; Clock                                 ; yes    ; Global Clock         ; GCLK19           ; --                        ;
-; max10Board_Buttons[0]                                                                            ; PIN_B8             ; 76      ; Async. clear, Clock enable            ; no     ; --                   ; --               ; --                        ;
-+--------------------------------------------------------------------------------------------------+--------------------+---------+---------------------------------------+--------+----------------------+------------------+---------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                                                                                      ;
++--------------------------------------------------------------------------------------------------+--------------------+---------+-----------------------------------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                                             ; Location           ; Fan-Out ; Usage                                               ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++--------------------------------------------------------------------------------------------------+--------------------+---------+-----------------------------------------------------+--------+----------------------+------------------+---------------------------+
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; FF_X49_Y46_N29     ; 71      ; Clock                                               ; yes    ; Global Clock         ; GCLK14           ; --                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[10]~5                                 ; LCCOMB_X71_Y25_N24 ; 2       ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Data[15]~17                                   ; LCCOMB_X71_Y27_N22 ; 16      ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; SDRAM_Controller:sDRAM_Controller|pauseCycles[14]~23                                             ; LCCOMB_X71_Y25_N0  ; 17      ; Sync. clear                                         ; no     ; --                   ; --               ; --                        ;
+; SDRAM_Controller:sDRAM_Controller|pauseCycles[14]~24                                             ; LCCOMB_X71_Y26_N12 ; 17      ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; FF_X45_Y46_N3      ; 28      ; Clock                                               ; yes    ; Global Clock         ; GCLK12           ; --                        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|counter[8]~24                                    ; LCCOMB_X45_Y36_N0  ; 16      ; Sync. clear                                         ; no     ; --                   ; --               ; --                        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|currentState.00000                               ; FF_X45_Y36_N17     ; 29      ; Clock enable, Sync. clear, Sync. load               ; no     ; --                   ; --               ; --                        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[11]~15                               ; LCCOMB_X45_Y36_N30 ; 7       ; Clock enable                                        ; no     ; --                   ; --               ; --                        ;
+; SignalGenerator:signalGenerator|always0~2                                                        ; LCCOMB_X49_Y30_N12 ; 15      ; Sync. load                                          ; no     ; --                   ; --               ; --                        ;
+; max10Board_50MhzClock                                                                            ; PIN_P11            ; 39      ; Clock                                               ; yes    ; Global Clock         ; GCLK19           ; --                        ;
+; max10Board_Buttons[0]                                                                            ; PIN_B8             ; 103     ; Async. clear, Clock enable, Sync. clear, Sync. load ; no     ; --                   ; --               ; --                        ;
++--------------------------------------------------------------------------------------------------+--------------------+---------+-----------------------------------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1450,9 +1482,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name                                                                                             ; Location       ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +--------------------------------------------------------------------------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; FF_X44_Y49_N27 ; 15      ; 4                                    ; Global Clock         ; GCLK12           ; --                        ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; FF_X45_Y52_N9  ; 28      ; 7                                    ; Global Clock         ; GCLK11           ; --                        ;
-; max10Board_50MhzClock                                                                            ; PIN_P11        ; 39      ; 2                                    ; Global Clock         ; GCLK19           ; --                        ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; FF_X49_Y46_N29 ; 71      ; 13                                   ; Global Clock         ; GCLK14           ; --                        ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; FF_X45_Y46_N3  ; 28      ; 7                                    ; Global Clock         ; GCLK12           ; --                        ;
+; max10Board_50MhzClock                                                                            ; PIN_P11        ; 39      ; 0                                    ; Global Clock         ; GCLK19           ; --                        ;
 +--------------------------------------------------------------------------------------------------+----------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1461,51 +1493,51 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-------------------------+
 ; Routing Resource Type ; Usage                   ;
 +-----------------------+-------------------------+
-; Block interconnects   ; 632 / 148,641 ( < 1 % ) ;
-; C16 interconnects     ; 34 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 275 / 106,704 ( < 1 % ) ;
-; Direct links          ; 180 / 148,641 ( < 1 % ) ;
+; Block interconnects   ; 730 / 148,641 ( < 1 % ) ;
+; C16 interconnects     ; 44 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 369 / 106,704 ( < 1 % ) ;
+; Direct links          ; 215 / 148,641 ( < 1 % ) ;
 ; Global clocks         ; 3 / 20 ( 15 % )         ;
-; Local interconnects   ; 251 / 49,760 ( < 1 % )  ;
+; Local interconnects   ; 298 / 49,760 ( < 1 % )  ;
 ; NSLEEPs               ; 0 / 500 ( 0 % )         ;
-; R24 interconnects     ; 17 / 5,406 ( < 1 % )    ;
-; R4 interconnects      ; 339 / 147,764 ( < 1 % ) ;
+; R24 interconnects     ; 11 / 5,406 ( < 1 % )    ;
+; R4 interconnects      ; 344 / 147,764 ( < 1 % ) ;
 +-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 12.15) ; Number of LABs  (Total = 41) ;
+; Number of Logic Elements  (Average = 12.89) ; Number of LABs  (Total = 46) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 4                            ;
+; 1                                           ; 1                            ;
 ; 2                                           ; 0                            ;
 ; 3                                           ; 2                            ;
-; 4                                           ; 0                            ;
-; 5                                           ; 1                            ;
-; 6                                           ; 3                            ;
-; 7                                           ; 0                            ;
+; 4                                           ; 1                            ;
+; 5                                           ; 2                            ;
+; 6                                           ; 1                            ;
+; 7                                           ; 2                            ;
 ; 8                                           ; 0                            ;
-; 9                                           ; 1                            ;
-; 10                                          ; 0                            ;
+; 9                                           ; 0                            ;
+; 10                                          ; 2                            ;
 ; 11                                          ; 2                            ;
-; 12                                          ; 0                            ;
-; 13                                          ; 4                            ;
+; 12                                          ; 1                            ;
+; 13                                          ; 3                            ;
 ; 14                                          ; 1                            ;
-; 15                                          ; 0                            ;
-; 16                                          ; 23                           ;
+; 15                                          ; 3                            ;
+; 16                                          ; 25                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 0.88) ; Number of LABs  (Total = 41) ;
+; LAB-wide Signals  (Average = 1.07) ; Number of LABs  (Total = 46) ;
 +------------------------------------+------------------------------+
 ; 1 Async. clear                     ; 10                           ;
-; 1 Clock                            ; 15                           ;
-; 1 Clock enable                     ; 5                            ;
-; 1 Sync. clear                      ; 1                            ;
+; 1 Clock                            ; 22                           ;
+; 1 Clock enable                     ; 7                            ;
+; 1 Sync. clear                      ; 5                            ;
 ; 1 Sync. load                       ; 5                            ;
 +------------------------------------+------------------------------+
 
@@ -1513,39 +1545,39 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 13.71) ; Number of LABs  (Total = 41) ;
+; Number of Signals Sourced  (Average = 15.50) ; Number of LABs  (Total = 46) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 3                            ;
-; 2                                            ; 1                            ;
-; 3                                            ; 2                            ;
-; 4                                            ; 0                            ;
+; 1                                            ; 1                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 1                            ;
 ; 5                                            ; 0                            ;
-; 6                                            ; 1                            ;
+; 6                                            ; 3                            ;
 ; 7                                            ; 2                            ;
-; 8                                            ; 2                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 1                            ;
-; 10                                           ; 0                            ;
+; 10                                           ; 1                            ;
 ; 11                                           ; 1                            ;
 ; 12                                           ; 1                            ;
 ; 13                                           ; 1                            ;
-; 14                                           ; 2                            ;
-; 15                                           ; 9                            ;
-; 16                                           ; 7                            ;
-; 17                                           ; 1                            ;
-; 18                                           ; 0                            ;
+; 14                                           ; 1                            ;
+; 15                                           ; 10                           ;
+; 16                                           ; 6                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 3                            ;
 ; 19                                           ; 1                            ;
 ; 20                                           ; 1                            ;
-; 21                                           ; 1                            ;
+; 21                                           ; 2                            ;
 ; 22                                           ; 0                            ;
 ; 23                                           ; 0                            ;
-; 24                                           ; 0                            ;
-; 25                                           ; 0                            ;
-; 26                                           ; 0                            ;
-; 27                                           ; 0                            ;
-; 28                                           ; 2                            ;
-; 29                                           ; 0                            ;
-; 30                                           ; 1                            ;
+; 24                                           ; 2                            ;
+; 25                                           ; 1                            ;
+; 26                                           ; 1                            ;
+; 27                                           ; 1                            ;
+; 28                                           ; 1                            ;
+; 29                                           ; 1                            ;
+; 30                                           ; 0                            ;
 ; 31                                           ; 0                            ;
 ; 32                                           ; 1                            ;
 +----------------------------------------------+------------------------------+
@@ -1554,65 +1586,66 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 8.29) ; Number of LABs  (Total = 41) ;
+; Number of Signals Sourced Out  (Average = 9.28) ; Number of LABs  (Total = 46) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
 ; 1                                               ; 5                            ;
-; 2                                               ; 6                            ;
-; 3                                               ; 0                            ;
-; 4                                               ; 1                            ;
-; 5                                               ; 2                            ;
-; 6                                               ; 3                            ;
+; 2                                               ; 1                            ;
+; 3                                               ; 2                            ;
+; 4                                               ; 3                            ;
+; 5                                               ; 1                            ;
+; 6                                               ; 2                            ;
 ; 7                                               ; 2                            ;
-; 8                                               ; 2                            ;
-; 9                                               ; 0                            ;
-; 10                                              ; 3                            ;
-; 11                                              ; 5                            ;
+; 8                                               ; 3                            ;
+; 9                                               ; 1                            ;
+; 10                                              ; 6                            ;
+; 11                                              ; 2                            ;
 ; 12                                              ; 4                            ;
-; 13                                              ; 0                            ;
-; 14                                              ; 0                            ;
-; 15                                              ; 0                            ;
-; 16                                              ; 8                            ;
+; 13                                              ; 4                            ;
+; 14                                              ; 1                            ;
+; 15                                              ; 3                            ;
+; 16                                              ; 5                            ;
+; 17                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 13.76) ; Number of LABs  (Total = 41) ;
+; Number of Distinct Inputs  (Average = 13.39) ; Number of LABs  (Total = 46) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
 ; 2                                            ; 1                            ;
-; 3                                            ; 4                            ;
-; 4                                            ; 2                            ;
-; 5                                            ; 1                            ;
-; 6                                            ; 1                            ;
-; 7                                            ; 3                            ;
-; 8                                            ; 4                            ;
-; 9                                            ; 0                            ;
-; 10                                           ; 2                            ;
+; 3                                            ; 3                            ;
+; 4                                            ; 3                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 3                            ;
+; 7                                            ; 4                            ;
+; 8                                            ; 2                            ;
+; 9                                            ; 2                            ;
+; 10                                           ; 3                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 1                            ;
-; 14                                           ; 1                            ;
-; 15                                           ; 2                            ;
-; 16                                           ; 2                            ;
-; 17                                           ; 0                            ;
-; 18                                           ; 0                            ;
-; 19                                           ; 5                            ;
-; 20                                           ; 2                            ;
-; 21                                           ; 5                            ;
-; 22                                           ; 1                            ;
+; 14                                           ; 0                            ;
+; 15                                           ; 1                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 3                            ;
+; 18                                           ; 4                            ;
+; 19                                           ; 1                            ;
+; 20                                           ; 6                            ;
+; 21                                           ; 2                            ;
+; 22                                           ; 0                            ;
 ; 23                                           ; 1                            ;
-; 24                                           ; 0                            ;
-; 25                                           ; 1                            ;
-; 26                                           ; 0                            ;
+; 24                                           ; 1                            ;
+; 25                                           ; 0                            ;
+; 26                                           ; 1                            ;
 ; 27                                           ; 0                            ;
-; 28                                           ; 1                            ;
+; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
 ; 30                                           ; 0                            ;
-; 31                                           ; 1                            ;
+; 31                                           ; 2                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1841,7 +1874,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------+-------------------+
 ; Source Clock(s)       ; Destination Clock(s)  ; Delay Added in ns ;
 +-----------------------+-----------------------+-------------------+
-; max10Board_50MhzClock ; max10Board_50MhzClock ; 8.3               ;
+; max10Board_50MhzClock ; max10Board_50MhzClock ; 9.4               ;
 +-----------------------+-----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
@@ -1852,31 +1885,31 @@ This will disable optimization of problematic paths and expose them for further 
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-------------------+
 ; Source Register                                                                                  ; Destination Register                                                                             ; Delay Added in ns ;
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-------------------+
-; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 4.663             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 3.679             ;
-; ClockGenerator:clockGenerator_32Khz|counter[15]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[14]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[13]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[12]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[11]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[9]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[8]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[10]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[7]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[6]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[5]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[4]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[3]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[2]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; ClockGenerator:clockGenerator_32Khz|counter[1]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[0]  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.726             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[7]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.694             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[5]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.694             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[6]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.694             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[3]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.694             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[1]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.694             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[4]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.694             ;
-; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[2]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.694             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 4.770             ;
+; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 4.662             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[7]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[5]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[4]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[3]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[1]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[6]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|counter[2]  ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; ClockGenerator:clockGenerator_32Khz|counter[0]                                                   ; SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock ; 1.898             ;
+; ClockGenerator:clockGenerator_32Khz|counter[15]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[14]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[13]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[12]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[11]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[9]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[8]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[10]                                                  ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[7]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[6]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[5]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[4]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[3]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[2]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
+; ClockGenerator:clockGenerator_32Khz|counter[1]                                                   ; ClockGenerator:clockGenerator_32Khz|outputClock                                                  ; 1.828             ;
 +--------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+-------------------+
 Note: This table only shows the top 25 path(s) that have the largest delay added for hold.
 
@@ -1923,19 +1956,20 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Tim
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (176353): Automatically promoted node max10Board_50MhzClock~input (placed in PIN P11 (CLK7p, DIFFIO_TX_RX_B20p, DIFFOUT_B20p, High_Speed)) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 83
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G19
+Info (176353): Automatically promoted node ClockGenerator:clockGenerator_32Khz|outputClock  File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 14
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node ClockGenerator:clockGenerator_32Khz|outputClock~0 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 14
+        Info (176357): Destination node max10Board_SDRAM_Clock~output File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 104
 Info (176353): Automatically promoted node SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock  File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 14
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
         Info (176357): Destination node SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock~0 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 14
         Info (176357): Destination node max10Board_GPIO_Output_SPI_SCLK~output File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 95
-Info (176353): Automatically promoted node ClockGenerator:clockGenerator_32Khz|outputClock  File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 14
-    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
-    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node ClockGenerator:clockGenerator_32Khz|outputClock~0 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 14
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1944,11 +1978,11 @@ Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X33_Y33 to location X44_Y43
+    Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X45_Y33 to location X55_Y43
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
-Info (11888): Total time spent on timing analysis during the Fitter is 0.49 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.53 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1996,27 +2030,10 @@ Warning (169177): 40 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
     Info (169178): Pin max10board_switches[2] uses I/O standard 3.3-V LVTTL at D12 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 87
     Info (169178): Pin max10board_switches[1] uses I/O standard 3.3-V LVTTL at C11 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 87
     Info (169178): Pin max10board_switches[0] uses I/O standard 3.3-V LVTTL at C10 File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 87
-Warning (169064): Following 16 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
-    Info (169065): Pin max10Board_SDRAM_Data[0] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[1] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[2] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[3] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[4] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[5] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[6] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[7] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[8] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[9] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[10] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[11] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[12] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[13] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[14] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
-    Info (169065): Pin max10Board_SDRAM_Data[15] has a permanently disabled output enable File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 108
 Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5378 megabytes
-    Info: Processing ended: Mon Feb 10 08:06:39 2020
+Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 5385 megabytes
+    Info: Processing ended: Tue Feb 11 18:41:15 2020
     Info: Elapsed time: 00:00:18
     Info: Total CPU time (on all processors): 00:00:21
 

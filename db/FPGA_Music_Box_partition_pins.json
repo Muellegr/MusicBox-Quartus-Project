@@ -4,6 +4,38 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "max10Board_SDRAM_Clock",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[9]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[10]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_WriteEnable_n",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_ColumnAddressStrobe_n",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_RowAddressStrobe_n",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_GPIO_Output_SPI_SCLK",
 					"strict" : false
 				},
@@ -57,6 +89,70 @@
 				},
 				{
 					"name" : "max10Board_LED[9]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[8]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[9]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[10]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[11]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[12]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[13]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[14]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Data[15]",
 					"strict" : false
 				},
 				{

@@ -106,8 +106,6 @@ module MusicBox_Main(
 	output wire [12: 0]   max10Board_SDRAM_Address;
 	output wire [ 1: 0]   max10Board_SDRAM_BankAddress;
 	inout wire [15: 0]   max10Board_SDRAM_Data;
-	 
-	
 	output wire max10Board_SDRAM_DataMask0;
 	output wire max10Board_SDRAM_DataMask1;
 	output wire max10Board_SDRAM_ChipSelect_n; //active low
@@ -177,6 +175,14 @@ module MusicBox_Main(
 		defparam	clockGenerator_1hz.BitsNeeded = 10; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_1hz.InputClockEdgesToCount = 500;
 	
+	//-----------------------
+	//--7 Segment Display Control. 
+	//-----------------------
+	reg [19:0] segmentDisplay_DisplayValue;
+	SevenSegmentParser sevenSegmentParser(
+		.displayValue(segmentDisplay_DisplayValue),
+		.segmentPins(max10Board_LEDSegments)
+	);
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
 	//----------------------------
@@ -398,5 +404,52 @@ module MusicBox_Main(
 	 assign max10Board_LED[7] = (signalOutput > 194);
 	 assign max10Board_LED[8] = (signalOutput > 221);
 	 assign max10Board_LED[9] = (signalOutput > 250);
+	 
+	 
+	/////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////
+	//------------------------------------
+	//------- SDRAM Controller -----------
+	//------------------------------------
+	reg [24:0]	sdram_inputAddress;
+	reg [15:0] 	sdram_inputData;
+	reg 		sdram_isWriting;
+	reg			sdram_inputValid;
+	reg [15:0] 	sdram_outputData;
+	reg			sdram_outputValid;
+	reg 		sdram_recievedCommand;
+	reg 		sdram_isBusy;
+	
+	SDRAM_Controller sDRAM_Controller (
+		//--INTERFACE INPUT.  These control if we read or write.
+		.activeClock(CLK_32Khz), //Configured at 143Mhz 
+		.reset_n(systemReset_n),
+		
+		.address(sdram_inputAddress), //SDRAM copies these two values when it begins a command. These are free to change when 'recievedCommand' goes high.
+		.inputData(sdram_inputData),
+		
+		.isWriting(sdram_isWriting), //If high, SDRAM controller will write.  If low it will read.
+		.inputValid(sdram_inputValid), //When it goes high, SDRAM controller will read or write the inputData at the address.
+		
+		//--INTERFACE OUTPUT.  These give output from read and other signals.
+		.outputData(sdram_outputData),
+		.outputValid(sdram_outputValid),
+		.recievedCommand(sdram_recievedCommand),
+		.isBusy(sdram_isBusy),
+		//.debugOutputData(debugOutputData),
+		//--Max10 Hardware IO Pins
+		.max10Board_SDRAM_Clock(max10Board_SDRAM_Clock),
+		.max10Board_SDRAM_ClockEnable(max10Board_SDRAM_ClockEnable),
+		.max10Board_SDRAM_Address(max10Board_SDRAM_Address),
+		.max10Board_SDRAM_BankAddress(max10Board_SDRAM_BankAddress),
+		.max10Board_SDRAM_Data(max10Board_SDRAM_Data),
+		.max10Board_SDRAM_DataMask0(max10Board_SDRAM_DataMask0),
+		.max10Board_SDRAM_DataMask1(max10Board_SDRAM_DataMask1),
+		.max10Board_SDRAM_ChipSelect_n(max10Board_SDRAM_ChipSelect_n),
+		.max10Board_SDRAM_WriteEnable_n(max10Board_SDRAM_WriteEnable_n),
+		.max10Board_SDRAM_ColumnAddressStrobe_n(max10Board_SDRAM_ColumnAddressStrobe_n),
+		.max10Board_SDRAM_RowAddressStrobe_n(max10Board_SDRAM_RowAddressStrobe_n)
+	);
+
 	
 endmodule
