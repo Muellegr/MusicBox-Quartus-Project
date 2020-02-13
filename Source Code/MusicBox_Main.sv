@@ -323,35 +323,20 @@ module MusicBox_Main(
 	wire 		SPI_Output_isBusy; //High when sending a message
 	wire 		SPI_Output_transmitComplete;//This goes high briefly when complete
 	
-	//--TESTING INTERFACE
-	// always_ff @ (posedge CLK_100hz, negedge systemReset_n) begin
-		// if (systemReset_n == 1'b0) begin
-			// SPI_Output_WriteSample <= 1'b0;
-		// end
-		// else if (SPI_Output_WriteSample == 12'd4095) begin
-			// SPI_Output_WriteSample <= 12'd0;
-		// end
-		// else if ( max10Board_Buttons[1] == 1'b0) begin
-			// SPI_Output_WriteSample <= SPI_Output_WriteSample + 12'd1;
-		// end
-	// end 
+
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
-	
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
-		
 		//--CONTROL
 		.inputSample( {2'b0, signalOutput} * 16'd16 ), //12 bits that will be sent to the DAC
 		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
-		
 		//--OUTPUT
 		.output_SPI_SCLK(max10Board_GPIO_Output_SPI_SCLK),
 		.output_SPI_SYNC_n(max10Board_GPIO_Output_SPI_SYNC_n),
 		.output_SPI_DIN(max10Board_GPIO_Output_SPI_DIN),
-		
 		//--SIGNAL
 		.isBusy(SPI_Output_isBusy),
 		.transmitComplete(SPI_Output_transmitComplete) //Goes high for 71Khz when this completes the signal
@@ -372,18 +357,14 @@ module MusicBox_Main(
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.reset_n(systemReset_n),
-		
 		//--CONTROL
 		.sendSample(SPI_ADC_Input_sendSample),
-
 		//--HARDWARE I/O
 		.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
 		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
 		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
-		
 		//--OUTPUT
 		.outputSample(SPI_ADC_Output_outputSample),
-		
 		//--SIGNAL
 		.sampleReady(SPI_ADC_Output_newSample)
 	);
