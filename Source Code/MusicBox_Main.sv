@@ -80,11 +80,11 @@ module MusicBox_Main(
 	/////////////////////////////////////////////////////////
 	/////////////////// MAJOR VARIABLE SETUP ////////////////
 	///////// MISC 
-	input wire	max10Board_50MhzClock;
+	input  wire	max10Board_50MhzClock;
 	output wire	[5:0][6:0]	max10Board_LEDSegments;//The DE-10 Board LED Segments
 	output reg [9:0] max10Board_LED; //The DE-10 Board LED lights
-	input wire	[1: 0] max10Board_Buttons ;
-	input wire [9:0] max10board_switches;
+	input  wire	[1: 0] max10Board_Buttons ;
+	input  wire [9:0] max10board_switches;
 	///////// GPIO UI ///////
 	input wire [5:0] max10Board_GPIO_Input_MusicKeys; //Array
 	input wire max10Board_GPIO_Input_PlaySong1;
@@ -97,7 +97,7 @@ module MusicBox_Main(
 	output wire max10Board_GPIO_Output_SPI_DIN; //Data bits
 	///////// GPIO SPI Input from ADC
 	output wire max10Board_GPIO_Input_SPI_SCLK; //Clock pin
-	input wire max10Board_GPIO_Input_SPI_SDO; //Data pin
+	input  wire max10Board_GPIO_Input_SPI_SDO; //Data pin
 	output wire max10Board_GPIO_Input_SPI_CS_n; //Tells ADC to begin sending message
 	
 	///////// SDRAM /////////
@@ -105,7 +105,7 @@ module MusicBox_Main(
 	output wire max10Board_SDRAM_ClockEnable;
 	output wire [12: 0]   max10Board_SDRAM_Address;
 	output wire [ 1: 0]   max10Board_SDRAM_BankAddress;
-	inout wire [15: 0]   max10Board_SDRAM_Data;
+	inout  wire [15: 0]   max10Board_SDRAM_Data;
 	output wire max10Board_SDRAM_DataMask0;
 	output wire max10Board_SDRAM_DataMask1;
 	output wire max10Board_SDRAM_ChipSelect_n; //active low
