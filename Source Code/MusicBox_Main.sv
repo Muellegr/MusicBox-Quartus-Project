@@ -329,8 +329,8 @@ module MusicBox_Main(
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		
-		//--CONTROL
-		.inputSample( {2'b0, signalOutput} * 16'd16 ), //12 bits that will be sent to the DAC
+		//--CONTROL //* (15'd10 / buttonsActive )
+		.inputSample( signalOutputSum  ), //12 bits that will be sent to the DAC
 		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
 		
 		//--OUTPUT
@@ -377,24 +377,106 @@ module MusicBox_Main(
 	//------------------------------------
 	//---Frequency Generator Sample ------
 	//------------------------------------
-	reg [7 : 0] signalOutput;
-	SignalGenerator signalGenerator(
+	//Generate multiple frequencies at this point.  Tie to music keys.  Add some mild volume control. 
+
+
+	 
+	// SignalGenerator signalGenerator(
+	// 	.CLK_32KHz(CLK_32Khz),
+	// 	.reset_n(systemReset_n),
+	// 	.inputFrequency(({4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches}) ),
+	// 	.outputSample(signalOutput)
+	// );
+
+
+	wire [15:0] signalOutputSum;
+	assign signalOutputSum =   signalOutput[0]*max10board_switches[0]
+							 + signalOutput[1]*max10board_switches[1]
+							 + signalOutput[2]*max10board_switches[2]
+							 + signalOutput[3]*max10board_switches[3]
+							 + signalOutput[4]*max10board_switches[4] 
+							 + signalOutput[5]*max10board_switches[5] 
+							 + signalOutput[6]*max10board_switches[6] 
+							 + signalOutput[7]*max10board_switches[7] 
+							 + (signalOutput[8]>>1)*max10board_switches[8] 
+							 + (signalOutput[9]>>2)*max10board_switches[9];
+	reg [9:0][7 : 0] signalOutput;
+	wire [15:0] buttonsActive;
+	assign buttonsActive = max10board_switches[0] + max10board_switches[1] + max10board_switches[2] + max10board_switches[3] + max10board_switches[4] + max10board_switches[5] + max10board_switches[6] + max10board_switches[7] + max10board_switches[8] + max10board_switches[9];
+	//Max value : 10
+	
+	SignalGenerator signalGenerator0(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(({4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches}) ),
-		.outputSample(signalOutput)
+		.inputFrequency(14'd100),
+		.outputSample(signalOutput[0])
 	);
-	
+	SignalGenerator signalGenerator1(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd101),
+		.outputSample(signalOutput[1])
+	);
+	SignalGenerator signalGenerator2(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd103),
+		.outputSample(signalOutput[2])
+	);
+	SignalGenerator signalGenerator3(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd160),
+		.outputSample(signalOutput[3])
+	);
+	SignalGenerator signalGenerator4(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd200),
+		.outputSample(signalOutput[4])
+	);
+	SignalGenerator signalGenerator5(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd202),
+		.outputSample(signalOutput[5])
+	);
+	SignalGenerator signalGenerator6(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd206),
+		.outputSample(signalOutput[6])
+	);
+	SignalGenerator signalGenerator7(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd350),
+		.outputSample(signalOutput[7])
+	);
+	SignalGenerator signalGenerator8(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd450),
+		.outputSample(signalOutput[8])
+	);
+	SignalGenerator signalGenerator9(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd600),
+		.outputSample(signalOutput[9])
+	);
+
+
 	//Helps show sine wave pattern a bit
-	 assign max10Board_LED[0] = (signalOutput > 005);
-	 assign max10Board_LED[1] = (signalOutput > 032);
-	 assign max10Board_LED[2] = (signalOutput > 059);
-	 assign max10Board_LED[3] = (signalOutput > 086);
-	 assign max10Board_LED[4] = (signalOutput > 113);
-	 assign max10Board_LED[5] = (signalOutput > 140);
-	 assign max10Board_LED[6] = (signalOutput > 167);
-	 assign max10Board_LED[7] = (signalOutput > 194);
-	 assign max10Board_LED[8] = (signalOutput > 221);
-	 assign max10Board_LED[9] = (signalOutput > 250);
+	//  assign max10Board_LED[0] = (signalOutput > 005);
+	//  assign max10Board_LED[1] = (signalOutput > 032);
+	//  assign max10Board_LED[2] = (signalOutput > 059);
+	//  assign max10Board_LED[3] = (signalOutput > 086);
+	//  assign max10Board_LED[4] = (signalOutput > 113);
+	//  assign max10Board_LED[5] = (signalOutput > 140);
+	//  assign max10Board_LED[6] = (signalOutput > 167);
+	//  assign max10Board_LED[7] = (signalOutput > 194);
+	//  assign max10Board_LED[8] = (signalOutput > 221);
+	//  assign max10Board_LED[9] = (signalOutput > 250);
 	
 endmodule
