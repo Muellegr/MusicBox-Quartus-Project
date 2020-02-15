@@ -1,4 +1,13 @@
 
+State Machine - |MusicBox_Main|SDRAM_TestModule:sdRamTest|currentState
+Name currentState.00111 currentState.00100 currentState.00011 currentState.00010 currentState.00001 currentState.00000 
+currentState.00000 0 0 0 0 0 0 
+currentState.00001 0 0 0 0 1 1 
+currentState.00010 0 0 0 1 0 1 
+currentState.00011 0 0 1 0 0 1 
+currentState.00100 0 1 0 0 0 1 
+currentState.00111 1 0 0 0 0 1 
+
 State Machine - |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState
 Name currentState.WRITE_PRECHARGE currentState.WRITE_ACTION currentState.WRITE_ROWACTIVATE currentState.READ_PRECHARGE currentState.READ_ACTION currentState.READ_ROWACTIVATE currentState.AUTOFRESH_ALL currentState.IDLE currentState.INIT_LOADMODE currentState.INIT_AUTOREFRESH currentState.INIT_PRECHARGE currentState.INIT_STARTUPWAIT currentState.INIT 
 currentState.INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 

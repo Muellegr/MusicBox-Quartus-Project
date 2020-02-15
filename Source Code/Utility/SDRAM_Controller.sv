@@ -34,7 +34,7 @@ module SDRAM_Controller(
 	//-------------------------------------
 	//---------- COMBINATIONAL ------------
 	//-------------------------------------
-	assign debugOutputData = isBusy ? inputData : 16'd0; //Currently mostly unused.  Lets us easily port information out.
+	assign debugOutputData = currentState;//isBusy ? inputData : 16'd0; //Currently mostly unused.  Lets us easily port information out.
 	
 	wire isBusy_AutoRefresh ;  //Does an autorefresh need to occur
 	reg isBusy_Command; //is it busy due to a current command.  

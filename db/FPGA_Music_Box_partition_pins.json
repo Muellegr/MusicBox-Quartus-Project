@@ -4,6 +4,22 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "max10Board_SDRAM_Address[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[3]",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_SDRAM_Address[4]",
 					"strict" : false
 				},
@@ -12,11 +28,39 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_SDRAM_Address[6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[7]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[8]",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_SDRAM_Address[9]",
 					"strict" : false
 				},
 				{
 					"name" : "max10Board_SDRAM_Address[10]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[11]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[12]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_BankAddress[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_BankAddress[1]",
 					"strict" : false
 				},
 				{
@@ -48,7 +92,47 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[0]",
+					"name" : "max10Board_LEDSegments[0][0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][5]",
 					"strict" : false
 				},
 				{
@@ -73,18 +157,6 @@
 				},
 				{
 					"name" : "max10Board_LED[6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[7]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[8]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[9]",
 					"strict" : false
 				},
 				{
