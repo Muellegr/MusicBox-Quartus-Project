@@ -19,7 +19,7 @@ module SDRAM_TestModule(
 	  output reg [40:0] outputValue
 	   );
 	   
-	   reg [31:0] counter ;
+	   reg [31:0] counter ;//= 32'b0;
 	   const reg [31:0] counterMax = 32'd33554431; //Static value used to count up to.
 	   reg [4:0] currentState = 5'b0 ;
 	   
@@ -35,8 +35,9 @@ module SDRAM_TestModule(
 				counter = 32'b0;
 				currentState = 5'b0 ;
 			end
-			//If we havne't ran into an error
+			
 			else if (compareError != 1'b1) begin
+			
 				case(currentState) 					
 					5'd0 : begin
 						counter = 32'b0;
@@ -117,7 +118,7 @@ module SDRAM_TestModule(
 						if (inputDataAvailable == 1'b1) begin //Data is good to record
 							if (counter[15:0] != inputData ) begin
 								//If error, display what the input data was.
-								outputValue = {9'd0 , counter};//{24'd0, inputData } ;
+								outputValue ={24'd0, inputData } ;
 								//outputValue = {9'd0 , counter};
 								compareError = 1'b1;
 								currentState = 5'd7;

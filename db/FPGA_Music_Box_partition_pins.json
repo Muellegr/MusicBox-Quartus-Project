@@ -124,6 +124,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_LEDSegments[1][1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][2]",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_LEDSegments[1][3]",
 					"strict" : false
 				},
@@ -133,6 +141,94 @@
 				},
 				{
 					"name" : "max10Board_LEDSegments[1][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[3][0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[3][1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[3][2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[3][3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[3][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[3][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[3][6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[4][0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[4][1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[4][2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[4][3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[4][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[4][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[4][6]",
 					"strict" : false
 				},
 				{

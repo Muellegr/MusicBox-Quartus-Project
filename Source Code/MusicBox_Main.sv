@@ -453,7 +453,8 @@ module MusicBox_Main(
 	assign sdram_inputAddress = sdram_inpuAddressTester;
 	assign sdram_isWriting = sdram_isWritingTester;
 	assign sdram_inputValid =  sdram_inputValidTester;
-	assign sdram_inputData = sdram_inputDataLoading;
+	assign sdram_inputData = sdram_inputDataTester;//sdram_inputDataLoading;
+
 	wire [4:0] index;
 	
 	reg sdRamTest_CompareError ;
@@ -471,7 +472,7 @@ module MusicBox_Main(
 	reg [24:0] sdRamTest_outputAddress;
 	reg [15:0] sdRamTest_outputData;
 	
-	
+	//outputData (sdram_inputDataTester) is used for WRITING. 
 	
 	
 	//--A test module that incrmeents through all of this.
@@ -491,5 +492,23 @@ module MusicBox_Main(
 		.completedSuccess(sdRamTest_CompletedSuccess) //If we were successful
 		//.outputValue( segmentDisplay_DisplayValue) //Current increment, updated every 0.25 seconds
 	);
+
+/*
+///////// SDRAM /////////
+	output wire max10Board_SDRAM_Clock;
+	output wire max10Board_SDRAM_ClockEnable;
+	output wire [12: 0]   max10Board_SDRAM_Address;
+	output wire [ 1: 0]   max10Board_SDRAM_BankAddress;
+	inout  wire [15: 0]   max10Board_SDRAM_Data;
+	output wire max10Board_SDRAM_DataMask0;
+	output wire max10Board_SDRAM_DataMask1;
+	output wire max10Board_SDRAM_ChipSelect_n; //active low
+	output wire max10Board_SDRAM_WriteEnable_n; //active low
+	output wire max10Board_SDRAM_ColumnAddressStrobe_n; //active low
+	output wire max10Board_SDRAM_RowAddressStrobe_n; //active low
+	
+*/
+
+
 
 endmodule
