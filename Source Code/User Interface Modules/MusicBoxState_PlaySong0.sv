@@ -23,7 +23,7 @@ module MusicBoxState_PlaySong0 (
 		always_ff @(posedge clock_1Khz ) begin //clock_1Khz negedge reset_n 
 			//If current state isn't equal to 1. 
 				//Does not like resetting here.  I think because reset influences currentState.
-			if (currentState != 1'b1) begin
+			if (currentState != 5'd1) begin
 				counter <= 16'b0;
 				stateComplete <= 1'b0;
 			end

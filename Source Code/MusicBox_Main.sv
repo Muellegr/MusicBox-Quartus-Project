@@ -157,7 +157,16 @@ module MusicBox_Main(
 	);
 		defparam	clockGenerator_10hz.BitsNeeded = 35; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_10hz.InputClockEdgesToCount = 2500000;
-	
+	//1133
+	wire CLK_22Khz ;
+	ClockGenerator clockGenerator_22Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_22Khz)
+	);
+		defparam	clockGenerator_22Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_22Khz.InputClockEdgesToCount = 1133;
+
 	wire CLK_32Khz ;
 	ClockGenerator clockGenerator_32Khz (
 		.inputClock(max10Board_50MhzClock),
@@ -167,11 +176,11 @@ module MusicBox_Main(
 		defparam	clockGenerator_32Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781;
 	
-	wire CLK_1Hz ;
+	wire CLK_1hz ;
 	ClockGenerator clockGenerator_1hz (
 		.inputClock(CLK_1Khz),
 		.reset_n(systemReset_n),
-		.outputClock(CLK_1Hz)
+		.outputClock(CLK_1hz)
 	);
 		defparam	clockGenerator_1hz.BitsNeeded = 10; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_1hz.InputClockEdgesToCount = 500;
@@ -180,6 +189,7 @@ module MusicBox_Main(
 	//--7 Segment Display Control. 
 	//-----------------------
 	reg [19:0] segmentDisplay_DisplayValue ;//= 20'd512;
+	 
 	SevenSegmentParser sevenSegmentParser(
 		.displayValue(segmentDisplay_DisplayValue),
 		.segmentPins(max10Board_LEDSegments)
@@ -231,28 +241,32 @@ module MusicBox_Main(
 	wire max10Board_GPIO_Input_PlaySong1_s;
 		UI_TriggerSmoother UIs_PlaySong1 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_PlaySong1),
+			//.inputWire(max10Board_GPIO_Input_PlaySong1),
+			.inputWire(max10board_switches[0]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong1_s)
 		);
 	wire max10Board_GPIO_Input_PlaySong0_s;
 		UI_TriggerSmoother UIs_PlaySong0 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_PlaySong0),
+			//.inputWire(max10Board_GPIO_Input_PlaySong0),
+			.inputWire(max10board_switches[1]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong0_s)
 		);
 	wire max10Board_GPIO_Input_MakeRecording_s;
 		UI_TriggerSmoother UIs_Makerecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_MakeRecording),
+			//.inputWire(max10Board_GPIO_Input_MakeRecording),
+			.inputWire(max10board_switches[2]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MakeRecording_s)
 		);
 	wire max10Board_GPIO_Input_PlayRecording_s;
 		UI_TriggerSmoother UIs_PlayRecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_PlayRecording),
+			//.inputWire(max10Board_GPIO_Input_PlayRecording),
+			.inputWire(max10board_switches[3]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
@@ -274,13 +288,61 @@ module MusicBox_Main(
 	
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
+	//------------------------------------
+	//------- SDRAM Controller -----------
+	//------------------------------------
+assign segmentDisplay_DisplayValue =output_DebugString [15:0];
+
+	reg [24:0]	sdram_inputAddress; //This is the address to loop up
+	reg [15:0] 	sdram_inputData; //Data to WRITE (only if writing)
+	reg [15:0] 	sdram_outputData; //Data from READ (Only if reading)
+	reg 		sdram_isWriting; //If 1, we are WRITING.  if 0, we are READING.
+	reg			sdram_inputValid; //Tells the SDRAM to perform the action if high. 
+	 
+	reg			sdram_outputValid; //Tells modules output data is available on the output.
+	reg 		sdram_recievedCommand; //Tells modules it recieved the input.
+	reg 		sdram_isBusy; //Tells modules if it is working on something (including internal autorefresh)
+
+	SDRAM_Controller sDRAM_Controller (
+		//--INTERFACE INPUT.  These control if we read or write.
+		.activeClock(CLK_143Mhz), //Configured at 143Mhz 
+		.reset_n(systemReset_n),
+		
+		.address(sdram_inputAddress), //SDRAM copies these two values when it begins a command. These are free to change when 'recievedCommand' goes high.
+		.inputData(sdram_inputData),
+		
+		.isWriting(sdram_isWriting), //If high, SDRAM controller will write.  If low it will read.
+		.inputValid(sdram_inputValid), //When it goes high, SDRAM controller will read or write the inputData at the address.
+		
+		//--INTERFACE OUTPUT.  These give output from read and other signals.
+		.outputData(sdram_outputData),
+		.outputValid(sdram_outputValid),
+		.recievedCommand(sdram_recievedCommand),
+		.isBusy(sdram_isBusy),
+		//.debugOutputData(segmentDisplay_DisplayValue),
+		//--Max10 Hardware IO Pins
+		.max10Board_SDRAM_Clock(max10Board_SDRAM_Clock),
+		.max10Board_SDRAM_ClockEnable(max10Board_SDRAM_ClockEnable),
+		.max10Board_SDRAM_Address(max10Board_SDRAM_Address),
+		.max10Board_SDRAM_BankAddress(max10Board_SDRAM_BankAddress),
+		.max10Board_SDRAM_Data(max10Board_SDRAM_Data),
+		.max10Board_SDRAM_DataMask0(max10Board_SDRAM_DataMask0),
+		.max10Board_SDRAM_DataMask1(max10Board_SDRAM_DataMask1),
+		.max10Board_SDRAM_ChipSelect_n(max10Board_SDRAM_ChipSelect_n),
+		.max10Board_SDRAM_WriteEnable_n(max10Board_SDRAM_WriteEnable_n),
+		.max10Board_SDRAM_ColumnAddressStrobe_n(max10Board_SDRAM_ColumnAddressStrobe_n),
+		.max10Board_SDRAM_RowAddressStrobe_n(max10Board_SDRAM_RowAddressStrobe_n)
+	);
+
 	//----------------------------
 	//-- STATE MACHINE -----------
 	//----------------------------
 	MusicBoxStateController musicBoxStateController (
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
+		.clock_22Khz(CLK_22Khz),
 		.clock_1Khz(CLK_1Khz),
+		.clock_1hz(CLK_1hz),
 		.reset_n(systemReset_n),
 		//--USER UI
 		.input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
@@ -290,7 +352,17 @@ module MusicBox_Main(
 		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
 		//--OUTPUT
 		.debugString(output_DebugString), //This is used to send any data out of the module for testing purposes.  Follows no format.
-		.outputState(outputCurrentState) //Current state so other modules may use it.
+		.outputState(outputCurrentState), //Current state so other modules may use it.
+		//--SDRAM Interface
+		.sdram_inputAddress(sdram_inputAddress),
+		.sdram_writeData(sdram_inputData),
+		.sdram_readData(sdram_outputData),
+		.sdram_isWriting(sdram_isWriting),
+		.sdram_inputValid(sdram_inputValid),
+		//--
+		.sdram_outputValid(sdram_outputValid),
+		.sdram_recievedCommand(sdram_recievedCommand),
+		.sdram_isBusy(sdram_isBusy)
 	);
 	
 	/////////////////////////////////////////////////////////
@@ -381,81 +453,39 @@ module MusicBox_Main(
 	 
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
-	//------------------------------------
-	//------- SDRAM Controller -----------
-	//------------------------------------
-	reg [24:0]	sdram_inputAddress;
-	reg [15:0] 	sdram_inputData;
-	reg 		sdram_isWriting;
-	reg			sdram_inputValid;
-	reg [15:0] 	sdram_outputData;
-	reg			sdram_outputValid;
-	reg 		sdram_recievedCommand;
-	reg 		sdram_isBusy;
 	
-	SDRAM_Controller sDRAM_Controller (
-		//--INTERFACE INPUT.  These control if we read or write.
-		.activeClock(CLK_143Mhz), //Configured at 143Mhz 
-		.reset_n(systemReset_n),
-		
-		.address(sdram_inputAddress), //SDRAM copies these two values when it begins a command. These are free to change when 'recievedCommand' goes high.
-		.inputData(sdram_inputData),
-		
-		.isWriting(sdram_isWriting), //If high, SDRAM controller will write.  If low it will read.
-		.inputValid(sdram_inputValid), //When it goes high, SDRAM controller will read or write the inputData at the address.
-		
-		//--INTERFACE OUTPUT.  These give output from read and other signals.
-		.outputData(sdram_outputData),
-		.outputValid(sdram_outputValid),
-		.recievedCommand(sdram_recievedCommand),
-		.isBusy(sdram_isBusy),
-		.debugOutputData(segmentDisplay_DisplayValue),
-		//--Max10 Hardware IO Pins
-		.max10Board_SDRAM_Clock(max10Board_SDRAM_Clock),
-		.max10Board_SDRAM_ClockEnable(max10Board_SDRAM_ClockEnable),
-		.max10Board_SDRAM_Address(max10Board_SDRAM_Address),
-		.max10Board_SDRAM_BankAddress(max10Board_SDRAM_BankAddress),
-		.max10Board_SDRAM_Data(max10Board_SDRAM_Data),
-		.max10Board_SDRAM_DataMask0(max10Board_SDRAM_DataMask0),
-		.max10Board_SDRAM_DataMask1(max10Board_SDRAM_DataMask1),
-		.max10Board_SDRAM_ChipSelect_n(max10Board_SDRAM_ChipSelect_n),
-		.max10Board_SDRAM_WriteEnable_n(max10Board_SDRAM_WriteEnable_n),
-		.max10Board_SDRAM_ColumnAddressStrobe_n(max10Board_SDRAM_ColumnAddressStrobe_n),
-		.max10Board_SDRAM_RowAddressStrobe_n(max10Board_SDRAM_RowAddressStrobe_n)
-	);
-
 
 
 	//--------SDRAM TESTING INTERFACE
-	reg isLoading ;
-	reg [24:0] sdram_testAddressCounter;
-	reg [10:0][24:0] sdram_TestAddress;
-	reg [10:0][15:0] sdram_TestInputData;
-	reg [10:0][15:0] sdram_TestOutputData;
-//	wire [15:0] sdram_inputData;
+// 	reg isLoading ;
+// 	reg [24:0] sdram_testAddressCounter;
+// 	reg [10:0][24:0] sdram_TestAddress;
+// 	reg [10:0][15:0] sdram_TestInputData;
+// 	reg [10:0][15:0] sdram_TestOutputData;
+// //	wire [15:0] sdram_inputData;
 	
 	
-	reg [15:0] sdram_inputDataLoading;
+//	reg [15:0] sdram_inputDataLoading;
 	//	reg [24:0] sdram_inputAddressLoading;
 
-	reg [15:0] sdram_inputDataTester;
-	reg [24:0] sdram_inpuAddressTester;
+//	reg [15:0] sdram_inputDataTester;
+	//reg [24:0] sdram_inpuAddressTester;
 	
 	//wire sdram_isWriting ;
 	//	reg	sdram_isWritingLoading;
-	reg sdram_isWritingTester;
+	//reg sdram_isWritingTester;
 	
 
 	//wire sdram_inputValid ;
 	//	reg sdram_inputValidLoading;
-	reg sdram_inputValidTester;
+	//reg sdram_inputValidTester;
 
-	assign sdram_inputAddress = sdram_inpuAddressTester;
-	assign sdram_isWriting = sdram_isWritingTester;
-	assign sdram_inputValid =  sdram_inputValidTester;
-	assign sdram_inputData = sdram_inputDataTester;//sdram_inputDataLoading;
+	//assign sdram_inputAddress = sdram_inpuAddressTester;
+	//assign sdram_isWriting = sdram_isWritingTester;
+	//assign sdram_inputValid =  sdram_inputValidTester;
+	//assign sdram_inputData = sdram_inputDataTester;//sdram_inputDataLoading;
 
-	wire [4:0] index;
+	//wire [4:0] index;
 	
 	reg sdRamTest_CompareError ;
 	reg sdRamTest_CompletedSuccess ;
@@ -466,49 +496,30 @@ module MusicBox_Main(
 	assign max10Board_LED[4] = sdram_inputValid;
 	assign max10Board_LED[5] = sdram_isWriting;
 	assign max10Board_LED[6] = sdram_recievedCommand;
+	assign max10Board_LED[7] = sdram_outputValid;
 
-	reg sdRamTest_isWriting;
-	reg sdRamTest_inputValid;
-	reg [24:0] sdRamTest_outputAddress;
-	reg [15:0] sdRamTest_outputData;
+	 
 	
 	//outputData (sdram_inputDataTester) is used for WRITING. 
 	
 	
-	//--A test module that incrmeents through all of this.
-	SDRAM_TestModule sdRamTest (
-		.inputClock(CLK_143Mhz), //Clock
-		.reset_n(systemReset_n), //Reset, active low
-		.isBusy(sdram_isBusy), //Is the SDRAm saying it's busy
-		.recievedCommand(sdram_recievedCommand),
+	// // //--A test module that incrmeents through all of this.
+	// SDRAM_TestModule sdRamTest (
+	// 	.inputClock(CLK_143Mhz), //Clock  CLK_143Mhz
+	// 	.reset_n(systemReset_n), //Reset, active low
+	// 	.isBusy(sdram_isBusy), //Is the SDRAm saying it's busy
+	// 	.recievedCommand(sdram_recievedCommand),
 		
-		.isWriting(sdram_isWritingTester), //If we say output is valid, is it writing
-		.outputValid(sdram_inputValidTester), //Should we try a new command
-		.outputAddress(sdram_inpuAddressTester), //Address this writes data to
-		.outputData(sdram_inputDataTester), //Data to write
-		.inputDataAvailable(sdram_outputValid), //High when data from reading is available
-		.inputData(sdram_outputData), // Data from reading
-		.compareError(sdRamTest_CompareError), //If we arrived at an error
-		.completedSuccess(sdRamTest_CompletedSuccess) //If we were successful
-		//.outputValue( segmentDisplay_DisplayValue) //Current increment, updated every 0.25 seconds
-	);
-
-/*
-///////// SDRAM /////////
-	output wire max10Board_SDRAM_Clock;
-	output wire max10Board_SDRAM_ClockEnable;
-	output wire [12: 0]   max10Board_SDRAM_Address;
-	output wire [ 1: 0]   max10Board_SDRAM_BankAddress;
-	inout  wire [15: 0]   max10Board_SDRAM_Data;
-	output wire max10Board_SDRAM_DataMask0;
-	output wire max10Board_SDRAM_DataMask1;
-	output wire max10Board_SDRAM_ChipSelect_n; //active low
-	output wire max10Board_SDRAM_WriteEnable_n; //active low
-	output wire max10Board_SDRAM_ColumnAddressStrobe_n; //active low
-	output wire max10Board_SDRAM_RowAddressStrobe_n; //active low
-	
-*/
-
+	// 	.isWriting(sdram_isWritingTester), //If we say output is valid, is it writing
+	// 	.outputValid(sdram_inputValidTester), //Should we try a new command
+	// 	.outputAddress(sdram_inpuAddressTester), //Address this writes data to
+	// 	.outputData(sdram_inputDataTester), //Data to write
+	// 	.inputDataAvailable(sdram_outputValid), //High when data from reading is available
+	// 	.inputData(sdram_outputData), // Data from reading
+	// 	.compareError(sdRamTest_CompareError), //If we arrived at an error
+	// 	.completedSuccess(sdRamTest_CompletedSuccess) //If we were successful
+	// 	//.outputValue( segmentDisplay_DisplayValue) //Current increment, updated every 0.25 seconds
+	// );
 
 
 endmodule

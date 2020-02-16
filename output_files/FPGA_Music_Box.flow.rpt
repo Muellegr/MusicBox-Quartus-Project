@@ -1,5 +1,5 @@
 Flow report for FPGA_Music_Box
-Sat Feb 15 13:14:23 2020
+Sun Feb 16 12:59:37 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Feb 15 13:14:15 2020       ;
+; Flow Status                        ; Successful - Sun Feb 16 12:59:25 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,959 / 49,760 ( 4 % )                      ;
-;     Total combinational functions  ; 1,916 / 49,760 ( 4 % )                      ;
-;     Dedicated logic registers      ; 285 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 285                                         ;
+; Total logic elements               ; 2,125 / 49,760 ( 4 % )                      ;
+;     Total combinational functions  ; 2,094 / 49,760 ( 4 % )                      ;
+;     Dedicated logic registers      ; 410 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 410                                         ;
 ; Total pins                         ; 120 / 360 ( 33 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/15/2020 13:13:22 ;
+; Start date & time ; 02/16/2020 12:58:03 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGA_Music_Box      ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+----------------+---------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value  ; Entity Name   ; Section Id ;
 +-------------------------------------+----------------------------------------+----------------+---------------+------------+
-; COMPILER_SIGNATURE_ID               ; 93383152511034.158180120113192         ; --             ; --            ; --         ;
+; COMPILER_SIGNATURE_ID               ; 93383152511034.158188668210948         ; --             ; --            ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --             ; --            ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --             ; --            ; --         ;
 ; MISC_FILE                           ; ALTPLL_Clock_bb.v                      ; --             ; --            ; --         ;
@@ -100,11 +100,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 4794 MB             ; 00:00:43                           ;
-; Fitter               ; 00:00:23     ; 1.1                     ; 5391 MB             ; 00:00:30                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4696 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:07     ; 1.2                     ; 4820 MB             ; 00:00:07                           ;
-; Total                ; 00:00:57     ; --                      ; --                  ; 00:01:24                           ;
+; Analysis & Synthesis ; 00:00:36     ; 1.0                     ; 4814 MB             ; 00:00:52                           ;
+; Fitter               ; 00:00:36     ; 1.1                     ; 5397 MB             ; 00:00:42                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4693 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.2                     ; 4823 MB             ; 00:00:09                           ;
+; Total                ; 00:01:28     ; --                      ; --                  ; 00:01:48                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

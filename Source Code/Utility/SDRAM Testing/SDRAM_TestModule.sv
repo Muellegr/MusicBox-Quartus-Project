@@ -20,7 +20,7 @@ module SDRAM_TestModule(
 	   );
 	   
 	   reg [31:0] counter ;//= 32'b0;
-	   const reg [31:0] counterMax = 32'd33554431; //Static value used to count up to.
+	   const reg [31:0] counterMax = 32'd100;//32'd33554431; //Static value used to count up to.
 	   reg [4:0] currentState = 5'b0 ;
 	   
 	   always@(posedge inputClock) begin

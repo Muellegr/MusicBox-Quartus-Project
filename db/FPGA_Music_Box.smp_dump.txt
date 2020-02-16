@@ -1,12 +1,33 @@
 
-State Machine - |MusicBox_Main|SDRAM_TestModule:sdRamTest|currentState
-Name currentState.00111 currentState.00100 currentState.00011 currentState.00010 currentState.00001 currentState.00000 
-currentState.00000 0 0 0 0 0 0 
-currentState.00001 0 0 0 0 1 1 
-currentState.00010 0 0 0 1 0 1 
-currentState.00011 0 0 1 0 0 1 
-currentState.00100 0 1 0 0 0 1 
-currentState.00111 1 0 0 0 0 1 
+State Machine - |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|currentState
+Name currentState.00001 
+currentState.00000 0 
+currentState.00001 1 
+
+State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
+Name currentState.00000 currentState.00010 currentState.00001 
+currentState.00000 0 0 0 
+currentState.00001 1 0 1 
+currentState.00010 1 1 0 
+
+State Machine - |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|stateComplete_1
+Name stateComplete_1.00 stateComplete_1.10 stateComplete_1.01 
+stateComplete_1.00 0 0 0 
+stateComplete_1.01 1 0 1 
+stateComplete_1.10 1 1 0 
+
+State Machine - |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|currentState
+Name currentState.001101 currentState.001100 currentState.000001 currentState.000000 
+currentState.000000 0 0 0 0 
+currentState.000001 0 0 1 1 
+currentState.001100 0 1 0 1 
+currentState.001101 1 0 0 1 
+
+State Machine - |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|currentState
+Name currentState.000000 currentState.001100 currentState.001011 
+currentState.000000 0 0 0 
+currentState.001011 1 0 1 
+currentState.001100 1 1 0 
 
 State Machine - |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState
 Name currentState.WRITE_PRECHARGE currentState.WRITE_ACTION currentState.WRITE_ROWACTIVATE currentState.READ_PRECHARGE currentState.READ_ACTION currentState.READ_ROWACTIVATE currentState.AUTOFRESH_ALL currentState.IDLE currentState.INIT_LOADMODE currentState.INIT_AUTOREFRESH currentState.INIT_PRECHARGE currentState.INIT_STARTUPWAIT currentState.INIT 
@@ -23,14 +44,3 @@ currentState.READ_PRECHARGE 0 0 0 1 0 0 0 0 0 0 0 0 1
 currentState.WRITE_ROWACTIVATE 0 0 1 0 0 0 0 0 0 0 0 0 1 
 currentState.WRITE_ACTION 0 1 0 0 0 0 0 0 0 0 0 0 1 
 currentState.WRITE_PRECHARGE 1 0 0 0 0 0 0 0 0 0 0 0 1 
-
-State Machine - |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|currentState
-Name currentState.00001 
-currentState.00000 0 
-currentState.00001 1 
-
-State Machine - |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|currentState
-Name currentState.00000 currentState.00010 currentState.00001 
-currentState.00000 0 0 0 
-currentState.00001 1 0 1 
-currentState.00010 1 1 0 

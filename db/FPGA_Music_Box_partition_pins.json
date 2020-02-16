@@ -48,22 +48,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_SDRAM_Address[11]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_SDRAM_Address[12]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_SDRAM_BankAddress[0]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_SDRAM_BankAddress[1]",
-					"strict" : false
-				},
-				{
 					"name" : "max10Board_SDRAM_WriteEnable_n",
 					"strict" : false
 				},
@@ -232,14 +216,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[1]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[2]",
-					"strict" : false
-				},
-				{
 					"name" : "max10Board_LED[3]",
 					"strict" : false
 				},
@@ -253,6 +229,10 @@
 				},
 				{
 					"name" : "max10Board_LED[6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[7]",
 					"strict" : false
 				},
 				{
@@ -328,6 +308,22 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10board_switches[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[1]",
+					"strict" : false
+				},
+				{
 					"name" : "max10board_switches[9]",
 					"strict" : false
 				},
@@ -349,22 +345,6 @@
 				},
 				{
 					"name" : "max10board_switches[4]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[3]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[2]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[1]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[0]",
 					"strict" : false
 				}
 			]

@@ -97,8 +97,6 @@ module SDRAM_Controller(
 	 
 	//--------------------------------------------------------------
 	//--STATE MACHINE CONTROL. currentState determines which state//action we are doing.  These states will change pins as it sees fit.
-	 
-	
 	reg [4:0] currentState ;
 	reg [16:0] pauseCycles; //clock cycles to pause in the current state
 	//--
