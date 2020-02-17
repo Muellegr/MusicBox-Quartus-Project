@@ -38,7 +38,7 @@ module MusicBoxStateController (
 		input logic input_MakeRecording_n,
 		input logic input_PlayRecording_n,
 		input logic [5:0] input_MusicKey, //Unused
-		
+		//
 		//--This is used to send any data out of the module for testing purposes.  Follows no format.
 		output logic [31:0] debugString,  
 		

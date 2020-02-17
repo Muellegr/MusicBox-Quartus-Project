@@ -93,7 +93,7 @@ module MusicBoxState_PlayRecording(
 		end
 	end
 
-	
+	//
 	always_ff @(posedge clock_22Khz ) begin //clock_1Khz negedge reset_n 
 		//RESET
 		if (mainState != 5'd3 || currentState != 5'd1) begin

@@ -7,7 +7,7 @@ module MusicBoxState_MakeRecording (
 	input logic [4:0] mainState, //This is controlled by MusicBoxStateController.   
 	
 	output logic [31:0] debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
-	
+	//
 	//Set to 1 when this stage is complete and is ready to return to DoNothing.
 	output logic stateComplete,
 
