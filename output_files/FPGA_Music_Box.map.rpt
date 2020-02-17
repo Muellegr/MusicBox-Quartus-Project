@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA_Music_Box
-Sun Feb 16 12:58:39 2020
+Sun Feb 16 13:12:39 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -33,35 +33,26 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
  25. Parameter Settings for User Entity Instance: ClockGenerator:clockGenerator_1hz
  26. Parameter Settings for User Entity Instance: SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz
  27. Parameter Settings for User Entity Instance: SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz
- 28. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0
- 29. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0
- 30. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1
- 31. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1
- 32. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2
- 33. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2
- 34. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3
- 35. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3
- 36. Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod4
- 37. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Div0
- 38. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Mod0
- 39. altpll Parameter Settings by Entity Instance
- 40. Port Connectivity Checks: "SignalGenerator:signalGenerator"
- 41. Port Connectivity Checks: "SPI_InputControllerDac:sPI_InputControllerDac"
- 42. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
- 43. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording"
- 44. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1"
- 45. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0"
- 46. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
- 47. Port Connectivity Checks: "SDRAM_Controller:sDRAM_Controller"
- 48. Port Connectivity Checks: "MusicKeysController:musicKeysController"
- 49. Port Connectivity Checks: "SevenSegmentParser:sevenSegmentParser"
- 50. Port Connectivity Checks: "ClockGenerator:clockGenerator_10hz"
- 51. Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"
- 52. Port Connectivity Checks: "ALTPLL_Clock:aLTPLL_Clock_143Mhz"
- 53. Post-Synthesis Netlist Statistics for Top Partition
- 54. Elapsed Time Per Partition
- 55. Analysis & Synthesis Messages
- 56. Analysis & Synthesis Suppressed Messages
+ 28. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Mod0
+ 30. altpll Parameter Settings by Entity Instance
+ 31. Port Connectivity Checks: "SignalGenerator:signalGenerator"
+ 32. Port Connectivity Checks: "SPI_InputControllerDac:sPI_InputControllerDac"
+ 33. Port Connectivity Checks: "SPI_OutputControllerDac:sPI_OutputControllerDac"
+ 34. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording"
+ 35. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1"
+ 36. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0"
+ 37. Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"
+ 38. Port Connectivity Checks: "SDRAM_Controller:sDRAM_Controller"
+ 39. Port Connectivity Checks: "MusicKeysController:musicKeysController"
+ 40. Port Connectivity Checks: "SevenSegmentParser:sevenSegmentParser"
+ 41. Port Connectivity Checks: "ClockGenerator:clockGenerator_10hz"
+ 42. Port Connectivity Checks: "ClockGenerator:clockGenerator_100hz"
+ 43. Port Connectivity Checks: "ALTPLL_Clock:aLTPLL_Clock_143Mhz"
+ 44. Post-Synthesis Netlist Statistics for Top Partition
+ 45. Elapsed Time Per Partition
+ 46. Analysis & Synthesis Messages
+ 47. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -87,13 +78,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Feb 16 12:58:38 2020       ;
+; Analysis & Synthesis Status        ; Successful - Sun Feb 16 13:12:39 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA_Music_Box                              ;
 ; Top-level Entity Name              ; MusicBox_Main                               ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 2,112                                       ;
-;     Total combinational functions  ; 2,094                                       ;
+; Total logic elements               ; 1,005                                       ;
+;     Total combinational functions  ; 987                                         ;
 ;     Dedicated logic registers      ; 410                                         ;
 ; Total registers                    ; 410                                         ;
 ; Total pins                         ; 120                                         ;
@@ -241,24 +232,11 @@ refer to the applicable agreement for further details.
 ; lpm_divide.tdf                                                    ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/lpm_divide.tdf                                                                  ;         ;
 ; abs_divider.inc                                                   ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/abs_divider.inc                                                                 ;         ;
 ; sign_div_unsign.inc                                               ; yes             ; Megafunction                 ; c:/program files/intelfpga_lite/18.0/quartus/libraries/megafunctions/sign_div_unsign.inc                                                             ;         ;
-; db/lpm_divide_mll.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_mll.tdf                                             ;         ;
-; db/sign_div_unsign_llh.tdf                                        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_llh.tdf                                        ;         ;
-; db/alt_u_div_khe.tdf                                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf                                              ;         ;
-; db/add_sub_t3c.tdf                                                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_t3c.tdf                                                ;         ;
-; db/add_sub_u3c.tdf                                                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_u3c.tdf                                                ;         ;
-; db/lpm_divide_jtl.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_jtl.tdf                                             ;         ;
-; db/lpm_divide_mtl.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_mtl.tdf                                             ;         ;
-; db/sign_div_unsign_olh.tdf                                        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_olh.tdf                                        ;         ;
-; db/alt_u_div_qhe.tdf                                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_qhe.tdf                                              ;         ;
-; db/lpm_divide_0vl.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_0vl.tdf                                             ;         ;
-; db/sign_div_unsign_2nh.tdf                                        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_2nh.tdf                                        ;         ;
-; db/alt_u_div_eke.tdf                                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_eke.tdf                                              ;         ;
-; db/lpm_divide_4vl.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_4vl.tdf                                             ;         ;
-; db/sign_div_unsign_6nh.tdf                                        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_6nh.tdf                                        ;         ;
-; db/alt_u_div_mke.tdf                                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_mke.tdf                                              ;         ;
 ; db/lpm_divide_ttl.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_ttl.tdf                                             ;         ;
 ; db/sign_div_unsign_ulh.tdf                                        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_ulh.tdf                                        ;         ;
 ; db/alt_u_div_6ie.tdf                                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_6ie.tdf                                              ;         ;
+; db/add_sub_t3c.tdf                                                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_t3c.tdf                                                ;         ;
+; db/add_sub_u3c.tdf                                                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_u3c.tdf                                                ;         ;
 ; db/lpm_divide_dnl.tdf                                             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_dnl.tdf                                             ;         ;
 ; db/sign_div_unsign_cnh.tdf                                        ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_cnh.tdf                                        ;         ;
 ; db/alt_u_div_2le.tdf                                              ; yes             ; Auto-Generated Megafunction  ; C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_2le.tdf                                              ;         ;
@@ -270,17 +248,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 2,112                       ;
+; Estimated Total logic elements              ; 1,005                       ;
 ;                                             ;                             ;
-; Total combinational functions               ; 2094                        ;
+; Total combinational functions               ; 987                         ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 551                         ;
-;     -- 3 input functions                    ; 487                         ;
-;     -- <=2 input functions                  ; 1056                        ;
+;     -- 4 input functions                    ; 337                         ;
+;     -- 3 input functions                    ; 178                         ;
+;     -- <=2 input functions                  ; 472                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 1403                        ;
-;     -- arithmetic mode                      ; 691                         ;
+;     -- normal mode                          ; 633                         ;
+;     -- arithmetic mode                      ; 354                         ;
 ;                                             ;                             ;
 ; Total registers                             ; 410                         ;
 ;     -- Dedicated logic registers            ; 410                         ;
@@ -295,85 +273,47 @@ refer to the applicable agreement for further details.
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; max10Board_Buttons[0]~input ;
 ; Maximum fan-out                             ; 240                         ;
-; Total fan-out                               ; 7262                        ;
-; Average fan-out                             ; 2.63                        ;
+; Total fan-out                               ; 4434                        ;
+; Average fan-out                             ; 2.68                        ;
 +---------------------------------------------+-----------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                      ;
-+-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; Compilation Hierarchy Node                                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                  ; Entity Name                 ; Library Name ;
-+-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
-; |MusicBox_Main                                                  ; 2094 (25)           ; 410 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                       ; MusicBox_Main               ; work         ;
-;    |ALTPLL_Clock:aLTPLL_Clock_143Mhz|                           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz                                                                                                      ; ALTPLL_Clock                ; work         ;
-;       |altpll:altpll_component|                                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component                                                                              ; altpll                      ; work         ;
-;          |ALTPLL_Clock_altpll:auto_generated|                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component|ALTPLL_Clock_altpll:auto_generated                                           ; ALTPLL_Clock_altpll         ; work         ;
-;    |ClockGenerator:clockGenerator_1Khz|                         ; 28 (28)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1Khz                                                                                                    ; ClockGenerator              ; work         ;
-;    |ClockGenerator:clockGenerator_22Khz|                        ; 27 (27)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_22Khz                                                                                                   ; ClockGenerator              ; work         ;
-;    |ClockGenerator:clockGenerator_32Khz|                        ; 26 (26)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                                   ; ClockGenerator              ; work         ;
-;    |MusicBoxStateController:musicBoxStateController|            ; 200 (19)            ; 142 (3)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController                                                                                       ; MusicBoxStateController     ; work         ;
-;       |MusicBoxState_MakeRecording:musicBoxState_MakeRecording| ; 51 (51)             ; 43 (43)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording                               ; MusicBoxState_MakeRecording ; work         ;
-;       |MusicBoxState_PlayRecording:MusicBoxState_PlayRecording| ; 84 (84)             ; 62 (62)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording                               ; MusicBoxState_PlayRecording ; work         ;
-;       |MusicBoxState_PlaySong0:musicBoxState_PlaySong0|         ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0                                       ; MusicBoxState_PlaySong0     ; work         ;
-;       |MusicBoxState_PlaySong1:musicBoxState_PlaySong1|         ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1                                       ; MusicBoxState_PlaySong1     ; work         ;
-;    |SDRAM_Controller:sDRAM_Controller|                          ; 177 (177)           ; 86 (86)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller                                                                                                     ; SDRAM_Controller            ; work         ;
-;    |SPI_InputControllerDac:sPI_InputControllerDac|              ; 22 (0)              ; 14 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac                                                                                         ; SPI_InputControllerDac      ; work         ;
-;       |ClockGenerator:clockGenerator_240KHz|                    ; 22 (22)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz                                                    ; ClockGenerator              ; work         ;
-;    |SPI_OutputControllerDac:sPI_OutputControllerDac|            ; 45 (32)             ; 37 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                       ; SPI_OutputControllerDac     ; work         ;
-;       |ClockGenerator:clockGenerator_714Khz|                    ; 13 (13)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                                  ; ClockGenerator              ; work         ;
-;    |SevenSegmentParser:sevenSegmentParser|                      ; 1113 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser                                                                                                 ; SevenSegmentParser          ; work         ;
-;       |SevenSegmentDisplay:sevenSegmentDisplay0|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|SevenSegmentDisplay:sevenSegmentDisplay0                                                        ; SevenSegmentDisplay         ; work         ;
-;       |SevenSegmentDisplay:sevenSegmentDisplay1|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|SevenSegmentDisplay:sevenSegmentDisplay1                                                        ; SevenSegmentDisplay         ; work         ;
-;       |SevenSegmentDisplay:sevenSegmentDisplay2|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|SevenSegmentDisplay:sevenSegmentDisplay2                                                        ; SevenSegmentDisplay         ; work         ;
-;       |SevenSegmentDisplay:sevenSegmentDisplay3|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|SevenSegmentDisplay:sevenSegmentDisplay3                                                        ; SevenSegmentDisplay         ; work         ;
-;       |SevenSegmentDisplay:sevenSegmentDisplay4|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|SevenSegmentDisplay:sevenSegmentDisplay4                                                        ; SevenSegmentDisplay         ; work         ;
-;       |lpm_divide:Div0|                                         ; 161 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_jtl:auto_generated|                        ; 161 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0|lpm_divide_jtl:auto_generated                                                   ; lpm_divide_jtl              ; work         ;
-;             |sign_div_unsign_llh:divider|                       ; 161 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0|lpm_divide_jtl:auto_generated|sign_div_unsign_llh:divider                       ; sign_div_unsign_llh         ; work         ;
-;                |alt_u_div_khe:divider|                          ; 161 (161)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0|lpm_divide_jtl:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider ; alt_u_div_khe               ; work         ;
-;       |lpm_divide:Div1|                                         ; 202 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_mtl:auto_generated|                        ; 202 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1|lpm_divide_mtl:auto_generated                                                   ; lpm_divide_mtl              ; work         ;
-;             |sign_div_unsign_olh:divider|                       ; 202 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1|lpm_divide_mtl:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh         ; work         ;
-;                |alt_u_div_qhe:divider|                          ; 202 (202)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1|lpm_divide_mtl:auto_generated|sign_div_unsign_olh:divider|alt_u_div_qhe:divider ; alt_u_div_qhe               ; work         ;
-;       |lpm_divide:Div2|                                         ; 186 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_0vl:auto_generated|                        ; 186 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2|lpm_divide_0vl:auto_generated                                                   ; lpm_divide_0vl              ; work         ;
-;             |sign_div_unsign_2nh:divider|                       ; 186 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2|lpm_divide_0vl:auto_generated|sign_div_unsign_2nh:divider                       ; sign_div_unsign_2nh         ; work         ;
-;                |alt_u_div_eke:divider|                          ; 186 (186)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2|lpm_divide_0vl:auto_generated|sign_div_unsign_2nh:divider|alt_u_div_eke:divider ; alt_u_div_eke               ; work         ;
-;       |lpm_divide:Div3|                                         ; 83 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_4vl:auto_generated|                        ; 83 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3|lpm_divide_4vl:auto_generated                                                   ; lpm_divide_4vl              ; work         ;
-;             |sign_div_unsign_6nh:divider|                       ; 83 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3|lpm_divide_4vl:auto_generated|sign_div_unsign_6nh:divider                       ; sign_div_unsign_6nh         ; work         ;
-;                |alt_u_div_mke:divider|                          ; 83 (83)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3|lpm_divide_4vl:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_mke:divider ; alt_u_div_mke               ; work         ;
-;       |lpm_divide:Mod0|                                         ; 164 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_mll:auto_generated|                        ; 164 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0|lpm_divide_mll:auto_generated                                                   ; lpm_divide_mll              ; work         ;
-;             |sign_div_unsign_llh:divider|                       ; 164 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider                       ; sign_div_unsign_llh         ; work         ;
-;                |alt_u_div_khe:divider|                          ; 164 (164)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider ; alt_u_div_khe               ; work         ;
-;       |lpm_divide:Mod1|                                         ; 136 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_mll:auto_generated|                        ; 136 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated                                                   ; lpm_divide_mll              ; work         ;
-;             |sign_div_unsign_llh:divider|                       ; 136 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider                       ; sign_div_unsign_llh         ; work         ;
-;                |alt_u_div_khe:divider|                          ; 136 (136)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider ; alt_u_div_khe               ; work         ;
-;       |lpm_divide:Mod2|                                         ; 94 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_mll:auto_generated|                        ; 94 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated                                                   ; lpm_divide_mll              ; work         ;
-;             |sign_div_unsign_llh:divider|                       ; 94 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider                       ; sign_div_unsign_llh         ; work         ;
-;                |alt_u_div_khe:divider|                          ; 94 (94)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider ; alt_u_div_khe               ; work         ;
-;       |lpm_divide:Mod3|                                         ; 52 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3                                                                                 ; lpm_divide                  ; work         ;
-;          |lpm_divide_mll:auto_generated|                        ; 52 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3|lpm_divide_mll:auto_generated                                                   ; lpm_divide_mll              ; work         ;
-;             |sign_div_unsign_llh:divider|                       ; 52 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider                       ; sign_div_unsign_llh         ; work         ;
-;                |alt_u_div_khe:divider|                          ; 52 (52)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider ; alt_u_div_khe               ; work         ;
-;    |SignalGenerator:signalGenerator|                            ; 328 (80)            ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                       ; SignalGenerator             ; work         ;
-;       |lpm_divide:Div0|                                         ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0                                                                                       ; lpm_divide                  ; work         ;
-;          |lpm_divide_ttl:auto_generated|                        ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated                                                         ; lpm_divide_ttl              ; work         ;
-;             |sign_div_unsign_ulh:divider|                       ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider                             ; sign_div_unsign_ulh         ; work         ;
-;                |alt_u_div_6ie:divider|                          ; 208 (208)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider|alt_u_div_6ie:divider       ; alt_u_div_6ie               ; work         ;
-;       |lpm_divide:Mod0|                                         ; 40 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                       ; lpm_divide                  ; work         ;
-;          |lpm_divide_dnl:auto_generated|                        ; 40 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                         ; lpm_divide_dnl              ; work         ;
-;             |sign_div_unsign_cnh:divider|                       ; 40 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                             ; sign_div_unsign_cnh         ; work         ;
-;                |alt_u_div_2le:divider|                          ; 40 (40)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider       ; alt_u_div_2le               ; work         ;
-;    |UI_TriggerSmoother:UIs_Makerecording|                       ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording                                                                                                  ; UI_TriggerSmoother          ; work         ;
-;    |UI_TriggerSmoother:UIs_PlayRecording|                       ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording                                                                                                  ; UI_TriggerSmoother          ; work         ;
-;    |UI_TriggerSmoother:UIs_PlaySong0|                           ; 25 (25)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                                                                                                      ; UI_TriggerSmoother          ; work         ;
-;    |UI_TriggerSmoother:UIs_PlaySong1|                           ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1                                                                                                      ; UI_TriggerSmoother          ; work         ;
-+-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                ;
++-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                            ; Entity Name                 ; Library Name ;
++-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |MusicBox_Main                                                  ; 987 (25)            ; 410 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 120  ; 0            ; 0          ; |MusicBox_Main                                                                                                                                 ; MusicBox_Main               ; work         ;
+;    |ALTPLL_Clock:aLTPLL_Clock_143Mhz|                           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz                                                                                                ; ALTPLL_Clock                ; work         ;
+;       |altpll:altpll_component|                                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component                                                                        ; altpll                      ; work         ;
+;          |ALTPLL_Clock_altpll:auto_generated|                   ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ALTPLL_Clock:aLTPLL_Clock_143Mhz|altpll:altpll_component|ALTPLL_Clock_altpll:auto_generated                                     ; ALTPLL_Clock_altpll         ; work         ;
+;    |ClockGenerator:clockGenerator_1Khz|                         ; 28 (28)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_1Khz                                                                                              ; ClockGenerator              ; work         ;
+;    |ClockGenerator:clockGenerator_22Khz|                        ; 27 (27)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_22Khz                                                                                             ; ClockGenerator              ; work         ;
+;    |ClockGenerator:clockGenerator_32Khz|                        ; 26 (26)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|ClockGenerator:clockGenerator_32Khz                                                                                             ; ClockGenerator              ; work         ;
+;    |MusicBoxStateController:musicBoxStateController|            ; 193 (19)            ; 142 (3)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController                                                                                 ; MusicBoxStateController     ; work         ;
+;       |MusicBoxState_MakeRecording:musicBoxState_MakeRecording| ; 51 (51)             ; 43 (43)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording                         ; MusicBoxState_MakeRecording ; work         ;
+;       |MusicBoxState_PlayRecording:MusicBoxState_PlayRecording| ; 77 (77)             ; 62 (62)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording                         ; MusicBoxState_PlayRecording ; work         ;
+;       |MusicBoxState_PlaySong0:musicBoxState_PlaySong0|         ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0                                 ; MusicBoxState_PlaySong0     ; work         ;
+;       |MusicBoxState_PlaySong1:musicBoxState_PlaySong1|         ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1                                 ; MusicBoxState_PlaySong1     ; work         ;
+;    |SDRAM_Controller:sDRAM_Controller|                          ; 179 (179)           ; 86 (86)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller                                                                                               ; SDRAM_Controller            ; work         ;
+;    |SPI_InputControllerDac:sPI_InputControllerDac|              ; 22 (0)              ; 14 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac                                                                                   ; SPI_InputControllerDac      ; work         ;
+;       |ClockGenerator:clockGenerator_240KHz|                    ; 22 (22)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz                                              ; ClockGenerator              ; work         ;
+;    |SPI_OutputControllerDac:sPI_OutputControllerDac|            ; 45 (32)             ; 37 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac                                                                                 ; SPI_OutputControllerDac     ; work         ;
+;       |ClockGenerator:clockGenerator_714Khz|                    ; 13 (13)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz                                            ; ClockGenerator              ; work         ;
+;    |SignalGenerator:signalGenerator|                            ; 339 (83)            ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator                                                                                                 ; SignalGenerator             ; work         ;
+;       |lpm_divide:Div0|                                         ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0                                                                                 ; lpm_divide                  ; work         ;
+;          |lpm_divide_ttl:auto_generated|                        ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated                                                   ; lpm_divide_ttl              ; work         ;
+;             |sign_div_unsign_ulh:divider|                       ; 208 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider                       ; sign_div_unsign_ulh         ; work         ;
+;                |alt_u_div_6ie:divider|                          ; 208 (208)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Div0|lpm_divide_ttl:auto_generated|sign_div_unsign_ulh:divider|alt_u_div_6ie:divider ; alt_u_div_6ie               ; work         ;
+;       |lpm_divide:Mod0|                                         ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0                                                                                 ; lpm_divide                  ; work         ;
+;          |lpm_divide_dnl:auto_generated|                        ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated                                                   ; lpm_divide_dnl              ; work         ;
+;             |sign_div_unsign_cnh:divider|                       ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider                       ; sign_div_unsign_cnh         ; work         ;
+;                |alt_u_div_2le:divider|                          ; 48 (48)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|SignalGenerator:signalGenerator|lpm_divide:Mod0|lpm_divide_dnl:auto_generated|sign_div_unsign_cnh:divider|alt_u_div_2le:divider ; alt_u_div_2le               ; work         ;
+;    |UI_TriggerSmoother:UIs_Makerecording|                       ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording                                                                                            ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_PlayRecording|                       ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording                                                                                            ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_PlaySong0|                           ; 25 (25)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0                                                                                                ; UI_TriggerSmoother          ; work         ;
+;    |UI_TriggerSmoother:UIs_PlaySong1|                           ; 26 (26)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1                                                                                                ; UI_TriggerSmoother          ; work         ;
++-----------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -600,33 +540,33 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 38 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|addressCounter[8]     ;
-; 3:1                ; 38 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|sdram_inputAddress[9] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[6]                                                                      ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[10]                                                               ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1|counter[7]                    ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|counter[1]                    ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0|timeCounter[3]                                                                               ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1|timeCounter[0]                                                                               ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording|timeCounter[0]                                                                           ;
-; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording|timeCounter[14]                                                                          ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[13]                                                                   ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|inputStoredAddress[2]                                                                       ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[1]                                                               ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[0]                                                               ;
-; 14:1               ; 2 bits    ; 18 LEs        ; 4 LEs                ; 14 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[10]                                                                ;
-; 16:1               ; 9 bits    ; 90 LEs        ; 27 LEs               ; 63 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[3]                                                                 ;
-; 16:1               ; 17 bits   ; 170 LEs       ; 17 LEs               ; 153 LEs                ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|pauseCycles[7]                                                                              ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|currentState          ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|stateComplete_1       ;
-; 16:1               ; 5 bits    ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; No         ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState                                                                                ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 38 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|addressCounter[2]  ;
+; 3:1                ; 38 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_MakeRecording:musicBoxState_MakeRecording|addressCounter[17] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|SPI_InputControllerDac:sPI_InputControllerDac|counter[7]                                                                   ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|writeSample[5]                                                             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong1:musicBoxState_PlaySong1|counter[8]                 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlaySong0:musicBoxState_PlaySong0|counter[11]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong0|timeCounter[3]                                                                            ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlaySong1|timeCounter[8]                                                                            ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_PlayRecording|timeCounter[3]                                                                        ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |MusicBox_Main|UI_TriggerSmoother:UIs_Makerecording|timeCounter[1]                                                                        ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |MusicBox_Main|SPI_OutputControllerDac:sPI_OutputControllerDac|counter[3]                                                                 ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|inputStoredAddress[8]                                                                    ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[1]                                                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|currentState[2]                                                            ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 4 LEs                ; 14 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[10]                                                             ;
+; 16:1               ; 9 bits    ; 90 LEs        ; 27 LEs               ; 63 LEs                 ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|max10Board_SDRAM_Address[0]                                                              ;
+; 16:1               ; 17 bits   ; 170 LEs       ; 17 LEs               ; 153 LEs                ; Yes        ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|pauseCycles[8]                                                                           ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|currentState       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |MusicBox_Main|MusicBoxStateController:musicBoxStateController|MusicBoxState_PlayRecording:MusicBoxState_PlayRecording|stateComplete_1    ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; No         ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState                                                                             ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |MusicBox_Main|SDRAM_Controller:sDRAM_Controller|currentState                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------+
@@ -1091,213 +1031,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_mll ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_jtl ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_mll ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 7              ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_mtl ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_mll ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 10             ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_0vl ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_mll ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 14             ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_4vl ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod4 ;
-+------------------------+----------------+--------------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                         ;
-+------------------------+----------------+--------------------------------------------------------------+
-; LPM_WIDTHN             ; 20             ; Untyped                                                      ;
-; LPM_WIDTHD             ; 4              ; Untyped                                                      ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                                      ;
-; CBXI_PARAMETER         ; lpm_divide_mll ; Untyped                                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                               ;
-+------------------------+----------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +--------------------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: SignalGenerator:signalGenerator|lpm_divide:Div0 ;
 +------------------------+----------------+--------------------------------------------------------+
@@ -1420,13 +1153,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"                                                   ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                ; Type   ; Severity ; Details                                                                             ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
-; debugString[31..16] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MusicBoxStateController:musicBoxStateController"                                           ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; debugString ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1450,11 +1183,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-------------------------------------------------------------------+
 ; Port Connectivity Checks: "SevenSegmentParser:sevenSegmentParser" ;
-+----------------------+-------+----------+-------------------------+
-; Port                 ; Type  ; Severity ; Details                 ;
-+----------------------+-------+----------+-------------------------+
-; displayValue[19..16] ; Input ; Info     ; Stuck at GND            ;
-+----------------------+-------+----------+-------------------------+
++--------------+-------+----------+---------------------------------+
+; Port         ; Type  ; Severity ; Details                         ;
++--------------+-------+----------+---------------------------------+
+; displayValue ; Input ; Info     ; Stuck at GND                    ;
++--------------+-------+----------+---------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------+
@@ -1503,21 +1236,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 4                           ;
 ;     plain             ; 36                          ;
 ; cycloneiii_io_obuf    ; 16                          ;
-; cycloneiii_lcell_comb ; 2106                        ;
-;     arith             ; 691                         ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 279                         ;
-;         3 data inputs ; 404                         ;
-;     normal            ; 1415                        ;
-;         0 data inputs ; 81                          ;
-;         1 data inputs ; 49                          ;
-;         2 data inputs ; 651                         ;
-;         3 data inputs ; 83                          ;
-;         4 data inputs ; 551                         ;
+; cycloneiii_lcell_comb ; 989                         ;
+;     arith             ; 354                         ;
+;         2 data inputs ; 242                         ;
+;         3 data inputs ; 112                         ;
+;     normal            ; 635                         ;
+;         0 data inputs ; 14                          ;
+;         1 data inputs ; 18                          ;
+;         2 data inputs ; 200                         ;
+;         3 data inputs ; 66                          ;
+;         4 data inputs ; 337                         ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 34.20                       ;
-; Average LUT depth     ; 16.49                       ;
+; Max LUT depth         ; 29.10                       ;
+; Average LUT depth     ; 8.07                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1526,7 +1258,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -1536,7 +1268,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Sun Feb 16 12:58:02 2020
+    Info: Processing started: Sun Feb 16 13:12:00 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_Music_Box -c FPGA_Music_Box
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file source code/utility/sdram testing/sdram_testmodule.sv
@@ -1576,6 +1308,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file altpll_
 Info (12127): Elaborating entity "MusicBox_Main" for the top level hierarchy
 Warning (10858): Verilog HDL warning at MusicBox_Main.sv(490): object sdRamTest_CompareError used but never assigned File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 490
 Warning (10858): Verilog HDL warning at MusicBox_Main.sv(491): object sdRamTest_CompletedSuccess used but never assigned File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 491
+Warning (10030): Net "segmentDisplay_DisplayValue" at MusicBox_Main.sv(191) has no driver or initial value, using a default initial value '0' File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 191
 Warning (10030): Net "sdRamTest_CompareError" at MusicBox_Main.sv(490) has no driver or initial value, using a default initial value '0' File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 490
 Warning (10030): Net "sdRamTest_CompletedSuccess" at MusicBox_Main.sv(491) has no driver or initial value, using a default initial value '0' File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 491
 Warning (10034): Output port "max10Board_LED[9..8]" at MusicBox_Main.sv(78) has no driver File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 78
@@ -1682,84 +1415,9 @@ Info (12128): Elaborating entity "SPI_InputControllerDac" for hierarchy "SPI_Inp
 Info (12128): Elaborating entity "ClockGenerator" for hierarchy "SPI_InputControllerDac:sPI_InputControllerDac|ClockGenerator:clockGenerator_240KHz" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/SPI/SPI_InputControllerSPI.sv Line: 47
 Warning (10230): Verilog HDL assignment warning at ClockGenerator.sv(36): truncated value with size 32 to match size of target (13) File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/ClockGenerator.sv Line: 36
 Info (12128): Elaborating entity "SignalGenerator" for hierarchy "SignalGenerator:signalGenerator" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 439
-Info (278001): Inferred 11 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Mod0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 49
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Div0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Mod1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Div1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 56
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Mod2" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 56
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Div2" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 60
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Mod3" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 60
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Div3" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 64
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SevenSegmentParser:sevenSegmentParser|Mod4" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 64
+Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Div0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 165
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "SignalGenerator:signalGenerator|Mod0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 158
-Info (12130): Elaborated megafunction instantiation "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 49
-Info (12133): Instantiated megafunction "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod0" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 49
-    Info (12134): Parameter "LPM_WIDTHN" = "20"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mll.tdf
-    Info (12023): Found entity 1: lpm_divide_mll File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_mll.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_llh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_llh File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_llh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_khe.tdf
-    Info (12023): Found entity 1: alt_u_div_khe File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 26
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
-    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_t3c.tdf Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
-    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_u3c.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
-Info (12133): Instantiated megafunction "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div0" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
-    Info (12134): Parameter "LPM_WIDTHN" = "20"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jtl.tdf
-    Info (12023): Found entity 1: lpm_divide_jtl File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_jtl.tdf Line: 24
-Info (12130): Elaborated megafunction instantiation "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
-Info (12133): Instantiated megafunction "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 52
-    Info (12134): Parameter "LPM_WIDTHN" = "20"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12130): Elaborated megafunction instantiation "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 56
-Info (12133): Instantiated megafunction "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 56
-    Info (12134): Parameter "LPM_WIDTHN" = "20"
-    Info (12134): Parameter "LPM_WIDTHD" = "7"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mtl.tdf
-    Info (12023): Found entity 1: lpm_divide_mtl File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_mtl.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_olh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qhe.tdf
-    Info (12023): Found entity 1: alt_u_div_qhe File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_qhe.tdf Line: 26
-Info (12130): Elaborated megafunction instantiation "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 60
-Info (12133): Instantiated megafunction "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 60
-    Info (12134): Parameter "LPM_WIDTHN" = "20"
-    Info (12134): Parameter "LPM_WIDTHD" = "10"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0vl.tdf
-    Info (12023): Found entity 1: lpm_divide_0vl File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_0vl.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_2nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_2nh File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_2nh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_eke.tdf
-    Info (12023): Found entity 1: alt_u_div_eke File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_eke.tdf Line: 26
-Info (12130): Elaborated megafunction instantiation "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 64
-Info (12133): Instantiated megafunction "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/Max10 Segment Display/SevenSegmentParser.sv Line: 64
-    Info (12134): Parameter "LPM_WIDTHN" = "20"
-    Info (12134): Parameter "LPM_WIDTHD" = "14"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_4vl.tdf
-    Info (12023): Found entity 1: lpm_divide_4vl File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/lpm_divide_4vl.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_6nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_6nh File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_6nh.tdf Line: 24
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mke.tdf
-    Info (12023): Found entity 1: alt_u_div_mke File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_mke.tdf Line: 26
 Info (12130): Elaborated megafunction instantiation "SignalGenerator:signalGenerator|lpm_divide:Div0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 165
 Info (12133): Instantiated megafunction "SignalGenerator:signalGenerator|lpm_divide:Div0" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 165
     Info (12134): Parameter "LPM_WIDTHN" = "16"
@@ -1772,6 +1430,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_ulh File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/sign_div_unsign_ulh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6ie.tdf
     Info (12023): Found entity 1: alt_u_div_6ie File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_6ie.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_t3c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/add_sub_u3c.tdf Line: 22
 Info (12130): Elaborated megafunction instantiation "SignalGenerator:signalGenerator|lpm_divide:Mod0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 158
 Info (12133): Instantiated megafunction "SignalGenerator:signalGenerator|lpm_divide:Mod0" with the following parameter: File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/Utility/SignalGenerator.sv Line: 158
     Info (12134): Parameter "LPM_WIDTHN" = "16"
@@ -1812,6 +1474,41 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "max10Board_SDRAM_DataMask1" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 103
     Warning (13410): Pin "max10Board_SDRAM_ChipSelect_n" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 104
     Warning (13410): Pin "max10Board_GPIO_Input_SPI_CS_n" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 94
+    Warning (13410): Pin "max10Board_LEDSegments[0][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[0][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[0][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[0][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[0][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[0][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[0][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[1][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[1][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[1][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[1][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[1][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[1][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[1][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[2][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[2][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[2][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[2][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[2][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[2][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[2][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[3][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[3][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[3][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[3][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[3][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[3][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[3][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[4][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[4][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[4][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[4][3]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[4][4]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[4][5]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
+    Warning (13410): Pin "max10Board_LEDSegments[4][6]" is stuck at VCC File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
     Warning (13410): Pin "max10Board_LEDSegments[5][0]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
     Warning (13410): Pin "max10Board_LEDSegments[5][1]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
     Warning (13410): Pin "max10Board_LEDSegments[5][2]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 69
@@ -1826,33 +1523,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "max10Board_LED[9]" is stuck at GND File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 78
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 24 registers lost all their fanouts during netlist optimizations.
-Info (17016): Found the following redundant logic cells in design
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_19_result_int[0]~0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 81
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_10_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 36
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_11_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 41
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_12_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 46
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_13_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 51
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_14_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 56
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_15_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 61
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_16_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 66
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_17_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 71
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod1|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_18_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 76
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div1|lpm_divide_mtl:auto_generated|sign_div_unsign_olh:divider|alt_u_div_qhe:divider|add_sub_10_result_int[1]~14" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_qhe.tdf Line: 36
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_19_result_int[0]~0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 81
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_13_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 51
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_14_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 56
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_15_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 61
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_16_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 66
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_17_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 71
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod2|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_18_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 76
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2|lpm_divide_0vl:auto_generated|sign_div_unsign_2nh:divider|alt_u_div_eke:divider|add_sub_13_result_int[2]~18" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_eke.tdf Line: 51
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div2|lpm_divide_0vl:auto_generated|sign_div_unsign_2nh:divider|alt_u_div_eke:divider|add_sub_13_result_int[1]~20" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_eke.tdf Line: 51
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_19_result_int[0]~0" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 81
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_16_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 66
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_17_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 71
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Mod3|lpm_divide_mll:auto_generated|sign_div_unsign_llh:divider|alt_u_div_khe:divider|add_sub_18_result_int[0]~10" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_khe.tdf Line: 76
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3|lpm_divide_4vl:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_mke:divider|add_sub_17_result_int[3]~24" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_mke.tdf Line: 71
-    Info (17048): Logic cell "SevenSegmentParser:sevenSegmentParser|lpm_divide:Div3|lpm_divide_4vl:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_mke:divider|add_sub_17_result_int[2]~26" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/db/alt_u_div_mke.tdf Line: 71
 Info (144001): Generated suppressed messages file C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/FPGA_Music_Box.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -1869,17 +1539,17 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_PlayRecording" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 86
     Warning (15610): No output dependent on input pin "max10Board_GPIO_Input_SPI_SDO" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 93
     Warning (15610): No output dependent on input pin "max10Board_Buttons[1]" File: C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/Source Code/MusicBox_Main.sv Line: 79
-Info (21057): Implemented 2240 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1128 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 80 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 2119 logic cells
+    Info (21061): Implemented 1007 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 78 warnings
-    Info: Peak virtual memory: 4820 megabytes
-    Info: Processing ended: Sun Feb 16 12:58:39 2020
-    Info: Elapsed time: 00:00:37
-    Info: Total CPU time (on all processors): 00:00:53
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 114 warnings
+    Info: Peak virtual memory: 4796 megabytes
+    Info: Processing ended: Sun Feb 16 13:12:39 2020
+    Info: Elapsed time: 00:00:39
+    Info: Total CPU time (on all processors): 00:00:52
 
 
 +------------------------------------------+

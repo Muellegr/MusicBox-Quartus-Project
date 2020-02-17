@@ -291,7 +291,7 @@ module MusicBox_Main(
 	//------------------------------------
 	//------- SDRAM Controller -----------
 	//------------------------------------
-assign segmentDisplay_DisplayValue =output_DebugString [15:0];
+//assign segmentDisplay_DisplayValue =output_DebugString [15:0];
 
 	reg [24:0]	sdram_inputAddress; //This is the address to loop up
 	reg [15:0] 	sdram_inputData; //Data to WRITE (only if writing)
