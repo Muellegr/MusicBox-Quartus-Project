@@ -4,7 +4,19 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "max10Board_SDRAM_Clock",
+					"name" : "max10Board_SDRAM_Address[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[3]",
 					"strict" : false
 				},
 				{
@@ -13,6 +25,18 @@
 				},
 				{
 					"name" : "max10Board_SDRAM_Address[5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[7]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_SDRAM_Address[8]",
 					"strict" : false
 				},
 				{
@@ -52,18 +76,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[0]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[1]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[2]",
-					"strict" : false
-				},
-				{
 					"name" : "max10Board_LED[3]",
 					"strict" : false
 				},
@@ -81,14 +93,6 @@
 				},
 				{
 					"name" : "max10Board_LED[7]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[8]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[9]",
 					"strict" : false
 				},
 				{
@@ -164,6 +168,22 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10board_switches[2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10board_switches[1]",
+					"strict" : false
+				},
+				{
 					"name" : "max10board_switches[9]",
 					"strict" : false
 				},
@@ -185,22 +205,6 @@
 				},
 				{
 					"name" : "max10board_switches[4]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[3]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[2]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[1]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[0]",
 					"strict" : false
 				}
 			]

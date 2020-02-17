@@ -1,0 +1,142 @@
+C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/computeMatrix.sv {1 {vlog -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/computeMatrix.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 21:18:48 on Feb 16,2020
+vlog -reportprogress 300 -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/computeMatrix.sv 
+-- Compiling module computeMatrix
+
+Top level modules:
+	computeMatrix
+End time: 21:18:48 on Feb 16,2020, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/top.sv {1 {vlog -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/top.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 21:18:49 on Feb 16,2020
+vlog -reportprogress 300 -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/top.sv 
+-- Compiling package top_sv_unit
+-- Compiling module butterfly
+-- Compiling module computeMatrix
+-- Compiling module swap
+-- Compiling module invN
+-- Compiling module divbyN
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(16): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(16): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(17): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(18): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(23): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(23): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(24): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(25): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+-- Compiling module FFT
+-- Compiling module iFFT
+-- Compiling module RecursiveFFT
+-- Compiling module top
+
+Top level modules:
+	top
+End time: 21:18:49 on Feb 16,2020, Elapsed time: 0:00:00
+Errors: 0, Warnings: 8
+
+} {} {}} C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/swap.sv {1 {vlog -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/swap.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 21:18:48 on Feb 16,2020
+vlog -reportprogress 300 -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/swap.sv 
+-- Compiling module swap
+
+Top level modules:
+	swap
+End time: 21:18:49 on Feb 16,2020, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/invN.sv {1 {vlog -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/invN.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 21:18:48 on Feb 16,2020
+vlog -reportprogress 300 -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/invN.sv 
+-- Compiling module invN
+
+Top level modules:
+	invN
+End time: 21:18:48 on Feb 16,2020, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/FFT.sv {1 {vlog -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/FFT.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 21:18:48 on Feb 16,2020
+vlog -reportprogress 300 -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/FFT.sv 
+-- Compiling package FFT_sv_unit
+-- Compiling module butterfly
+-- Compiling module computeMatrix
+-- Compiling module swap
+-- Compiling module invN
+-- Compiling module divbyN
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(16): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(16): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(17): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(18): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(23): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(23): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(24): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:\Users\Graham\Downloads\FFT-master\FFT-master\Hardware\divbyN.sv(25): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+-- Compiling module FFT
+-- Compiling module iFFT
+-- Compiling module RecursiveFFT
+
+Top level modules:
+	RecursiveFFT
+End time: 21:18:48 on Feb 16,2020, Elapsed time: 0:00:00
+Errors: 0, Warnings: 8
+
+} {} {}} C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv {0 {vlog -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 21:18:49 on Feb 16,2020
+vlog -reportprogress 300 -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv 
+-- Compiling module invN
+-- Compiling module divbyN
+** Error: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(8): The expression for a parameter actual associated with the parameter name ('BIT_FRAC') for the module instance ('m_invN') must be constant.
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(16): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(16): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(17): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(18): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(23): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(23): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(24): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+** Warning: C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/divbyN.sv(25): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+
+End time: 21:18:49 on Feb 16,2020, Elapsed time: 0:00:00
+Errors: 1, Warnings: 8
+
+} {7.0 8.0} {}} C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/butterfly.sv {1 {vlog -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/butterfly.sv
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+Start time: 21:18:48 on Feb 16,2020
+vlog -reportprogress 300 -work work -sv C:/Users/Graham/Downloads/FFT-master/FFT-master/Hardware/butterfly.sv 
+-- Compiling module butterfly
+
+Top level modules:
+	butterfly
+End time: 21:18:48 on Feb 16,2020, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}}

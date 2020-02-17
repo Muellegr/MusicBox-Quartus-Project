@@ -1,101 +1,39 @@
-# Compile of MusicBox_Main.sv was successful.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# 11 compiles, 0 failed with no errors.
-# Compile of MusicBox_Main.sv failed with 3 errors.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# 11 compiles, 1 failed with 3 errors.
-# Compile of MusicBox_Main.sv failed with 3 errors.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# 11 compiles, 1 failed with 3 errors.
-# Compile of MusicBox_Main.sv failed with 1 errors.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# 11 compiles, 1 failed with 1 error.
-# Compile of MusicBox_Main.sv was successful.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# 11 compiles, 0 failed with no errors.
-# Compile of MusicBox_Main.sv was successful.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# Compile of SignalGenerator.sv failed with 1 errors.
-# 12 compiles, 1 failed with 1 error.
-# Compile of SignalGenerator.sv was successful.
-# Compile of SignalGenerator.sv was successful.
-# Compile of MusicBox_Main.sv was successful.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# Compile of SignalGenerator.sv failed with 1 errors.
-# 12 compiles, 1 failed with 1 error.
-# Compile of MusicBox_Main.sv was successful.
-# Compile of SPI_OutputControllerDac.sv was successful.
-# Compile of MusicBoxState_MakeRecording.sv was successful.
-# Compile of MusicBoxState_PlayRecording.sv was successful.
-# Compile of MusicBoxState_PlaySong0.sv was successful.
-# Compile of MusicBoxState_PlaySong1.sv was successful.
-# Compile of MusicBoxStateController.sv was successful.
-# Compile of MusicKeysController.sv was successful.
-# Compile of UI_TriggerSmoother.sv was successful.
-# Compile of ClockGenerator.sv was successful.
-# Compile of SPI_InputControllerSPI.sv was successful.
-# Compile of SignalGenerator.sv was successful.
-# 12 compiles, 0 failed with no errors.
+# Compile of butterfly.sv was successful.
+# Compile of computeMatrix.sv was successful.
+# Compile of divbyN.sv failed with 1 errors.
+# Compile of FFT.sv was successful.
+# Compile of invN.sv was successful.
+# Compile of swap.sv was successful.
+# Compile of top.sv was successful.
+# 7 compiles, 1 failed with 1 error.
+# Compile of butterfly.sv was successful.
+# Compile of computeMatrix.sv was successful.
+# Compile of divbyN.sv failed with 1 errors.
+# Compile of FFT.sv was successful with warnings.
+# Compile of invN.sv was successful.
+# Compile of swap.sv was successful.
+# Compile of top.sv was successful with warnings.
+# 7 compiles, 1 failed with 1 error.
+# Compile of butterfly.sv was successful.
+# Compile of computeMatrix.sv was successful.
+# Compile of divbyN.sv failed with 1 errors.
+# Compile of FFT.sv was successful with warnings.
+# Compile of invN.sv was successful.
+# Compile of swap.sv was successful.
+# Compile of top.sv was successful with warnings.
+# 7 compiles, 1 failed with 1 error.
+# Compile of FFT.sv was successful with warnings.
+# Compile of FFT.sv was successful.
+# Compile of butterfly.sv was successful.
+# Compile of computeMatrix.sv was successful.
+# Compile of invN.sv was successful.
+# Compile of swap.sv was successful.
+# Compile of top.sv was successful.
+# Compile of divbyN.sv failed.
+# Compile of FFT.sv was successful.
+# Compile of butterfly.sv was successful.
+# Compile of computeMatrix.sv was successful.
+# Compile of invN.sv was successful.
+# Compile of swap.sv was successful.
+# Compile of top.sv was successful.
+# Compile of divbyN.sv failed.

@@ -2,7 +2,7 @@
 //When this count reaches InputClockEdgesToCount, outputClock is flipped.  
 
 // (InputClock / 2) * (1 /InputClockEdgesToCount ) = OutputClock
-//				SAME CLOCK : use 0
+//				SAME CLOCK : use 0//
 //	Example : (50 Mhz / 2) * (1 / 25000) = 1Khz
 //	Example : (1 Khz / 2) * (1 / 500) = 1hz
 
