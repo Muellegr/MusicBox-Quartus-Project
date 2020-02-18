@@ -5,7 +5,12 @@
 //======
 
 
+
 /*
+BRANCH SignalCombinational   
+	Purpose : Test signal generation better, ensure a single tone is being generated correctly.
+	As well as a system that combines multiple signals into 1.
+	Finally, we will need amplitude control for the global signal and each signal ( volume * ((500Hz * amp1) + (250 * amp2) ) ) style.
 MAIN TASKS
 	SDRAM Integration
 	
@@ -188,7 +193,7 @@ module MusicBox_Main(
 	//-----------------------
 	//--7 Segment Display Control. 
 	//-----------------------
-	reg [19:0] segmentDisplay_DisplayValue ;//= 20'd512;
+	reg [19:0] segmentDisplay_DisplayValue ;
 	 
 	SevenSegmentParser sevenSegmentParser(
 		.displayValue(segmentDisplay_DisplayValue),
@@ -271,7 +276,6 @@ module MusicBox_Main(
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
 
-
 	//----------------------------
 	//-- Music Keys---------------
 	//----------------------------
@@ -291,7 +295,6 @@ module MusicBox_Main(
 	//------------------------------------
 	//------- SDRAM Controller -----------
 	//------------------------------------
-//assign segmentDisplay_DisplayValue =output_DebugString [15:0];
 
 	reg [24:0]	sdram_inputAddress; //This is the address to loop up
 	reg [15:0] 	sdram_inputData; //Data to WRITE (only if writing)
@@ -397,9 +400,7 @@ module MusicBox_Main(
 		.isBusy(SPI_Output_isBusy),
 		.transmitComplete(SPI_Output_transmitComplete) //Goes high for 71Khz when this completes the signal
 	);
-	//
-	//
-	//
+
 	/////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////
 	//----------------------------
@@ -430,96 +431,29 @@ module MusicBox_Main(
 	//------------------------------------
 	//---Frequency Generator Sample ------
 	//------------------------------------
-	reg [7 : 0] signalOutput;
-	SignalGenerator signalGenerator(
+	reg [7 : 0] signalOutput_Sine;
+	reg [7 : 0] signalOutput_Triangle;
+	reg [7 : 0] signalOutput_Combine ;
+	assign signalOutput_Combine = SignalMultiply255(signalOutput_Sine, 128) + SignalMultiply255(signalOutput_Triangle, 128);
+	SignalGenerator signalGenerator_Sine(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(({4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches}) ),
-		.outputSample(signalOutput)
+		.inputFrequency(8'd100),
+		.outputSample(signalOutput_Sine)
 	);
-	
-	//Helps show sine wave pattern a bit
-	//  assign max10Board_LED[0] = (signalOutput > 005);
-	//  assign max10Board_LED[1] = (signalOutput > 032);
-	//  assign max10Board_LED[2] = (signalOutput > 059);
-	//  assign max10Board_LED[3] = (signalOutput > 086);
-	//  assign max10Board_LED[4] = (signalOutput > 113);
-	//  assign max10Board_LED[5] = (signalOutput > 140);
-	//  assign max10Board_LED[6] = (signalOutput > 167);
-	//  assign max10Board_LED[7] = (signalOutput > 194);
-	//  assign max10Board_LED[8] = (signalOutput > 221);
-	//  assign max10Board_LED[9] = (signalOutput > 250);
-	 
-	 
-	/////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////
-	
+	SignalGenerator_Triangle signalGenerator_Triangle ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd100),
+		.outputSample(signalOutput_Triangle)
+		);
 
 
-	//--------SDRAM TESTING INTERFACE
-// 	reg isLoading ;
-// 	reg [24:0] sdram_testAddressCounter;
-// 	reg [10:0][24:0] sdram_TestAddress;
-// 	reg [10:0][15:0] sdram_TestInputData;
-// 	reg [10:0][15:0] sdram_TestOutputData;
-// //	wire [15:0] sdram_inputData;
-	
-	
-//	reg [15:0] sdram_inputDataLoading;
-	//	reg [24:0] sdram_inputAddressLoading;
-
-//	reg [15:0] sdram_inputDataTester;
-	//reg [24:0] sdram_inpuAddressTester;
-	
-	//wire sdram_isWriting ;
-	//	reg	sdram_isWritingLoading;
-	//reg sdram_isWritingTester;
-	
-
-	//wire sdram_inputValid ;
-	//	reg sdram_inputValidLoading;
-	//reg sdram_inputValidTester;
-
-	//assign sdram_inputAddress = sdram_inpuAddressTester;
-	//assign sdram_isWriting = sdram_isWritingTester;
-	//assign sdram_inputValid =  sdram_inputValidTester;
-	//assign sdram_inputData = sdram_inputDataTester;//sdram_inputDataLoading;
-
-	//wire [4:0] index;
-	
-	reg sdRamTest_CompareError ;
-	reg sdRamTest_CompletedSuccess ;
-	assign max10Board_LED[0] = 1;
-	assign max10Board_LED[1] = sdRamTest_CompareError;
-	assign max10Board_LED[2] = sdRamTest_CompletedSuccess;
-	assign max10Board_LED[3] = sdram_isBusy;
-	assign max10Board_LED[4] = sdram_inputValid;
-	assign max10Board_LED[5] = sdram_isWriting;
-	assign max10Board_LED[6] = sdram_recievedCommand;
-	assign max10Board_LED[7] = sdram_outputValid;
-
-	 
-	
-	//outputData (sdram_inputDataTester) is used for WRITING. 
-	
-	
-	// // //--A test module that incrmeents through all of this.
-	// SDRAM_TestModule sdRamTest (
-	// 	.inputClock(CLK_143Mhz), //Clock  CLK_143Mhz
-	// 	.reset_n(systemReset_n), //Reset, active low
-	// 	.isBusy(sdram_isBusy), //Is the SDRAm saying it's busy
-	// 	.recievedCommand(sdram_recievedCommand),
-		
-	// 	.isWriting(sdram_isWritingTester), //If we say output is valid, is it writing
-	// 	.outputValid(sdram_inputValidTester), //Should we try a new command
-	// 	.outputAddress(sdram_inpuAddressTester), //Address this writes data to
-	// 	.outputData(sdram_inputDataTester), //Data to write
-	// 	.inputDataAvailable(sdram_outputValid), //High when data from reading is available
-	// 	.inputData(sdram_outputData), // Data from reading
-	// 	.compareError(sdRamTest_CompareError), //If we arrived at an error
-	// 	.completedSuccess(sdRamTest_CompletedSuccess) //If we were successful
-	// 	//.outputValue( segmentDisplay_DisplayValue) //Current increment, updated every 0.25 seconds
-	// );
+	//--This is used to apply a amplitude ratio to a signal.  
+		// a = sinewave , b = volume    
+	function automatic  [7:0] SignalMultiply255 (input [7:0] a, input [7:0] b);
+		return  ( (a * b + 127) * 1/255);
+	endfunction
 
 
 endmodule

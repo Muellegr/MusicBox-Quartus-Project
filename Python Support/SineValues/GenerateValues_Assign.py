@@ -22,17 +22,36 @@ for i in range(0, subDivisions):
 
     f.write('assign %s[%i] = 8\'b%s;\n'%(varName, i, b) )
 
+#Finish with bracket
+f.write('}\n')
+
+f.close()
+
+##-- TRIANGLE
+
+f = open("TriangleCalculations_Assign.txt", "w")
+#f.write('{\n')
+subDivisions = 128 #Number of subdivisions
+bitSize = 8 #number of bits used for values
+a = 0 #Stores the float value of the sine value
+b = 0 #Converts it into a nice integer
+varName = "preCalcTriangle"
+
+#assign dataFile[i] = val;
 
 
+for i in range(0, subDivisions):
+    a = i
+    
+    if (a > ((subDivisions)* 0.5 )) :
+        a =subDivisions - a;
+    
+   # b = bin(b)
+    b = a*4
+    b = max(min(b, pow(2,bitSize) - 1), 0)
+    b = format(b, '08b')
 
-    # #Handle end comma
-    # if (i == subDivisions):
-    #     f.write('7\'b%s ' % str(b).zfill(8) )
-    # else:
-    #     f.write('7\'b%s, ' % str(b).zfill(3))
-    # #Break up line with occasional new line
-    # if (i%8 == 0 and i!=0):
-    #     f.write('\n')
+    f.write('assign %s[%i] = 8\'b%s;\n'%(varName, i, b) )
 
 #Finish with bracket
 f.write('}\n')

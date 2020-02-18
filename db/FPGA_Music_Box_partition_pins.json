@@ -68,31 +68,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_GPIO_Output_SPI_DIN",
-					"strict" : false
-				},
-				{
 					"name" : "max10Board_GPIO_Input_SPI_SCLK",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[3]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[4]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[5]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[7]",
 					"strict" : false
 				},
 				{
@@ -168,10 +144,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[2]",
-					"strict" : false
-				},
-				{
 					"name" : "max10board_switches[0]",
 					"strict" : false
 				},
@@ -184,27 +156,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[9]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[8]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[7]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[5]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[4]",
+					"name" : "max10board_switches[2]",
 					"strict" : false
 				}
 			]
