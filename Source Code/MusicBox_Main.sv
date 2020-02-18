@@ -246,32 +246,32 @@ module MusicBox_Main(
 	wire max10Board_GPIO_Input_PlaySong1_s;
 		UI_TriggerSmoother UIs_PlaySong1 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_PlaySong1),
-			.inputWire(max10board_switches[0]),
+			.inputWire(max10Board_GPIO_Input_PlaySong1),
+			//.inputWire(max10board_switches[0]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong1_s)
 		);
 	wire max10Board_GPIO_Input_PlaySong0_s;
 		UI_TriggerSmoother UIs_PlaySong0 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_PlaySong0),
-			.inputWire(max10board_switches[1]),
+			.inputWire(max10Board_GPIO_Input_PlaySong0),
+			//.inputWire(max10board_switches[1]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong0_s)
 		);
 	wire max10Board_GPIO_Input_MakeRecording_s;
 		UI_TriggerSmoother UIs_Makerecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_MakeRecording),
-			.inputWire(max10board_switches[2]),
+			.inputWire(max10Board_GPIO_Input_MakeRecording),
+			//.inputWire(max10board_switches[2]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MakeRecording_s)
 		);
 	wire max10Board_GPIO_Input_PlayRecording_s;
 		UI_TriggerSmoother UIs_PlayRecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_PlayRecording),
-			.inputWire(max10board_switches[3]),
+			.inputWire(max10Board_GPIO_Input_PlayRecording),
+			//.inputWire(max10board_switches[3]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
@@ -390,7 +390,7 @@ module MusicBox_Main(
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		//--CONTROL
-		.inputSample( {2'b0, signalOutput} * 16'd16 ), //12 bits that will be sent to the DAC
+		.inputSample( {4'b0, signalOutput} * 16'd16 ), //12 bits that will be sent to the DAC
 		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
 		//--OUTPUT
 		.output_SPI_SCLK(max10Board_GPIO_Output_SPI_SCLK),
@@ -431,23 +431,173 @@ module MusicBox_Main(
 	//------------------------------------
 	//---Frequency Generator Sample ------
 	//------------------------------------
-	reg [7 : 0] signalOutput_Sine;
-	reg [7 : 0] signalOutput_Triangle;
-	reg [7 : 0] signalOutput_Combine ;
-	assign signalOutput_Combine = SignalMultiply255(signalOutput_Sine, 128) + SignalMultiply255(signalOutput_Triangle, 128);
-	SignalGenerator signalGenerator_Sine(
-		.CLK_32KHz(CLK_32Khz),
-		.reset_n(systemReset_n),
-		.inputFrequency(8'd100),
-		.outputSample(signalOutput_Sine)
-	);
-	SignalGenerator_Triangle signalGenerator_Triangle ( 
-		.CLK_32KHz(CLK_32Khz),
-		.reset_n(systemReset_n),
-		.inputFrequency(8'd100),
-		.outputSample(signalOutput_Triangle)
-		);
+	// reg [7 : 0] signalOutput_Sine;
+	// reg [7 : 0] signalOutput_Triangle;
+	// reg [7 : 0] signalOutput_Combine ;
+	// assign signalOutput_Combine = SignalMultiply255(signalOutput_Sine, 128) + SignalMultiply255(signalOutput_Triangle, 128);
+	// SignalGenerator signalGenerator_Sine(
+	// 	.CLK_32KHz(CLK_32Khz),
+	// 	.reset_n(systemReset_n),
+	// 	.inputFrequency(8'd100),
+	// 	.outputSample(signalOutput_Sine)
+	// );
+	// SignalGenerator_Triangle signalGenerator_Triangle ( 
+	// 	.CLK_32KHz(CLK_32Khz),
+	// 	.reset_n(systemReset_n),
+	// 	.inputFrequency(8'd100),
+	// 	.outputSample(signalOutput_Triangle)
+	// 	);
 
+
+
+
+	reg [9:0] [7 : 0] signalOutput_Sine;
+	reg [9:0] [7 : 0] signalOutput_Triangle;
+	reg [9:0] [7 : 0] signalOutput_Combine ;
+	assign signalOutput_Combine[0] = SignalMultiply255(signalOutput_Sine[0], 32);
+	assign signalOutput_Combine[1] = SignalMultiply255(signalOutput_Sine[0], 255);
+	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[2], 255);
+	assign signalOutput_Combine[3] = SignalMultiply255(signalOutput_Sine[3], 255);
+	assign signalOutput_Combine[4] = SignalMultiply255(signalOutput_Sine[4], 255);
+	assign signalOutput_Combine[5] = SignalMultiply255(signalOutput_Sine[5], 255);
+	assign signalOutput_Combine[6] = SignalMultiply255(signalOutput_Sine[6], 255);
+	assign signalOutput_Combine[7] = SignalMultiply255(signalOutput_Sine[7], 255);
+	assign signalOutput_Combine[8] = SignalMultiply255(signalOutput_Sine[8], 255);
+	assign signalOutput_Combine[9] = SignalMultiply255(signalOutput_Sine[9], 255);
+	assign segmentDisplay_DisplayValue = ((max10board_switches[0]==1'b1) ? signalOutput_Combine[0] : 8'd0) + 
+										 ((max10board_switches[1]==1'b1) ? signalOutput_Combine[1] : 8'd0) + 
+										 ((max10board_switches[2]==1'b1) ? signalOutput_Combine[2] : 8'd0) + 
+										 ((max10board_switches[3]==1'b1) ? signalOutput_Combine[3] : 8'd0) + 
+										 ((max10board_switches[4]==1'b1) ? signalOutput_Combine[4] : 8'd0) + 
+										 ((max10board_switches[5]==1'b1) ? signalOutput_Combine[5] : 8'd0) + 
+										 ((max10board_switches[6]==1'b1) ? signalOutput_Combine[6] : 8'd0) + 
+										 ((max10board_switches[7]==1'b1) ? signalOutput_Combine[7] : 8'd0) + 
+										 ((max10board_switches[8]==1'b1) ? signalOutput_Combine[8] : 8'd0) + 
+										 ((max10board_switches[9]==1'b1) ? signalOutput_Combine[9] : 8'd0) + 
+										 ((max10board_switches[0]==1'b1) ? signalOutput_Combine[0] : 8'd0) + 
+										 ((max10board_switches[0]==1'b1) ? signalOutput_Combine[0] : 8'd0) ;
+	SignalGenerator signalGenerator_Sine0(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd1),
+		.outputSample(signalOutput_Sine[0])
+	);
+	SignalGenerator signalGenerator_Sine1(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd10),
+		.outputSample(signalOutput_Sine[1])
+	);
+	SignalGenerator signalGenerator_Sine2(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd100),
+		.outputSample(signalOutput_Sine[2])
+	);
+	SignalGenerator signalGenerator_Sine3(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd1000),
+		.outputSample(signalOutput_Sine[3])
+	);
+	SignalGenerator signalGenerator_Sine4(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd440),
+		.outputSample(signalOutput_Sine[4])
+	);
+	SignalGenerator signalGenerator_Sine5(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd880),
+		.outputSample(signalOutput_Sine[5])
+	);
+	SignalGenerator signalGenerator_Sine6(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd1320),
+		.outputSample(signalOutput_Sine[6])
+	);
+	SignalGenerator signalGenerator_Sine7(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd1760),
+		.outputSample(signalOutput_Sine[7])
+	);
+	SignalGenerator signalGenerator_Sine8(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd2200),
+		.outputSample(signalOutput_Sine[8])
+	);
+	SignalGenerator signalGenerator_Sine9(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd5000),
+		.outputSample(signalOutput_Sine[9])
+	);
+
+
+	SignalGenerator_Triangle signalGenerator_Triangle0 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd1),
+		.outputSample(signalOutput_Triangle[0])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle1 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd300),
+		.outputSample(signalOutput_Triangle[1])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle2 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd400),
+		.outputSample(signalOutput_Triangle[2])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle3 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd500),
+		.outputSample(signalOutput_Triangle[3])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle4 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd600),
+		.outputSample(signalOutput_Triangle[4])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle5 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd700),
+		.outputSample(signalOutput_Triangle[5])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle6 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd800),
+		.outputSample(signalOutput_Triangle[6])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle7 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd900),
+		.outputSample(signalOutput_Triangle[7])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle8 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd2000),
+		.outputSample(signalOutput_Triangle[8])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle9 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd5000),
+		.outputSample(signalOutput_Triangle[9])
+	);
 
 	//--This is used to apply a amplitude ratio to a signal.  
 		// a = sinewave , b = volume    
