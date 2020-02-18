@@ -157,12 +157,14 @@ module SignalGenerator  (
 				//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
 				if (counter > 16'd32000 || counter == 16'd32000) begin counter <= counter % 16'd32000; end
 				//inputFrequency holds 14 bits, so we need 2 extra in front.
-				else begin counter <= counter + { 2'b0, inputFrequency }; end
+				else begin counter <= counter + inputFrequency;end//{ 2'b0, inputFrequency }; end
 			end
 		end
 		//counter goes from 0 to 32000, but index ranges from 0 to 127.  This corrects that.
-			//This gives worst case value to get 127.  
-		assign outputSample = preCalcSine[counter / 16'd250];
+			//31999 / 127 = (1 / 0.0039687) 
+		wire [7:0] trueCounter ;
+		assign trueCounter = ((counter + (125)) * 1/252 ) ;   // 0.trueCounter == 1/252 
+		assign outputSample =preCalcSine[trueCounter];  
 			/*
 			countsPerIndex = (32000 / 128)
 				250 = 32000 / 128

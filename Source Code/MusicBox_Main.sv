@@ -5,7 +5,12 @@
 //======
 
 
+
 /*
+BRANCH SignalCombinational   
+	Purpose : Test signal generation better, ensure a single tone is being generated correctly.
+	As well as a system that combines multiple signals into 1.
+	Finally, we will need amplitude control for the global signal and each signal ( volume * ((500Hz * amp1) + (250 * amp2) ) ) style.
 MAIN TASKS
 	SDRAM Integration
 	
@@ -438,88 +443,41 @@ module MusicBox_Main(
 		.outputSample(signalOutput)
 	);
 	
-	//Helps show sine wave pattern a bit
-	//  assign max10Board_LED[0] = (signalOutput > 005);
-	//  assign max10Board_LED[1] = (signalOutput > 032);
-	//  assign max10Board_LED[2] = (signalOutput > 059);
-	//  assign max10Board_LED[3] = (signalOutput > 086);
-	//  assign max10Board_LED[4] = (signalOutput > 113);
-	//  assign max10Board_LED[5] = (signalOutput > 140);
-	//  assign max10Board_LED[6] = (signalOutput > 167);
-	//  assign max10Board_LED[7] = (signalOutput > 194);
-	//  assign max10Board_LED[8] = (signalOutput > 221);
-	//  assign max10Board_LED[9] = (signalOutput > 250);
-	 
-	 
-	/////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////
-	
 
-
-	//--------SDRAM TESTING INTERFACE
-// 	reg isLoading ;
-// 	reg [24:0] sdram_testAddressCounter;
-// 	reg [10:0][24:0] sdram_TestAddress;
-// 	reg [10:0][15:0] sdram_TestInputData;
-// 	reg [10:0][15:0] sdram_TestOutputData;
-// //	wire [15:0] sdram_inputData;
-	
-	
-//	reg [15:0] sdram_inputDataLoading;
-	//	reg [24:0] sdram_inputAddressLoading;
-
-//	reg [15:0] sdram_inputDataTester;
-	//reg [24:0] sdram_inpuAddressTester;
-	
-	//wire sdram_isWriting ;
-	//	reg	sdram_isWritingLoading;
-	//reg sdram_isWritingTester;
-	
-
-	//wire sdram_inputValid ;
-	//	reg sdram_inputValidLoading;
-	//reg sdram_inputValidTester;
-
-	//assign sdram_inputAddress = sdram_inpuAddressTester;
-	//assign sdram_isWriting = sdram_isWritingTester;
-	//assign sdram_inputValid =  sdram_inputValidTester;
-	//assign sdram_inputData = sdram_inputDataTester;//sdram_inputDataLoading;
-
-	//wire [4:0] index;
-	
-	reg sdRamTest_CompareError ;
-	reg sdRamTest_CompletedSuccess ;
 	assign max10Board_LED[0] = 1;
-	assign max10Board_LED[1] = sdRamTest_CompareError;
-	assign max10Board_LED[2] = sdRamTest_CompletedSuccess;
-	assign max10Board_LED[3] = sdram_isBusy;
-	assign max10Board_LED[4] = sdram_inputValid;
-	assign max10Board_LED[5] = sdram_isWriting;
-	assign max10Board_LED[6] = sdram_recievedCommand;
-	assign max10Board_LED[7] = sdram_outputValid;
+	
+	assign max10Board_LED[1] =  8'd255 *  8'd127  * 0.003921568627451 == 8'd127;
+	assign max10Board_LED[2] = (testWire) == 8'd100 ? 1'b1 : 1'b0;
+	assign max10Board_LED[3] =  (SignalMultiply255(111, 33) == (8'd14)) ? 1'b1 : 1'b0;
+	assign max10Board_LED[4] = ( 8'd111 * ( 8'd2 * 0.003921568627451) == (8'd0));
+	wire [7:0] baseTestWire;
+	wire [7:0] baseTestWire2;
+	wire [7:0] testWire = SignalMultiply255(baseTestWire, 128);
+	wire [7:0] testWire1 = SignalMultiply255(baseTestWire2, 128);
+	wire [7:0] testWire2 = SignalMultiply255(baseTestWire, 64);
+	wire [7:0] testWire3 = SignalMultiply255(baseTestWire, 64);
+	assign segmentDisplay_DisplayValue = testWire;// + testWire1 ;
+//	assign segmentDisplay_DisplayValue = testWire;
+	//0.003921568627451 : 1/255
+	//0.00390625 : 1/256
 
-	 
-	
-	//outputData (sdram_inputDataTester) is used for WRITING. 
-	
-	
-	// // //--A test module that incrmeents through all of this.
-	// SDRAM_TestModule sdRamTest (
-	// 	.inputClock(CLK_143Mhz), //Clock  CLK_143Mhz
-	// 	.reset_n(systemReset_n), //Reset, active low
-	// 	.isBusy(sdram_isBusy), //Is the SDRAm saying it's busy
-	// 	.recievedCommand(sdram_recievedCommand),
-		
-	// 	.isWriting(sdram_isWritingTester), //If we say output is valid, is it writing
-	// 	.outputValid(sdram_inputValidTester), //Should we try a new command
-	// 	.outputAddress(sdram_inpuAddressTester), //Address this writes data to
-	// 	.outputData(sdram_inputDataTester), //Data to write
-	// 	.inputDataAvailable(sdram_outputValid), //High when data from reading is available
-	// 	.inputData(sdram_outputData), // Data from reading
-	// 	.compareError(sdRamTest_CompareError), //If we arrived at an error
-	// 	.completedSuccess(sdRamTest_CompletedSuccess) //If we were successful
-	// 	//.outputValue( segmentDisplay_DisplayValue) //Current increment, updated every 0.25 seconds
-	// );
+	SignalGenerator_Triangle signalGenerator_Triangle ( 
+		.CLK_32KHz(CLK_1Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd1),
+		.outputSample(baseTestWire)
+		);
+
+	SignalGenerator testSignal2 ( 
+		.CLK_32KHz(CLK_1Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(8'd2),
+		.outputSample(baseTestWire2)
+		);
+
+	function automatic  [7:0] SignalMultiply255 (input [7:0] a, input [7:0] b);
+		return  ( (a * b + 127) * 1/255);
+	endfunction
 
 
 endmodule

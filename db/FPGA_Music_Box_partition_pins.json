@@ -76,23 +76,87 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[3]",
+					"name" : "max10Board_LEDSegments[0][0]",
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[4]",
+					"name" : "max10Board_LEDSegments[0][1]",
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[5]",
+					"name" : "max10Board_LEDSegments[0][2]",
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[6]",
+					"name" : "max10Board_LEDSegments[0][3]",
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_LED[7]",
+					"name" : "max10Board_LEDSegments[0][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[0][6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][1]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[1][6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][0]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][2]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][3]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][4]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][5]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LEDSegments[2][6]",
+					"strict" : false
+				},
+				{
+					"name" : "max10Board_LED[2]",
 					"strict" : false
 				},
 				{
