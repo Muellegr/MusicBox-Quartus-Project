@@ -193,7 +193,7 @@ module MusicBox_Main(
 	//-----------------------
 	//--7 Segment Display Control. 
 	//-----------------------
-	reg [19:0] segmentDisplay_DisplayValue ;//= 20'd512;
+	reg [19:0] segmentDisplay_DisplayValue ;
 	 
 	SevenSegmentParser sevenSegmentParser(
 		.displayValue(segmentDisplay_DisplayValue),
@@ -276,7 +276,6 @@ module MusicBox_Main(
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
 
-
 	//----------------------------
 	//-- Music Keys---------------
 	//----------------------------
@@ -296,7 +295,6 @@ module MusicBox_Main(
 	//------------------------------------
 	//------- SDRAM Controller -----------
 	//------------------------------------
-//assign segmentDisplay_DisplayValue =output_DebugString [15:0];
 
 	reg [24:0]	sdram_inputAddress; //This is the address to loop up
 	reg [15:0] 	sdram_inputData; //Data to WRITE (only if writing)
@@ -402,9 +400,7 @@ module MusicBox_Main(
 		.isBusy(SPI_Output_isBusy),
 		.transmitComplete(SPI_Output_transmitComplete) //Goes high for 71Khz when this completes the signal
 	);
-	//
-	//
-	//
+
 	/////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////
 	//----------------------------
@@ -435,46 +431,26 @@ module MusicBox_Main(
 	//------------------------------------
 	//---Frequency Generator Sample ------
 	//------------------------------------
-	reg [7 : 0] signalOutput;
-	SignalGenerator signalGenerator(
+	reg [7 : 0] signalOutput_Sine;
+	reg [7 : 0] signalOutput_Triangle;
+	reg [7 : 0] signalOutput_Combine ;
+	assign signalOutput_Combine = SignalMultiply255(signalOutput_Sine, 128) + SignalMultiply255(signalOutput_Triangle, 128);
+	SignalGenerator signalGenerator_Sine(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(({4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches} + + {4'b0 , max10board_switches}) ),
-		.outputSample(signalOutput)
+		.inputFrequency(8'd100),
+		.outputSample(signalOutput_Sine)
 	);
-	
-
-	assign max10Board_LED[0] = 1;
-	
-	assign max10Board_LED[1] =  8'd255 *  8'd127  * 0.003921568627451 == 8'd127;
-	assign max10Board_LED[2] = (testWire) == 8'd100 ? 1'b1 : 1'b0;
-	assign max10Board_LED[3] =  (SignalMultiply255(111, 33) == (8'd14)) ? 1'b1 : 1'b0;
-	assign max10Board_LED[4] = ( 8'd111 * ( 8'd2 * 0.003921568627451) == (8'd0));
-	wire [7:0] baseTestWire;
-	wire [7:0] baseTestWire2;
-	wire [7:0] testWire = SignalMultiply255(baseTestWire, 128);
-	wire [7:0] testWire1 = SignalMultiply255(baseTestWire2, 128);
-	wire [7:0] testWire2 = SignalMultiply255(baseTestWire, 64);
-	wire [7:0] testWire3 = SignalMultiply255(baseTestWire, 64);
-	assign segmentDisplay_DisplayValue = testWire;// + testWire1 ;
-//	assign segmentDisplay_DisplayValue = testWire;
-	//0.003921568627451 : 1/255
-	//0.00390625 : 1/256
-
 	SignalGenerator_Triangle signalGenerator_Triangle ( 
-		.CLK_32KHz(CLK_1Khz),
+		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(8'd1),
-		.outputSample(baseTestWire)
+		.inputFrequency(8'd100),
+		.outputSample(signalOutput_Triangle)
 		);
 
-	SignalGenerator testSignal2 ( 
-		.CLK_32KHz(CLK_1Khz),
-		.reset_n(systemReset_n),
-		.inputFrequency(8'd2),
-		.outputSample(baseTestWire2)
-		);
 
+	//--This is used to apply a amplitude ratio to a signal.  
+		// a = sinewave , b = volume    
 	function automatic  [7:0] SignalMultiply255 (input [7:0] a, input [7:0] b);
 		return  ( (a * b + 127) * 1/255);
 	endfunction

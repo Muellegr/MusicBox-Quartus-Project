@@ -147,33 +147,22 @@ module SignalGenerator  (
 	assign preCalcSine[126] = 8'b01110011;
 	assign preCalcSine[127] = 8'b01111010;
 		
-		//Will count up to 320000.
-		reg [15 : 0] counter ; //16 bits max value is 64k ~
-		always_ff @(posedge CLK_32KHz, negedge reset_n) begin
-			if (reset_n == 1'b0)begin
-				counter <= 1'b0;
-			end
-			else begin
-				//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
-				if (counter > 16'd32000 || counter == 16'd32000) begin counter <= counter % 16'd32000; end
-				//inputFrequency holds 14 bits, so we need 2 extra in front.
-				else begin counter <= counter + inputFrequency;end//{ 2'b0, inputFrequency }; end
-			end
+	//Will count up to 320000.
+	reg [15 : 0] counter ; //16 bits max value is 64k ~
+	always_ff @(posedge CLK_32KHz, negedge reset_n) begin
+		if (reset_n == 1'b0)begin
+			counter <= 1'b0;
 		end
-		//counter goes from 0 to 32000, but index ranges from 0 to 127.  This corrects that.
-			//31999 / 127 = (1 / 0.0039687) 
-		wire [7:0] trueCounter ;
-		assign trueCounter = ((counter + (125)) * 1/252 ) ;   // 0.trueCounter == 1/252 
-		assign outputSample =preCalcSine[trueCounter];  
-			/*
-			countsPerIndex = (32000 / 128)
-				250 = 32000 / 128
-			So from 0-249, index is 0.
-			from 250-499, index is 1.
-			This is shown with the following code.  LED 0 and LED 2 are on, but 1 was not.  
-				assign max10Board_LED[0] = ((16'd499 / 16'd250) == (16'd1));
-				assign max10Board_LED[1] = ((16'd499 / 16'd250) == (16'd2));
-				assign max10Board_LED[2] = 1'b1;
-			*/
+		else begin
+			//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
+			if (counter > 16'd32000 || counter == 16'd32000) begin counter <= counter % 16'd32000; end
+			//inputFrequency holds 14 bits, so we need 2 extra in front.
+			else begin counter <= counter + inputFrequency;end//{ 2'b0, inputFrequency }; end
+		end
+	end
+
+	wire [7:0] trueCounter ;
+	assign trueCounter = ((counter + (125)) * 1/252 ) ;   // 0.trueCounter == 1/252 
+	assign outputSample =preCalcSine[trueCounter];  
 		
 endmodule

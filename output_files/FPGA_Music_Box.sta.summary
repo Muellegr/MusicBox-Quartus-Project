@@ -2,52 +2,44 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
-Slack : -32.165
-TNS   : -302.559
-
 Type  : Slow 1200mV 85C Model Setup 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -8.215
-TNS   : -336.263
-
-Type  : Slow 1200mV 85C Model Setup 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : -6.252
-TNS   : -63.149
-
-Type  : Slow 1200mV 85C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -5.468
-TNS   : -179.109
+Slack : -7.768
+TNS   : -339.054
 
 Type  : Slow 1200mV 85C Model Setup 'ClockGenerator:clockGenerator_22Khz|outputClock'
-Slack : -3.648
-TNS   : -248.726
+Slack : -3.546
+TNS   : -245.591
+
+Type  : Slow 1200mV 85C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -2.605
+TNS   : -98.744
+
+Type  : Slow 1200mV 85C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
+Slack : -2.380
+TNS   : -43.988
 
 Type  : Slow 1200mV 85C Model Setup 'max10Board_50MhzClock'
-Slack : -1.959
-TNS   : -8.611
-
-Type  : Slow 1200mV 85C Model Hold 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.325
-TNS   : 0.000
+Slack : -2.252
+TNS   : -9.035
 
 Type  : Slow 1200mV 85C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.340
+Slack : 0.320
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.323
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ClockGenerator:clockGenerator_22Khz|outputClock'
-Slack : 0.340
+Slack : 0.341
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'max10Board_50MhzClock'
-Slack : 0.340
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
 Slack : 0.342
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : 0.632
+Type  : Slow 1200mV 85C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
+Slack : 0.348
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_22Khz|outputClock'
@@ -56,15 +48,11 @@ TNS   : -113.643
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
 Slack : -1.403
-TNS   : -78.568
+TNS   : -56.120
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
 Slack : -1.403
-TNS   : -39.284
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : -1.403
-TNS   : -21.045
+TNS   : -26.657
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
 Slack : 3.213
@@ -74,52 +62,44 @@ Type  : Slow 1200mV 85C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : 9.636
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
-Slack : -29.171
-TNS   : -275.064
-
 Type  : Slow 1200mV 0C Model Setup 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -7.278
-TNS   : -295.570
-
-Type  : Slow 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : -5.652
-TNS   : -56.672
-
-Type  : Slow 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -4.931
-TNS   : -159.626
+Slack : -6.874
+TNS   : -299.042
 
 Type  : Slow 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_22Khz|outputClock'
-Slack : -3.260
-TNS   : -221.828
+Slack : -3.184
+TNS   : -219.500
+
+Type  : Slow 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -2.375
+TNS   : -89.044
+
+Type  : Slow 1200mV 0C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
+Slack : -2.131
+TNS   : -39.331
 
 Type  : Slow 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -1.754
-TNS   : -7.363
+Slack : -1.986
+TNS   : -7.870
+
+Type  : Slow 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : 0.288
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.291
+Slack : 0.290
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_22Khz|outputClock'
-Slack : 0.305
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.306
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
-Slack : 0.306
+Slack : 0.307
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.306
+Slack : 0.307
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : 0.573
+Type  : Slow 1200mV 0C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
+Slack : 0.311
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_22Khz|outputClock'
@@ -128,70 +108,58 @@ TNS   : -113.643
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
 Slack : -1.403
-TNS   : -78.568
+TNS   : -56.120
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
 Slack : -1.403
-TNS   : -39.284
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : -1.403
-TNS   : -21.045
+TNS   : -26.657
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.185
+Slack : 3.189
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
 Slack : 9.647
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
-Slack : -12.670
-TNS   : -109.335
-
 Type  : Fast 1200mV 0C Model Setup 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
-Slack : -3.669
-TNS   : -150.846
-
-Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : -1.991
-TNS   : -18.075
-
-Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : -1.629
-TNS   : -43.301
-
-Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_22Khz|outputClock'
-Slack : -1.085
-TNS   : -64.780
+Slack : -3.498
+TNS   : -152.366
 
 Type  : Fast 1200mV 0C Model Setup 'max10Board_50MhzClock'
-Slack : -0.746
-TNS   : -2.322
+Slack : -0.977
+TNS   : -2.162
+
+Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_22Khz|outputClock'
+Slack : -0.928
+TNS   : -58.315
+
+Type  : Fast 1200mV 0C Model Setup 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : -0.579
+TNS   : -20.493
+
+Type  : Fast 1200mV 0C Model Setup 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
+Slack : -0.377
+TNS   : -6.665
+
+Type  : Fast 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
+Slack : 0.089
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
 Slack : 0.141
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
-Slack : 0.147
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_1Khz|outputClock'
-Slack : 0.148
-TNS   : 0.000
-
 Type  : Fast 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_22Khz|outputClock'
-Slack : 0.148
+Slack : 0.149
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'max10Board_50MhzClock'
-Slack : 0.148
+Slack : 0.150
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : 0.249
+Type  : Fast 1200mV 0C Model Hold 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
+Slack : 0.151
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_22Khz|outputClock'
@@ -200,22 +168,18 @@ TNS   : -81.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_1Khz|outputClock'
 Slack : -1.000
-TNS   : -56.000
+TNS   : -40.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SPI_OutputControllerDac:sPI_OutputControllerDac|ClockGenerator:clockGenerator_714Khz|outputClock'
 Slack : -1.000
-TNS   : -28.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClockGenerator:clockGenerator_32Khz|outputClock'
-Slack : -1.000
-TNS   : -15.000
+TNS   : -19.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'aLTPLL_Clock_143Mhz|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.244
+Slack : 3.245
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'max10Board_50MhzClock'
-Slack : 9.325
+Slack : 9.328
 TNS   : 0.000
 
 ------------------------------------------------------------

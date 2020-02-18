@@ -68,95 +68,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10Board_GPIO_Output_SPI_DIN",
-					"strict" : false
-				},
-				{
 					"name" : "max10Board_GPIO_Input_SPI_SCLK",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[0][0]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[0][1]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[0][2]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[0][3]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[0][4]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[0][5]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[0][6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[1][0]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[1][1]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[1][2]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[1][3]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[1][4]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[1][5]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[1][6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[2][0]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[2][2]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[2][3]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[2][4]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[2][5]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LEDSegments[2][6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10Board_LED[2]",
 					"strict" : false
 				},
 				{
@@ -232,10 +144,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[2]",
-					"strict" : false
-				},
-				{
 					"name" : "max10board_switches[0]",
 					"strict" : false
 				},
@@ -248,27 +156,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[9]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[8]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[7]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[6]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[5]",
-					"strict" : false
-				},
-				{
-					"name" : "max10board_switches[4]",
+					"name" : "max10board_switches[2]",
 					"strict" : false
 				}
 			]

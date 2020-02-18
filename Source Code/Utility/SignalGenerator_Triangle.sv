@@ -1,5 +1,5 @@
 /*
-Signal Generator - Creates a sine wave that has the supplied input frequency.
+Signal Generator - Creates a triangle  wave that has the supplied input frequency.
 	Operates from 100Hz to 8000Hz.  
 	
 	outputSample is the current sine amplitude.
