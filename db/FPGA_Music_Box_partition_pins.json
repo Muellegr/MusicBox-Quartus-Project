@@ -68,6 +68,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "max10Board_GPIO_Output_SPI_DIN",
+					"strict" : false
+				},
+				{
 					"name" : "max10Board_GPIO_Input_SPI_SCLK",
 					"strict" : false
 				},
@@ -144,19 +148,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[0]",
+					"name" : "max10Board_GPIO_Input_MakeRecording",
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[3]",
+					"name" : "max10Board_GPIO_Input_PlaySong1",
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[1]",
+					"name" : "max10Board_GPIO_Input_PlayRecording",
 					"strict" : false
 				},
 				{
-					"name" : "max10board_switches[2]",
+					"name" : "max10Board_GPIO_Input_PlaySong0",
 					"strict" : false
 				}
 			]
