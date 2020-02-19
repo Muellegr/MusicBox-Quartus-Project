@@ -26,10 +26,10 @@ module ClockGenerator  #(parameter BitsNeeded = 15, InputClockEdgesToCount = 250
 			end
 			else begin
 				//If counter is sitting at the required amount of clock edges
-				if (counter == InputClockEdgesToCount) begin
+				if (counter == InputClockEdgesToCount-1) begin
 					counter <= 0;
 					//Flip state
-					outputClock <= !outputClock;
+					outputClock <= ~outputClock;
 				end
 				//Otherwhys simply increment
 				else begin

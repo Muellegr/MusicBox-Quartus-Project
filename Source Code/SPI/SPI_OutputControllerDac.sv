@@ -50,7 +50,7 @@ module SPI_OutputControllerDac(
 			.outputClock(CLK_714Khz)
 		);
 		defparam	clockGenerator_714Khz.BitsNeeded = 8; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_714Khz.InputClockEdgesToCount = 35;
+		defparam	clockGenerator_714Khz.InputClockEdgesToCount = 34;
 		//--
 		
 		reg [4:0]  currentState; //Current state in the state machine.  0 is idle, 1 is 4 0s, and 2 is sending the 12 bits.  Returns to 0 on completion.

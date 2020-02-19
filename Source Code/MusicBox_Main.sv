@@ -128,6 +128,7 @@ module MusicBox_Main(
 	//-----------------------
 	//--MISC CLOCK GENERATORS
 	//-----------------------
+	//ISSUE : Clocks should be 97.5% slower.  I think the 50Mhz clock is not exactly 50Mhz.  
 	wire CLK_143Mhz; 
 	ALTPLL_Clock aLTPLL_Clock_143Mhz(
 		.areset(), //???    Left empty.
@@ -179,7 +180,7 @@ module MusicBox_Main(
 		.outputClock(CLK_32Khz)
 	);
 		defparam	clockGenerator_32Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781;
+		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 758; //OLD : 781* 0.975 = 762
 	
 	wire CLK_1hz ;
 	ClockGenerator clockGenerator_1hz (
@@ -387,13 +388,15 @@ module MusicBox_Main(
 	reg [32:0] c1 ;
 	assign c1= signalSum * 16;
 	assign segmentDisplay_DisplayValue = c1;
+
+	//assign max10Board_GPIO_Output_SPI_SCLK =squareOutput;// CLK_32Khz;
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		//--CONTROL
-		.inputSample(12'd4000), //12 bits that will be sent to the DAC
+		.inputSample(c1), //12 bits that will be sent to the DAC
 		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
 		//--OUTPUT
 		.output_SPI_SCLK(max10Board_GPIO_Output_SPI_SCLK),
@@ -458,9 +461,9 @@ module MusicBox_Main(
 	reg [9:0] [7 : 0] signalOutput_Triangle;
 	reg [9:0] [7 : 0] signalOutput_Combine ;
 	reg [7:0] signalSum;
-	assign signalOutput_Combine[0] = SignalMultiply255(signalOutput_Sine[0], 32);
+	assign signalOutput_Combine[0] = SignalMultiply255(squareOutput, 255);
 	assign signalOutput_Combine[1] = SignalMultiply255(signalOutput_Sine[1], 255);
-	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[1], 255);
+	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[2], 255);
 	assign signalOutput_Combine[3] = SignalMultiply255(signalOutput_Sine[3], 255);
 	assign signalOutput_Combine[4] = SignalMultiply255(signalOutput_Sine[4], 255);
 	assign signalOutput_Combine[5] = SignalMultiply255(signalOutput_Sine[5], 255);
@@ -468,51 +471,60 @@ module MusicBox_Main(
 	assign signalOutput_Combine[7] = SignalMultiply255(signalOutput_Sine[7], 255);
 	assign signalOutput_Combine[8] = SignalMultiply255(signalOutput_Sine[8], 255);
 	assign signalOutput_Combine[9] = SignalMultiply255(signalOutput_Sine[9], 255);
-	assign signalSum			       =8'd128;//= ((max10board_switches[0]==1'b1) ? signalOutput_Combine[0] : 8'd0) + 
-										//  ((max10board_switches[1]==1'b1) ? signalOutput_Combine[1] : 8'd0) + 
-										//  ((max10board_switches[2]==1'b1) ? signalOutput_Combine[2] : 8'd0) + 
-										//  ((max10board_switches[3]==1'b1) ? signalOutput_Combine[3] : 8'd0) + 
-										//  ((max10board_switches[4]==1'b1) ? signalOutput_Combine[4] : 8'd0) + 
-										//  ((max10board_switches[5]==1'b1) ? signalOutput_Combine[5] : 8'd0) + 
-										//  ((max10board_switches[6]==1'b1) ? signalOutput_Combine[6] : 8'd0) + 
-										//  ((max10board_switches[7]==1'b1) ? signalOutput_Combine[7] : 8'd0) + 
-										//  ((max10board_switches[8]==1'b1) ? signalOutput_Combine[8] : 8'd0) + 
-										//  ((max10board_switches[9]==1'b1) ? signalOutput_Combine[9] : 8'd0) ;
-										 
-	SignalGenerator signalGenerator_Sine0(
+	assign signalSum			       = ((max10board_switches[0]==1'b1) ? signalOutput_Combine[0] : 8'd0) + 
+										 ((max10board_switches[1]==1'b1) ? signalOutput_Combine[1] : 8'd0) + 
+										 ((max10board_switches[2]==1'b1) ? signalOutput_Combine[2] : 8'd0) + 
+										 ((max10board_switches[3]==1'b1) ? signalOutput_Combine[3] : 8'd0) + 
+										 ((max10board_switches[4]==1'b1) ? signalOutput_Combine[4] : 8'd0) + 
+										 ((max10board_switches[5]==1'b1) ? signalOutput_Combine[5] : 8'd0) + 
+										 ((max10board_switches[6]==1'b1) ? signalOutput_Combine[6] : 8'd0) + 
+										 ((max10board_switches[7]==1'b1) ? signalOutput_Combine[7] : 8'd0) + 
+										 ((max10board_switches[8]==1'b1) ? signalOutput_Combine[8] : 8'd0) + 
+										 ((max10board_switches[9]==1'b1) ? signalOutput_Combine[9] : 8'd0) ;
+	reg [7:0] squareOutput;							 
+	SignalGenerator_Square signalGenerator_Square(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd1000),
+		.outputSample(squareOutput)
+
+	);
+	
+	
+	SignalGenerator_Square signalGenerator_Sine0(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd1),
 		.outputSample(signalOutput_Sine[0])
 	);
-	SignalGenerator signalGenerator_Sine1(
-		.CLK_32KHz(CLK_100hz),
+	SignalGenerator_Square signalGenerator_Sine1(
+		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd100),
+		.inputFrequency(14'd200),
 		.outputSample(signalOutput_Sine[1])
 	);
-	SignalGenerator signalGenerator_Sine2(
+	SignalGenerator_Square signalGenerator_Sine2(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd100),
+		.inputFrequency(14'd300),
 		.outputSample(signalOutput_Sine[2])
 	);
-	SignalGenerator signalGenerator_Sine3(
+	SignalGenerator_Square signalGenerator_Sine3(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd1000),
+		.inputFrequency(14'd400),
 		.outputSample(signalOutput_Sine[3])
 	);
-	SignalGenerator signalGenerator_Sine4(
+	SignalGenerator_Square signalGenerator_Sine4(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd440),
+		.inputFrequency(14'd500),
 		.outputSample(signalOutput_Sine[4])
 	);
-	SignalGenerator signalGenerator_Sine5(
+	SignalGenerator_Square signalGenerator_Sine5(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd880),
+		.inputFrequency(14'd600),
 		.outputSample(signalOutput_Sine[5])
 	);
 	SignalGenerator signalGenerator_Sine6(
