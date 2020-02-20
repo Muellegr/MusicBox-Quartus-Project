@@ -71,7 +71,7 @@ varName = "squareWave"
 
 
 for i in range(0, subDivisions):
-    a = 255 if (i > subDivisions * 0.5) else 0
+    a = 255 if (i >= subDivisions * 0.5) else 0
     
   #  if (a > ((subDivisions)* 0.5 )) :
     #    a =subDivisions - a;
@@ -84,6 +84,6 @@ for i in range(0, subDivisions):
     f.write('assign %s[%i] = 8\'b%s;\n'%(varName, i, b) )
 
 #Finish with bracket
-f.write('}\n')
+f.write('\n')
 
 f.close()
