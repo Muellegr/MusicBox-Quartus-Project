@@ -81,7 +81,7 @@ for i in range(0, subDivisions):
     b = max(min(a, pow(2,bitSize) - 1), 0)
     b = format(b, '08b')
 
-    f.write('assign %s[%i] = 8\'b%s;\n'%(varName, i, b) )
+    f.write('   assign %s[%i] = 8\'b%s;\n'%(varName, i, b) )
 
 #Finish with bracket
 f.write('\n')
