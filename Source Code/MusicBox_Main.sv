@@ -128,6 +128,7 @@ module MusicBox_Main(
 	//-----------------------
 	//--MISC CLOCK GENERATORS
 	//-----------------------
+	//ISSUE : Clocks should be 97.5% slower.  I think the 50Mhz clock is not exactly 50Mhz.  
 	wire CLK_143Mhz; 
 	ALTPLL_Clock aLTPLL_Clock_143Mhz(
 		.areset(), //???    Left empty.
@@ -179,7 +180,16 @@ module MusicBox_Main(
 		.outputClock(CLK_32Khz)
 	);
 		defparam	clockGenerator_32Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781;
+		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781; //OLD : 781* 0.975 = 762
+
+	wire CLK_500Khz ;
+	ClockGenerator clockGenerator_500Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_500Khz)
+	);
+		defparam	clockGenerator_500Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_500Khz.InputClockEdgesToCount = 50; //OLD : 781* 0.975 = 762
 	
 	wire CLK_1hz ;
 	ClockGenerator clockGenerator_1hz (
@@ -246,32 +256,32 @@ module MusicBox_Main(
 	wire max10Board_GPIO_Input_PlaySong1_s;
 		UI_TriggerSmoother UIs_PlaySong1 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_PlaySong1),
-			.inputWire(max10board_switches[0]),
+			.inputWire(max10Board_GPIO_Input_PlaySong1),
+			//.inputWire(max10board_switches[0]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong1_s)
 		);
 	wire max10Board_GPIO_Input_PlaySong0_s;
 		UI_TriggerSmoother UIs_PlaySong0 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_PlaySong0),
-			.inputWire(max10board_switches[1]),
+			.inputWire(max10Board_GPIO_Input_PlaySong0),
+			//.inputWire(max10board_switches[1]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong0_s)
 		);
 	wire max10Board_GPIO_Input_MakeRecording_s;
 		UI_TriggerSmoother UIs_Makerecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_MakeRecording),
-			.inputWire(max10board_switches[2]),
+			.inputWire(max10Board_GPIO_Input_MakeRecording),
+			//.inputWire(max10board_switches[2]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MakeRecording_s)
 		);
 	wire max10Board_GPIO_Input_PlayRecording_s;
 		UI_TriggerSmoother UIs_PlayRecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			//.inputWire(max10Board_GPIO_Input_PlayRecording),
-			.inputWire(max10board_switches[3]),
+			.inputWire(max10Board_GPIO_Input_PlayRecording),
+			//.inputWire(max10board_switches[3]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
@@ -384,13 +394,18 @@ module MusicBox_Main(
 	
 
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
+	reg [32:0] c1 ;
+	assign c1= signalSum * 16;
+	assign segmentDisplay_DisplayValue = c1;
+
+	//assign max10Board_GPIO_Output_SPI_SCLK =CLK_32Khz;// CLK_32Khz;
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
 		.clock_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		//--CONTROL
-		.inputSample( {2'b0, signalOutput} * 16'd16 ), //12 bits that will be sent to the DAC
+		.inputSample(c1), //12 bits that will be sent to the DAC
 		.sendSample_n(SPI_Output_SendSample_n), //Active low signal.  If the system is not busy, it will begin sending the sample out.
 		//--OUTPUT
 		.output_SPI_SCLK(max10Board_GPIO_Output_SPI_SCLK),
@@ -431,23 +446,165 @@ module MusicBox_Main(
 	//------------------------------------
 	//---Frequency Generator Sample ------
 	//------------------------------------
-	reg [7 : 0] signalOutput_Sine;
-	reg [7 : 0] signalOutput_Triangle;
-	reg [7 : 0] signalOutput_Combine ;
-	assign signalOutput_Combine = SignalMultiply255(signalOutput_Sine, 128) + SignalMultiply255(signalOutput_Triangle, 128);
-	SignalGenerator signalGenerator_Sine(
-		.CLK_32KHz(CLK_32Khz),
-		.reset_n(systemReset_n),
-		.inputFrequency(8'd100),
-		.outputSample(signalOutput_Sine)
-	);
-	SignalGenerator_Triangle signalGenerator_Triangle ( 
-		.CLK_32KHz(CLK_32Khz),
-		.reset_n(systemReset_n),
-		.inputFrequency(8'd100),
-		.outputSample(signalOutput_Triangle)
-		);
 
+	reg [9:0] [7 : 0] signalOutput_Sine;
+	reg [9:0] [7 : 0] signalOutput_Triangle;
+	reg [9:0] [7 : 0] signalOutput_Combine ;
+	reg [7:0] signalSum;
+	assign signalOutput_Combine[0] = SignalMultiply255(signalOutput_Triangle[8], 255);
+	assign signalOutput_Combine[1] = SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[2], 60) + SignalMultiply255(signalOutput_Sine[3], 60) + SignalMultiply255(signalOutput_Sine[4], 60);
+	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[1], 60);
+	assign signalOutput_Combine[3] = SignalMultiply255(signalOutput_Sine[3], 255);
+	assign signalOutput_Combine[4] = SignalMultiply255(signalOutput_Sine[4], 255);
+	assign signalOutput_Combine[5] = SignalMultiply255(signalOutput_Sine[5], 255);
+	assign signalOutput_Combine[6] = SignalMultiply255(signalOutput_Sine[6], 255);
+	assign signalOutput_Combine[7] = SignalMultiply255(signalOutput_Sine[7], 255);
+	assign signalOutput_Combine[8] = SignalMultiply255(signalOutput_Sine[8], 255);
+	assign signalOutput_Combine[9] = SignalMultiply255(signalOutput_Sine[9], 255);
+	assign signalSum			       = ((max10board_switches[0]==1'b1) ? signalOutput_Combine[0] : 8'd0) + 
+										 ((max10board_switches[1]==1'b1) ? signalOutput_Combine[1] : 8'd0) + 
+										 ((max10board_switches[2]==1'b1) ? signalOutput_Combine[2] : 8'd0) + 
+										 ((max10board_switches[3]==1'b1) ? signalOutput_Combine[3] : 8'd0) + 
+										 ((max10board_switches[4]==1'b1) ? signalOutput_Combine[4] : 8'd0) + 
+										 ((max10board_switches[5]==1'b1) ? signalOutput_Combine[5] : 8'd0) + 
+										 ((max10board_switches[6]==1'b1) ? signalOutput_Combine[6] : 8'd0) + 
+										 ((max10board_switches[7]==1'b1) ? signalOutput_Combine[7] : 8'd0) + 
+										 ((max10board_switches[8]==1'b1) ? signalOutput_Combine[8] : 8'd0) + 
+										 ((max10board_switches[9]==1'b1) ? signalOutput_Combine[9] : 8'd0) ;
+	reg [7:0] squareOutput;	
+	//--Square						 
+	SignalGenerator_Square signalGenerator_Square(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd1000),
+		.outputSample(squareOutput)
+
+	);
+	//--Sine
+	SignalGenerator signalGenerator_Sine0(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd1),
+		.outputSample(signalOutput_Sine[0])
+	);
+	SignalGenerator signalGenerator_Sine1(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd200),
+		.outputSample(signalOutput_Sine[1])
+	);
+	SignalGenerator signalGenerator_Sine2(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd301),
+		.outputSample(signalOutput_Sine[2])
+	);
+	SignalGenerator signalGenerator_Sine3(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd402),
+		.outputSample(signalOutput_Sine[3])
+	);
+	SignalGenerator signalGenerator_Sine4(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd503),
+		.outputSample(signalOutput_Sine[4])
+	);
+	SignalGenerator signalGenerator_Sine5(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd600),
+		.outputSample(signalOutput_Sine[5])
+	);
+	SignalGenerator signalGenerator_Sine6(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd1320),
+		.outputSample(signalOutput_Sine[6])
+	);
+	SignalGenerator signalGenerator_Sine7(
+		.CLK_32KHz(CLK_32KHz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd4200),
+		.outputSample(signalOutput_Sine[7]),
+		.indexZero(indexZero)
+	);
+	SignalGenerator signalGenerator_Sine8(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd5000),
+		.outputSample(signalOutput_Sine[8])
+	);
+	SignalGenerator signalGenerator_Sine9(
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd5000),
+		.outputSample(signalOutput_Sine[9])
+		
+	);
+
+	//--Triangle
+	SignalGenerator_Triangle signalGenerator_Triangle0 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd1),
+		.outputSample(signalOutput_Triangle[0])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle1 ( 
+		.CLK_32KHz(CLK_100hz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd100),
+		.outputSample(signalOutput_Triangle[1])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle2 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd400),
+		.outputSample(signalOutput_Triangle[2])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle3 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd500),
+		.outputSample(signalOutput_Triangle[3])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle4 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd600),
+		.outputSample(signalOutput_Triangle[4])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle5 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd700),
+		.outputSample(signalOutput_Triangle[5])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle6 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd800),
+		.outputSample(signalOutput_Triangle[6])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle7 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd900),
+		.outputSample(signalOutput_Triangle[7])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle8 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd1000),
+		.outputSample(signalOutput_Triangle[8])
+	);
+	SignalGenerator_Triangle signalGenerator_Triangle9 ( 
+		.CLK_32KHz(CLK_32Khz),
+		.reset_n(systemReset_n),
+		.inputFrequency(14'd5000),
+		.outputSample(signalOutput_Triangle[9])
+	);
 
 	//--This is used to apply a amplitude ratio to a signal.  
 		// a = sinewave , b = volume    

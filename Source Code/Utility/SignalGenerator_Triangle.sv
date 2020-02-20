@@ -12,7 +12,8 @@ module SignalGenerator_Triangle  (
 		input logic CLK_32KHz,
 		input logic reset_n,
 		input logic[13:0] inputFrequency,
-		output logic[7 : 0] outputSample
+		output logic[7 : 0] outputSample,
+		output logic indexZero
 		);
 		
 	//  [Amount of bits -1] Name [AmountOfSamples]
@@ -155,15 +156,17 @@ module SignalGenerator_Triangle  (
 		end
 		else begin
 			//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
-			if (counter > 16'd32000 || counter == 16'd32000) begin counter <= counter % 16'd32000; end
+			if (counter >= (16'd32000)) begin counter <= counter - (16'd32000 ) + inputFrequency; end
 			//inputFrequency holds 14 bits, so we need 2 extra in front.
 			else begin counter <= counter + inputFrequency;end//{ 2'b0, inputFrequency }; end
 		end
 	end
 
 	wire [7:0] trueCounter ;
-	assign trueCounter = ((counter + (125)) * 1/252 ) ;   // 0.trueCounter == 1/252 
+	//assign trueCounter = ((counter + (125)) * 1/252 ) ;   // 0.trueCounter == 1/252 
+	//wire [9-1:-15] fp_number;
+	assign trueCounter = ( ( counter % 16'd32000) * 1/250 ) ;   // 0.trueCounter == 1/252 
 	assign outputSample =preCalcTriangle[trueCounter];  
-
+	assign indexZero = (trueCounter == 0) ? 1'b1 : 1'b0;
 		
 endmodule
