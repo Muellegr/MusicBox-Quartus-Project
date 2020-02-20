@@ -6,6 +6,12 @@
 //	Example : (50 Mhz / 2) * (1 / 25000) = 1Khz
 //	Example : (1 Khz / 2) * (1 / 500) = 1hz
 
+
+//Could make this better
+//Would have a "Change" and "Reset" 
+//Uses bigger counters, but allows offset clocks
+
+
 module ClockGenerator  #(parameter BitsNeeded = 15, InputClockEdgesToCount = 25000) ( 
 		input logic inputClock,
 		input logic reset_n,
@@ -14,11 +20,7 @@ module ClockGenerator  #(parameter BitsNeeded = 15, InputClockEdgesToCount = 250
 		);
 		
 		reg [BitsNeeded - 1 : 0] counter ;
-		//reg a_outputClock;
-		
-		//assign outputClock = a_outputClock;
-		
-		//, negedge reset_n  Removed reset as it was causing timing problems.
+
 		always_ff @(posedge inputClock, negedge reset_n) begin
 			if (reset_n == 0 ) begin
 				counter <= 0;

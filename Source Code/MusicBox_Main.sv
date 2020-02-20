@@ -180,7 +180,16 @@ module MusicBox_Main(
 		.outputClock(CLK_32Khz)
 	);
 		defparam	clockGenerator_32Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 758; //OLD : 781* 0.975 = 762
+		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781; //OLD : 781* 0.975 = 762
+
+	wire CLK_500Khz ;
+	ClockGenerator clockGenerator_500Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_500Khz)
+	);
+		defparam	clockGenerator_500Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_500Khz.InputClockEdgesToCount = 50; //OLD : 781* 0.975 = 762
 	
 	wire CLK_1hz ;
 	ClockGenerator clockGenerator_1hz (
@@ -389,7 +398,7 @@ module MusicBox_Main(
 	assign c1= signalSum * 16;
 	assign segmentDisplay_DisplayValue = c1;
 
-	//assign max10Board_GPIO_Output_SPI_SCLK =squareOutput;// CLK_32Khz;
+	//assign max10Board_GPIO_Output_SPI_SCLK =CLK_32Khz;// CLK_32Khz;
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
@@ -462,8 +471,9 @@ module MusicBox_Main(
 	reg [9:0] [7 : 0] signalOutput_Combine ;
 	reg [7:0] signalSum;
 	assign signalOutput_Combine[0] = SignalMultiply255(squareOutput, 255);
-	assign signalOutput_Combine[1] = SignalMultiply255(signalOutput_Sine[1], 255);
-	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[2], 255);
+	assign signalOutput_Combine[1] = SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[2], 64) + SignalMultiply255(signalOutput_Sine[3], 64) + SignalMultiply255(signalOutput_Sine[4], 64);
+	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[1], 64);
+//	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[2], 255);
 	assign signalOutput_Combine[3] = SignalMultiply255(signalOutput_Sine[3], 255);
 	assign signalOutput_Combine[4] = SignalMultiply255(signalOutput_Sine[4], 255);
 	assign signalOutput_Combine[5] = SignalMultiply255(signalOutput_Sine[5], 255);
@@ -497,31 +507,31 @@ module MusicBox_Main(
 		.inputFrequency(14'd1),
 		.outputSample(signalOutput_Sine[0])
 	);
-	SignalGenerator_Square signalGenerator_Sine1(
+	SignalGenerator signalGenerator_Sine1(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd200),
 		.outputSample(signalOutput_Sine[1])
 	);
-	SignalGenerator_Square signalGenerator_Sine2(
+	SignalGenerator signalGenerator_Sine2(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd300),
 		.outputSample(signalOutput_Sine[2])
 	);
-	SignalGenerator_Square signalGenerator_Sine3(
+	SignalGenerator signalGenerator_Sine3(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd400),
 		.outputSample(signalOutput_Sine[3])
 	);
-	SignalGenerator_Square signalGenerator_Sine4(
+	SignalGenerator signalGenerator_Sine4(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd500),
 		.outputSample(signalOutput_Sine[4])
 	);
-	SignalGenerator_Square signalGenerator_Sine5(
+	SignalGenerator signalGenerator_Sine5(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd600),
@@ -534,22 +544,26 @@ module MusicBox_Main(
 		.outputSample(signalOutput_Sine[6])
 	);
 	SignalGenerator signalGenerator_Sine7(
-		.CLK_32KHz(CLK_32Khz),
+		.CLK_32KHz(CLK_32KHz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd4200),
-		.outputSample(signalOutput_Sine[7])
+		.outputSample(signalOutput_Sine[7]),
+		.indexZero(indexZero)
 	);
-	SignalGenerator signalGenerator_Sine8(
+	SignalGenerator_Square signalGenerator_Sine8(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd7000),
+		.inputFrequency(14'd5000),
 		.outputSample(signalOutput_Sine[8])
+		
 	);
+	wire indexZero ;
 	SignalGenerator signalGenerator_Sine9(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd5000),
 		.outputSample(signalOutput_Sine[9])
+		
 	);
 
 
