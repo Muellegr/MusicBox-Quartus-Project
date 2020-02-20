@@ -446,34 +446,14 @@ module MusicBox_Main(
 	//------------------------------------
 	//---Frequency Generator Sample ------
 	//------------------------------------
-	// reg [7 : 0] signalOutput_Sine;
-	// reg [7 : 0] signalOutput_Triangle;
-	// reg [7 : 0] signalOutput_Combine ;
-	// assign signalOutput_Combine = SignalMultiply255(signalOutput_Sine, 128) + SignalMultiply255(signalOutput_Triangle, 128);
-	// SignalGenerator signalGenerator_Sine(
-	// 	.CLK_32KHz(CLK_32Khz),
-	// 	.reset_n(systemReset_n),
-	// 	.inputFrequency(8'd100),
-	// 	.outputSample(signalOutput_Sine)
-	// );
-	// SignalGenerator_Triangle signalGenerator_Triangle ( 
-	// 	.CLK_32KHz(CLK_32Khz),
-	// 	.reset_n(systemReset_n),
-	// 	.inputFrequency(8'd100),
-	// 	.outputSample(signalOutput_Triangle)
-	// 	);
-
-
-
 
 	reg [9:0] [7 : 0] signalOutput_Sine;
 	reg [9:0] [7 : 0] signalOutput_Triangle;
 	reg [9:0] [7 : 0] signalOutput_Combine ;
 	reg [7:0] signalSum;
-	assign signalOutput_Combine[0] = SignalMultiply255(squareOutput, 255);
-	assign signalOutput_Combine[1] = SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[2], 64) + SignalMultiply255(signalOutput_Sine[3], 64) + SignalMultiply255(signalOutput_Sine[4], 64);
-	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[1], 64) + SignalMultiply255(signalOutput_Sine[1], 64);
-//	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[2], 255);
+	assign signalOutput_Combine[0] = SignalMultiply255(signalOutput_Triangle[8], 255);
+	assign signalOutput_Combine[1] = SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[2], 60) + SignalMultiply255(signalOutput_Sine[3], 60) + SignalMultiply255(signalOutput_Sine[4], 60);
+	assign signalOutput_Combine[2] = SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[1], 60) + SignalMultiply255(signalOutput_Sine[1], 60);
 	assign signalOutput_Combine[3] = SignalMultiply255(signalOutput_Sine[3], 255);
 	assign signalOutput_Combine[4] = SignalMultiply255(signalOutput_Sine[4], 255);
 	assign signalOutput_Combine[5] = SignalMultiply255(signalOutput_Sine[5], 255);
@@ -491,7 +471,8 @@ module MusicBox_Main(
 										 ((max10board_switches[7]==1'b1) ? signalOutput_Combine[7] : 8'd0) + 
 										 ((max10board_switches[8]==1'b1) ? signalOutput_Combine[8] : 8'd0) + 
 										 ((max10board_switches[9]==1'b1) ? signalOutput_Combine[9] : 8'd0) ;
-	reg [7:0] squareOutput;							 
+	reg [7:0] squareOutput;	
+	//--Square						 
 	SignalGenerator_Square signalGenerator_Square(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
@@ -499,9 +480,8 @@ module MusicBox_Main(
 		.outputSample(squareOutput)
 
 	);
-	
-	
-	SignalGenerator_Square signalGenerator_Sine0(
+	//--Sine
+	SignalGenerator signalGenerator_Sine0(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd1),
@@ -516,19 +496,19 @@ module MusicBox_Main(
 	SignalGenerator signalGenerator_Sine2(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd300),
+		.inputFrequency(14'd301),
 		.outputSample(signalOutput_Sine[2])
 	);
 	SignalGenerator signalGenerator_Sine3(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd400),
+		.inputFrequency(14'd402),
 		.outputSample(signalOutput_Sine[3])
 	);
 	SignalGenerator signalGenerator_Sine4(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd500),
+		.inputFrequency(14'd503),
 		.outputSample(signalOutput_Sine[4])
 	);
 	SignalGenerator signalGenerator_Sine5(
@@ -550,14 +530,12 @@ module MusicBox_Main(
 		.outputSample(signalOutput_Sine[7]),
 		.indexZero(indexZero)
 	);
-	SignalGenerator_Square signalGenerator_Sine8(
+	SignalGenerator signalGenerator_Sine8(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.inputFrequency(14'd5000),
 		.outputSample(signalOutput_Sine[8])
-		
 	);
-	wire indexZero ;
 	SignalGenerator signalGenerator_Sine9(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
@@ -566,7 +544,7 @@ module MusicBox_Main(
 		
 	);
 
-
+	//--Triangle
 	SignalGenerator_Triangle signalGenerator_Triangle0 ( 
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
@@ -618,7 +596,7 @@ module MusicBox_Main(
 	SignalGenerator_Triangle signalGenerator_Triangle8 ( 
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n(systemReset_n),
-		.inputFrequency(14'd2000),
+		.inputFrequency(14'd1000),
 		.outputSample(signalOutput_Triangle[8])
 	);
 	SignalGenerator_Triangle signalGenerator_Triangle9 ( 

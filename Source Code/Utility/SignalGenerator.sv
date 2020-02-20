@@ -168,5 +168,7 @@ assign preCalcSine[127] = 8'b00000000;
 	assign trueCounter = ( ( counter % 16'd32000) * 1/250 ) ;   // 0.trueCounter == 1/252 
 	assign outputSample =preCalcSine[trueCounter];  
 	assign indexZero = (trueCounter == 0) ? 1'b1 : 1'b0;
-		
+	
+
+
 endmodule
