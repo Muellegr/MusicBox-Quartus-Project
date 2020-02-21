@@ -11,6 +11,10 @@ Must send 16 bits.  Only 12 of those bits are used to set the output value.
 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
 The bits for 13&12 tell the DAC that it is now on. 
 
+At 714KHz data clock signal, it will send 16 bits in 22.4us
+	Signal generators currently increment at 32KHz.  These two different clocks can combine and potentially extend the time to next sample update seen.
+
+
 HOW TO USE
 	inputSample is 12 bits you will want to send.
 	sendSample_n is active low signal. When low it will copy current inputSample and begin sending copy out.
@@ -41,8 +45,6 @@ module SPI_OutputControllerDac(
 		//--CLOCK GENERATOR
 			//--The DAC will need to send at least 16 bits in 22050Hz.  
 			//For safety, it will be designed to send 32 bits in the same time.
-			// (50*10^6 / 2) * (1/x) = 22050*32
-				//x = 35,    outputFreq :  714285 or 71.2Khz
 		wire CLK_714Khz ;
 		ClockGenerator clockGenerator_714Khz (
 			.inputClock(clock_50Mhz),

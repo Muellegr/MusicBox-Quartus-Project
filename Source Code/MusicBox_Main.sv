@@ -398,7 +398,6 @@ module MusicBox_Main(
 	assign c1= signalSum * 16;
 	assign segmentDisplay_DisplayValue = c1;
 
-	//assign max10Board_GPIO_Output_SPI_SCLK =CLK_32Khz;// CLK_32Khz;
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
 		.clock_50Mhz(max10Board_50MhzClock),
@@ -446,7 +445,6 @@ module MusicBox_Main(
 	//------------------------------------
 	//---Frequency Generator Sample ------
 	//------------------------------------
-
 	reg [9:0] [7 : 0] signalOutput_Sine;
 	reg [9:0] [7 : 0] signalOutput_Triangle;
 	reg [9:0] [7 : 0] signalOutput_Combine ;

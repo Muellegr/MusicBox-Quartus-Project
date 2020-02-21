@@ -23,7 +23,24 @@ module SignalGenerator_Square  (
 		output logic[7 : 0] outputSample,
 		output logic indexZero
 		);
-		
+
+	reg [15 : 0] counter ; //16 bits max value is 64k ~
+	always_ff @(posedge CLK_32KHz, negedge reset_n) begin
+		if (reset_n == 1'b0)begin
+			counter <= 1'b0;
+		end
+		else begin
+			if (counter >= (16'd32000)) begin counter <= counter - (16'd32000 ) + inputFrequency; end
+			else begin counter <= counter + inputFrequency;end//{ 2'b0, inputFrequency }; end
+		end
+	end
+
+	wire [7:0] trueCounter ;
+
+	assign trueCounter = ( ( counter % 16'd32000) * 1/250 ) ;   // 0.trueCounter == 1/252 
+	assign outputSample =squareWave[trueCounter];  
+	assign indexZero = (trueCounter == 0) ? 1'b1 : 1'b0;
+	//---------------------------------------------------------------------------
 	//  [Amount of bits -1] Name [AmountOfSamples]
 	bit [7:0] squareWave[127:0];
 	//Generated with python in \Python Support\SineValues\GenerateValues_Assign.py
@@ -155,34 +172,5 @@ module SignalGenerator_Square  (
 	assign squareWave[125] = 8'b11111111;
 	assign squareWave[126] = 8'b11111111;
 	assign squareWave[127] = 8'b11111111;
-			
-	//Will count up to 320000.
-	reg [15 : 0] counter ; //16 bits max value is 64k ~
-	always_ff @(posedge CLK_32KHz, negedge reset_n) begin
-		if (reset_n == 1'b0)begin
-			counter <= 1'b0;
-		end
-		else begin
-			//Remember that it takes a clock cycle to update.
-			// Beginning of clock, value is 31999.  So we add 1K to it.
-			//We get index at 31999*1/255.
-			//Next clock happens.
-			//We are now 31999+1k.  This is too much, so we will reduce it.
-				//But counter still does (31999+1k)/252.  
-				//Also we only reduce it, didn't add to it.
-
-			//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
-			if (counter >= (16'd32000)) begin counter <= counter - (16'd32000 ) + inputFrequency; end
-			//inputFrequency holds 14 bits, so we need 2 extra in front.
-			else begin counter <= counter + inputFrequency;end//{ 2'b0, inputFrequency }; end
-		end
-	end
-
-	wire [7:0] trueCounter ;
-	//assign trueCounter = ((counter + (125)) * 1/252 ) ;   // 0.trueCounter == 1/252 
-	//wire [9-1:-15] fp_number;
-	assign trueCounter = ( ( counter % 16'd32000) * 1/250 ) ;   // 0.trueCounter == 1/252 
-	assign outputSample =squareWave[trueCounter];  
-	assign indexZero = (trueCounter == 0) ? 1'b1 : 1'b0;
 		
 endmodule
