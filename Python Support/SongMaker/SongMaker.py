@@ -29,7 +29,7 @@ from matplotlib import pyplot as plt
 volumeAdjustment = 0.5 #0 to 1 for amplitude multiplier
 
 #Gets the sampling rate and a array containing all points of the song.  44100Hz sampling rate = 44100 amplitudes per second
-songName = 'test2.wav'
+songName = 'sweep.wav'
 fs_rate, signal = wavfile.read(songName)
 print ("Frequency sampling", fs_rate)
 
