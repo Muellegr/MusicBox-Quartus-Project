@@ -12,7 +12,7 @@ Must send 16 bits.  Only 12 of those bits are used to set the output value.
 The bits for 13&12 tell the DAC that it is now on. 
 
 At 714KHz data clock signal, it will send 16 bits in 22.4us
-	Signal generators currently increment at 32KHz.  These two different clocks can combine and potentially extend the time to next sample update seen.
+	Signal generators currently increment at 44KHz.  These two different clocks can combine and potentially extend the time to next sample update seen.
 
 
 HOW TO USE

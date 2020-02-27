@@ -25,9 +25,11 @@ Acts as main hub for control signals.
 module MusicBoxStateController ( 
 		//--FPGA generated clock
 		input logic clock_50Mhz,
+		input logic clock_32Khz,
 		//--Module generated clock based off 50Mhz
 		input logic clock_22Khz,
 		input logic clock_1Khz,
+		input logic clock_100hz,
 		input logic clock_1hz,
 		//--Controlled by switch
 		input logic reset_n,
@@ -55,10 +57,17 @@ module MusicBoxStateController (
 
 		input logic 		sdram_outputValid, //sdram_readData has data when this is high.
 		input logic 		sdram_recievedCommand,
-		input logic 		sdram_isBusy
+		input logic 		sdram_isBusy,
+
+		//--Output audio.  This is intended to go straight to the DAC for speaker output. 
+		output logic [7:0] outputAudioOutput
 		);
 		enum bit [4:0] { state_DoNothing=5'd0, state_PlaySong0=5'd1, state_PlaySong1=5'd2, state_PlayRecording=5'd3, state_MakeRecording=5'd4, state_EndState=5'd5 } currentState;
-		
+
+		assign outputAudioOutput = song0AudioOutput;
+
+
+
 		//This is a clocked state machine for sake of simplicity.  
 		assign outputState = currentState;
 			
@@ -67,13 +76,16 @@ module MusicBoxStateController (
 		//		These only run when the current state input matches their own. 
 		//		Automatically reset when the state does not match their own.
 		reg playSong0_StateComplete;
+		reg [7:0] song0AudioOutput; //Meant to be sent to the dac.
 		MusicBoxState_PlaySong0 musicBoxState_PlaySong0 (
 			.clock_50Mhz(clock_50Mhz),
+			.clock_32Khz(clock_32Khz),
 			.clock_1Khz(clock_1Khz),
 			.reset_n(reset_n),
 			.currentState(currentState),
 			//.debugString(debugString),
-			.stateComplete(playSong0_StateComplete)
+			.stateComplete(playSong0_StateComplete),
+			.audioAmplitudeOutput(song0AudioOutput),
 		);
 		
 		reg playSong1_StateComplete;

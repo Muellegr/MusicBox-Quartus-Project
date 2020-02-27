@@ -44,7 +44,7 @@ for i in range(0, subDivisions):
     a = i
     
     if (a > ((subDivisions)* 0.5 )) :
-        a =subDivisions - a;
+        a =subDivisions - a
     
    # b = bin(b)
     b = a*4
