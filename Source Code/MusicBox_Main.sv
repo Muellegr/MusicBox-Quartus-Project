@@ -8,6 +8,15 @@
 
 
 /*
+TODO TEST
+	Ensure input DAC is working correctly
+	TEST : What SPI input looks like at 1 Hz.  
+	TEST : What play output looks like
+		Test as actual DAC input value.
+
+	TEST : Added bee mode toggle attached to switch 9.  Lights up LED 0. 
+
+
 SYSTEM INTEGRATION BRANCH
 
 This moves the project from a bunch of smaller unit tests and combines it into the more formal project.
@@ -17,8 +26,6 @@ Currently will be configured to use DE10 lite switches.
 TODO
 	Add bee mode button
 	Add LED wires for connections
-	Connect ADC completely
-	Connect DAC completion
 	Add dummy sounds to music keys
 		super mario tones, triangle
 			update triangle generator to signalgenerator standards
@@ -65,6 +72,7 @@ module MusicBox_Main(
 	max10Board_GPIO_Input_PlaySong0,
 	max10Board_GPIO_Input_MakeRecording,
 	max10Board_GPIO_Input_PlayRecording,
+	max10Board_GPIO_Input_BeeMode,
 	
 	max10Board_GPIO_Output_SPI_SCLK,
 	max10Board_GPIO_Output_SPI_SYNC_n,
@@ -94,6 +102,7 @@ module MusicBox_Main(
 	input wire max10Board_GPIO_Input_PlaySong0;
 	input wire max10Board_GPIO_Input_MakeRecording;
 	input wire max10Board_GPIO_Input_PlayRecording;
+	input wire max10Board_GPIO_Input_BeeMode;
 	///////// GPIO SPI Output to Dac
 	output wire max10Board_GPIO_Output_SPI_SCLK; //Data clock per bit
 	output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
@@ -225,31 +234,36 @@ module MusicBox_Main(
 	wire [5:0] max10Board_GPIO_Input_MusicKeys_s; //Array
 		UI_TriggerSmoother UIs_MusicKeys0 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_MusicKeys[0]),
+			//.inputWire(max10Board_GPIO_Input_MusicKeys[0]),
+			.inputWire(max10board_switches[4]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[0])
 		);
 		UI_TriggerSmoother UIs_MusicKeys1 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_MusicKeys[1]),
+			//.inputWire(max10Board_GPIO_Input_MusicKeys[1]),
+			.inputWire(max10board_switches[5]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[1])
 		);
 		UI_TriggerSmoother UIs_MusicKeys2 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_MusicKeys[2]),
+			//.inputWire(max10Board_GPIO_Input_MusicKeys[2]),
+			.inputWire(max10board_switches[6]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[2])
 		);
 		UI_TriggerSmoother UIs_MusicKeys3 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_MusicKeys[3]),
+			//.inputWire(max10Board_GPIO_Input_MusicKeys[3]),
+			.inputWire(max10board_switches[7]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[3])
 		);
 		UI_TriggerSmoother UIs_MusicKeys4 (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_MusicKeys[4]),
+			//.inputWire(max10Board_GPIO_Input_MusicKeys[4]),
+			.inputWire(max10board_switches[8]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[4])
 		);
@@ -278,27 +292,44 @@ module MusicBox_Main(
 	wire max10Board_GPIO_Input_MakeRecording_s;
 		UI_TriggerSmoother UIs_Makerecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_MakeRecording),
-			//.inputWire(max10board_switches[2]),
+			//.inputWire(max10Board_GPIO_Input_MakeRecording),
+			.inputWire(max10board_switches[2]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MakeRecording_s)
 		);
 	wire max10Board_GPIO_Input_PlayRecording_s;
 		UI_TriggerSmoother UIs_PlayRecording (
 			.clock_50Mhz(max10Board_50MhzClock),
-			.inputWire(max10Board_GPIO_Input_PlayRecording),
-			//.inputWire(max10board_switches[3]),
+			//.inputWire(max10Board_GPIO_Input_PlayRecording),
+			.inputWire(max10board_switches[3]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
+	wire max10Board_GPIO_Input_BeeMode_s;  //Will be sent to be toggled
+		UI_TriggerSmoother UIs_BeeMode (
+			.clock_50Mhz(max10Board_50MhzClock),
+			//.inputWire(max10Board_GPIO_Input_BeeMode),
+			.inputWire(max10board_switches[9]),
+			.reset_n(systemReset_n),
+			.outputWire(max10Board_GPIO_Input_BeeMode_s)
+		);
+	assign max10Board_LED[0] = max10Board_GPIO_Input_BeeMode_s_t;
+	wire max10Board_GPIO_Input_BeeMode_s_t; //Smoothed, Toggled
+		//.inputWire(max10Board_GPIO_Input_BeeMode),
+		 UI_ToggleButton UIst_BeeMode( 
+			.inputWire(max10Board_GPIO_Input_BeeMode_s),
+			.reset_n(systemReset_n),
+			.outputWire(max10Board_GPIO_Input_BeeMode_s_t)
+		);
+
 
 	//----------------------------
 	//-- Music Keys---------------
 	//----------------------------
 	//These operate only in the state DoNothing and MakeRecording.  
 	wire [5:0] musicKeysDebugTemp ; //Stores output.  Basically input keys if in current state.
-	assign max10Board_LED[0] =  (outputCurrentState[0] == 1 ) ? 1'b1 : 1'b0;
-	assign max10Board_LED[1] =  (outputCurrentState[1] == 1 ) ? 1'b1 : 1'b0;
+//assign max10Board_LED[0] =  (outputCurrentState[0] == 1 ) ? 1'b1 : 1'b0;
+//	assign max10Board_LED[1] =  (outputCurrentState[1] == 1 ) ? 1'b1 : 1'b0;
 	MusicKeysController musicKeysController (
 		.clock_50Mhz(max10Board_50MhzClock),
 		.reset_n(systemReset_n),
@@ -411,7 +442,7 @@ module MusicBox_Main(
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
 	reg [11:0] dacOutputAudio ;
 	assign dacOutputAudio= audioOutputStateController * 16; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
-	assign segmentDisplay_DisplayValue = dacOutputAudio;
+	//assign segmentDisplay_DisplayValue = dacOutputAudio;
 
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
@@ -437,6 +468,8 @@ module MusicBox_Main(
 	//----------------------------
 	wire SPI_ADC_Input_sendSample;
 	wire [7:0] SPI_ADC_Output_outputSample;
+		assign SPI_ADC_Output_outputSample = testSineGenerator_1Hz;
+		assign segmentDisplay_DisplayValue = SPI_ADC_Output_outputSample; //Ensure it is getting value
 	wire SPI_ADC_Output_newSample;
 	
 	SPI_InputControllerDac sPI_InputControllerDac(
@@ -450,11 +483,20 @@ module MusicBox_Main(
 		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
 		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
 		//--OUTPUT
-		.outputSample(SPI_ADC_Output_outputSample),
+	//DISABLED FOR TEST.  	.outputSample(SPI_ADC_Output_outputSample),
 		//--SIGNAL
 		.sampleReady(SPI_ADC_Output_newSample)
 	);
 	
+
+	wire [7:0] testSineGenerator_1Hz;
+	SignalGenerator testSineGenerator(
+		.CLK_32KHz(clock_32Khz),
+		.reset_n( systemReset_n),
+		.inputFrequency(14'd1),
+		.outputSample(testSineGenerator_1Hz)
+	);
+
 	function automatic  [7:0] SignalMultiply255 (input [7:0] a, input [7:0] b);
 		return  ( (a * b + 127) * 1/255);
 	endfunction

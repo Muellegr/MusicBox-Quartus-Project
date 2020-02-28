@@ -193,6 +193,7 @@ set_location_assignment PIN_W7 -to max10Board_GPIO_Input_PlaySong1
 set_location_assignment PIN_W6 -to max10Board_GPIO_Input_PlaySong0
 set_location_assignment PIN_V5 -to max10Board_GPIO_Input_MakeRecording
 set_location_assignment PIN_W5 -to max10Board_GPIO_Input_PlayRecording
+set_location_assignment PIN_AA15 -to max10Board_GPIO_Input_BeeMode
 
 	#SPI Output to Dac
 set_location_assignment PIN_AA14 -to max10Board_GPIO_Output_SPI_SCLK
@@ -353,6 +354,7 @@ set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_MusicKeys[0]
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_MakeRecording
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_PlayRecording
+set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_BeeMode
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_PlaySong0
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_PlaySong1
 
@@ -372,6 +374,7 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_PlaySong0
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_PlayRecording
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_MakeRecording
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_BeeMode
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_MusicKeys[5]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_MusicKeys[4]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_MusicKeys[3]
@@ -380,6 +383,7 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_MusicKeys[0]
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MINIMUM CURRENT" -to max10Board_GPIO_Input_MusicKeys
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_GPIO_Input_MakeRecording
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_GPIO_Input_BeeMode
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_GPIO_Input_MusicKeys[5]
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_GPIO_Input_MusicKeys[4]
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_GPIO_Input_MusicKeys[3]
@@ -394,6 +398,7 @@ set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_Buttons[1]
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_Buttons[0]
 set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to max10Board_Buttons
 set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_Input_MakeRecording
+set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_Input_BeeMode
 set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_Input_MusicKeys[5]
 set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_Input_MusicKeys[4]
 set_instance_assignment -name ENABLE_BUS_HOLD_CIRCUITRY OFF -to max10Board_GPIO_Input_MusicKeys[3]
@@ -416,6 +421,7 @@ set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/UI_ToggleButton.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/SignalGenerator_Square.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/SignalGenerator_Triangle.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/SDRAM Testing/SDRAM_TestModule.sv"
