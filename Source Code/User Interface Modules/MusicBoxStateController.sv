@@ -46,7 +46,8 @@ module MusicBoxStateController (
 		
 		//--Current state the state machine is in.
 		output logic [4:0] outputState,
-
+		//--SPI Input Sample
+		input logic [7:0] SPIinput_sample,
 		//--SDRAM Controls here
 
 		output logic [24:0] sdram_inputAddress, 
@@ -145,6 +146,9 @@ module MusicBoxStateController (
 			.mainState(currentState),
 			//.debugString(debugString),
 			.stateComplete(makeRecording_StateComplete),
+			//--SPI INPUT
+			.SPIinput_sample(SPIinput_sample),
+			
 			//--SDRAM interface
 			.sdram_inputAddress(mr_sdram_inputAddress),
 			.sdram_writeData(mr_sdram_writeData),

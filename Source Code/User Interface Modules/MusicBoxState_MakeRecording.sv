@@ -10,7 +10,8 @@ module MusicBoxState_MakeRecording (
 	//
 	//Set to 1 when this stage is complete and is ready to return to DoNothing.
 	output logic stateComplete,
-
+	//-- SPI Input sample
+	input logic [7:0] SPIinput_sample,
 	//--SDRAM interface
 	output logic [24:0] sdram_inputAddress, 
 	output logic [15:0] sdram_writeData, 
@@ -106,7 +107,7 @@ Do nothing state
 				//Begin writing data to SDRAM.
 				//Because 'inputValid' is always 1, this is always rewriting the same address.  
 				sdram_isWriting <= 1'b1;
-				sdram_writeData <= 16'd128;
+				sdram_writeData <= {8'd0 , SPIinput_sample};//16'd128;
 				sdram_inputAddress <= addressCounter;
 				sdram_inputValid <= 1'b1;
 				addressCounter <= addressCounter + 1;

@@ -376,6 +376,8 @@ module MusicBox_Main(
 		//--OUTPUT
 		.debugString(output_DebugString), //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.outputState(outputCurrentState), //Current state so other modules may use it.
+		//--SPI INPUT
+		.SPIinput_sample(SPI_ADC_Output_outputSample),
 		//--SDRAM Interface
 		.sdram_inputAddress(sdram_inputAddress),
 		.sdram_writeData(sdram_inputData),
