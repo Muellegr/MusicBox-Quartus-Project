@@ -24,7 +24,6 @@ This moves the project from a bunch of smaller unit tests and combines it into t
 Currently will be configured to use DE10 lite switches.
 
 TODO
-	Add bee mode button
 	Add LED wires for connections
 	Add dummy sounds to music keys
 		super mario tones, triangle
@@ -494,6 +493,7 @@ module MusicBox_Main(
 		.CLK_32KHz(clock_32Khz),
 		.reset_n( systemReset_n),
 		.inputFrequency(14'd1),
+		.inputAmplitude(8'd255),
 		.outputSample(testSineGenerator_1Hz)
 	);
 

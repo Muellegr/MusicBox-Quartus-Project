@@ -1,25 +1,14 @@
 /*
-Signal Generator - Creates a sine wave that has the supplied input frequency.
+Signal Generator - Creates a square wave that has the supplied input frequency.
 	Operates from 100Hz to 8000Hz.  
-	
-	outputSample is the current sine amplitude.
-	
-	
-	This is a bit hardcoded to 128 total samples at a 32000 clock but can be changed by modifying some of the constants.
-
-	TEST
-		Test 128 values.
-			64 values
-			256 values.
-
-		Should have no difference.
 
 */
 
-module SignalGenerator_Square  ( 
+module SignalGenerator_Square( 
 		input logic CLK_32KHz,
 		input logic reset_n,
 		input logic[13:0] inputFrequency,
+		input logic [7:0] inputAmplitude, //Can give it a constant amplitude as well
 		output logic[7 : 0] outputSample,
 		output logic indexZero
 		);
@@ -38,8 +27,13 @@ module SignalGenerator_Square  (
 	wire [7:0] trueCounter ;
 
 	assign trueCounter = ( ( counter % 16'd32000) * 1/250 ) ;   // 0.trueCounter == 1/252 
-	assign outputSample =squareWave[trueCounter];  
+	assign outputSample = SignalMultiply255(squareWave[trueCounter],inputAmplitude ); 
 	assign indexZero = (trueCounter == 0) ? 1'b1 : 1'b0;
+	
+	//Combines tow signals into 1
+	function automatic  [7:0] SignalMultiply255 (input [7:0] a, input [7:0] b);
+		return  ( (a * b + 127) * 1/255);
+	endfunction		
 	//---------------------------------------------------------------------------
 	//  [Amount of bits -1] Name [AmountOfSamples]
 	bit [7:0] squareWave[127:0];

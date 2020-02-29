@@ -122,26 +122,29 @@ module MusicBoxState_PlaySong0 (
 		end //Clock
 
 	//--FREQUENCY GENERATORS
-	assign audioAmplitudeOutput = (outputActive == 1'b1)? (SignalMultiply255(signalGeneratorOutput[0],currentAmplitude[0] )) + 
-														  (SignalMultiply255(signalGeneratorOutput[1],currentAmplitude[1] )) + 
-														  (SignalMultiply255(signalGeneratorOutput[2],currentAmplitude[2] ))
-														 : 8'd0;
+	assign audioAmplitudeOutput = (outputActive == 1'b1)? signalGeneratorOutput[0] + 
+														               signalGeneratorOutput[1] + 
+														               signalGeneratorOutput[2] : 8'd0; //Combine or equal 0 if output isn't active.
+
 	SignalGenerator signalGenerator_Sine0(
 		.CLK_32KHz(clock_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(currentFrequency[0]),
+      .inputAmplitude(currentAmplitude[0]),
 		.outputSample(signalGeneratorOutput[0])
 	);
 	SignalGenerator signalGenerator_Sine1(
 		.CLK_32KHz(clock_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(currentFrequency[1]),
+      .inputAmplitude(currentAmplitude[1]),
 		.outputSample(signalGeneratorOutput[1])
 	);
 	SignalGenerator signalGenerator_Sine2(
 		.CLK_32KHz(clock_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(currentFrequency[2]),
+      .inputAmplitude(currentAmplitude[2]),
 		.outputSample(signalGeneratorOutput[2])
 	);
 
@@ -160,9 +163,9 @@ module MusicBoxState_PlaySong0 (
 		assign currentAmplitude[1] = songFrequencyAmplitudes[1][songIndexCounter];
 		assign currentAmplitude[2] = songFrequencyAmplitudes[2][songIndexCounter];
 
-	function automatic  [7:0] SignalMultiply255 (input [7:0] a, input [7:0] b);
-		return  ( (a * b + 127) * 1/255);
-	endfunction		
+	// function automatic  [7:0] SignalMultiply255 (input [7:0] a, input [7:0] b);
+	// 	return  ( (a * b + 127) * 1/255);
+	// endfunction		
 
 
 
