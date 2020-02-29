@@ -7,11 +7,11 @@ module MusicBoxState_PlayRecording(
 		input logic [4:0] mainState, //This is controlled by MusicBoxStateController.   
 		
 		output logic [31:0] debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
-		output logic [15:0] outputData, //current output data
+		output logic [15:0] pr_audioOutput, //current output data
 		output logic 		outputActive, //Do we want to send information out?
 		//Set to 1 when this stage is complete and is ready to return to DoNothing.
 		output logic stateComplete,
-
+		//output logic [15:0] pr_audioOutput,
 		//--SDRAM interface
 		output logic [24:0] sdram_inputAddress, 
 		output logic [15:0] sdram_writeData, 
@@ -25,7 +25,7 @@ module MusicBoxState_PlayRecording(
 		);
 		
 		//readData is data meant to go to the dac.  Only active when we are reading from the speaker.
-		assign outputData = readData;
+		assign pr_audioOutput = readData;
 		assign outputActive = (currentState == 5'd1);
 		assign debugString = readData;
 
@@ -43,6 +43,7 @@ module MusicBoxState_PlayRecording(
 			counter <= 16'b0;
 			stateComplete <= 1'b0;
 			currentState  <= 0;
+			//readData <= 0;
 			
 		end
 		//If not current state
@@ -86,7 +87,7 @@ module MusicBoxState_PlayRecording(
 	reg [15:0] readData;
 	always_ff @(negedge sdram_outputValid) begin
 		if (mainState != 5'd3 || currentState != 5'd1) begin
-			//readData <= 16'd0;   //Don't reset this quite yet I think.  Might cause a weird static pop as it goes from extreme to nothing.
+			readData <= 16'd0;   //Don't reset this quite yet I think.  Might cause a weird static pop as it goes from extreme to nothing.
 		end
 		else begin
 			readData <= sdram_readData; //This stores what output was over multiple clock cycles. 

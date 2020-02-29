@@ -10,12 +10,9 @@
 /*
 TODO TEST
 	Ensure input DAC is working correctly
-	TEST : What SPI input looks like at 1 Hz.  
+
 	TEST : What play output looks like
 		Test as actual DAC input value.
-
-	TEST : Added bee mode toggle attached to switch 9.  Lights up LED 0. 
-
 
 SYSTEM INTEGRATION BRANCH
 
@@ -25,16 +22,23 @@ Currently will be configured to use DE10 lite switches.
 
 TODO
 	Add LED wires for connections
-	Add dummy sounds to music keys
-		super mario tones, triangle
-			update triangle generator to signalgenerator standards
-	integrate amplitude control into the signal generator
-
+		Single module
+		Takes in music keys, state machine
+		Determines current LED is on from this
+		Can perform more complex behaviour 
+			detect rising edge -> set to highest value
+			or when held donw, raise value suddenly
 	Integrate LEDs to do simple action when pressed
 
 	Integrate LEDs to turn on when a mode is active
 
-	Integrate RAM module
+	Add dummy sounds to music keys
+		super mario tones, triangle
+			update triangle generator to signalgenerator standards
+	
+	
+
+	Integrate ROM module
 		likley needs ram integrator that rapidly pulls from memory and updates various output values based on the address
 		There's 10 things that want something from memory, only 1 get updated per clock period
 		takes 10 clocks until all values are updated
@@ -48,6 +52,9 @@ TODO
 		Music Keys
 		Song 0, Song 1
 	
+EXTRA GOALS
+	Signal generator : Amplitude delayed to prevent instant time changes (small averaging value that is clamped.  Works off clock signal!)
+	Secret Songs : Combinational check for songs
 
 */
 module MusicBox_Main(
@@ -312,7 +319,8 @@ module MusicBox_Main(
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_BeeMode_s)
 		);
-	assign max10Board_LED[0] = max10Board_GPIO_Input_BeeMode_s_t;
+	assign max10Board_LED[0] = max10Board_GPIO_Input_BeeMode_s;
+	assign max10Board_LED[1] = max10Board_GPIO_Input_BeeMode_s_t;
 	wire max10Board_GPIO_Input_BeeMode_s_t; //Smoothed, Toggled
 		//.inputWire(max10Board_GPIO_Input_BeeMode),
 		 UI_ToggleButton UIst_BeeMode( 
@@ -467,8 +475,8 @@ module MusicBox_Main(
 	//----------------------------
 	wire SPI_ADC_Input_sendSample;
 	wire [7:0] SPI_ADC_Output_outputSample;
-		assign SPI_ADC_Output_outputSample = testSineGenerator_1Hz;
-		assign segmentDisplay_DisplayValue = SPI_ADC_Output_outputSample; //Ensure it is getting value
+		//assign SPI_ADC_Output_outputSample = testSineGenerator_1Hz;
+		assign segmentDisplay_DisplayValue = dacOutputAudio ; //Ensure it is getting value
 	wire SPI_ADC_Output_newSample;
 	
 	SPI_InputControllerDac sPI_InputControllerDac(
@@ -482,7 +490,7 @@ module MusicBox_Main(
 		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
 		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
 		//--OUTPUT
-	//DISABLED FOR TEST.  	.outputSample(SPI_ADC_Output_outputSample),
+		.outputSample(SPI_ADC_Output_outputSample),
 		//--SIGNAL
 		.sampleReady(SPI_ADC_Output_newSample)
 	);
@@ -490,10 +498,10 @@ module MusicBox_Main(
 
 	wire [7:0] testSineGenerator_1Hz;
 	SignalGenerator testSineGenerator(
-		.CLK_32KHz(clock_32Khz),
+		.CLK_32KHz(CLK_32Khz),
 		.reset_n( systemReset_n),
 		.inputFrequency(14'd1),
-		.inputAmplitude(8'd255),
+		.inputAmplitude(8'd64),
 		.outputSample(testSineGenerator_1Hz)
 	);
 

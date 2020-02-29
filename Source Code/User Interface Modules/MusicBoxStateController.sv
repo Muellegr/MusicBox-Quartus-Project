@@ -64,8 +64,8 @@ module MusicBoxStateController (
 		output logic [7:0] outputAudioOutput
 		);
 		enum bit [4:0] { state_DoNothing=5'd0, state_PlaySong0=5'd1, state_PlaySong1=5'd2, state_PlayRecording=5'd3, state_MakeRecording=5'd4, state_EndState=5'd5 } currentState;
-
-		assign outputAudioOutput = song0AudioOutput;
+		//Data sent to dac.  These signals hsould default to '0' when the mode is not active.  
+		assign outputAudioOutput = song0AudioOutput + pr_audioOutput;
 
 
 
@@ -173,6 +173,7 @@ module MusicBoxStateController (
 		*/
 		
 		reg playRecording_StateComplete;
+		reg [15:0] pr_audioOutput;
 		reg [24:0] pr_sdram_inputAddress;
 		reg [15:0] pr_sdram_writeData;
 		reg pr_sdram_isWriting;
@@ -186,6 +187,8 @@ module MusicBoxStateController (
 			.mainState(currentState),
 			.debugString(debugString),
 			.stateComplete(playRecording_StateComplete),
+			//--SDRAM output meant for DAC.  All 15 bits from memory is assigned to this
+			.pr_audioOutput(pr_audioOutput),
 			//--SDRAM interface
 			.sdram_inputAddress(pr_sdram_inputAddress),
 			.sdram_writeData(pr_sdram_writeData),
