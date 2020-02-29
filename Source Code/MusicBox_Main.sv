@@ -74,6 +74,7 @@ module MusicBox_Main(
 	max10Board_SDRAM_RowAddressStrobe_n,
 	
 	max10Board_GPIO_Input_MusicKeys, //Array
+	max10Board_GPIO_Output_MusicKeys_LEDs,
 	max10Board_GPIO_Input_PlaySong1,
 	max10Board_GPIO_Input_PlaySong0,
 	max10Board_GPIO_Input_MakeRecording,
@@ -104,6 +105,7 @@ module MusicBox_Main(
 	input  wire [9:0] max10board_switches;
 	///////// GPIO UI ///////
 	input wire [5:0] max10Board_GPIO_Input_MusicKeys; //Array
+	output wire [5:0][2:0] max10Board_GPIO_Output_MusicKeys_LEDs; //Each music key has 3 RGB LEDs assigned in that order.  
 	input wire max10Board_GPIO_Input_PlaySong1;
 	input wire max10Board_GPIO_Input_PlaySong0;
 	input wire max10Board_GPIO_Input_MakeRecording;

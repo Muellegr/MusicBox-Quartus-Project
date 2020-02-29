@@ -183,63 +183,56 @@ set_location_assignment PIN_F22 -to max10Board_SDRAM_Data[15]
 
 	#INPUT
 set_location_assignment PIN_V10 -to max10Board_GPIO_Input_MusicKeys[0]
-set_location_assignment PIN_W10 -to max10Board_GPIO_Input_MusicKeys[1]
-set_location_assignment PIN_V9 -to max10Board_GPIO_Input_MusicKeys[2]
-set_location_assignment PIN_W9 -to max10Board_GPIO_Input_MusicKeys[3]
-set_location_assignment PIN_V8 -to max10Board_GPIO_Input_MusicKeys[4]
-set_location_assignment PIN_W8 -to max10Board_GPIO_Input_MusicKeys[5]
+set_location_assignment PIN_V9 -to max10Board_GPIO_Output_MusicKeys_LEDs[0][0]
+set_location_assignment PIN_V8 -to max10Board_GPIO_Output_MusicKeys_LEDs[0][1]
+set_location_assignment PIN_V7 -to max10Board_GPIO_Output_MusicKeys_LEDs[0][2]
+	
+set_location_assignment PIN_W5 -to max10Board_GPIO_Input_MusicKeys[1]
+set_location_assignment PIN_AA14 -to max10Board_GPIO_Output_MusicKeys_LEDs[1][0]
+set_location_assignment PIN_W12 -to max10Board_GPIO_Output_MusicKeys_LEDs[1][1]
+set_location_assignment PIN_AB12 -to max10Board_GPIO_Output_MusicKeys_LEDs[1][2]
+	
+set_location_assignment PIN_AB11 -to max10Board_GPIO_Input_MusicKeys[2]
+set_location_assignment PIN_AB10 -to max10Board_GPIO_Output_MusicKeys_LEDs[2][0]
+set_location_assignment PIN_AA9 -to max10Board_GPIO_Output_MusicKeys_LEDs[2][1]
+set_location_assignment PIN_AA8 -to max10Board_GPIO_Output_MusicKeys_LEDs[2][2]
+	
+set_location_assignment PIN_W10 -to max10Board_GPIO_Input_MusicKeys[3]
+set_location_assignment PIN_W9 -to max10Board_GPIO_Output_MusicKeys_LEDs[3][0]
+set_location_assignment PIN_W8 -to max10Board_GPIO_Output_MusicKeys_LEDs[3][1]
+set_location_assignment PIN_W7 -to max10Board_GPIO_Output_MusicKeys_LEDs[3][2]
+	
+set_location_assignment PIN_AA15 -to max10Board_GPIO_Input_MusicKeys[4]
+set_location_assignment PIN_W13 -to max10Board_GPIO_Output_MusicKeys_LEDs[4][0]
+set_location_assignment PIN_AB13 -to max10Board_GPIO_Output_MusicKeys_LEDs[4][1]
+set_location_assignment PIN_Y11 -to max10Board_GPIO_Output_MusicKeys_LEDs[4][2]
+	
+set_location_assignment PIN_W11 -to max10Board_GPIO_Input_MusicKeys[5]
+set_location_assignment PIN_AA10 -to max10Board_GPIO_Output_MusicKeys_LEDs[5][0]
+set_location_assignment PIN_Y8 -to max10Board_GPIO_Output_MusicKeys_LEDs[5][1]
+set_location_assignment PIN_Y7 -to max10Board_GPIO_Output_MusicKeys_LEDs[5][2]
 
-set_location_assignment PIN_W7 -to max10Board_GPIO_Input_PlaySong1
-set_location_assignment PIN_W6 -to max10Board_GPIO_Input_PlaySong0
-set_location_assignment PIN_V5 -to max10Board_GPIO_Input_MakeRecording
-set_location_assignment PIN_W5 -to max10Board_GPIO_Input_PlayRecording
-set_location_assignment PIN_AA15 -to max10Board_GPIO_Input_BeeMode
+#--MODE KEYS
+set_location_assignment PIN_AA7 -to max10Board_GPIO_Input_PlaySong0
+set_location_assignment PIN_AA6 -to max10Board_GPIO_Output_ModeKeys_LEDs[0]
+set_location_assignment PIN_AA5 -to max10Board_GPIO_Input_PlaySong1
+set_location_assignment PIN_AA3 -to max10Board_GPIO_Output_ModeKeys_LEDs[1]
+set_location_assignment PIN_Y6 -to max10Board_GPIO_Input_MakeRecording
+set_location_assignment PIN_Y5 -to max10Board_GPIO_Output_ModeKeys_LEDs[2]
+set_location_assignment PIN_Y4 -to max10Board_GPIO_Input_PlayRecording
+set_location_assignment PIN_Y3 -to max10Board_GPIO_Output_ModeKeys_LEDs[3]
+set_location_assignment PIN_AB2 -to max10Board_GPIO_Input_BeeMode
+set_location_assignment PIN_AA2 -to max10Board_GPIO_Output_ModeKeys_LEDs[4]
 
 	#SPI Output to Dac
-set_location_assignment PIN_AA14 -to max10Board_GPIO_Output_SPI_SCLK
-set_location_assignment PIN_W12 -to max10Board_GPIO_Output_SPI_SYNC_n
-set_location_assignment PIN_AB12 -to max10Board_GPIO_Output_SPI_DIN
+set_location_assignment PIN_Y10 -to max10Board_GPIO_Output_SPI_SCLK
+set_location_assignment PIN_AB9 -to max10Board_GPIO_Output_SPI_SYNC_n
+set_location_assignment PIN_AB8 -to max10Board_GPIO_Output_SPI_DIN
 
 	#SPI Input from ADC
-set_location_assignment PIN_W13 -to max10Board_GPIO_Input_SPI_SCLK
-set_location_assignment PIN_AB13 -to max10Board_GPIO_Input_SPI_CS_n
-set_location_assignment PIN_Y11 -to max10Board_GPIO_Input_SPI_SDO
-
-#DE10 LITE GPIO PINS
-# set_location_assignment PIN_V7 -to max10Board_GPIO[6]
-# set_location_assignment PIN_W7 -to max10Board_GPIO[7]
-# set_location_assignment PIN_W6 -to max10Board_GPIO[8]
-# set_location_assignment PIN_V5 -to max10Board_GPIO[9]
-# set_location_assignment PIN_W5 -to max10Board_GPIO[10]
-# set_location_assignment PIN_AA15 -to max10Board_GPIO[11]
-# set_location_assignment PIN_AA14 -to max10Board_GPIO[12]
-# set_location_assignment PIN_W13 -to max10Board_GPIO[13]
-# set_location_assignment PIN_W12 -to max10Board_GPIO[14]
-# set_location_assignment PIN_AB13 -to max10Board_GPIO[15]
-# set_location_assignment PIN_AB12 -to max10Board_GPIO[16]
-# set_location_assignment PIN_Y11 -to max10Board_GPIO[17]
-# set_location_assignment PIN_AB11 -to max10Board_GPIO[18]
-# set_location_assignment PIN_W11 -to max10Board_GPIO[19]
-# set_location_assignment PIN_AB10 -to max10Board_GPIO[20]
-# set_location_assignment PIN_AA10 -to max10Board_GPIO[21]
-# set_location_assignment PIN_AA9 -to max10Board_GPIO[22]
-# set_location_assignment PIN_Y8 -to max10Board_GPIO[23]
-# set_location_assignment PIN_AA8 -to max10Board_GPIO[24]
-# set_location_assignment PIN_Y7 -to max10Board_GPIO[25]
-# set_location_assignment PIN_AA7 -to max10Board_GPIO[26]
-# set_location_assignment PIN_Y6 -to max10Board_GPIO[27]
-# set_location_assignment PIN_AA6 -to max10Board_GPIO[28]
-# set_location_assignment PIN_Y5 -to max10Board_GPIO[29]
-# set_location_assignment PIN_AA5 -to max10Board_GPIO[30]
-# set_location_assignment PIN_Y4 -to max10Board_GPIO[31]
-# set_location_assignment PIN_AB3 -to max10Board_GPIO[32]
-# set_location_assignment PIN_Y3 -to max10Board_GPIO[33]
-# set_location_assignment PIN_AB2 -to max10Board_GPIO[34]
-# set_location_assignment PIN_AA2 -to max10Board_GPIO[35]
-
-
-
-
+set_location_assignment PIN_AB7 -to max10Board_GPIO_Input_SPI_SCLK
+set_location_assignment PIN_AB6 -to max10Board_GPIO_Input_SPI_CS_n
+set_location_assignment PIN_AB5 -to max10Board_GPIO_Input_SPI_SDO
 
 #Max10 SPECIFIC 
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_50MhzClock
@@ -293,6 +286,19 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LEDSegmen
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LEDSegments[5][4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LEDSegments[5][5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LEDSegments[5][6]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[0]
+
+
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_SDRAM_Address[12]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_SDRAM_Address[11]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_SDRAM_Address[10]
@@ -345,7 +351,42 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10board_switches[
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_Buttons[1]
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_Buttons[0]
 
+######################################################################
+#--LED CONTROL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[0][0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[0][1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[0][2]
 
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[1][0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[1][1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[1][2]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[2][0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[2][1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[2][2]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[3][0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[3][1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[3][2]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[4][0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[4][1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[4][2]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[5][0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[5][1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_MusicKeys_LEDs[5][2]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_ModeKeys_LEDs[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_ModeKeys_LEDs[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_ModeKeys_LEDs[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_ModeKeys_LEDs[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Output_ModeKeys_LEDs[4]
+######################################################################
+
+
+######################################################################
+#--UI BUTTONS
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_MusicKeys[5]
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_MusicKeys[4]
 set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board_GPIO_Input_MusicKeys[3]
@@ -360,16 +401,7 @@ set_instance_assignment -name IO_STANDARD "3.3 V SCHMITT TRIGGER" -to max10Board
 
 
 
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[9]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[8]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[7]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_LED[0]
+
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_PlaySong1
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_PlaySong0
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_GPIO_Input_PlayRecording
