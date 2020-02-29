@@ -9,34 +9,26 @@
 
 /*
 TODO TEST
-	Ensure input DAC is working correctly
-
-	TEST : What play output looks like
-		Test as actual DAC input value.
+	
 
 SYSTEM INTEGRATION BRANCH
-
-This moves the project from a bunch of smaller unit tests and combines it into the more formal project.
-
-Currently will be configured to use DE10 lite switches.
-
+	-Currently will be configured to use DE10 lite switches.
+		-Switch 0 is play song 0, 
+		-S1 for S1
+		-S2 for make recording
+		-S3 for Play recording
+		-S4-8 for Music Keys
+		-S9 for Bee Mode
 TODO
 	Add LED wires for connections
-		Single module
-		Takes in music keys, state machine
-		Determines current LED is on from this
-		Can perform more complex behaviour 
-			detect rising edge -> set to highest value
-			or when held donw, raise value suddenly
 	Integrate LEDs to do simple action when pressed
-
+		Single module
+			Takes in music keys, state machine
+			Determines current LED is on from this
+			Can perform more complex behaviour 
+				detect rising edge -> set to highest value
+				or when held donw, raise value suddenly
 	Integrate LEDs to turn on when a mode is active
-
-	Add dummy sounds to music keys
-		super mario tones, triangle
-			update triangle generator to signalgenerator standards
-	
-	
 
 	Integrate ROM module
 		likley needs ram integrator that rapidly pulls from memory and updates various output values based on the address
@@ -338,16 +330,20 @@ module MusicBox_Main(
 	//-- Music Keys---------------
 	//----------------------------
 	//These operate only in the state DoNothing and MakeRecording.  
-	wire [5:0] musicKeysDebugTemp ; //Stores output.  Basically input keys if in current state.
+//	wire [5:0] musicKeysDebugTemp ; //Stores output.  Basically input keys if in current state.
 //assign max10Board_LED[0] =  (outputCurrentState[0] == 1 ) ? 1'b1 : 1'b0;
 //	assign max10Board_LED[1] =  (outputCurrentState[1] == 1 ) ? 1'b1 : 1'b0;
+	wire [7:0] musicKeys_AudioOutput;
+	assign segmentDisplay_DisplayValue = musicKeys_AudioOutput;
 	MusicKeysController musicKeysController (
-		.clock_50Mhz(max10Board_50MhzClock),
+		.CLK_1Khz(CLK_1Khz),
+		.CLK_32Khz(CLK_32Khz),
 		.reset_n(systemReset_n),
 		.currentState(outputCurrentState), //This is controlled by MusicBoxStateController.   
 		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
-		// .debugString, //This is used to send any data out of the module for testing purposes.  Follows no format.
-		.outputKeyPressed(musicKeysDebugTemp)
+		//.debugString(segmentDisplay_DisplayValue), //This is used to send any data out of the module for testing purposes.  Follows no format.
+		.musicKeys_AudioOutput(musicKeys_AudioOutput)
+	//	.outputKeyPressed(musicKeysDebugTemp)
 	);
 	
 	/////////////////////////////////////////////////////////
@@ -452,7 +448,7 @@ module MusicBox_Main(
 
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
 	reg [11:0] dacOutputAudio ;
-	assign dacOutputAudio= audioOutputStateController * 16; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
+	assign dacOutputAudio= (audioOutputStateController + musicKeys_AudioOutput) * 16; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
 	//assign segmentDisplay_DisplayValue = dacOutputAudio;
 
 	SPI_OutputControllerDac sPI_OutputControllerDac (
@@ -480,7 +476,7 @@ module MusicBox_Main(
 	wire SPI_ADC_Input_sendSample;
 	wire [7:0] SPI_ADC_Output_outputSample;
 		//assign SPI_ADC_Output_outputSample = testSineGenerator_1Hz;
-		assign segmentDisplay_DisplayValue = dacOutputAudio ; //Ensure it is getting value
+		//assign segmentDisplay_DisplayValue = dacOutputAudio ; //Ensure it is getting value
 	wire SPI_ADC_Output_newSample;
 	
 	SPI_InputControllerDac sPI_InputControllerDac(
