@@ -80,6 +80,7 @@ module MusicBox_Main(
 	max10Board_GPIO_Input_MakeRecording,
 	max10Board_GPIO_Input_PlayRecording,
 	max10Board_GPIO_Input_BeeMode,
+	max10Board_GPIO_Output_ModeKeys_LEDs,
 	
 	max10Board_GPIO_Output_SPI_SCLK,
 	max10Board_GPIO_Output_SPI_SYNC_n,
@@ -106,6 +107,7 @@ module MusicBox_Main(
 	///////// GPIO UI ///////
 	input wire [5:0] max10Board_GPIO_Input_MusicKeys; //Array
 	output wire [5:0][2:0] max10Board_GPIO_Output_MusicKeys_LEDs; //Each music key has 3 RGB LEDs assigned in that order.  
+	output wire [4:0] max10Board_GPIO_Output_ModeKeys_LEDs; //Each mode key has only 1 LED assigned to it.  [SONG0, SONG1, MAKE RECORDING, PLAY RECORDING, BEE ]  
 	input wire max10Board_GPIO_Input_PlaySong1;
 	input wire max10Board_GPIO_Input_PlaySong0;
 	input wire max10Board_GPIO_Input_MakeRecording;
