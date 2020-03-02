@@ -346,6 +346,23 @@ module MusicBox_Main(
 	//	.outputKeyPressed(musicKeysDebugTemp)
 	);
 	
+
+	////////////////////////////////////////////////////////////
+	//------- LIGHT CONTROLLER ------------------------------///
+	////////////////////////////////////////////////////////////
+	LEDController lEDController (
+		.CLK_50Mhz(max10Board_50MhzClock),
+		.CLK_1Khz(CLK_1Khz),
+		.reset_n(systemReset_n),
+		.currentState(outputCurrentState),
+		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
+
+		//--HARDWARE IO FOR LEDs
+		.max10Board_GPIO_Output_MusicKeys_LEDs(max10Board_GPIO_Output_MusicKeys_LEDs),
+		.max10Board_GPIO_Output_ModeKeys_LEDs(max10Board_GPIO_Output_ModeKeys_LEDs)
+	);
+
+
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
 	//------------------------------------

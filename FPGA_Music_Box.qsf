@@ -453,6 +453,8 @@ set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RGB/rgb_led.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RGB/LEDController.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SPI/SPI_Arduino.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/UI_ToggleButton.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/SignalGenerator_Square.sv"
