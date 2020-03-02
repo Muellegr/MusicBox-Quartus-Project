@@ -110,9 +110,9 @@ module MusicBox_Main(
 	output wire max10Board_GPIO_Output_SPI_SYNC_n; //Low when sending data
 	output wire max10Board_GPIO_Output_SPI_DIN; //Data bits
 	///////// GPIO SPI Input from ADC
-	output wire max10Board_GPIO_Input_SPI_SCLK; //Clock pin
-	input  wire max10Board_GPIO_Input_SPI_SDO; //Data pin
-	output wire max10Board_GPIO_Input_SPI_CS_n; //Tells ADC to begin sending message
+	input wire max10Board_GPIO_Input_SPI_SCLK; //Clock pin
+	input wire max10Board_GPIO_Input_SPI_SDO; //Data pin
+	input wire max10Board_GPIO_Input_SPI_CS_n; //Tells ADC to begin sending message
 	
 	///////// SDRAM /////////
 	output wire max10Board_SDRAM_Clock;
@@ -334,7 +334,7 @@ module MusicBox_Main(
 //assign max10Board_LED[0] =  (outputCurrentState[0] == 1 ) ? 1'b1 : 1'b0;
 //	assign max10Board_LED[1] =  (outputCurrentState[1] == 1 ) ? 1'b1 : 1'b0;
 	wire [7:0] musicKeys_AudioOutput;
-	assign segmentDisplay_DisplayValue = musicKeys_AudioOutput;
+	//assign segmentDisplay_DisplayValue = musicKeys_AudioOutput;
 	MusicKeysController musicKeysController (
 		.CLK_1Khz(CLK_1Khz),
 		.CLK_32Khz(CLK_32Khz),
@@ -399,18 +399,18 @@ module MusicBox_Main(
 	wire [7:0] audioOutputStateController;
 	MusicBoxStateController musicBoxStateController (
 		//--INPUT
-		.clock_50Mhz(max10Board_50MhzClock),
-		.clock_32Khz(CLK_32Khz),
-		.clock_22Khz(CLK_22Khz),
-		.clock_1Khz(CLK_1Khz),
-		.clock_1hz(CLK_1hz),
-		.reset_n(systemReset_n),
-		//--USER UI
-		.input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
-		.input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
-		.input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
-		.input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
-		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
+		// .clock_50Mhz(max10Board_50MhzClock),
+		// .clock_32Khz(CLK_32Khz),
+		// .clock_22Khz(CLK_22Khz),
+		// .clock_1Khz(CLK_1Khz),
+		// .clock_1hz(CLK_1hz),
+		// .reset_n(systemReset_n),
+		// //--USER UI
+		// .input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
+		// .input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
+		// .input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
+		// .input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
+		// .input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
 		//--OUTPUT
 		.debugString(output_DebugString), //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.outputState(outputCurrentState), //Current state so other modules may use it.
@@ -479,21 +479,44 @@ module MusicBox_Main(
 		//assign segmentDisplay_DisplayValue = dacOutputAudio ; //Ensure it is getting value
 	wire SPI_ADC_Output_newSample;
 	
-	SPI_InputControllerDac sPI_InputControllerDac(
-		//--INPUT
-		.clock_50Mhz(max10Board_50MhzClock),
+	wire [15:0] arduino_freqSample ;
+	wire [7:0] arduino_ampSample;
+	assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
+	assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
+	assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
+	assign segmentDisplay_DisplayValue = arduino_freqSample;
+	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
-		//--CONTROL
-		.sendSample(SPI_ADC_Input_sendSample),
-		//--HARDWARE I/O
+		.inputLight(max10Board_LED[3]),
 		.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
 		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
 		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
-		//--OUTPUT
-		.outputSample(SPI_ADC_Output_outputSample),
-		//--SIGNAL
-		.sampleReady(SPI_ADC_Output_newSample)
+
+		//--Output from arduino
+		.outputFrequencySample(arduino_freqSample),
+		.outputAmplitudeSample(arduino_ampSample)
+
 	);
+	
+
+
+
+	//--DISABLED FOR SPI ARDUINO
+	// SPI_InputControllerDac sPI_InputControllerDac(
+	// 	//--INPUT
+	// 	.clock_50Mhz(max10Board_50MhzClock),
+	// 	.reset_n(systemReset_n),
+	// 	//--CONTROL
+	// 	.sendSample(SPI_ADC_Input_sendSample),
+	// 	//--HARDWARE I/O
+	// 	.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
+	// 	.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
+	// 	.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
+	// 	//--OUTPUT
+	// 	.outputSample(SPI_ADC_Output_outputSample),
+	// 	//--SIGNAL
+	// 	.sampleReady(SPI_ADC_Output_newSample)
+	// );
 	
 
 	wire [7:0] testSineGenerator_1Hz;

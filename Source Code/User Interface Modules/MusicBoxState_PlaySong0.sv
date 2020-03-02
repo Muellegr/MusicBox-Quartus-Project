@@ -62,8 +62,8 @@ Want song module.
 
 
 */
-const reg  songStepSize = 10'd10; //Time in ms between song update
-const  reg songIndexCount = 10'd100; //Number of array indexes to reach before this is complete
+// const reg  songStepSize = 10'd10; //Time in ms between song update
+// const  reg songIndexCount = 10'd100; //Number of array indexes to reach before this is complete
 
 module MusicBoxState_PlaySong0 ( 
 		input logic clock_50Mhz,

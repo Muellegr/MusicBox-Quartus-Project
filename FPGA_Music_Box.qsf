@@ -230,9 +230,9 @@ set_location_assignment PIN_AB9 -to max10Board_GPIO_Output_SPI_SYNC_n
 set_location_assignment PIN_AB8 -to max10Board_GPIO_Output_SPI_DIN
 
 	#SPI Input from ADC
-set_location_assignment PIN_AB7 -to max10Board_GPIO_Input_SPI_SCLK
-set_location_assignment PIN_AB6 -to max10Board_GPIO_Input_SPI_CS_n
-set_location_assignment PIN_AB5 -to max10Board_GPIO_Input_SPI_SDO
+set_location_assignment PIN_AB20 -to max10Board_GPIO_Input_SPI_SCLK
+set_location_assignment PIN_AB19 -to max10Board_GPIO_Input_SPI_CS_n
+set_location_assignment PIN_AA12 -to max10Board_GPIO_Input_SPI_SDO
 
 #Max10 SPECIFIC 
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_50MhzClock
@@ -453,6 +453,7 @@ set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SPI/SPI_Arduino.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/UI_ToggleButton.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/SignalGenerator_Square.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/SignalGenerator_Triangle.sv"
