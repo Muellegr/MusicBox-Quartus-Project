@@ -152,7 +152,35 @@ module MusicBox_Main(
 		.c0(CLK_143Mhz),
 		.locked()
 	);	
+
+	wire CLK_32Khz ;
+	ClockGenerator clockGenerator_32Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_32Khz)
+	);
+		defparam	clockGenerator_32Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781; //OLD : 781* 0.975 = 762
+
+	wire CLK_22Khz ;
+	ClockGenerator clockGenerator_22Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_22Khz)
+	);
+		defparam	clockGenerator_22Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_22Khz.InputClockEdgesToCount = 1133;
+
 	
+	wire CLK_10Khz ;
+	ClockGenerator clockGenerator_10Khz (
+		.inputClock(max10Board_50MhzClock),
+		.reset_n(systemReset_n),
+		.outputClock(CLK_10Khz)
+	);
+		defparam	clockGenerator_10Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
+		defparam	clockGenerator_10Khz.InputClockEdgesToCount = 2500; //OLD : 781* 0.975 = 762
+
 	wire CLK_1Khz ;
 	ClockGenerator clockGenerator_1Khz (
 		.inputClock(max10Board_50MhzClock),
@@ -180,23 +208,6 @@ module MusicBox_Main(
 		defparam	clockGenerator_10hz.BitsNeeded = 35; //Must be able to count up to InputClockEdgesToCount.  
 		defparam	clockGenerator_10hz.InputClockEdgesToCount = 2500000;
 	//1133
-	wire CLK_22Khz ;
-	ClockGenerator clockGenerator_22Khz (
-		.inputClock(max10Board_50MhzClock),
-		.reset_n(systemReset_n),
-		.outputClock(CLK_22Khz)
-	);
-		defparam	clockGenerator_22Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_22Khz.InputClockEdgesToCount = 1133;
-
-	wire CLK_32Khz ;
-	ClockGenerator clockGenerator_32Khz (
-		.inputClock(max10Board_50MhzClock),
-		.reset_n(systemReset_n),
-		.outputClock(CLK_32Khz)
-	);
-		defparam	clockGenerator_32Khz.BitsNeeded = 16; //Must be able to count up to InputClockEdgesToCount.  
-		defparam	clockGenerator_32Khz.InputClockEdgesToCount = 781; //OLD : 781* 0.975 = 762
 
 	wire CLK_500Khz ;
 	ClockGenerator clockGenerator_500Khz (
@@ -315,8 +326,8 @@ module MusicBox_Main(
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_BeeMode_s)
 		);
-	assign max10Board_LED[0] = max10Board_GPIO_Input_BeeMode_s;
-	assign max10Board_LED[1] = max10Board_GPIO_Input_BeeMode_s_t;
+	//assign max10Board_LED[0] = max10Board_GPIO_Input_BeeMode_s;
+	//assign max10Board_LED[1] = max10Board_GPIO_Input_BeeMode_s_t;
 	wire max10Board_GPIO_Input_BeeMode_s_t; //Smoothed, Toggled
 		//.inputWire(max10Board_GPIO_Input_BeeMode),
 		 UI_ToggleButton UIst_BeeMode( 
@@ -352,6 +363,7 @@ module MusicBox_Main(
 	////////////////////////////////////////////////////////////
 	LEDController lEDController (
 		.CLK_50Mhz(max10Board_50MhzClock),
+		.CLK_10Khz(CLK_10Khz),
 		.CLK_1Khz(CLK_1Khz),
 		.reset_n(systemReset_n),
 		.currentState(outputCurrentState),
@@ -416,18 +428,18 @@ module MusicBox_Main(
 	wire [7:0] audioOutputStateController;
 	MusicBoxStateController musicBoxStateController (
 		//--INPUT
-		// .clock_50Mhz(max10Board_50MhzClock),
-		// .clock_32Khz(CLK_32Khz),
-		// .clock_22Khz(CLK_22Khz),
-		// .clock_1Khz(CLK_1Khz),
-		// .clock_1hz(CLK_1hz),
-		// .reset_n(systemReset_n),
-		// //--USER UI
-		// .input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
-		// .input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
-		// .input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
-		// .input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
-		// .input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
+		.clock_50Mhz(max10Board_50MhzClock),
+		.clock_32Khz(CLK_32Khz),
+		.clock_22Khz(CLK_22Khz),
+		.clock_1Khz(CLK_1Khz),
+		.clock_1hz(CLK_1hz),
+		.reset_n(systemReset_n),
+		//--USER UI
+		.input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
+		.input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
+		.input_MakeRecording_n(max10Board_GPIO_Input_MakeRecording_s),
+		.input_PlayRecording_n(max10Board_GPIO_Input_PlayRecording_s),
+		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
 		//--OUTPUT
 		.debugString(output_DebugString), //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.outputState(outputCurrentState), //Current state so other modules may use it.
@@ -498,13 +510,15 @@ module MusicBox_Main(
 	
 	wire [15:0] arduino_freqSample ;
 	wire [7:0] arduino_ampSample;
-	assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
-	assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
-	assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
+
+	// assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
+	// assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
+	// assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
+
 	assign segmentDisplay_DisplayValue = arduino_freqSample;
 	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
-		.inputLight(max10Board_LED[3]),
+		//.inputLight(max10Board_LED[3]),
 		.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
 		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
 		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),

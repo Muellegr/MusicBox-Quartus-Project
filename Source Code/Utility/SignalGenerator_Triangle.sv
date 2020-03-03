@@ -13,6 +13,7 @@ module SignalGenerator_Triangle  (
 		input logic reset_n,
 		input logic[13:0] inputFrequency,
 		input logic [7:0] inputAmplitude, //Can give it a constant amplitude as well
+		input logic [7:0] inputOffset, //Offset starting value
 		output logic[7 : 0] outputSample,
 		output logic indexZero
 		);
@@ -22,7 +23,7 @@ module SignalGenerator_Triangle  (
 	reg [15 : 0] counter ; //16 bits max value is 64k ~
 	always_ff @(posedge CLK_32KHz, negedge reset_n) begin
 		if (reset_n == 1'b0)begin
-			counter <= 1'b0;
+			counter <= inputOffset*125;
 		end
 		else begin
 			//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
