@@ -36,7 +36,7 @@ module SignalGenerator  (
 	wire [7:0] trueCounter ;
 
 	assign trueCounter = ( ( counter % 16'd32000) * 1/250 ) ;   // 0.trueCounter == 1/252 
-	assign outputSample =SignalMultiply255(preCalcSine[trueCounter],inputAmplitude );   //Combine amplitude with input.  
+	assign outputSample = 0;//SignalMultiply255(preCalcSine[trueCounter],inputAmplitude );   //Combine amplitude with input.  
 	assign indexZero = (trueCounter == 0) ? 1'b1 : 1'b0;
 
 	//Combines tow signals into 1

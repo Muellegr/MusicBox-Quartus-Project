@@ -48,6 +48,8 @@ module MusicBoxStateController (
 	output logic [4:0] outputState,
 	//--SPI Input Sample
 	input logic [7:0] SPIinput_sample,
+	input logic [13:0] SPIInput_ArduinoFreq,
+	input logic [7:0] SPIInput_ArduinoAmp,
 	//--SDRAM Controls here
 
 	output logic [24:0] sdram_inputAddress, 
@@ -80,6 +82,7 @@ module MusicBoxStateController (
 	reg [7:0] song0AudioOutput; //Meant to be sent to the dac.
 	MusicBoxState_PlaySong0 musicBoxState_PlaySong0 (
 		.testSwitch(input_PlaySong0_n),
+		.testSwitch2(input_PlaySong1_n),
 		.clock_50Mhz(clock_50Mhz),
 		.clock_32Khz(clock_32Khz),
 		.clock_1Khz(clock_1Khz),
@@ -293,21 +296,21 @@ output logic [24:0] sdram_inputAddress,
 	reg [15:0] BeeRomIndex_Max;
 	reg [15:0] BeeRomData;
 
-	ROMIntegrator rOMIntegrator(
-		.CLK_50Mhz ( clock_50Mhz) ,
-		.reset_n( reset_n) ,
-		.song0AccessIndex(song0RomIndex ) ,
-		.song0AccessMaxIndex(song0RomIndex_Max ) ,
-		.song0DataOutput(song0RomData ) ,
-		//--
-		.song1AccessIndex(song1RomIndex ) ,
-		.song1AccessMaxIndex(song1RomIndex_Max ) ,
-		.song1DataOutput(song1RomData ) ,
-		//--
-		.BeeAccessIndex(BeeRomIndex ) ,
-		.BeeAccessMaxIndex(BeeRomIndex_Max ) ,
-		.BeeDataOutput(BeeRomData ) 
-	);
+	// ROMIntegrator rOMIntegrator(
+	// 	.CLK_50Mhz ( clock_32Khz) ,
+	// 	.reset_n( reset_n) ,
+	// 	.song0AccessIndex(song0RomIndex ) ,
+	// 	.song0AccessMaxIndex(song0RomIndex_Max ) ,
+	// 	.song0DataOutput(song0RomData ) ,
+	// 	//--
+	// 	.song1AccessIndex(song1RomIndex ) ,
+	// 	.song1AccessMaxIndex(song1RomIndex_Max ) ,
+	// 	.song1DataOutput(song1RomData ) ,
+	// 	//--
+	// 	.BeeAccessIndex(BeeRomIndex ) ,
+	// 	.BeeAccessMaxIndex(BeeRomIndex_Max ) ,
+	// 	.BeeDataOutput(BeeRomData ) 
+	// );
 
 
 endmodule

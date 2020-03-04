@@ -105,7 +105,7 @@ module MusicBoxState_PlaySong0
    
    ( 
       input logic testSwitch,
-
+		input logic testSwitch2,
 		input logic clock_50Mhz,
 		input logic clock_32Khz,
 		input logic clock_1Khz,
@@ -127,18 +127,18 @@ module MusicBoxState_PlaySong0
 		input logic [15:0] romDataInput //Input data
 		);
 
-      assign debugString = currentFrequency;
+      assign debugString = romDataInput;//currentFrequency[0];//currentFrequency[0];// + currentFrequency[1] +  currentFrequency[2];
       parameter romIndexMax = 512;
       parameter channelCount = 6; //Make sure this is 2x the number of channels used
 
-      assign romIndex_Max = romIndexMax;
+      assign romIndex_Max =romIndexMax;
       assign romIndex = currentIndex;
 
 	//	assign debugString = {16'b0, milisecondCounter};
 
 
 	//	reg [9:0] songIndexCounter ; //Current index value of the song.  This should always be clamped between 0 and songIndexCount.
-	//	reg [9:0] milisecondCounter ; //Counts miliseconds.  Reset when reach songStepSize.
+		reg [9:0] milisecondCounter ; //Counts miliseconds.  Reset when reach songStepSize.
 
 		reg outputActive;
 
@@ -151,10 +151,15 @@ module MusicBoxState_PlaySong0
      // reg [7:0] currentChannel; //Harcoded
       reg [7:0] addressCounter; //Used for state machine
      // reg       currentChannel_f ; //Will frequency be on the next data ?
+
+
+	 //Test switch controls the fast clock.  This should increment a bunch and update the frequency.
       always_ff @ (posedge testSwitch, negedge reset_n) begin
-         currentBaseIndex_q <= currentBaseIndex;
+        
          if (reset_n == 0) begin
+		 	currentBaseIndex_q <= 0;
             currentIndex <= 0;  
+			currentFrequency <= 0;
             //currentChannel <= 0;
             addressCounter <= 0;
         //    currentChannel_f <= 1; //Frequency is always first to come in
@@ -164,6 +169,7 @@ module MusicBoxState_PlaySong0
          else if (currentBaseIndex_q !=  currentBaseIndex ) begin
             //currentChannel <= 0; 
             //Start at 0 and work through all the current frequencies and amplitudes for this time period
+			 currentBaseIndex_q <= currentBaseIndex;
             addressCounter <= 0;
          end
 
@@ -187,7 +193,7 @@ module MusicBoxState_PlaySong0
                 8'd3 :   begin 
                            //Update current address on next clock cycle
                             currentIndex <= currentIndex + 1  ;  //Set to amplitude
-                           currentFrequency[1] <= romDataInput ;
+                           currentFrequency[0] <= romDataInput ;
                         end
                8'd4 :   begin 
                            //Update current address on next clock cycle
@@ -198,7 +204,7 @@ module MusicBoxState_PlaySong0
                 8'd5 :   begin 
                            //Update current address on next clock cycle
                            currentIndex <= currentIndex + 1  ;   //Set to amplitude
-                           currentFrequency[2] <= romDataInput ;
+                           currentFrequency[0] <= romDataInput ;
                         end
                8'd6 :   begin 
                            //Update current address on next clock cycle
@@ -219,34 +225,34 @@ module MusicBoxState_PlaySong0
 
 
       
-		// always_ff @(posedge clock_1Khz ) begin //clock_1Khz negedge reset_n 
-		// 	if (currentState != 5'd1) begin
-		// 		//counter <= 16'b0;
-		// 		stateComplete <= 1'b0;
-		// 		songIndexCounter <= 10'd0; 
-		// 		milisecondCounter <= 10'd0;
-		// 		outputActive <= 0;
-		// 	end
-		// 	else begin
-		// 		outputActive <= 1;
-		// 		if (songIndexCounter == 184 -1) begin
-		// 			stateComplete <= 1'b1; 
+		always_ff @(posedge testSwitch2, negedge reset_n ) begin //clock_1Khz negedge reset_n 
+			if (reset_n == 0 )begin // != 5'd1) begin
+				//counter <= 16'b0;
+				stateComplete <= 1'b0;
+				currentBaseIndex <= 10'd0; 
+				milisecondCounter <= 10'd0;
+				outputActive <= 0;
+			end
+			else begin
+				outputActive <= 1;
+				if (currentBaseIndex == 184 -1) begin
+					stateComplete <= 1'b1; 
 
-		// 		end
-		// 		//If we have not reached end of song
-		// 		else begin
-		// 			if ( milisecondCounter == 10'd50) begin
-		// 				milisecondCounter <= 0; //Set back to 0
-		// 				songIndexCounter <= songIndexCounter + 1;
-		// 			end
-		// 			else begin
-		// 				milisecondCounter <= milisecondCounter + 1;
-		// 			end
-		// 		end
+				end
+				//If we have not reached end of song
+				else begin
+					if ( milisecondCounter == 10'd0) begin
+						milisecondCounter <= 0; //Set back to 0
+						currentBaseIndex <= currentBaseIndex + 1;
+					end
+					else begin
+						milisecondCounter <= milisecondCounter + 1;
+					end
+				end
 
-		// 	end //If correct state
+		 	end //If correct state
 		
-		// end //Clock
+		 end //Clock
 
 	//--FREQUENCY GENERATORS
 	assign audioAmplitudeOutput = (outputActive == 1'b1)? signalGeneratorOutput[0] + 

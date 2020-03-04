@@ -62,7 +62,13 @@ module SPI_Arduino(
             //If we reached end
             else if (recievingSample == 1 && spiInput_DataCounter == 5'd16) begin 
                 //Assign actual output value here
-                 outputFrequencySample <= workingInputSample ;
+                
+                 if (workingInputSample[13] == 0) begin
+                    outputFrequencySample <= workingInputSample;
+                 end
+                 else begin
+                    outputAmplitudeSample <= workingInputSample;
+                 end
                 recievingSample <= 0; //We are no longer recieving, next clock we can start again
                 spiInput_DataCounter <= 0; //Set counter back to 0
                 
