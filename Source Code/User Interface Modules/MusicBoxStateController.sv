@@ -296,21 +296,21 @@ output logic [24:0] sdram_inputAddress,
 	reg [15:0] BeeRomIndex_Max;
 	reg [15:0] BeeRomData;
 
-	// ROMIntegrator rOMIntegrator(
-	// 	.CLK_50Mhz ( clock_32Khz) ,
-	// 	.reset_n( reset_n) ,
-	// 	.song0AccessIndex(song0RomIndex ) ,
-	// 	.song0AccessMaxIndex(song0RomIndex_Max ) ,
-	// 	.song0DataOutput(song0RomData ) ,
-	// 	//--
-	// 	.song1AccessIndex(song1RomIndex ) ,
-	// 	.song1AccessMaxIndex(song1RomIndex_Max ) ,
-	// 	.song1DataOutput(song1RomData ) ,
-	// 	//--
-	// 	.BeeAccessIndex(BeeRomIndex ) ,
-	// 	.BeeAccessMaxIndex(BeeRomIndex_Max ) ,
-	// 	.BeeDataOutput(BeeRomData ) 
-	// );
+	ROMIntegrator rOMIntegrator(
+		.CLK_50Mhz ( clock_32Khz) ,
+		.reset_n( reset_n) ,
+		.song0AccessIndex(song0RomIndex ) ,
+		.song0AccessMaxIndex(song0RomIndex_Max ) ,
+		.song0DataOutput(song0RomData ) ,
+		//--
+		.song1AccessIndex(song1RomIndex ) ,
+		.song1AccessMaxIndex(song1RomIndex_Max ) ,
+		.song1DataOutput(song1RomData ) ,
+		//--
+		.BeeAccessIndex(BeeRomIndex ) ,
+		.BeeAccessMaxIndex(BeeRomIndex_Max ) ,
+		.BeeDataOutput(BeeRomData ) 
+	);
 
 
 endmodule

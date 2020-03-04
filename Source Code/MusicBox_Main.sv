@@ -238,49 +238,49 @@ module MusicBox_Main(
 	
 	wire [5:0] max10Board_GPIO_Input_MusicKeys_s; //Array
 		UI_TriggerSmoother UIs_MusicKeys0 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[0]),
 			.inputWire(max10board_switches[4]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[0])
 		);
 		UI_TriggerSmoother UIs_MusicKeys1 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[1]),
 			.inputWire(max10board_switches[5]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[1])
 		);
 		UI_TriggerSmoother UIs_MusicKeys2 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[2]),
 			.inputWire(max10board_switches[6]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[2])
 		);
 		UI_TriggerSmoother UIs_MusicKeys3 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[3]),
 			.inputWire(max10board_switches[7]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[3])
 		);
 		UI_TriggerSmoother UIs_MusicKeys4 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[4]),
 			.inputWire(max10board_switches[8]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[4])
 		);
 		UI_TriggerSmoother UIs_MusicKeys5 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			.inputWire(max10Board_GPIO_Input_MusicKeys[5]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[5])
 		);
 	wire max10Board_GPIO_Input_PlaySong1_s;
 		UI_TriggerSmoother UIs_PlaySong1 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_PlaySong1),
 			.inputWire(max10board_switches[0]),
 			.reset_n(systemReset_n),
@@ -288,7 +288,7 @@ module MusicBox_Main(
 		);
 	wire max10Board_GPIO_Input_PlaySong0_s;
 		UI_TriggerSmoother UIs_PlaySong0 (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_PlaySong0),
 			.inputWire(max10board_switches[1]),
 			.reset_n(systemReset_n),
@@ -296,7 +296,7 @@ module MusicBox_Main(
 		);
 	wire max10Board_GPIO_Input_MakeRecording_s;
 		UI_TriggerSmoother UIs_Makerecording (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MakeRecording),
 			.inputWire(max10board_switches[2]),
 			.reset_n(systemReset_n),
@@ -304,7 +304,7 @@ module MusicBox_Main(
 		);
 	wire max10Board_GPIO_Input_PlayRecording_s;
 		UI_TriggerSmoother UIs_PlayRecording (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_PlayRecording),
 			.inputWire(max10board_switches[3]),
 			.reset_n(systemReset_n),
@@ -312,7 +312,7 @@ module MusicBox_Main(
 		);
 	wire max10Board_GPIO_Input_BeeMode_s;  //Will be sent to be toggled
 		UI_TriggerSmoother UIs_BeeMode (
-			.clock_50Mhz(max10Board_50MhzClock),
+			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_BeeMode),
 			.inputWire(max10board_switches[9]),
 			.reset_n(systemReset_n),
@@ -433,6 +433,8 @@ module MusicBox_Main(
 		.outputState(outputCurrentState), //Current state so other modules may use it.
 		//--SPI INPUT
 		.SPIinput_sample(SPI_ADC_Output_outputSample),
+		.SPIInput_ArduinoFreq(arduino_freqSample),
+		.SPIInput_ArduinoAmp(arduino_ampSample),
 		//--SDRAM Interface
 		.sdram_inputAddress(sdram_inputAddress),
 		.sdram_writeData(sdram_inputData),
@@ -504,8 +506,8 @@ module MusicBox_Main(
 	//assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
 	//assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
 
-	assign segmentDisplay_DisplayValue = arduino_freqSample;
-	assign max10Board_LED = testSineGenerator_1Hz;
+	assign segmentDisplay_DisplayValue = output_DebugString;//arduino_freqSample;
+//	assign max10Board_LED = testSineGenerator_1Hz;
 	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
 		//.inputLight(max10Board_LED[3]),
