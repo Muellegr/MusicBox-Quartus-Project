@@ -33,19 +33,26 @@ int largestIndex = 0; //The index in the FFT array that holds the most significa
 long timeStart = 0;
 
 /***************** Functions *************************/
-void writeFreq(uint16_t amplitude, uint16_t frequency) {
+void writeFreq(uint16_t frequency) {
   //Shift the first bit into the amplitude and frequency so it can be read
-  amplitude |= (0 << 15);
-  frequency |= (1 << 15);
-  //Serial.println(amplitude, BIN);
-  //Serial.println(frequency, BIN);
+  frequency |= (0 << 13);
   //This sets the 
   // take the SS pin low to select the chip:
   digitalWrite(SS, LOW);
   //Send the value via SPI:
-  //SPI.transfer(amplitude);
-  //SPI.transfer(frequency);
-  SPI.transfer(0b10101010);
+  SPI.transfer16(0b0000000000000010);
+  // take the SS pin high to de-select the chip:
+  digitalWrite(SS, HIGH);
+}
+
+void writeAmp(uint16_t amplitude) {
+  //Shift the first bit into the amplitude and frequency so it can be read
+  amplitude |= (1 << 13);
+  //This sets the 
+  // take the SS pin low to select the chip:
+  digitalWrite(SS, LOW);
+  //Send the value via SPI:
+  SPI.transfer16(amplitude);
   // take the SS pin high to de-select the chip:
   digitalWrite(SS, HIGH);
 }
@@ -57,7 +64,7 @@ void setup() {
   sampling_period_us = round(1000000*(1.0/samplingFrequency)); 
   //Initialize SPI
   SPI.begin();
-  SPI.setClockDivider(SPI_CLOCK_DIV8);    //Sets clock for SPI communication at 8 (16/8=2Mhz)
+  SPI.setClockDivider(SPI_CLOCK_DIV128);    //Sets clock for SPI communication at 8 (16/8=2Mhz)
   digitalWrite(SS,HIGH);                  // Setting SlaveSelect as HIGH (So master doesnt connnect with slave)
 }
 
@@ -85,7 +92,8 @@ void loop() {
     }
   }
   uint16_t abscissa = ((largestIndex * 1.0 * samplingFrequency) / samples);
-  Serial.println(abscissa);
+  //Serial.println(abscissa);
   uint16_t amp = real[largestIndex];
-  writeFreq(amp, abscissa); //Send that out over SPI  
+  writeFreq(abscissa); //Send that out over SPI 
+  //writeAmp(amp); //Send that out over SPI 
 }
