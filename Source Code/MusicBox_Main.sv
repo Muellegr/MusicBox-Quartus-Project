@@ -19,23 +19,11 @@ SYSTEM INTEGRATION BRANCH
 		-S3 for Play recording
 		-S4-8 for Music Keys
 		-S9 for Bee Mode
+
 TODO
-	Add LED wires for connections
-	Integrate LEDs to do simple action when pressed
-		Single module
-			Takes in music keys, state machine
-			Determines current LED is on from this
-			Can perform more complex behaviour 
-				detect rising edge -> set to highest value
-				or when held donw, raise value suddenly
-	Integrate LEDs to turn on when a mode is active
 
 	Integrate ROM module
-		likley needs ram integrator that rapidly pulls from memory and updates various output values based on the address
-		There's 10 things that want something from memory, only 1 get updated per clock period
-		takes 10 clocks until all values are updated
-		Can be sped up if theres a flag that tells them if they want value updated
-		
+		Create working module 
 
 	BIG THINGS
 		LED integratoin
@@ -236,6 +224,10 @@ module MusicBox_Main(
 		.displayValue(segmentDisplay_DisplayValue),
 		.segmentPins(max10Board_LEDSegments)
 	);
+	
+	
+	
+	
 	/////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////
 	//----------------------------
@@ -326,10 +318,7 @@ module MusicBox_Main(
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_BeeMode_s)
 		);
-	//assign max10Board_LED[0] = max10Board_GPIO_Input_BeeMode_s;
-	//assign max10Board_LED[1] = max10Board_GPIO_Input_BeeMode_s_t;
 	wire max10Board_GPIO_Input_BeeMode_s_t; //Smoothed, Toggled
-		//.inputWire(max10Board_GPIO_Input_BeeMode),
 		 UI_ToggleButton UIst_BeeMode( 
 			.inputWire(max10Board_GPIO_Input_BeeMode_s),
 			.reset_n(systemReset_n),
@@ -380,7 +369,6 @@ module MusicBox_Main(
 	//------------------------------------
 	//------- SDRAM Controller -----------
 	//------------------------------------
-
 	reg [24:0]	sdram_inputAddress; //This is the address to loop up
 	reg [15:0] 	sdram_inputData; //Data to WRITE (only if writing)
 	reg [15:0] 	sdram_outputData; //Data from READ (Only if reading)
@@ -456,6 +444,7 @@ module MusicBox_Main(
 		.sdram_recievedCommand(sdram_recievedCommand),
 		.sdram_isBusy(sdram_isBusy),
 
+
 		//--AUDIO OUTPUT.  Ranges from 0 to 255.  Rests at 0 when no mode selected
 		.outputAudioOutput(audioOutputStateController)
 	);
@@ -511,11 +500,12 @@ module MusicBox_Main(
 	wire [15:0] arduino_freqSample ;
 	wire [7:0] arduino_ampSample;
 
-	// assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
-	// assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
-	// assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
+	//assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
+	//assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
+	//assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
 
 	assign segmentDisplay_DisplayValue = arduino_freqSample;
+	assign max10Board_LED = testSineGenerator_1Hz;
 	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
 		//.inputLight(max10Board_LED[3]),
@@ -554,8 +544,8 @@ module MusicBox_Main(
 	SignalGenerator testSineGenerator(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( systemReset_n),
-		.inputFrequency(14'd1),
-		.inputAmplitude(8'd64),
+		.inputFrequency(arduino_freqSample),
+		.inputAmplitude(8'd255),
 		.outputSample(testSineGenerator_1Hz)
 	);
 

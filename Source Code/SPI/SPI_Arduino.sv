@@ -18,6 +18,8 @@ module SPI_Arduino(
 	input logic input_SPI_CS_n, //Active low input.  
 	input logic input_SPI_SDO,  //Serial data input.  Comes in MSB first.  Falling edge.
 
+    
+
     //--OUTPUT SAMPLES.  
     output logic [13:0] outputFrequencySample,
     output logic [ 7:0] outputAmplitudeSample
@@ -30,7 +32,7 @@ module SPI_Arduino(
     reg [4:0] spiInput_DataCounter; //How we know when to stop
     reg recievingSample; //State flag for collecting bits.  
     reg chipselect_q;//for edge detecting CS when it goes low
-    assign outputFrequencySample = workingInputSample; //Debug, show it moving.  Connected to segment display value currently.
+    //assign outputFrequencySample = workingInputSample; //Debug, show it moving.  Connected to segment display value currently.
     always_ff @ (posedge input_SPI_SCLK, negedge reset_n) begin
         //If resetting, set to initial state.
         if (reset_n == 0) begin
@@ -38,6 +40,7 @@ module SPI_Arduino(
             spiInput_DataCounter <= 5'd0;
             chipselect_q <= 1;
             recievingSample <= 0;
+            outputFrequencySample <= 0;
         end
         //If not resetting..
         else begin
@@ -51,14 +54,15 @@ module SPI_Arduino(
             end
             //We detected CS going low and have started looking at the data, but have not reached the end.
                 //May be off 1 clock cycle.  
-            else if (recievingSample == 1 && spiInput_DataCounter < 5'd15) begin
+            else if (recievingSample == 1 && spiInput_DataCounter < 5'd16) begin
                 //Shift current result over by 1 bit, and add the data pin to it. 
-                workingInputSample <= (workingInputSample < 1) + input_SPI_SDO;
+                workingInputSample <= (workingInputSample << 1) + input_SPI_SDO;
                 spiInput_DataCounter <= spiInput_DataCounter + 1;
             end 
             //If we reached end
-            else if (recievingSample == 1 && spiInput_DataCounter == 5'd15) begin 
+            else if (recievingSample == 1 && spiInput_DataCounter == 5'd16) begin 
                 //Assign actual output value here
+                 outputFrequencySample <= workingInputSample ;
                 recievingSample <= 0; //We are no longer recieving, next clock we can start again
                 spiInput_DataCounter <= 0; //Set counter back to 0
                 

@@ -230,9 +230,9 @@ set_location_assignment PIN_AB9 -to max10Board_GPIO_Output_SPI_SYNC_n
 set_location_assignment PIN_AB8 -to max10Board_GPIO_Output_SPI_DIN
 
 	#SPI Input from ADC
-set_location_assignment PIN_AB20 -to max10Board_GPIO_Input_SPI_SCLK
-set_location_assignment PIN_AB19 -to max10Board_GPIO_Input_SPI_CS_n
-set_location_assignment PIN_AA12 -to max10Board_GPIO_Input_SPI_SDO
+set_location_assignment PIN_AB7 -to max10Board_GPIO_Input_SPI_SCLK
+set_location_assignment PIN_AB6 -to max10Board_GPIO_Input_SPI_CS_n
+set_location_assignment PIN_AB5 -to max10Board_GPIO_Input_SPI_SDO
 
 #Max10 SPECIFIC 
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_50MhzClock
@@ -453,6 +453,17 @@ set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE IMAGE WITH ERAM"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVCMOS"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/ROMIntegrator.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RGB/rgb_led.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RGB/LEDController.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/SPI/SPI_Arduino.sv"
@@ -476,4 +487,5 @@ set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modul
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/User Interface Modules/UI_TriggerSmoother.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/MusicBox_Main.sv"
 set_global_assignment -name QIP_FILE ALTPLL_Clock.qip
+set_global_assignment -name QIP_FILE ROM/INTEL_Rom1.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
