@@ -1,10 +1,10 @@
-/* Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition */
+/* Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition */
 JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/Graham/Google Drive/SCHOOL/W20/ECE 342 JUNIOR DESIGN II/Music Box Quartus/output_files/") File("FPGA_Music_Box.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/Tristan Luther/Documents/GitHub/MusicBox-Quartus-Project/output_files/") File("FPGA_Music_Box.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
