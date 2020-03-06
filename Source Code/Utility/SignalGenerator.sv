@@ -21,22 +21,36 @@ module SignalGenerator  (
 
 	//Will count up to 320000.
 	reg [15 : 0] counter ; //16 bits max value is 64k ~
+	reg [7:0] smoothAmplitude;
+	reg [10:0] smoothAmpCounter;
+
 	always_ff @(posedge CLK_32KHz, negedge reset_n) begin
 		if (reset_n == 1'b0)begin
 			counter <= inputOffset * 125;
+			smoothAmpCounter <= 0;
+			smoothAmplitude <= 0;
 		end
 		else begin
 			//If counter reaches top of index, it gets reduced by 32000 but keeps whatever it overshot by.  
 			if (counter >= (16'd32000)) begin counter <= counter - (16'd32000 ) + inputFrequency; end
 			//inputFrequency holds 14 bits, so we need 2 extra in front.
 			else begin counter <= counter + inputFrequency;end//{ 2'b0, inputFrequency }; end
+
+			if (smoothAmpCounter == 100)  begin
+				smoothAmpCounter <= 0;
+				if (smoothAmplitude < inputAmplitude) begin smoothAmplitude <= smoothAmplitude + 1; end
+				else if (smoothAmplitude > inputAmplitude) begin smoothAmplitude <= smoothAmplitude - 1; end
+			end 
+			else begin
+				smoothAmpCounter <= smoothAmpCounter + 1;
+			end
 		end
 	end
 
 	wire [7:0] trueCounter ;
 
 	assign trueCounter = ( ( counter % 16'd32000) * 1/250 ) ;   // 0.trueCounter == 1/252 
-	assign outputSample = 0;//SignalMultiply255(preCalcSine[trueCounter],inputAmplitude );   //Combine amplitude with input.  
+	assign outputSample = SignalMultiply255(preCalcSine[trueCounter],smoothAmplitude );   //Combine amplitude with input.  
 	assign indexZero = (trueCounter == 0) ? 1'b1 : 1'b0;
 
 	//Combines tow signals into 1

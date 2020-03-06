@@ -129,11 +129,11 @@ module MusicKeysController (
 	//--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==
 	//--==--==--==--==--==BUTTON 0 SETUP =--==--==--==--==--==--==--==--==
 	//--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==
-	SignalGenerator_Square musicKey0(
+	SignalGenerator musicKey0(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd714),
-		.inputAmplitude ( noiseFalloffAmplitude[0] / 8'd7),
+		.inputFrequency(14'd400),
+		.inputAmplitude ( noiseFalloffAmplitude[0] / 8'd3),
 		.outputSample(musicKeys_Output[0])
 	);
 
@@ -144,7 +144,7 @@ module MusicKeysController (
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(14'd1428),
-		.inputAmplitude ( noiseFalloffAmplitude[1] / 8'd9), //Little more quiet
+		.inputAmplitude ( noiseFalloffAmplitude[1] / 8'd3), //Little more quiet
 		.outputSample(musicKeys_Output[1])
 	);
 
@@ -154,8 +154,8 @@ module MusicKeysController (
 	SignalGenerator_Square musicKey2(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd43),
-		.inputAmplitude ( noiseFalloffAmplitude[2] / 8'd7), 
+		.inputFrequency(14'd110),
+		.inputAmplitude ( noiseFalloffAmplitude[2] / 8'd3), 
 		.outputSample(musicKeys_Output[2])
 	);
 
@@ -163,7 +163,7 @@ module MusicKeysController (
 	//--==--==--==--==--==BUTTON 3 SETUP =--==--==--==--==--==--==--==--==
 	//--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==
 	wire [7:0] musicKey3_WavingAmplitude;
-	SignalGenerator_Triangle musicKey4(
+	SignalGenerator_Triangle musicKey3(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(14'd600),
@@ -174,7 +174,7 @@ module MusicKeysController (
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(14'd443),
-		.inputAmplitude ( noiseFalloffAmplitude[3] / 8'd7), 
+		.inputAmplitude ( noiseFalloffAmplitude[3] / 8'd3), 
 		.outputSample(musicKey3_WavingAmplitude)
 	);
 
@@ -203,7 +203,7 @@ module MusicKeysController (
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(14'd743),
-		.inputAmplitude ( noiseFalloffAmplitude[4] / 8'd7), 
+		.inputAmplitude ( noiseFalloffAmplitude[4] / 8'd3), 
 		.outputSample(musicKey4_WavingAmplitude)
 	);
 
@@ -217,22 +217,22 @@ module MusicKeysController (
 	SignalGenerator_Triangle musicKey5a(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd1300),
+		.inputFrequency(14'd309),
 		.inputAmplitude ( musicKey5_WavingAmplitude/2), 
 		.outputSample(musicKey5_outputa)
 	);
-	SignalGenerator_Triangle musicKey5b(
+	SignalGenerator_Square musicKey5b(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd1305),
+		.inputFrequency(14'd305),
 		.inputAmplitude ( musicKey5_WavingAmplitude/2), 
 		.outputSample(musicKey5_outputb)
 	);
-	SignalGenerator musicKey5_amp(
+	SignalGenerator_Square musicKey5_amp(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd743),
-		.inputAmplitude ( noiseFalloffAmplitude[5] / 8'd7), 
+		.inputFrequency(14'd300),
+		.inputAmplitude ( noiseFalloffAmplitude[5] / 8'd3), 
 		.outputSample(musicKey5_WavingAmplitude)
 	);
 

@@ -47,9 +47,9 @@ module MusicBoxStateController (
 	//--Current state the state machine is in.
 	output logic [4:0] outputState,
 	//--SPI Input Sample
-	input logic [7:0] SPIinput_sample,
+	input logic [7:0]  SPIinput_sample,
 	input logic [13:0] SPIInput_ArduinoFreq,
-	input logic [7:0] SPIInput_ArduinoAmp,
+	input logic [7:0]  SPIInput_ArduinoAmp,
 	//--SDRAM Controls here
 
 	output logic [24:0] sdram_inputAddress, 
@@ -67,7 +67,7 @@ module MusicBoxStateController (
 	);
 	enum bit [4:0] { state_DoNothing=5'd0, state_PlaySong0=5'd1, state_PlaySong1=5'd2, state_PlayRecording=5'd3, state_MakeRecording=5'd4, state_EndState=5'd5 } currentState;
 	//Data sent to dac.  These signals hsould default to '0' when the mode is not active.  
-	assign outputAudioOutput = song0AudioOutput + pr_audioOutput;
+	assign outputAudioOutput = song0AudioOutput + pr_audioOutput + song1AudioOutput;
 
 
 
@@ -81,8 +81,6 @@ module MusicBoxStateController (
 	reg playSong0_StateComplete;
 	reg [7:0] song0AudioOutput; //Meant to be sent to the dac.
 	MusicBoxState_PlaySong0 musicBoxState_PlaySong0 (
-		.testSwitch(input_PlaySong0_n),
-		.testSwitch2(input_PlaySong1_n),
 		.clock_50Mhz(clock_50Mhz),
 		.clock_32Khz(clock_32Khz),
 		.clock_1Khz(clock_1Khz),
@@ -93,23 +91,26 @@ module MusicBoxStateController (
 		.audioAmplitudeOutput(song0AudioOutput),
 
 		//--ROM integration
-		.romIndex(song0RomIndex), 
-		.romIndex_Max(song0RomIndex_Max),
-		.romDataInput(song0RomData)  //Input data
+		// .romIndex(song0RomIndex), 
+		// .romIndex_Max(song0RomIndex_Max),
+		// .romDataInput(song0RomData)  //Input data
 
 	);
 	
 	reg playSong1_StateComplete;
+	reg [7:0] song1AudioOutput; //Meant to be sent to the dac.
 	MusicBoxState_PlaySong1 musicBoxState_PlaySong1 (
 		.clock_50Mhz(clock_50Mhz),
+		.clock_32Khz(clock_32Khz),
 		.clock_1Khz(clock_1Khz),
 		.reset_n(reset_n),
 		.currentState(currentState),
-		//.debugString(debugString),
-		.stateComplete(playSong1_StateComplete)
+		.debugString(debugString),
+		.stateComplete(playSong1_StateComplete),
+		.audioAmplitudeOutput(song1AudioOutput)
 	);
 	//--SDRAM interface controller for states.  Only 1 state controls the SDRAM at a time.
-	always @ * begin 
+	always_ff @ (posedge clock_50Mhz) begin 
 		case(currentState)
 			state_MakeRecording :  begin
 					sdram_inputAddress = mr_sdram_inputAddress;
@@ -149,6 +150,7 @@ module MusicBoxStateController (
 
 	MusicBoxState_MakeRecording musicBoxState_MakeRecording (
 		.clock_50Mhz(clock_50Mhz),
+		.CLK_32Khz (clock_32Khz),
 		.clock_22Khz(clock_22Khz),
 		.clock_1Khz(clock_1Khz),
 		.clock_1hz(clock_1hz),
@@ -157,7 +159,10 @@ module MusicBoxStateController (
 		//.debugString(debugString),
 		.stateComplete(makeRecording_StateComplete),
 		//--SPI INPUT
-		.SPIinput_sample(SPIinput_sample),
+		//.SPIinput_sample(SPIinput_sample),
+		.SPIInput_ArduinoFreq(SPIInput_ArduinoFreq),
+		.SPIInput_ArduinoAmp(SPIInput_ArduinoAmp),
+
 		
 		//--SDRAM interface
 		.sdram_inputAddress(mr_sdram_inputAddress),
@@ -213,15 +218,18 @@ output logic [24:0] sdram_inputAddress,
 	
 	//------------------------------------------
 	//--State machine controller.  Looks at User Interface signals.
+	reg [7:0] endStateCounter ;
 	always_ff @(posedge clock_50Mhz, negedge reset_n) begin
 		if (reset_n == 1'b0) begin
 				currentState <= state_DoNothing; //Force to 0, the 'Do Nothing' State
+				endStateCounter <= 0;
 		end
 		else begin
 			//----DO NOTHING STATE
 			//--If user is holding button down, it will activate the correct state. 
 			if (currentState == state_DoNothing) begin
 				//If user is pressing Song0 button
+				endStateCounter <= 0;
 				if (input_PlaySong0_n == 1'b0) begin
 					currentState <= state_PlaySong0;
 				end
@@ -271,7 +279,10 @@ output logic [24:0] sdram_inputAddress,
 			end
 			//----Free up state, removes weird bug.
 			else if (currentState == state_EndState) begin
-				currentState <= state_DoNothing;
+				endStateCounter <= endStateCounter + 1;
+				if (endStateCounter == 32) begin
+					currentState <= state_DoNothing;
+				end
 			end
 
 		end
@@ -280,37 +291,37 @@ output logic [24:0] sdram_inputAddress,
 
 
 
-	////////////////////////////////////////////////////////////
-	//------- ROM CONTROLLER   ------------------------------///
-	////////////////////////////////////////////////////////////
-	//These are controlled by state machines elsewhere
-	reg [15:0] song0RomIndex;
-	reg [15:0] song0RomIndex_Max;
-	reg [15:0] song0RomData;
+	// //////////////////////////////////////////////////////////
+	// ------- ROM CONTROLLER   ------------------------------///
+	// //////////////////////////////////////////////////////////
+	// These are controlled by state machines elsewhere
+	// reg [15:0] song0RomIndex;
+	// reg [15:0] song0RomIndex_Max;
+	// reg [15:0] song0RomData;
 
-	reg [15:0] song1RomIndex;
-	reg [15:0] song1RomIndex_Max;
-	reg [15:0] song1RomData;
+	// reg [15:0] song1RomIndex;
+	// reg [15:0] song1RomIndex_Max;
+	// reg [15:0] song1RomData;
 
-	reg [15:0] BeeRomIndex;
-	reg [15:0] BeeRomIndex_Max;
-	reg [15:0] BeeRomData;
+	// reg [15:0] BeeRomIndex;
+	// reg [15:0] BeeRomIndex_Max;
+	// reg [15:0] BeeRomData;
 
-	ROMIntegrator rOMIntegrator(
-		.CLK_50Mhz ( clock_32Khz) ,
-		.reset_n( reset_n) ,
-		.song0AccessIndex(song0RomIndex ) ,
-		.song0AccessMaxIndex(song0RomIndex_Max ) ,
-		.song0DataOutput(song0RomData ) ,
-		//--
-		.song1AccessIndex(song1RomIndex ) ,
-		.song1AccessMaxIndex(song1RomIndex_Max ) ,
-		.song1DataOutput(song1RomData ) ,
-		//--
-		.BeeAccessIndex(BeeRomIndex ) ,
-		.BeeAccessMaxIndex(BeeRomIndex_Max ) ,
-		.BeeDataOutput(BeeRomData ) 
-	);
+	// ROMIntegrator rOMIntegrator(
+	// 	.CLK_50Mhz ( clock_32Khz) ,
+	// 	.reset_n( reset_n) ,
+	// 	.song0AccessIndex(song0RomIndex ) ,
+	// 	.song0AccessMaxIndex(song0RomIndex_Max ) ,
+	// 	.song0DataOutput(song0RomData ) ,
+	// 	--
+	// 	.song1AccessIndex(song1RomIndex ) ,
+	// 	.song1AccessMaxIndex(song1RomIndex_Max ) ,
+	// 	.song1DataOutput(song1RomData ) ,
+	// 	--
+	// 	.BeeAccessIndex(BeeRomIndex ) ,
+	// 	.BeeAccessMaxIndex(BeeRomIndex_Max ) ,
+	// 	.BeeDataOutput(BeeRomData ) 
+	// );
 
 
 endmodule

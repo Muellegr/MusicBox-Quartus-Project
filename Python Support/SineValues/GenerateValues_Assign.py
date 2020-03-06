@@ -12,7 +12,7 @@ varName = "preCalcSine"
 
 
 for i in range(0, subDivisions):
-    a = (i/subDivisions)*2*math.pi - 0.5*math.pi
+    a = float(i/subDivisions) #*2*math.pi - 0.5*math.pi
     
     b = int(round(math.sin(a)*pow(2,bitSize)/2) + pow(2,bitSize)/2)
     #Prevent b from landing at 2^bitSize, which would need an extra bit. 
@@ -20,7 +20,7 @@ for i in range(0, subDivisions):
    # b = bin(b)
     b = format(b, '08b')
 
-    f.write('assign %s[%i] = 8\'b%s;\n'%(varName, i, b) )
+    f.write('assign %s[%i] = 8\'b%s;\n'%(varName, i, a) )
 
 #Finish with bracket
 f.write('}\n')

@@ -25,7 +25,8 @@ module LEDController(
 
     //--OUTPUT IO
     output logic [5:0][2:0] max10Board_GPIO_Output_MusicKeys_LEDs,
-    output logic [4:0] max10Board_GPIO_Output_ModeKeys_LEDs
+    output logic [4:0] max10Board_GPIO_Output_ModeKeys_LEDs,
+    output logic [2:0] max10Board_GPIO_Output_SideLEDs
 
 );
     //Combinational logic determining if a light is on? 
@@ -36,7 +37,9 @@ module LEDController(
     reg [5:0] input_MusicKey_q ; //Last state of the button.
     //Lights are always being told to do things, but if we aren't in the mode then we just ignore them.  
 
-
+    assign max10Board_GPIO_Output_SideLEDs[0] = horizontalWave[0];
+    assign max10Board_GPIO_Output_SideLEDs[1] = horizontalWave[2];
+    assign max10Board_GPIO_Output_SideLEDs[2] = horizontalWave[4];
     always_ff @(posedge CLK_10Khz, negedge reset_n) begin
         if (reset_n == 1'd0) begin
             musicKeys_RGBColor[0] <= {8'd0, 8'd0, 8'd0} ;
@@ -69,62 +72,68 @@ module LEDController(
                 //------------------------------------------------------------------------------------------
                 //Make R brighter
                 if (input_MusicKey_q[0] != input_MusicKey[0] && input_MusicKey [0] == 0 ) begin
-                    if (musicKeys_RGBColor_RGBDivider[0] < 25) begin musicKeys_RGBColor_RGBDivider[0] <=  musicKeys_RGBColor_RGBDivider[0] + 3; end
+                     musicKeys_RGBColor_RGBDivider[0] <= (musicKeys_RGBColor_RGBDivider[0] == 1) ? 5 : 1; 
+                   // if (musicKeys_RGBColor_RGBDivider[0] == 1) begin musicKeys_RGBColor_RGBDivider[0] <=  musicKeys_RGBColor_RGBDivider[0] + 1; end
                 end 
                 //Make R dimmer
                 if (input_MusicKey_q[3] != input_MusicKey[3] && input_MusicKey [3] == 0 ) begin
-                    if (musicKeys_RGBColor_RGBDivider[0] > 1) begin musicKeys_RGBColor_RGBDivider[0] <=  musicKeys_RGBColor_RGBDivider[0] - 3; end
+                     musicKeys_RGBColor_RGBDivider[0] <= (musicKeys_RGBColor_RGBDivider[0] == 1) ? 5 : 1; 
+                   // if (musicKeys_RGBColor_RGBDivider[0] > 1) begin musicKeys_RGBColor_RGBDivider[0] <=  musicKeys_RGBColor_RGBDivider[0] - 1; end
                 end 
 
                   //Make G brighter
                 if (input_MusicKey_q[1] != input_MusicKey[1] && input_MusicKey [1] == 0 ) begin
-                    if (musicKeys_RGBColor_RGBDivider[1] < 25) begin musicKeys_RGBColor_RGBDivider[1] <=  musicKeys_RGBColor_RGBDivider[1] + 3; end
+                      musicKeys_RGBColor_RGBDivider[1] <= (musicKeys_RGBColor_RGBDivider[1] == 1) ? 5 : 1; 
+                  //  if (musicKeys_RGBColor_RGBDivider[1] < 4) begin musicKeys_RGBColor_RGBDivider[1] <=  musicKeys_RGBColor_RGBDivider[1] + 1; end
                 end 
                 //Make G dimmer
                 if (input_MusicKey_q[4] != input_MusicKey[4] && input_MusicKey [4] == 0 ) begin
-                    if (musicKeys_RGBColor_RGBDivider[1] > 1) begin musicKeys_RGBColor_RGBDivider[1] <=  musicKeys_RGBColor_RGBDivider[1] - 3; end
+                     musicKeys_RGBColor_RGBDivider[1] <= (musicKeys_RGBColor_RGBDivider[1] == 1) ? 5 : 1; 
+                    //if (musicKeys_RGBColor_RGBDivider[1] > 1) begin musicKeys_RGBColor_RGBDivider[1] <=  musicKeys_RGBColor_RGBDivider[1] - 1; end
                 end 
 
                   //Make R brighter
-                if (input_MusicKey_q[2] != input_MusicKey[2] && input_MusicKey [3] == 0 ) begin
-                    if (musicKeys_RGBColor_RGBDivider[2] < 25) begin musicKeys_RGBColor_RGBDivider[2] <=  musicKeys_RGBColor_RGBDivider[2] + 3; end
+                if (input_MusicKey_q[2] != input_MusicKey[2] && input_MusicKey [2] == 0 ) begin
+                     musicKeys_RGBColor_RGBDivider[2] <= (musicKeys_RGBColor_RGBDivider[2] == 1) ? 5 : 1; 
+                    //if (musicKeys_RGBColor_RGBDivider[2] < 4) begin musicKeys_RGBColor_RGBDivider[2] <=  musicKeys_RGBColor_RGBDivider[2] + 1; end
                 end 
                 //Make R dimmer
                 if (input_MusicKey_q[5] != input_MusicKey[5] && input_MusicKey [5] == 0 ) begin
-                    if (musicKeys_RGBColor_RGBDivider[2] > 1) begin musicKeys_RGBColor_RGBDivider[2] <=  musicKeys_RGBColor_RGBDivider[2] - 3; end
+                    musicKeys_RGBColor_RGBDivider[2] <= (musicKeys_RGBColor_RGBDivider[2] == 1) ? 5 : 1; 
+                   // if (musicKeys_RGBColor_RGBDivider[2] > 1) begin musicKeys_RGBColor_RGBDivider[2] <=  musicKeys_RGBColor_RGBDivider[2] - 1; end
                 end 
                  //------------------------------------------------------------------------------------------
-                musicKeys_RGBColor[0][0] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[0] ); //R
-                musicKeys_RGBColor[0][1] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[1]); //G
-                musicKeys_RGBColor[0][2] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[2] ); //B
+                musicKeys_RGBColor[0][0] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[0] *5); //R
+                musicKeys_RGBColor[0][1] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[1] *5); //G
+                musicKeys_RGBColor[0][2] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[2] *5); //B
 
-                musicKeys_RGBColor[1][0] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[0] ); //R
-                musicKeys_RGBColor[1][1] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[1] ); //G
-                musicKeys_RGBColor[1][2] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[2] ); //B
+                musicKeys_RGBColor[1][0] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[0] *5); //R
+                musicKeys_RGBColor[1][1] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[1] *5); //G
+                musicKeys_RGBColor[1][2] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[2] *5); //B
 
-                musicKeys_RGBColor[2][0] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[0] ); //R
-                musicKeys_RGBColor[2][1] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[1]); //G
-                musicKeys_RGBColor[2][2] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[2] ); //B
+                musicKeys_RGBColor[2][0] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[0] *5); //R
+                musicKeys_RGBColor[2][1] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[1]*5); //G
+                musicKeys_RGBColor[2][2] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[2] *5); //B
 
-                musicKeys_RGBColor[3][0] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[0] ); //R
-                musicKeys_RGBColor[3][1] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[1] );//G
-                musicKeys_RGBColor[3][2] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[2] ); //B
+                musicKeys_RGBColor[3][0] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[0] *5); //R
+                musicKeys_RGBColor[3][1] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[1] *5);//G
+                musicKeys_RGBColor[3][2] <= horizontalWave[0] / (musicKeys_RGBColor_RGBDivider[2] *5); //B
 
-                musicKeys_RGBColor[4][0] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[0] ); //R
-                musicKeys_RGBColor[4][1] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[1] ); //G
-                musicKeys_RGBColor[4][2] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[2] ); //B
+                musicKeys_RGBColor[4][0] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[0] *5); //R
+                musicKeys_RGBColor[4][1] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[1] *5); //G
+                musicKeys_RGBColor[4][2] <= horizontalWave[1] / (musicKeys_RGBColor_RGBDivider[2] *5); //B
 
-                musicKeys_RGBColor[5][0] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[0] ); //R
-                musicKeys_RGBColor[5][1] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[1] );//G
-                musicKeys_RGBColor[5][2] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[2] ); //B
+                musicKeys_RGBColor[5][0] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[0] *5); //R
+                musicKeys_RGBColor[5][1] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[1] *5);//G
+                musicKeys_RGBColor[5][2] <= horizontalWave[2] / (musicKeys_RGBColor_RGBDivider[2] *5); //B
                   //------------------------------------------------------------------------------------------
-                modeKeys_RGBColor[4] <= 8'd0; //Bee Mode
+                modeKeys_RGBColor[4] <= 8'd128; //Bee Mode
                   //------------------------------------------------------------------------------------------
                 if (currentState == 0) begin
-                    modeKeys_RGBColor[0] <= horizontalWave[3] / 2;
-                    modeKeys_RGBColor[1] <= horizontalWave[4] / 2; //Song 1
-                    modeKeys_RGBColor[2] <= horizontalWave[3] / 2; //Make Recording
-                    modeKeys_RGBColor[3] <= horizontalWave[4] / 2; //Play Recording
+                    modeKeys_RGBColor[0] <= horizontalWave[3] ;
+                    modeKeys_RGBColor[1] <= horizontalWave[4] ; //Song 1
+                    modeKeys_RGBColor[2] <= horizontalWave[3] ; //Make Recording
+                    modeKeys_RGBColor[3] <= horizontalWave[4] ; //Play Recording
                 end
                 else if (currentState == 4) begin //MAKING a recording
                     modeKeys_RGBColor[0] <= 8'd0; //Song 0
@@ -161,7 +170,7 @@ module LEDController(
                 modeKeys_RGBColor[1] <= 8'd255; //Song 1
                 modeKeys_RGBColor[2] <= 8'd0; //Make Recording
                 modeKeys_RGBColor[3] <= 8'd0; //Play Recording
-                modeKeys_RGBColor[4] <= 8'd0; //Bee Mode
+                modeKeys_RGBColor[4] <= 8'd255; //Bee Mode
             end 
             //------------------------------------------------------------------------------------------
             else if (currentState == 3) begin //PLAY RECORDING

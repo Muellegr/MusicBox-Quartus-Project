@@ -216,13 +216,19 @@ set_location_assignment PIN_Y7 -to max10Board_GPIO_Output_MusicKeys_LEDs[5][2]
 set_location_assignment PIN_AA7 -to max10Board_GPIO_Input_PlaySong0
 set_location_assignment PIN_AA6 -to max10Board_GPIO_Output_ModeKeys_LEDs[0]
 set_location_assignment PIN_AA5 -to max10Board_GPIO_Input_PlaySong1
-set_location_assignment PIN_AA3 -to max10Board_GPIO_Output_ModeKeys_LEDs[1]
+set_location_assignment PIN_AB3 -to max10Board_GPIO_Output_ModeKeys_LEDs[1]
 set_location_assignment PIN_Y6 -to max10Board_GPIO_Input_MakeRecording
 set_location_assignment PIN_Y5 -to max10Board_GPIO_Output_ModeKeys_LEDs[2]
 set_location_assignment PIN_Y4 -to max10Board_GPIO_Input_PlayRecording
 set_location_assignment PIN_Y3 -to max10Board_GPIO_Output_ModeKeys_LEDs[3]
 set_location_assignment PIN_AB2 -to max10Board_GPIO_Input_BeeMode
 set_location_assignment PIN_AA2 -to max10Board_GPIO_Output_ModeKeys_LEDs[4]
+
+set_location_assignment PIN_AB19 -to max10Board_GPIO_Output_SideLEDs[0]
+set_location_assignment PIN_AA17 -to max10Board_GPIO_Output_SideLEDs[1]
+set_location_assignment PIN_AB17 -to max10Board_GPIO_Output_SideLEDs[2]
+
+
 
 	#SPI Output to Dac
 set_location_assignment PIN_Y10 -to max10Board_GPIO_Output_SPI_SCLK
@@ -446,9 +452,9 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to max10Board_Buttons[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Output_SPI_DIN
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Output_SPI_SCLK
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Output_SPI_SYNC_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Input_SPI_CS_n
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Input_SPI_SCLK
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to max10Board_GPIO_Input_SPI_SDO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Input_SPI_CS_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Input_SPI_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to max10Board_GPIO_Input_SPI_SDO
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
@@ -463,6 +469,7 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/SignalGenerator_Bee.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/Utility/ROMIntegrator.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RGB/rgb_led.sv"
 set_global_assignment -name SYSTEMVERILOG_FILE "Source Code/RGB/LEDController.sv"

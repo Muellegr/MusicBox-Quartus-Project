@@ -61,6 +61,7 @@ module MusicBox_Main(
 	max10Board_GPIO_Input_PlayRecording,
 	max10Board_GPIO_Input_BeeMode,
 	max10Board_GPIO_Output_ModeKeys_LEDs,
+	max10Board_GPIO_Output_SideLEDs,
 	
 	max10Board_GPIO_Output_SPI_SCLK,
 	max10Board_GPIO_Output_SPI_SYNC_n,
@@ -88,6 +89,7 @@ module MusicBox_Main(
 	input wire [5:0] max10Board_GPIO_Input_MusicKeys; //Array
 	output wire [5:0][2:0] max10Board_GPIO_Output_MusicKeys_LEDs; //Each music key has 3 RGB LEDs assigned in that order.  
 	output wire [4:0] max10Board_GPIO_Output_ModeKeys_LEDs; //Each mode key has only 1 LED assigned to it.  [SONG0, SONG1, MAKE RECORDING, PLAY RECORDING, BEE ]  
+	output wire [2:0] max10Board_GPIO_Output_SideLEDs; //Each mode key has only 1 LED assigned to it.  [SONG0, SONG1, MAKE RECORDING, PLAY RECORDING, BEE ]  
 	input wire max10Board_GPIO_Input_PlaySong1;
 	input wire max10Board_GPIO_Input_PlaySong0;
 	input wire max10Board_GPIO_Input_MakeRecording;
@@ -235,46 +237,46 @@ module MusicBox_Main(
 	//----------------------------
 	//These take the hardware IO and smooth it out over 1ms.
 		//These assume active low.
-	
+	assign max10Board_LED[0] = max10board_switches[4] && max10Board_GPIO_Input_MusicKeys[0];
 	wire [5:0] max10Board_GPIO_Input_MusicKeys_s; //Array
 		UI_TriggerSmoother UIs_MusicKeys0 (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[0]),
-			.inputWire(max10board_switches[4]),
+			.inputWire(max10board_switches[4] && max10Board_GPIO_Input_MusicKeys[0] ),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[0])
 		);
 		UI_TriggerSmoother UIs_MusicKeys1 (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[1]),
-			.inputWire(max10board_switches[5]),
+			.inputWire(max10board_switches[5] && max10Board_GPIO_Input_MusicKeys[1]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[1])
 		);
 		UI_TriggerSmoother UIs_MusicKeys2 (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[2]),
-			.inputWire(max10board_switches[6]),
+			.inputWire(max10board_switches[6] && max10Board_GPIO_Input_MusicKeys[2]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[2])
 		);
 		UI_TriggerSmoother UIs_MusicKeys3 (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[3]),
-			.inputWire(max10board_switches[7]),
+			.inputWire(max10board_switches[7] && max10Board_GPIO_Input_MusicKeys[3]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[3])
 		);
 		UI_TriggerSmoother UIs_MusicKeys4 (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MusicKeys[4]),
-			.inputWire(max10board_switches[8]),
+			.inputWire(max10board_switches[8] && max10Board_GPIO_Input_MusicKeys[4]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[4])
 		);
 		UI_TriggerSmoother UIs_MusicKeys5 (
 			.clock_50Mhz(CLK_1Khz),
-			.inputWire(max10Board_GPIO_Input_MusicKeys[5]),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[5] && max10Board_GPIO_Input_MusicKeys[5]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[5])
 		);
@@ -282,7 +284,7 @@ module MusicBox_Main(
 		UI_TriggerSmoother UIs_PlaySong1 (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_PlaySong1),
-			.inputWire(max10board_switches[0]),
+			.inputWire(max10board_switches[0] && max10Board_GPIO_Input_PlaySong1),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong1_s)
 		);
@@ -290,7 +292,7 @@ module MusicBox_Main(
 		UI_TriggerSmoother UIs_PlaySong0 (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_PlaySong0),
-			.inputWire(max10board_switches[1]),
+			.inputWire(max10board_switches[1] && max10Board_GPIO_Input_PlaySong0),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlaySong0_s)
 		);
@@ -298,7 +300,7 @@ module MusicBox_Main(
 		UI_TriggerSmoother UIs_Makerecording (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_MakeRecording),
-			.inputWire(max10board_switches[2]),
+			.inputWire(max10board_switches[2] && max10Board_GPIO_Input_MakeRecording),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MakeRecording_s)
 		);
@@ -306,7 +308,7 @@ module MusicBox_Main(
 		UI_TriggerSmoother UIs_PlayRecording (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_PlayRecording),
-			.inputWire(max10board_switches[3]),
+			.inputWire(max10board_switches[3] && max10Board_GPIO_Input_PlayRecording),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_PlayRecording_s)
 		);
@@ -314,7 +316,7 @@ module MusicBox_Main(
 		UI_TriggerSmoother UIs_BeeMode (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_BeeMode),
-			.inputWire(max10board_switches[9]),
+			.inputWire(max10board_switches[9] && max10Board_GPIO_Input_BeeMode),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_BeeMode_s)
 		);
@@ -350,6 +352,7 @@ module MusicBox_Main(
 	////////////////////////////////////////////////////////////
 	//------- LIGHT CONTROLLER ------------------------------///
 	////////////////////////////////////////////////////////////
+	//assign max10Board_LED[5:1] = max10Board_GPIO_Output_MusicKeys_LEDs;
 	LEDController lEDController (
 		.CLK_50Mhz(max10Board_50MhzClock),
 		.CLK_10Khz(CLK_10Khz),
@@ -360,7 +363,8 @@ module MusicBox_Main(
 
 		//--HARDWARE IO FOR LEDs
 		.max10Board_GPIO_Output_MusicKeys_LEDs(max10Board_GPIO_Output_MusicKeys_LEDs),
-		.max10Board_GPIO_Output_ModeKeys_LEDs(max10Board_GPIO_Output_ModeKeys_LEDs)
+		.max10Board_GPIO_Output_ModeKeys_LEDs(max10Board_GPIO_Output_ModeKeys_LEDs),
+		.max10Board_GPIO_Output_SideLEDs(max10Board_GPIO_Output_SideLEDs)
 	);
 
 
@@ -378,7 +382,8 @@ module MusicBox_Main(
 	reg			sdram_outputValid; //Tells modules output data is available on the output.
 	reg 		sdram_recievedCommand; //Tells modules it recieved the input.
 	reg 		sdram_isBusy; //Tells modules if it is working on something (including internal autorefresh)
-
+	
+	assign max10Board_LED[9:5] = outputCurrentState;
 	SDRAM_Controller sDRAM_Controller (
 		//--INTERFACE INPUT.  These control if we read or write.
 		.activeClock(CLK_143Mhz), //Configured at 143Mhz 
@@ -468,8 +473,13 @@ module MusicBox_Main(
 
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
 	reg [11:0] dacOutputAudio ;
-	assign dacOutputAudio= (audioOutputStateController + musicKeys_AudioOutput) * 16; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
+	assign dacOutputAudio= (audioOutputStateController + musicKeys_AudioOutput) * 8; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
 	//assign segmentDisplay_DisplayValue = dacOutputAudio;
+
+	assign max10Board_LED[1] = max10Board_GPIO_Output_SPI_SCLK;
+	assign max10Board_LED[2] = max10Board_GPIO_Output_SPI_SYNC_n;
+	assign max10Board_LED[3] = max10Board_GPIO_Output_SPI_DIN;
+	//assign max10Board_LED[4] = sdram_outputData;
 
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
@@ -506,7 +516,7 @@ module MusicBox_Main(
 	//assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
 	//assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
 
-	assign segmentDisplay_DisplayValue = output_DebugString;//arduino_freqSample;
+	assign segmentDisplay_DisplayValue = dacOutputAudio ;// testSineGenerator_1Hz;//= output_DebugString;//arduino_freqSample;
 //	assign max10Board_LED = testSineGenerator_1Hz;
 	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
@@ -546,8 +556,8 @@ module MusicBox_Main(
 	SignalGenerator testSineGenerator(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( systemReset_n),
-		.inputFrequency(arduino_freqSample),
-		.inputAmplitude(8'd255),
+		.inputFrequency(100),
+		.inputAmplitude(255),
 		.outputSample(testSineGenerator_1Hz)
 	);
 

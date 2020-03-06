@@ -36,9 +36,9 @@ module SDRAM_Controller(
 	reg isBusy_Command; //is it busy due to a current command
 	  
 	assign isBusy = isBusy_AutoRefresh || isBusy_Command;
-	reg [10:0] autorefreshCounter ; //Counts to 1050 and sets isBusy high
+	reg [15:0] autorefreshCounter ; //Counts to 1050 and sets isBusy high
 	//assign isBusy_AutoRefresh = 1'b0;//(autorefreshCounter >= 11'd1050) ? 1'b1 : 1'b0;
-	assign isBusy_AutoRefresh = (autorefreshCounter >= 11'd1050) ? 1'b1 : 1'b0;
+	assign isBusy_AutoRefresh = (autorefreshCounter >= 16'd1050) ? 1'b1 : 1'b0;
 
 	reg [3:0] currentCommand ;//= CMD_NOP;
 	assign {max10Board_SDRAM_ChipSelect_n, max10Board_SDRAM_RowAddressStrobe_n, max10Board_SDRAM_ColumnAddressStrobe_n, max10Board_SDRAM_WriteEnable_n } = currentCommand;
@@ -287,7 +287,7 @@ module SDRAM_Controller(
 				AUTOFRESH_ALL: begin //6
 					if (pauseCycles == 17'd9) begin
 						currentState <= IDLE;
-						autorefreshCounter = 11'd0;
+						autorefreshCounter = 16'd0;
 						pauseCycles = 17'd0; 
 					end
 					else begin
