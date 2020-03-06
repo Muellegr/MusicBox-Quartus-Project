@@ -72,19 +72,6 @@ Do nothing state
 						end  
 			endcase
 
-
-
-
-			// //If counter is sitting at the required amount of clock edges (about 5 seconds worth)
-			// if (counter == 16'd5000) begin
-			// 	stateComplete <= 1'b1;
-			// 	counter <= 16'd0;
-			// end
-			// //Otherwhys simply increment
-			// else begin
-			// 	stateComplete <= 1'b0;
-			// 	counter <= counter + 16'd1;
-			// end
 		end
 	
 	end

@@ -12,18 +12,6 @@ module MusicKeysController (
 		);
 		assign musicKeys_AudioOutput = musicKeys_Output[0] + musicKeys_Output[1] + musicKeys_Output[2] + musicKeys_Output[3] + musicKeys_Output[4] + musicKeys_Output[5];
 
-		//assign debugString = noiseFalloffAmplitude[0];
-		// //If the music key is held down  AND   current state is doing nothing(0) or playing recording(4).  Used to detect when button changes states.
-		// assign outputKeyPressed[0] = (input_MusicKey[0] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
-		// assign outputKeyPressed[1] = (input_MusicKey[1] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
-		// assign outputKeyPressed[2] = (input_MusicKey[2] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
-		// assign outputKeyPressed[3] = (input_MusicKey[3] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
-		// assign outputKeyPressed[4] = (input_MusicKey[4] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
-		// assign outputKeyPressed[5] = (input_MusicKey[5] == 1'b0 && (currentState == 5'd0 || currentState == 5'd4)) * 1'b1;
-
-
-
-
 
 		reg [5:0][7:0] noiseFalloffAmplitude ; //Set to 0 when not allowed to be playing.  When key is pressed, it goes to max amplitude and falls down to 200 where it stays.  When key is releaed, it falls to 0 after a short time.
 		reg [5:0] 	   input_MusicKey_q;

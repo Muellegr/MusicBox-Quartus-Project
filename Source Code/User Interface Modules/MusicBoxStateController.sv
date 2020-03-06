@@ -134,14 +134,6 @@ module MusicBoxStateController (
 		endcase 
 	end
 
-	// assign sdram_inputAddress = ( (currentState == state_MakeRecording) * mr_sdram_inputAddress) || ((currentState == state_PlayRecording) * pr_sdram_inputAddress);
-	// assign sdram_writeData    = ( (currentState == state_MakeRecording) * mr_sdram_writeData)    || ((currentState == state_PlayRecording) * pr_sdram_writeData);
-	
-	// assign sdram_isWriting    = ( (currentState == state_MakeRecording) * mr_sdram_isWriting)    || ((currentState == state_PlayRecording) * pr_sdram_isWriting);
-	// assign sdram_inputValid   = ( (currentState == state_MakeRecording) * mr_sdram_inputValid)   || ((currentState == state_PlayRecording) * pr_sdram_inputValid);
-	//--
-
-
 	reg makeRecording_StateComplete;
 	reg [24:0] mr_sdram_inputAddress;
 	reg [15:0] mr_sdram_writeData;
@@ -175,17 +167,6 @@ module MusicBoxStateController (
 		.sdram_recievedCommand(sdram_recievedCommand),
 		.sdram_isBusy(sdram_isBusy)
 	);
-	/*
-output logic [24:0] sdram_inputAddress, 
-	output logic [15:0] sdram_writeData, 
-	input  logic [15:0] sdram_readData,
-	output logic 		sdram_isWriting, //Will the command be a write (1) or read (0)
-	output logic 		sdram_inputValid, //Active high, perform command
-
-	input logic 		sdram_outputValid, //sdram_readData has data when this is high.
-	input logic 		sdram_recievedCommand,
-	input logic 		sdram_isBusy
-	*/
 	
 	reg playRecording_StateComplete;
 	reg [15:0] pr_audioOutput;

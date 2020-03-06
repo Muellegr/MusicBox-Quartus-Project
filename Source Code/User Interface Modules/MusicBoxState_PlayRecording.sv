@@ -11,7 +11,6 @@ module MusicBoxState_PlayRecording(
 		output logic 		outputActive, //Do we want to send information out?
 		//Set to 1 when this stage is complete and is ready to return to DoNothing.
 		output logic stateComplete,
-		//output logic [15:0] pr_audioOutput,
 		//--SDRAM interface
 		output logic [24:0] sdram_inputAddress, 
 		output logic [15:0] sdram_writeData, 
@@ -31,8 +30,6 @@ module MusicBoxState_PlayRecording(
 
 		//This will count to 5000 on the 1Khz cock.    15bits can count to 32768.
 		reg [ 15: 0] counter ;
-		//assign debugString = {16'b0, counter};
-	
 		reg [5 : 0] currentState ;
 
 

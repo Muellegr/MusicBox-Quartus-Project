@@ -14,10 +14,7 @@ HOW TO USE
 	set sendSample high.  this tells device to send signal.
 	Wait for sampleReady to go from low to high.  This indicates outputSample has been updated.
 	outputSample is now updated to a new value.
-	
-	
-TODO : Test bottom portion.
-	May be suspect. Was simply adding +1 instead of looking at data pin.  was very odd.
+
 */
 
 module SPI_InputControllerDac( 
