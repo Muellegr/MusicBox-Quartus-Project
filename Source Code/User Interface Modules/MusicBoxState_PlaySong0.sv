@@ -122,6 +122,10 @@ module MusicBoxState_PlaySong0 (
 		end //Clock
 
 	//--FREQUENCY GENERATORS
+	// assign audioAmplitudeOutput = (outputActive == 1'b1)? (SignalMultiply255(signalGeneratorOutput[0],currentAmplitude[0] )) + 
+	// 													  (SignalMultiply255(signalGeneratorOutput[1],currentAmplitude[1] )) + 
+	// 													  (SignalMultiply255(signalGeneratorOutput[2],currentAmplitude[2] ))
+	// 													 : 8'd0;
 	assign audioAmplitudeOutput = (outputActive == 1'b1) ? (signalGeneratorOutput[0] + signalGeneratorOutput[1] + signalGeneratorOutput[2] ) : 8'd0;
 	SignalGenerator_Triangle signalGenerator_Sine0(
 		.CLK_32KHz(clock_32Khz),

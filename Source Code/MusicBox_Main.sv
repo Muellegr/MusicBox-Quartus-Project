@@ -8,16 +8,34 @@
 
 
 /*
+TODO TEST
+	
+
+SYSTEM INTEGRATION BRANCH
+	-Currently will be configured to use DE10 lite switches.
+		-Switch 0 is play song 0, 
+		-S1 for S1
+		-S2 for make recording
+		-S3 for Play recording
+		-S4-8 for Music Keys
+		-S9 for Bee Mode
 
 TODO
 
 	Integrate ROM module
 		Create working module 
 
+	BIG THINGS
+		LED integratoin
+		ADC input connections
+		DAC output connections
+		Music Keys
+		Song 0, Song 1
 	
 EXTRA GOALS
+	Signal generator : Amplitude delayed to prevent instant time changes (small averaging value that is clamped.  Works off clock signal!)
 	Secret Songs : Combinational check for songs
-	Song1 end, record end early
+
 */
 module MusicBox_Main(
 	//GPIO
@@ -314,6 +332,9 @@ module MusicBox_Main(
 	//-- Music Keys---------------
 	//----------------------------
 	//These operate only in the state DoNothing and MakeRecording.  
+//	wire [5:0] musicKeysDebugTemp ; //Stores output.  Basically input keys if in current state.
+//assign max10Board_LED[0] =  (outputCurrentState[0] == 1 ) ? 1'b1 : 1'b0;
+//	assign max10Board_LED[1] =  (outputCurrentState[1] == 1 ) ? 1'b1 : 1'b0;
 	wire [7:0] musicKeys_AudioOutput;
 	//assign segmentDisplay_DisplayValue = musicKeys_AudioOutput;
 	MusicKeysController musicKeysController (
@@ -322,13 +343,16 @@ module MusicBox_Main(
 		.reset_n(systemReset_n),
 		.currentState(outputCurrentState), //This is controlled by MusicBoxStateController.   
 		.input_MusicKey(max10Board_GPIO_Input_MusicKeys_s),
+		//.debugString(segmentDisplay_DisplayValue), //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.musicKeys_AudioOutput(musicKeys_AudioOutput)
+	//	.outputKeyPressed(musicKeysDebugTemp)
 	);
 	
 
 	////////////////////////////////////////////////////////////
 	//------- LIGHT CONTROLLER ------------------------------///
 	////////////////////////////////////////////////////////////
+	//assign max10Board_LED[5:1] = max10Board_GPIO_Output_MusicKeys_LEDs;
 	LEDController lEDController (
 		.CLK_50Mhz(max10Board_50MhzClock),
 		.CLK_10Khz(CLK_10Khz),
@@ -450,6 +474,12 @@ module MusicBox_Main(
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
 	reg [11:0] dacOutputAudio ;
 	assign dacOutputAudio= (audioOutputStateController + musicKeys_AudioOutput) * 8; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
+	//assign segmentDisplay_DisplayValue = dacOutputAudio;
+
+	assign max10Board_LED[1] = max10Board_GPIO_Output_SPI_SCLK;
+	assign max10Board_LED[2] = max10Board_GPIO_Output_SPI_SYNC_n;
+	assign max10Board_LED[3] = max10Board_GPIO_Output_SPI_DIN;
+	//assign max10Board_LED[4] = sdram_outputData;
 
 	SPI_OutputControllerDac sPI_OutputControllerDac (
 		//--INPUT
@@ -482,11 +512,15 @@ module MusicBox_Main(
 	wire [15:0] arduino_freqSample ;
 	wire [7:0] arduino_ampSample;
 
+	//assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
+	//assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
+	//assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
+
 	assign segmentDisplay_DisplayValue = dacOutputAudio ;// testSineGenerator_1Hz;//= output_DebugString;//arduino_freqSample;
 //	assign max10Board_LED = testSineGenerator_1Hz;
 	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
-
+		//.inputLight(max10Board_LED[3]),
 		.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
 		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
 		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
