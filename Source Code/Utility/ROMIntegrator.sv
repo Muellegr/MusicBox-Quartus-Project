@@ -28,11 +28,11 @@ module ROMIntegrator (
 
     reg [7:0] counter;
 
-    wire [7:0] counterLimit ;
+    wire [7:0] counterLimit;
 
     assign counterLimit = 4;
 
-    reg [15:0] romAddress ;
+    reg [15:0] romAddress;
     reg [15:0] romOutput;
 
     always_ff @(posedge CLK_50Mhz, negedge reset_n) begin
@@ -42,7 +42,8 @@ module ROMIntegrator (
         end
         else begin
             //Handle counter
-            romAddress <= 0    ; song0DataOutput <= romOutput; 
+            romAddress <= song0AccessIndex; 
+            song0DataOutput <= romOutput;
             if (counter == counterLimit) begin counter <= 0; end
             else begin counter <= counter + 1; end
 

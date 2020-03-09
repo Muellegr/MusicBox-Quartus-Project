@@ -9,7 +9,21 @@
 
 /*
 TODO TEST
-	
+	ROM
+		Test if it is working correctly
+		Test if addressing is working correctly
+		Feed it a long sine wave as a test - check how it looks on display (should appear correct, hit peaks)
+			sine wave + square for max amplitude test
+
+		Add song 0, song 1, bee noise
+
+	Bee noise implementation
+		
+	Add early song stop
+
+	Add bee mode indicator lighting
+		rapid pulse if on?
+
 
 SYSTEM INTEGRATION BRANCH
 	-Currently will be configured to use DE10 lite switches.
@@ -516,7 +530,7 @@ module MusicBox_Main(
 	//assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
 	//assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
 
-	assign segmentDisplay_DisplayValue = dacOutputAudio ;// testSineGenerator_1Hz;//= output_DebugString;//arduino_freqSample;
+	assign segmentDisplay_DisplayValue = song0DataOutput ;// testSineGenerator_1Hz;//= output_DebugString;//arduino_freqSample;
 //	assign max10Board_LED = testSineGenerator_1Hz;
 	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
@@ -531,6 +545,21 @@ module MusicBox_Main(
 
 	);
 	
+//----------------------------
+//--------Rom Integrator-----
+
+reg [15:0] song0AccessIndex;
+reg [15:0] song0AccessMaxIndex;
+reg [15:0] song0DataOutput;
+
+ROMIntegrator rOMIntegrator (
+	.CLK_50Mhz(max10Board_50MhzClock),
+	.reset_n(systemReset_n),
+	.song0AccessIndex(max10board_switches),
+	.song0AccessMaxIndex(song0AccessMaxIndex),
+	.song0DataOutput(song0DataOutput)
+);
+
 
 
 
