@@ -48,19 +48,23 @@ with fSongOne as fp:
     Lines = fp.readlines()
     for line in Lines:
         count += 1
+<<<<<<< HEAD
         f.write(hex(count)[2:] + ' : ' + hex(line) + ';\n') # Write the frequency to the file
+=======
+        f.write(hex(count)[2:] + ' : ' + line.strip() + ';\n') # Write the frequency to the file
+>>>>>>> c6cb5de3f752124148adc500f2d4f3cd12c179a1
 songOneEnd = count
 with fSongTwo as fp:
     Lines = fp.readlines()
     for line in Lines:
         count += 1
-        f.write(hex(count)[2:] + ' : ' + hex(line.strip()) + ';\n') # Write the frequency to the file
+        f.write(hex(count)[2:] + ' : ' + line.strip() + ';\n') # Write the frequency to the file
 songTwoEnd = count
 with fBee as fp:
     Lines = fp.readlines()
     for line in Lines:
         count += 1
-        f.write(hex(count)[2:] + ' : ' + hex(line.strip()) + ';\n') # Write the frequency to the file
+        f.write(hex(count)[2:] + ' : ' + line.strip() + ';\n') # Write the frequency to the file
 beeNoiseEnd = count
 f.write('END\n')
 
@@ -69,4 +73,8 @@ fSongTwo.close()
 fBee.close()
 f.close()   
 
+<<<<<<< HEAD
 #print str(count) + ' rows of memory were written to ' + output_filename + '\nSong One ends at address: ' + str(songOneEnd) + '\nSong Two ends at address: ' + str(songTwoEnd) + '\nBee Noise ends at address: ' + str(beeNoiseEnd)
+=======
+print str(count) + ' rows of memory were written to ' + output_filename + '\nSong One ends at address: ' + str(songOneEnd) + '\nSong Two ends at address: ' + str(songTwoEnd) + '\nBee Noise ends at address: ' + str(beeNoiseEnd)
+>>>>>>> c6cb5de3f752124148adc500f2d4f3cd12c179a1
