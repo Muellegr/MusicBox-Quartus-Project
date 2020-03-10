@@ -90,13 +90,14 @@ module SPI_Arduino(
         //If the SPI SCLK caused it, update the output
         else if (input_SPI_CS_n == 1) begin
             //If the 14th bit is set to 0, that indicates it is a frequency
-             if (workingInputSample[14] == 1 && bitCounter == 16) begin
-                outputFrequencySample <= workingInputSample[12:0];
+            //  if (workingInputSample[14] == 1 && bitCounter == 16) begin
+            //     outputFrequencySample <= workingInputSample[12:0];
                 
-            end
-            else if (workingInputSample[15] == 1 &&  bitCounter == 16) begin 
-                outputAmplitudeSample <= workingInputSample[7:0];
-            end
+            // end
+            // else if (workingInputSample[15] == 1 &&  bitCounter == 16) begin 
+            //     outputAmplitudeSample <= workingInputSample[7:0];
+            // end
+			outputFrequencySample <= workingInputSample;
             bitCounter <= 0;
             workingInputSample <= 0;
             
@@ -104,6 +105,7 @@ module SPI_Arduino(
         //Else we saw a rising edge
         else begin
             workingInputSample <= (workingInputSample << 1) + input_SPI_SDO;
+			outputFrequencySample <= workingInputSample;
             bitCounter <= bitCounter + 1;
         end
     end

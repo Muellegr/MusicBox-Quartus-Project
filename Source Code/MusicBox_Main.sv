@@ -397,7 +397,7 @@ module MusicBox_Main(
 	reg 		sdram_recievedCommand; //Tells modules it recieved the input.
 	reg 		sdram_isBusy; //Tells modules if it is working on something (including internal autorefresh)
 	
-	assign max10Board_LED[9:5] = outputCurrentState;
+	//assign max10Board_LED[9:5] = outputCurrentState;
 	SDRAM_Controller sDRAM_Controller (
 		//--INTERFACE INPUT.  These control if we read or write.
 		.activeClock(CLK_143Mhz), //Configured at 143Mhz 
@@ -441,6 +441,11 @@ module MusicBox_Main(
 		.clock_1Khz(CLK_1Khz),
 		.clock_1hz(CLK_1hz),
 		.reset_n(systemReset_n),
+
+		//--ROM Integration
+
+
+		//--
 		//--USER UI
 		.input_PlaySong0_n(max10Board_GPIO_Input_PlaySong0_s),
 		.input_PlaySong1_n(max10Board_GPIO_Input_PlaySong1_s),
@@ -526,11 +531,11 @@ module MusicBox_Main(
 	wire [15:0] arduino_freqSample ;
 	wire [7:0] arduino_ampSample;
 
-	//assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
-	//assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
-	//assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
+	assign max10Board_LED[4] = max10Board_GPIO_Input_SPI_SCLK;
+	assign max10Board_LED[5] = max10Board_GPIO_Input_SPI_CS_n;
+	assign max10Board_LED[6] = max10Board_GPIO_Input_SPI_SDO;
 
-	assign segmentDisplay_DisplayValue = song0DataOutput ;// testSineGenerator_1Hz;//= output_DebugString;//arduino_freqSample;
+	assign segmentDisplay_DisplayValue = arduino_freqSample ;// testSineGenerator_1Hz;//= output_DebugString;//arduino_freqSample;
 //	assign max10Board_LED = testSineGenerator_1Hz;
 	SPI_Arduino sPI_Arduino (
 		.reset_n(systemReset_n),
@@ -552,13 +557,31 @@ reg [15:0] song0AccessIndex;
 reg [15:0] song0AccessMaxIndex;
 reg [15:0] song0DataOutput;
 
-ROMIntegrator rOMIntegrator (
-	.CLK_50Mhz(max10Board_50MhzClock),
-	.reset_n(systemReset_n),
-	.song0AccessIndex(max10board_switches),
-	.song0AccessMaxIndex(song0AccessMaxIndex),
-	.song0DataOutput(song0DataOutput)
-);
+
+reg [15:0] song1AccessIndex;
+reg [15:0] song1AccessMaxIndex;
+reg [15:0] song1DataOutput;
+
+reg [15:0] beeAccessIndex;
+reg [15:0] beeAccessMaxIndex;
+reg [15:0] beeDataOutput;
+
+// ROMIntegrator rOMIntegrator (
+// 	.CLK_50Mhz(max10Board_50MhzClock),
+// 	.reset_n(systemReset_n),
+
+// 	.song0AccessIndex(max10board_switches),
+// 	.song0AccessMaxIndex(0),
+// 	.song0DataOutput(song0DataOutput),
+
+// 	.song1AccessIndex(max10board_switches),
+// 	.song1AccessMaxIndex(1),
+// 	.song1DataOutput(song1DataOutput),
+
+// 	.BeeAccessIndex(beeAccessIndex),
+// 	.BeeAccessMaxIndex(beeAccessMaxIndex),
+// 	.BeeDataOutput(beeDataOutput)
+// );
 
 
 

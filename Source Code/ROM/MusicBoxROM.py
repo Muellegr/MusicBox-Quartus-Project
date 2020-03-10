@@ -48,7 +48,7 @@ with fSongOne as fp:
     Lines = fp.readlines()
     for line in Lines:
         count += 1
-        f.write(hex(count)[2:] + ' : ' + hex(line.strip()) + ';\n') # Write the frequency to the file
+        f.write(hex(count)[2:] + ' : ' + hex(line) + ';\n') # Write the frequency to the file
 songOneEnd = count
 with fSongTwo as fp:
     Lines = fp.readlines()
@@ -69,4 +69,4 @@ fSongTwo.close()
 fBee.close()
 f.close()   
 
-print str(count) + ' rows of memory were written to ' + output_filename + '\nSong One ends at address: ' + str(songOneEnd) + '\nSong Two ends at address: ' + str(songTwoEnd) + '\nBee Noise ends at address: ' + str(beeNoiseEnd)
+#print str(count) + ' rows of memory were written to ' + output_filename + '\nSong One ends at address: ' + str(songOneEnd) + '\nSong Two ends at address: ' + str(songTwoEnd) + '\nBee Noise ends at address: ' + str(beeNoiseEnd)
