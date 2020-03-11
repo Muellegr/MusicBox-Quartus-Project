@@ -48,8 +48,8 @@ module MusicBoxStateController (
 	output logic [4:0] outputState,
 	//--SPI Input Sample
 	input logic [7:0]  SPIinput_sample,
-	input logic [13:0] SPIInput_ArduinoFreq,
-	input logic [7:0]  SPIInput_ArduinoAmp,
+//	input logic [13:0] SPIInput_ArduinoFreq,
+//	input logic [7:0]  SPIInput_ArduinoAmp,
 	//--SDRAM Controls here
 
 	output logic [24:0] sdram_inputAddress, 
@@ -85,6 +85,7 @@ module MusicBoxStateController (
 		.clock_32Khz(clock_32Khz),
 		.clock_1Khz(clock_1Khz),
 		.reset_n(reset_n),
+		.inputSwitch(input_PlaySong0_n),
 		.currentState(currentState),
 		.debugString(debugString),
 		.stateComplete(playSong0_StateComplete),
@@ -104,6 +105,7 @@ module MusicBoxStateController (
 		.clock_32Khz(clock_32Khz),
 		.clock_1Khz(clock_1Khz),
 		.reset_n(reset_n),
+		.inputSwitch(input_PlaySong1_n),
 		.currentState(currentState),
 		.debugString(debugString),
 		.stateComplete(playSong1_StateComplete),
@@ -159,9 +161,9 @@ module MusicBoxStateController (
 		//.debugString(debugString),
 		.stateComplete(makeRecording_StateComplete),
 		//--SPI INPUT
-		//.SPIinput_sample(SPIinput_sample),
-		.SPIInput_ArduinoFreq(SPIInput_ArduinoFreq),
-		.SPIInput_ArduinoAmp(SPIInput_ArduinoAmp),
+		.SPIinput_sample(SPIinput_sample),
+		//.SPIInput_ArduinoFreq(SPIInput_ArduinoFreq),
+		//.SPIInput_ArduinoAmp(SPIInput_ArduinoAmp),
 
 		
 		//--SDRAM interface

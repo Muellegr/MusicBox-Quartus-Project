@@ -24,9 +24,8 @@ import scipy.io.wavfile as wavfile
 import scipy
 import scipy.fftpack
 import numpy as np
-from matplotlib import pyplot as plt
 
-volumeAdjustment = 0.5 #0 to 1 for amplitude multiplier
+volumeAdjustment = 0.7 #0 to 1 for amplitude multiplier
 
 #Gets the sampling rate and a array containing all points of the song.  44100Hz sampling rate = 44100 amplitudes per second
 songName = 'SuperMario.wav'
@@ -112,7 +111,7 @@ for i in range(5, indexCount - 5):
     #for r in range(0, 10) :
         #songSection.append(0)
         #print("test")
-    songSection = ( signal[ (i-1) * int(songSectionSamples) : (i+2) * int(songSectionSamples) ])
+    songSection = ( signal[ (i-5) * int(songSectionSamples) : (i+7) * int(songSectionSamples) ])
   #  songSection = songSection + songSection
     print("songSection1 : %s" %len(songSection))
     songSection = songSection + songSection
@@ -124,13 +123,13 @@ for i in range(5, indexCount - 5):
     N = songSection.shape[0]
     FFT = abs(scipy.fft(songSection))
 
-    FFT_side = FFT[range(N/2)] #/2 one side FFT range
+    FFT_side = FFT[range(int(N/2))] #/2 one side FFT range
 
     freqs = scipy.fftpack.fftfreq(songSection.size, Ts)#t[1]-t[0])
     #print("0 : %s " % t[0])
     #print("1 : %s " % t[1])
     fft_freqs = np.array(freqs)
-    freqs_side = freqs[range(N/2)]
+    freqs_side = freqs[range(int(N/2))]
 
     fft_freqs_side = np.array(freqs_side)
     freqStepSize =1 / freqs_side[1] #Multiply with index to get appropriate frequency.

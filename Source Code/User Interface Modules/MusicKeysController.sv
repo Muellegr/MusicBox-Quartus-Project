@@ -57,62 +57,62 @@ module MusicKeysController (
 					//This detects when music keys goes from unpressed to pressed, nad pressed to unpressed.
 					//It will only be 0 when it detects it is pressed.  So this captures the instant the button is held down but ignores the rest of the time while it's held down.
 				if (input_MusicKey[0] != input_MusicKey_q[0] && input_MusicKey[0] == 0) begin
-					noiseFalloffAmplitude[0] = 8'd255;
+					noiseFalloffAmplitude[0] <= 8'd255;
 				end 
-				else if (noiseFalloffAmplitude > 0) begin //If we are not 0
+				else if (noiseFalloffAmplitude[0] > 0) begin //If we are not 0
 					//Decrement it.  When above 200, it gets decremented by 5.  When between 100 and 200, it gets decremented by 2.   Slightly exponential.  Stops at 0.
 					// && input_MusicKey[1] == 0
-					noiseFalloffAmplitude[0] = noiseFalloffAmplitude[0] -  ( (noiseFalloffAmplitude[0] > 200 )? 8'd3 : 8'd0) -
+					noiseFalloffAmplitude[0] <= noiseFalloffAmplitude[0] -  ( (noiseFalloffAmplitude[0] > 200 )? 8'd3 : 8'd0) -
 												  ( (noiseFalloffAmplitude[0] > 100 && input_MusicKey[0] == 1)? 8'd1 : 8'd0) -
 												  ( (noiseFalloffAmplitude[0] > 0   && input_MusicKey[0] == 1)? 8'd1 : 8'd0) ;
 				end
 
 				//Button 1
 				if (input_MusicKey[1] != input_MusicKey_q[1] && input_MusicKey[1] == 0) begin
-					noiseFalloffAmplitude[1] = 8'd255;
+					noiseFalloffAmplitude[1] <= 8'd255;
 				end 
-				else if (noiseFalloffAmplitude > 0) begin //If we are not 0
-					noiseFalloffAmplitude[1]= noiseFalloffAmplitude[1]-  ( (noiseFalloffAmplitude[1]> 200 )? 8'd3 : 8'd0) -
+				else if (noiseFalloffAmplitude[1] > 0) begin //If we are not 0
+					noiseFalloffAmplitude[1] <= noiseFalloffAmplitude[1]-  ( (noiseFalloffAmplitude[1]> 200 )? 8'd3 : 8'd0) -
 												  ( (noiseFalloffAmplitude[1]> 100 && input_MusicKey[1]== 1)? 8'd1 : 8'd0) -
 												  ( (noiseFalloffAmplitude[1]> 0   && input_MusicKey[1]== 1)? 8'd1 : 8'd0) ;
 				end
 
 				//Button 2
 				if (input_MusicKey[2] != input_MusicKey_q[2] && input_MusicKey[2] == 0) begin
-					noiseFalloffAmplitude[2] = 8'd255;
+					noiseFalloffAmplitude[2] <= 8'd255;
 				end 
-				else if (noiseFalloffAmplitude > 0) begin //If we are not 0
-					noiseFalloffAmplitude[2]= noiseFalloffAmplitude[2]-  ( (noiseFalloffAmplitude[2]> 200 )? 8'd3 : 8'd0) -
+				else if (noiseFalloffAmplitude[2] > 0) begin //If we are not 0
+					noiseFalloffAmplitude[2] <= noiseFalloffAmplitude[2]-  ( (noiseFalloffAmplitude[2]> 200 )? 8'd3 : 8'd0) -
 												  ( (noiseFalloffAmplitude[2]> 100 && input_MusicKey[2]== 1)? 8'd1 : 8'd0) -
 												  ( (noiseFalloffAmplitude[2]> 0   && input_MusicKey[2]== 1)? 8'd1 : 8'd0) ;
 				end
 
 				//Button 3
 				if (input_MusicKey[3] != input_MusicKey_q[3] && input_MusicKey[3] == 0) begin
-					noiseFalloffAmplitude[3] = 8'd255;
+					noiseFalloffAmplitude[3] <= 8'd255;
 				end 
-				else if (noiseFalloffAmplitude > 0) begin //If we are not 0
-					noiseFalloffAmplitude[3] = noiseFalloffAmplitude[3] -  ( (noiseFalloffAmplitude[3] > 200 )? 8'd3 : 8'd0) -
+				else if (noiseFalloffAmplitude[3] > 0) begin //If we are not 0
+					noiseFalloffAmplitude[3] <= noiseFalloffAmplitude[3] -  ( (noiseFalloffAmplitude[3] > 200 )? 8'd3 : 8'd0) -
 												  ( (noiseFalloffAmplitude[3] > 100 && input_MusicKey[3] == 1)? 8'd1 : 8'd0) -
 												  ( (noiseFalloffAmplitude[3] > 0   && input_MusicKey[3] == 1)? 8'd1 : 8'd0) ;
 				end
 
 				//Button 4
 				if (input_MusicKey[4] != input_MusicKey_q[4] && input_MusicKey[4] == 0) begin
-					noiseFalloffAmplitude[4] = 8'd255;
+					noiseFalloffAmplitude[4] <= 8'd255;
 				end 
-				else if (noiseFalloffAmplitude > 0) begin //If we are not 0
-					noiseFalloffAmplitude[4] = noiseFalloffAmplitude[4] -  ( (noiseFalloffAmplitude[4] > 200 )? 8'd3 : 8'd0) -
+				else if (noiseFalloffAmplitude[4] > 0) begin //If we are not 0
+					noiseFalloffAmplitude[4] <= noiseFalloffAmplitude[4] -  ( (noiseFalloffAmplitude[4] > 200 )? 8'd3 : 8'd0) -
 												  ( (noiseFalloffAmplitude[4] > 100 && input_MusicKey[4] == 1)? 8'd1 : 8'd0) -
 												  ( (noiseFalloffAmplitude[4] > 0   && input_MusicKey[4] == 1)? 8'd1 : 8'd0) ;
 				end
 
 				//Button 5
 				if (input_MusicKey[5] != input_MusicKey_q[5] && input_MusicKey[5] == 0) begin
-					noiseFalloffAmplitude[5] = 8'd255;
+					noiseFalloffAmplitude[5] <= 8'd255;
 				end 
-				else if (noiseFalloffAmplitude > 0) begin //If we are not 0
-					noiseFalloffAmplitude[5] = noiseFalloffAmplitude[5] -  ( (noiseFalloffAmplitude[5] > 200 )? 8'd3 : 8'd0) -
+				else if (noiseFalloffAmplitude[5] > 0) begin //If we are not 0
+					noiseFalloffAmplitude[5] <= noiseFalloffAmplitude[5] -  ( (noiseFalloffAmplitude[5] > 200 )? 8'd3 : 8'd0) -
 												  ( (noiseFalloffAmplitude[5] > 100 && input_MusicKey[5] == 1)? 8'd1 : 8'd0) -
 												  ( (noiseFalloffAmplitude[5] > 0   && input_MusicKey[5] == 1)? 8'd1 : 8'd0) ;
 				end
@@ -143,8 +143,8 @@ module MusicKeysController (
 	SignalGenerator_Square musicKey1(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd1428),
-		.inputAmplitude ( noiseFalloffAmplitude[1] / 8'd3), //Little more quiet
+		.inputFrequency(14'd1328),
+		.inputAmplitude ( noiseFalloffAmplitude[1] / 8'd4), //Little more quiet
 		.outputSample(musicKeys_Output[1])
 	);
 
@@ -182,28 +182,24 @@ module MusicKeysController (
 	//--==--==--==--==--==BUTTON 4 SETUP =--==--==--==--==--==--==--==--==
 	//--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==
 	wire [7:0] musicKey4_WavingAmplitude;
-	wire [7:0] musicKey4_outputa;
-	wire [7:0] musicKey4_outputb;
-	assign musicKeys_Output[4] = musicKey4_outputa + musicKey4_outputb;
-	SignalGenerator_Triangle musicKey4a(
+	//wire [7:0] musicKey4_outputa;
+	//wire [7:0] musicKey4_outputb;
+//	assign musicKeys_Output[4] = musicKey4_outputa + musicKey4_outputb;
+
+	SignalGenerator_Triangle musicKey4(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd1300),
-		.inputAmplitude ( musicKey4_WavingAmplitude/2), 
-		.outputSample(musicKey4_outputa)
+		.inputFrequency(14'd130),
+		.inputAmplitude ( musicKey4_WavingAmplitude), 
+		.outputSample( musicKeys_Output[4])
 	);
-	SignalGenerator_Triangle musicKey4b(
-		.CLK_32KHz(CLK_32Khz),
-		.reset_n( reset_n),
-		.inputFrequency(14'd1305),
-		.inputAmplitude ( musicKey4_WavingAmplitude/2), 
-		.outputSample(musicKey4_outputb)
-	);
+
+
 	SignalGenerator musicKey4_amp(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
 		.inputFrequency(14'd743),
-		.inputAmplitude ( noiseFalloffAmplitude[4] / 8'd3), 
+		.inputAmplitude ( noiseFalloffAmplitude[4] ), 
 		.outputSample(musicKey4_WavingAmplitude)
 	);
 
@@ -231,8 +227,8 @@ module MusicKeysController (
 	SignalGenerator_Square musicKey5_amp(
 		.CLK_32KHz(CLK_32Khz),
 		.reset_n( reset_n),
-		.inputFrequency(14'd300),
-		.inputAmplitude ( noiseFalloffAmplitude[5] / 8'd3), 
+		.inputFrequency(14'd40),
+		.inputAmplitude ( noiseFalloffAmplitude[5]), 
 		.outputSample(musicKey5_WavingAmplitude)
 	);
 

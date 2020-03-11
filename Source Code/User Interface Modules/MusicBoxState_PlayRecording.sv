@@ -108,7 +108,7 @@ module MusicBoxState_PlayRecording(
 		//--Active playback mode
 		else begin
 			//Have we waited enough
-			if (addressCounter == 22050 * 5) begin
+			if (addressCounter == 22050 * 10) begin
 				stateComplete_1 <= 1;
 			end
 			//Continue to retrieve samples

@@ -37,9 +37,7 @@ module LEDController(
     reg [5:0] input_MusicKey_q ; //Last state of the button.
     //Lights are always being told to do things, but if we aren't in the mode then we just ignore them.  
 
-    assign max10Board_GPIO_Output_SideLEDs[0] = horizontalWave[0];
-    assign max10Board_GPIO_Output_SideLEDs[1] = horizontalWave[2];
-    assign max10Board_GPIO_Output_SideLEDs[2] = horizontalWave[4];
+     
     always_ff @(posedge CLK_10Khz, negedge reset_n) begin
         if (reset_n == 1'd0) begin
             musicKeys_RGBColor[0] <= {8'd0, 8'd0, 8'd0} ;
@@ -392,6 +390,40 @@ module LEDController(
         //.PWM_PIN_B(max10Board_GPIO_Output_MusicKeys_LEDs[5][2])
     );
 
+
+	rgb_led rgb_sidePanelR (
+        .pwm_clk(CLK_50Mhz),
+        .duty_red(  8'd0),
+        .duty_green(horizontalWave[0]),
+        .duty_blue( 8'd0),
+        .invert(1'd0),
+        //--HARDWARE LED OUTPUT
+        //.PWM_PIN_R(),
+        .PWM_PIN_G(max10Board_GPIO_Output_SideLEDs[0]),
+        //.PWM_PIN_B(max10Board_GPIO_Output_MusicKeys_LEDs[5][2])
+    );
+	rgb_led rgb_sidePanelG (
+        .pwm_clk(CLK_50Mhz),
+        .duty_red(  8'd0),
+        .duty_green(horizontalWave[1]),
+        .duty_blue( 8'd0),
+        .invert(1'd0),
+        //--HARDWARE LED OUTPUT
+        //.PWM_PIN_R(),
+        .PWM_PIN_G(max10Board_GPIO_Output_SideLEDs[1]),
+        //.PWM_PIN_B(max10Board_GPIO_Output_MusicKeys_LEDs[5][2])
+    );
+	rgb_led rgb_sidePanelB (
+        .pwm_clk(CLK_50Mhz),
+        .duty_red(  8'd0),
+        .duty_green(horizontalWave[2]),
+        .duty_blue( 8'd0),
+        .invert(1'd0),
+        //--HARDWARE LED OUTPUT
+        //.PWM_PIN_R(),
+        .PWM_PIN_G(max10Board_GPIO_Output_SideLEDs[2]),
+        //.PWM_PIN_B(max10Board_GPIO_Output_MusicKeys_LEDs[5][2])
+    );
     function automatic  [7:0] SineWaveOffset (input [7:0] inputWave, input [7:0] offset);
 		return  ((inputWave + offset) - ( (inputWave + offset > 255 ) ? (inputWave + offset - 255)*2 : 0 ))  ;
 

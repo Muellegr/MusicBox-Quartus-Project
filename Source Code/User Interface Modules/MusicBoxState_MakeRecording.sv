@@ -12,9 +12,9 @@ module MusicBoxState_MakeRecording (
 	//Set to 1 when this stage is complete and is ready to return to DoNothing.
 	output logic stateComplete,
 	//-- SPI Input sample
-//	input logic [7:0] SPIinput_sample,
-	input logic [13:0] SPIInput_ArduinoFreq,
-	input logic [7:0] SPIInput_ArduinoAmp,
+	input logic [7:0] SPIinput_sample,
+//	input logic [13:0] SPIInput_ArduinoFreq,
+	//input logic [7:0] SPIInput_ArduinoAmp,
 	//--SDRAM interface
 	output logic [24:0] sdram_inputAddress, 
 	output logic [15:0] sdram_writeData, 
@@ -103,14 +103,14 @@ Do nothing state
 			stateComplete_11 <= 0;
 		end
 		else begin
-			if (addressCounter == 22050 * 5) begin
+			if (addressCounter == 22050 * 10) begin
 				stateComplete_11 <= 1;
 			end
 			else begin
 				//Begin writing data to SDRAM.
 				//Because 'inputValid' is always 1, this is always rewriting the same address.  
 				sdram_isWriting <= 1'b1;
-				sdram_writeData <= {8'd0 , sineWaveToMemory};//16'd128;
+				sdram_writeData <= {8'd0 , SPIinput_sample};//16'd128;
 				sdram_inputAddress <= addressCounter;
 				sdram_inputValid <= 1'b1;
 				addressCounter <= addressCounter + 1;
@@ -123,11 +123,11 @@ Do nothing state
 	wire [7:0] sineWaveToMemory;
 	//--HANDLE BEE NOISE HERE
 
-	SignalGenerator testSineGenerator(
-		.CLK_32KHz(CLK_32Khz),
-		.reset_n( reset_n),
-		.inputFrequency(SPIInput_ArduinoFreq),
-		.inputAmplitude(SPIInput_ArduinoAmp),
-		.outputSample(sineWaveToMemory)
-	);
+	// SignalGenerator testSineGenerator(
+	// 	.CLK_32KHz(CLK_32Khz),
+	// 	.reset_n( reset_n),
+	// 	.inputFrequency(SPIInput_ArduinoFreq),
+	// 	.inputAmplitude(SPIInput_ArduinoAmp),
+	// 	.outputSample(sineWaveToMemory)
+	// );
 endmodule

@@ -276,7 +276,7 @@ module MusicBox_Main(
 		);
 		UI_TriggerSmoother UIs_MusicKeys5 (
 			.clock_50Mhz(CLK_1Khz),
-			.inputWire(max10Board_GPIO_Input_MusicKeys[5] && max10Board_GPIO_Input_MusicKeys[5]),
+			.inputWire(max10Board_GPIO_Input_MusicKeys[5] && max10board_switches[9]),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_MusicKeys_s[5])
 		);
@@ -316,7 +316,7 @@ module MusicBox_Main(
 		UI_TriggerSmoother UIs_BeeMode (
 			.clock_50Mhz(CLK_1Khz),
 			//.inputWire(max10Board_GPIO_Input_BeeMode),
-			.inputWire(max10board_switches[9] && max10Board_GPIO_Input_BeeMode),
+			.inputWire( max10Board_GPIO_Input_BeeMode),
 			.reset_n(systemReset_n),
 			.outputWire(max10Board_GPIO_Input_BeeMode_s)
 		);
@@ -437,9 +437,9 @@ module MusicBox_Main(
 		.debugString(output_DebugString), //This is used to send any data out of the module for testing purposes.  Follows no format.
 		.outputState(outputCurrentState), //Current state so other modules may use it.
 		//--SPI INPUT
-		.SPIinput_sample(SPI_ADC_Output_outputSample),
-		.SPIInput_ArduinoFreq(arduino_freqSample),
-		.SPIInput_ArduinoAmp(arduino_ampSample),
+		.SPIinput_sample(musicKeys_AudioOutput),
+		//.SPIInput_ArduinoFreq(arduino_freqSample),
+		//.SPIInput_ArduinoAmp(arduino_ampSample),
 		//--SDRAM Interface
 		.sdram_inputAddress(sdram_inputAddress),
 		.sdram_writeData(sdram_inputData),
@@ -473,7 +473,12 @@ module MusicBox_Main(
 
 	//--This connects with the module that controls the DAC.  The DAC sends signals to the speaker. 
 	reg [11:0] dacOutputAudio ;
-	assign dacOutputAudio= (audioOutputStateController + musicKeys_AudioOutput) * 8; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
+	wire [11:0] dacOutputAudio_States ;
+	wire [11:0] dacOutputAudio_Midi ;
+	assign dacOutputAudio_States = audioOutputStateController*4 ;
+	assign dacOutputAudio_Midi = musicKeys_AudioOutput*4 ;
+	
+	assign dacOutputAudio= dacOutputAudio_States + dacOutputAudio_Midi; // 256 * 16 = 2^12     Can multiply with smaller number to act as global volume limit.
 	//assign segmentDisplay_DisplayValue = dacOutputAudio;
 
 	assign max10Board_LED[1] = max10Board_GPIO_Output_SPI_SCLK;
@@ -518,18 +523,18 @@ module MusicBox_Main(
 
 	assign segmentDisplay_DisplayValue = dacOutputAudio ;// testSineGenerator_1Hz;//= output_DebugString;//arduino_freqSample;
 //	assign max10Board_LED = testSineGenerator_1Hz;
-	SPI_Arduino sPI_Arduino (
-		.reset_n(systemReset_n),
-		//.inputLight(max10Board_LED[3]),
-		.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
-		.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
-		.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
+	// SPI_Arduino sPI_Arduino (
+	// 	.reset_n(systemReset_n),
+	// 	//.inputLight(max10Board_LED[3]),
+	// 	.input_SPI_SCLK(max10Board_GPIO_Input_SPI_SCLK),
+	// 	.input_SPI_CS_n(max10Board_GPIO_Input_SPI_CS_n),
+	// 	.input_SPI_SDO(max10Board_GPIO_Input_SPI_SDO),
 
-		//--Output from arduino
-		.outputFrequencySample(arduino_freqSample),
-		.outputAmplitudeSample(arduino_ampSample)
+	// 	//--Output from arduino
+	// 	.outputFrequencySample(arduino_freqSample),
+	// 	.outputAmplitudeSample(arduino_ampSample)
 
-	);
+	// );
 	
 
 
