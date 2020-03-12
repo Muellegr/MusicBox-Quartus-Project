@@ -28,7 +28,7 @@ import numpy as np
 volumeAdjustment = 0.7 #0 to 1 for amplitude multiplier
 
 #Gets the sampling rate and a array containing all points of the song.  44100Hz sampling rate = 44100 amplitudes per second
-songName = 'SuperMario.wav'
+songName = 'Mario2.wav'
 fs_rate, signal = wavfile.read(songName)
 print ("Frequency sampling", fs_rate)
 
@@ -111,7 +111,7 @@ for i in range(5, indexCount - 5):
     #for r in range(0, 10) :
         #songSection.append(0)
         #print("test")
-    songSection = ( signal[ (i-5) * int(songSectionSamples) : (i+7) * int(songSectionSamples) ])
+    songSection = ( signal[ (i-1) * int(songSectionSamples) : (i+2) * int(songSectionSamples) ])
   #  songSection = songSection + songSection
     print("songSection1 : %s" %len(songSection))
     songSection = songSection + songSection
@@ -177,7 +177,7 @@ for i in range(0, len(mainFrequenciesArray[0])):
     #print("index %i" % i)
     for j in range(0, len(mainFrequenciesArray)):
         #* 0.7  as rough reducer.  Technically multiple of these can add up past 255.  This is a sort of weak normalize rfor it.
-        mainFixedAmplitudesArray[j].append( int (   (float (mainRawAmplitudesArray[j][i])  / float(maxAmplitude ) * 0.7 )  * 255 * volumeAdjustment) )
+        mainFixedAmplitudesArray[j].append( int (   (float (mainRawAmplitudesArray[j][i])  / float(maxAmplitude ) * 0.4 )  * 255 * volumeAdjustment) )
         # print("     [%i] freq :%i " %(j, mainFrequenciesArray[j][i]))
         # print("     [%i] raw :%i " %(j, mainRawAmplitudesArray[j][i]))
         # print("     [%i] fix :%i " %(j, mainFixedAmplitudesArray[j][i]))
